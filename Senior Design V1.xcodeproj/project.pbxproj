@@ -20,6 +20,8 @@
 		579BFC7F2B58A197007EEEEA /* Senior_Design_V1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579BFC7E2B58A197007EEEEA /* Senior_Design_V1Tests.swift */; };
 		579BFC892B58A197007EEEEA /* Senior_Design_V1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579BFC882B58A197007EEEEA /* Senior_Design_V1UITests.swift */; };
 		579BFC8B2B58A197007EEEEA /* Senior_Design_V1UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579BFC8A2B58A197007EEEEA /* Senior_Design_V1UITestsLaunchTests.swift */; };
+		57B657372B657F9A00D9F2EF /* TigerAstronaut.json in Resources */ = {isa = PBXBuildFile; fileRef = 57B657362B657F9A00D9F2EF /* TigerAstronaut.json */; };
+		57B657392B65903D00D9F2EF /* Stars.json in Resources */ = {isa = PBXBuildFile; fileRef = 57B657382B65903D00D9F2EF /* Stars.json */; };
 		57F502602B64B2A200936023 /* TitanOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57F5025F2B64B2A100936023 /* TitanOne-Regular.ttf */; };
 		57F502632B64B7C100936023 /* MyFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F502622B64B7C100936023 /* MyFonts.swift */; };
 		57F502662B64B88300936023 /* Nunito-Italic[wght].ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57F502642B64B88300936023 /* Nunito-Italic[wght].ttf */; };
@@ -61,6 +63,8 @@
 		579BFC842B58A197007EEEEA /* Senior Design V1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Senior Design V1UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		579BFC882B58A197007EEEEA /* Senior_Design_V1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Senior_Design_V1UITests.swift; sourceTree = "<group>"; };
 		579BFC8A2B58A197007EEEEA /* Senior_Design_V1UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Senior_Design_V1UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		57B657362B657F9A00D9F2EF /* TigerAstronaut.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TigerAstronaut.json; sourceTree = "<group>"; };
+		57B657382B65903D00D9F2EF /* Stars.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Stars.json; sourceTree = "<group>"; };
 		57F5025F2B64B2A100936023 /* TitanOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitanOne-Regular.ttf"; sourceTree = "<group>"; };
 		57F502612B64B47B00936023 /* Senior-Design-V1-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Senior-Design-V1-Info.plist"; sourceTree = SOURCE_ROOT; };
 		57F502622B64B7C100936023 /* MyFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFonts.swift; sourceTree = "<group>"; };
@@ -108,6 +112,8 @@
 		575735DE2B645D1E00EDAE5C /* Lottie Files */ = {
 			isa = PBXGroup;
 			children = (
+				57B657382B65903D00D9F2EF /* Stars.json */,
+				57B657362B657F9A00D9F2EF /* TigerAstronaut.json */,
 				57F5026A2B64C7FC00936023 /* LaserPong.json */,
 				575735E32B645FF800EDAE5C /* Welcome Kitty.json */,
 				575735E12B645EB800EDAE5C /* Polite Chicky.json */,
@@ -302,9 +308,11 @@
 				57F502602B64B2A200936023 /* TitanOne-Regular.ttf in Resources */,
 				57F5026B2B64C7FC00936023 /* LaserPong.json in Resources */,
 				57F502662B64B88300936023 /* Nunito-Italic[wght].ttf in Resources */,
+				57B657392B65903D00D9F2EF /* Stars.json in Resources */,
 				57F502672B64B88300936023 /* Nunito[wght].ttf in Resources */,
 				579BFC752B58A197007EEEEA /* Preview Assets.xcassets in Resources */,
 				575735E22B645EB800EDAE5C /* Polite Chicky.json in Resources */,
+				57B657372B657F9A00D9F2EF /* TigerAstronaut.json in Resources */,
 				579BFC722B58A197007EEEEA /* Assets.xcassets in Resources */,
 				575735E42B645FF800EDAE5C /* Welcome Kitty.json in Resources */,
 			);
