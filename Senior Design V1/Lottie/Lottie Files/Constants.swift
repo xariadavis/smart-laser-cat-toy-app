@@ -10,4 +10,5 @@ import Foundation
 enum Constants {
     static var welcomeKitty = "Welcome Kitty"
     static var politeChicky = "Polite Chicky"
+    static var laserPong = "LaserPong"
 }

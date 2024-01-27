@@ -24,6 +24,8 @@
 		57F502632B64B7C100936023 /* MyFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F502622B64B7C100936023 /* MyFonts.swift */; };
 		57F502662B64B88300936023 /* Nunito-Italic[wght].ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57F502642B64B88300936023 /* Nunito-Italic[wght].ttf */; };
 		57F502672B64B88300936023 /* Nunito[wght].ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57F502652B64B88300936023 /* Nunito[wght].ttf */; };
+		57F502692B64C39300936023 /* GlowingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F502682B64C39300936023 /* GlowingView.swift */; };
+		57F5026B2B64C7FC00936023 /* LaserPong.json in Resources */ = {isa = PBXBuildFile; fileRef = 57F5026A2B64C7FC00936023 /* LaserPong.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,8 @@
 		57F502622B64B7C100936023 /* MyFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFonts.swift; sourceTree = "<group>"; };
 		57F502642B64B88300936023 /* Nunito-Italic[wght].ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Italic[wght].ttf"; sourceTree = "<group>"; };
 		57F502652B64B88300936023 /* Nunito[wght].ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito[wght].ttf"; sourceTree = "<group>"; };
+		57F502682B64C39300936023 /* GlowingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlowingView.swift; sourceTree = "<group>"; };
+		57F5026A2B64C7FC00936023 /* LaserPong.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LaserPong.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +108,7 @@
 		575735DE2B645D1E00EDAE5C /* Lottie Files */ = {
 			isa = PBXGroup;
 			children = (
+				57F5026A2B64C7FC00936023 /* LaserPong.json */,
 				575735E32B645FF800EDAE5C /* Welcome Kitty.json */,
 				575735E12B645EB800EDAE5C /* Polite Chicky.json */,
 				575735DF2B645EAC00EDAE5C /* Constants.swift */,
@@ -142,6 +147,7 @@
 				579BFC712B58A197007EEEEA /* Assets.xcassets */,
 				579BFC732B58A197007EEEEA /* Preview Content */,
 				573134512B644B9400697D85 /* LaunchScreen.storyboard */,
+				57F502682B64C39300936023 /* GlowingView.swift */,
 			);
 			path = "Senior Design V1";
 			sourceTree = "<group>";
@@ -294,6 +300,7 @@
 			files = (
 				573134522B644B9400697D85 /* LaunchScreen.storyboard in Resources */,
 				57F502602B64B2A200936023 /* TitanOne-Regular.ttf in Resources */,
+				57F5026B2B64C7FC00936023 /* LaserPong.json in Resources */,
 				57F502662B64B88300936023 /* Nunito-Italic[wght].ttf in Resources */,
 				57F502672B64B88300936023 /* Nunito[wght].ttf in Resources */,
 				579BFC752B58A197007EEEEA /* Preview Assets.xcassets in Resources */,
@@ -326,6 +333,7 @@
 			files = (
 				579BFC702B58A195007EEEEA /* ContentView.swift in Sources */,
 				579BFC6E2B58A195007EEEEA /* Senior_Design_V1App.swift in Sources */,
+				57F502692B64C39300936023 /* GlowingView.swift in Sources */,
 				575735DA2B645CAD00EDAE5C /* LottiePlusView.swift in Sources */,
 				57F502632B64B7C100936023 /* MyFonts.swift in Sources */,
 				575735E02B645EAC00EDAE5C /* Constants.swift in Sources */,
