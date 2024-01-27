@@ -27,7 +27,8 @@ struct ContentView: View {
                                    loopMode: .loop)
                     .scaledToFill()
                     .frame(width: 450)
-                    .padding(.top , -275)
+                    .padding(.top , -285)
+                    .offset(y: -25)
                     
                     LottiePlusView(name: Constants.stars,
                                    loopMode: .loop)
@@ -42,13 +43,22 @@ struct ContentView: View {
             VStack {
                 Spacer()
                 
+                Circle()
+                    .fill(Color.red)
+                    .opacity(0.75)
+                    .frame(width: 600)
+                    .padding(-75) // Overlapping by half
+                    .offset(y: 425)
+                    .glow()
+                
                 // Welcome text
                 Text("Welcome")
                     .font(Font.custom("TitanOne", size: 65))
+                    .foregroundColor(.white)
                 
                 Text("Laser Beams and Kitty Dreams")
                     .font(Font.custom("Nunito-Regular", size: 20))
-                    .padding(.bottom, 50)
+                    .foregroundColor(.white)
                 
                 Button("Sign Up") {}
                     .frame(minWidth: 0, maxWidth: .infinity)
@@ -56,16 +66,14 @@ struct ContentView: View {
                     .tint(.blue)
                     .buttonStyle(.borderedProminent)
                     .buttonBorderShape(.roundedRectangle(radius: 10))
-                    .controlSize(.large)
                 
                 Button("Login") {}
                     .font(Font.custom("Nunito-Regular", size: 20))
                     .tint(.blue)
                     .buttonStyle(.bordered)
                     .buttonBorderShape(.roundedRectangle(radius: 10))
-                    .controlSize(.large)
             }
-            .padding(.bottom, 120)
+            .padding(.bottom, 125)
         }
     }
 }
