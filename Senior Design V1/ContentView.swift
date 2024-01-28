@@ -42,13 +42,18 @@ struct ContentView: View {
             VStack {
                 Spacer()
                 
-                Circle()
-                    .fill(Color.red)
-                    .opacity(0.60)
-                    .frame(width: .infinity)
-                    .padding(-75) // Overlapping by half
-                    .offset(y: 450)
-                    .glow()
+                GeometryReader { geometry in
+                    
+                    let height = geometry.size.height
+                    let width = geometry.size.width
+                    
+                    Circle()
+                        .fill(Color.red)
+                        .opacity(0.65)
+                        .frame(width: width * 1.5, height: height * 1.5)
+                        .position(x: width / 2, y: (height / 2) + height * 1.05)
+                        .glow()
+                }
                 
                 // Welcome text
                 Text("Welcome")
@@ -60,7 +65,9 @@ struct ContentView: View {
                     .foregroundColor(.white)
                     .padding(.bottom, 20)
                 
-                Button("Sign Up") {}
+                Button("Sign Up") {
+                    print("Sign Up button pressed")
+                }
                     .font(Font.custom("Nunito-Regular", size: 20))
                     .frame(maxWidth: .infinity)
                     .padding()
