@@ -11,7 +11,7 @@ struct ContentView: View {
         
     var body: some View {
         ZStack {
-            Color(.systemGray5).ignoresSafeArea()
+            Color("Background").ignoresSafeArea()
             
             VStack {
                 VStack{
@@ -26,9 +26,8 @@ struct ContentView: View {
                     LottiePlusView(name: Constants.tigerAstronaut,
                                    loopMode: .loop)
                     .scaledToFill()
-                    .frame(width: 450)
                     .padding(.top , -285)
-                    .offset(y: -25)
+                    .offset(y: -60)
                     
                     LottiePlusView(name: Constants.stars,
                                    loopMode: .loop)
@@ -45,10 +44,10 @@ struct ContentView: View {
                 
                 Circle()
                     .fill(Color.red)
-                    .opacity(0.75)
-                    .frame(width: 600)
+                    .opacity(0.60)
+                    .frame(width: .infinity)
                     .padding(-75) // Overlapping by half
-                    .offset(y: 425)
+                    .offset(y: 450)
                     .glow()
                 
                 // Welcome text
@@ -59,21 +58,32 @@ struct ContentView: View {
                 Text("Laser Beams and Kitty Dreams")
                     .font(Font.custom("Nunito-Regular", size: 20))
                     .foregroundColor(.white)
+                    .padding(.bottom, 20)
                 
                 Button("Sign Up") {}
-                    .frame(minWidth: 0, maxWidth: .infinity)
                     .font(Font.custom("Nunito-Regular", size: 20))
-                    .tint(.blue)
-                    .buttonStyle(.borderedProminent)
-                    .buttonBorderShape(.roundedRectangle(radius: 10))
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(40)
+                    .padding(.horizontal, 60)
                 
                 Button("Login") {}
                     .font(Font.custom("Nunito-Regular", size: 20))
-                    .tint(.blue)
-                    .buttonStyle(.bordered)
-                    .buttonBorderShape(.roundedRectangle(radius: 10))
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(
+                        RoundedRectangle(cornerRadius: 40)
+                            .stroke(Color.blue, lineWidth: 2)
+                    )
+                    .foregroundColor(.white)
+                    .cornerRadius(40)
+                    .padding(.horizontal, 60)
+
+
             }
-            .padding(.bottom, 125)
+            .padding(.bottom, 100)
         }
     }
 }
