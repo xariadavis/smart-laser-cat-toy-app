@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		573134522B644B9400697D85 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 573134512B644B9400697D85 /* LaunchScreen.storyboard */; };
+		574501272B66F44C00B3F77C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574501262B66F44C00B3F77C /* LoginView.swift */; };
+		574501292B67039500B3F77C /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574501282B67039500B3F77C /* RegisterView.swift */; };
+		5745012B2B67188600B3F77C /* pinkStars.json in Resources */ = {isa = PBXBuildFile; fileRef = 5745012A2B67188600B3F77C /* pinkStars.json */; };
+		5745012D2B671EAA00B3F77C /* Quicksand[wght].ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5745012C2B671EAA00B3F77C /* Quicksand[wght].ttf */; };
 		575735DA2B645CAD00EDAE5C /* LottiePlusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575735D92B645CAD00EDAE5C /* LottiePlusView.swift */; };
 		575735DD2B645D0200EDAE5C /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 575735DC2B645D0200EDAE5C /* Lottie */; };
 		575735E02B645EAC00EDAE5C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575735DF2B645EAC00EDAE5C /* Constants.swift */; };
@@ -23,7 +27,6 @@
 		57B657372B657F9A00D9F2EF /* TigerAstronaut.json in Resources */ = {isa = PBXBuildFile; fileRef = 57B657362B657F9A00D9F2EF /* TigerAstronaut.json */; };
 		57B657392B65903D00D9F2EF /* Stars.json in Resources */ = {isa = PBXBuildFile; fileRef = 57B657382B65903D00D9F2EF /* Stars.json */; };
 		57F502602B64B2A200936023 /* TitanOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57F5025F2B64B2A100936023 /* TitanOne-Regular.ttf */; };
-		57F502632B64B7C100936023 /* MyFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F502622B64B7C100936023 /* MyFonts.swift */; };
 		57F502662B64B88300936023 /* Nunito-Italic[wght].ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57F502642B64B88300936023 /* Nunito-Italic[wght].ttf */; };
 		57F502672B64B88300936023 /* Nunito[wght].ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57F502652B64B88300936023 /* Nunito[wght].ttf */; };
 		57F502692B64C39300936023 /* GlowingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F502682B64C39300936023 /* GlowingView.swift */; };
@@ -49,6 +52,10 @@
 
 /* Begin PBXFileReference section */
 		573134512B644B9400697D85 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		574501262B66F44C00B3F77C /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		574501282B67039500B3F77C /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		5745012A2B67188600B3F77C /* pinkStars.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pinkStars.json; sourceTree = "<group>"; };
+		5745012C2B671EAA00B3F77C /* Quicksand[wght].ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand[wght].ttf"; sourceTree = "<group>"; };
 		575735D92B645CAD00EDAE5C /* LottiePlusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottiePlusView.swift; sourceTree = "<group>"; };
 		575735DF2B645EAC00EDAE5C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		575735E12B645EB800EDAE5C /* Polite Chicky.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Polite Chicky.json"; sourceTree = "<group>"; };
@@ -67,7 +74,6 @@
 		57B657382B65903D00D9F2EF /* Stars.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Stars.json; sourceTree = "<group>"; };
 		57F5025F2B64B2A100936023 /* TitanOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitanOne-Regular.ttf"; sourceTree = "<group>"; };
 		57F502612B64B47B00936023 /* Senior-Design-V1-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Senior-Design-V1-Info.plist"; sourceTree = SOURCE_ROOT; };
-		57F502622B64B7C100936023 /* MyFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFonts.swift; sourceTree = "<group>"; };
 		57F502642B64B88300936023 /* Nunito-Italic[wght].ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Italic[wght].ttf"; sourceTree = "<group>"; };
 		57F502652B64B88300936023 /* Nunito[wght].ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito[wght].ttf"; sourceTree = "<group>"; };
 		57F502682B64C39300936023 /* GlowingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlowingView.swift; sourceTree = "<group>"; };
@@ -112,6 +118,7 @@
 		575735DE2B645D1E00EDAE5C /* Lottie Files */ = {
 			isa = PBXGroup;
 			children = (
+				5745012A2B67188600B3F77C /* pinkStars.json */,
 				57B657382B65903D00D9F2EF /* Stars.json */,
 				57B657362B657F9A00D9F2EF /* TigerAstronaut.json */,
 				57F5026A2B64C7FC00936023 /* LaserPong.json */,
@@ -154,6 +161,8 @@
 				579BFC732B58A197007EEEEA /* Preview Content */,
 				573134512B644B9400697D85 /* LaunchScreen.storyboard */,
 				57F502682B64C39300936023 /* GlowingView.swift */,
+				574501262B66F44C00B3F77C /* LoginView.swift */,
+				574501282B67039500B3F77C /* RegisterView.swift */,
 			);
 			path = "Senior Design V1";
 			sourceTree = "<group>";
@@ -186,10 +195,10 @@
 		57F5025E2B64B1DC00936023 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				5745012C2B671EAA00B3F77C /* Quicksand[wght].ttf */,
 				57F502642B64B88300936023 /* Nunito-Italic[wght].ttf */,
 				57F502652B64B88300936023 /* Nunito[wght].ttf */,
 				57F5025F2B64B2A100936023 /* TitanOne-Regular.ttf */,
-				57F502622B64B7C100936023 /* MyFonts.swift */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -304,6 +313,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5745012D2B671EAA00B3F77C /* Quicksand[wght].ttf in Resources */,
 				573134522B644B9400697D85 /* LaunchScreen.storyboard in Resources */,
 				57F502602B64B2A200936023 /* TitanOne-Regular.ttf in Resources */,
 				57F5026B2B64C7FC00936023 /* LaserPong.json in Resources */,
@@ -313,6 +323,7 @@
 				579BFC752B58A197007EEEEA /* Preview Assets.xcassets in Resources */,
 				575735E22B645EB800EDAE5C /* Polite Chicky.json in Resources */,
 				57B657372B657F9A00D9F2EF /* TigerAstronaut.json in Resources */,
+				5745012B2B67188600B3F77C /* pinkStars.json in Resources */,
 				579BFC722B58A197007EEEEA /* Assets.xcassets in Resources */,
 				575735E42B645FF800EDAE5C /* Welcome Kitty.json in Resources */,
 			);
@@ -340,10 +351,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				579BFC702B58A195007EEEEA /* ContentView.swift in Sources */,
+				574501272B66F44C00B3F77C /* LoginView.swift in Sources */,
 				579BFC6E2B58A195007EEEEA /* Senior_Design_V1App.swift in Sources */,
 				57F502692B64C39300936023 /* GlowingView.swift in Sources */,
 				575735DA2B645CAD00EDAE5C /* LottiePlusView.swift in Sources */,
-				57F502632B64B7C100936023 /* MyFonts.swift in Sources */,
+				574501292B67039500B3F77C /* RegisterView.swift in Sources */,
 				575735E02B645EAC00EDAE5C /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
