@@ -13,4 +13,6 @@ enum Constants {
     static var laserPong = "LaserPong"
     static var tigerAstronaut = "TigerAstronaut"
     static var stars = "Stars"
-    static var pinkStars = "pinkStars"}
+    static var pinkStars = "pinkStars"
+    static var laserStars = "LaserStars3"
+}

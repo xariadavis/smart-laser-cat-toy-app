@@ -12,6 +12,11 @@
 		574501292B67039500B3F77C /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574501282B67039500B3F77C /* RegisterView.swift */; };
 		5745012B2B67188600B3F77C /* pinkStars.json in Resources */ = {isa = PBXBuildFile; fileRef = 5745012A2B67188600B3F77C /* pinkStars.json */; };
 		5745012D2B671EAA00B3F77C /* Quicksand[wght].ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5745012C2B671EAA00B3F77C /* Quicksand[wght].ttf */; };
+		5745012F2B672C7800B3F77C /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5745012E2B672C7700B3F77C /* TestView.swift */; };
+		574501312B67352500B3F77C /* LaserStars.json in Resources */ = {isa = PBXBuildFile; fileRef = 574501302B67352500B3F77C /* LaserStars.json */; };
+		574501332B6737C900B3F77C /* LaserStars (1).json in Resources */ = {isa = PBXBuildFile; fileRef = 574501322B6737C900B3F77C /* LaserStars (1).json */; };
+		574501352B67396900B3F77C /* LaserStars2.json in Resources */ = {isa = PBXBuildFile; fileRef = 574501342B67396900B3F77C /* LaserStars2.json */; };
+		574501372B673AAF00B3F77C /* LaserStars3.json in Resources */ = {isa = PBXBuildFile; fileRef = 574501362B673AAF00B3F77C /* LaserStars3.json */; };
 		575735DA2B645CAD00EDAE5C /* LottiePlusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575735D92B645CAD00EDAE5C /* LottiePlusView.swift */; };
 		575735DD2B645D0200EDAE5C /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 575735DC2B645D0200EDAE5C /* Lottie */; };
 		575735E02B645EAC00EDAE5C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575735DF2B645EAC00EDAE5C /* Constants.swift */; };
@@ -56,6 +61,11 @@
 		574501282B67039500B3F77C /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		5745012A2B67188600B3F77C /* pinkStars.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pinkStars.json; sourceTree = "<group>"; };
 		5745012C2B671EAA00B3F77C /* Quicksand[wght].ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand[wght].ttf"; sourceTree = "<group>"; };
+		5745012E2B672C7700B3F77C /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		574501302B67352500B3F77C /* LaserStars.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LaserStars.json; sourceTree = "<group>"; };
+		574501322B6737C900B3F77C /* LaserStars (1).json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "LaserStars (1).json"; sourceTree = "<group>"; };
+		574501342B67396900B3F77C /* LaserStars2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LaserStars2.json; sourceTree = "<group>"; };
+		574501362B673AAF00B3F77C /* LaserStars3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LaserStars3.json; sourceTree = "<group>"; };
 		575735D92B645CAD00EDAE5C /* LottiePlusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottiePlusView.swift; sourceTree = "<group>"; };
 		575735DF2B645EAC00EDAE5C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		575735E12B645EB800EDAE5C /* Polite Chicky.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Polite Chicky.json"; sourceTree = "<group>"; };
@@ -118,6 +128,10 @@
 		575735DE2B645D1E00EDAE5C /* Lottie Files */ = {
 			isa = PBXGroup;
 			children = (
+				574501362B673AAF00B3F77C /* LaserStars3.json */,
+				574501342B67396900B3F77C /* LaserStars2.json */,
+				574501322B6737C900B3F77C /* LaserStars (1).json */,
+				574501302B67352500B3F77C /* LaserStars.json */,
 				5745012A2B67188600B3F77C /* pinkStars.json */,
 				57B657382B65903D00D9F2EF /* Stars.json */,
 				57B657362B657F9A00D9F2EF /* TigerAstronaut.json */,
@@ -163,6 +177,7 @@
 				57F502682B64C39300936023 /* GlowingView.swift */,
 				574501262B66F44C00B3F77C /* LoginView.swift */,
 				574501282B67039500B3F77C /* RegisterView.swift */,
+				5745012E2B672C7700B3F77C /* TestView.swift */,
 			);
 			path = "Senior Design V1";
 			sourceTree = "<group>";
@@ -320,11 +335,15 @@
 				57F502662B64B88300936023 /* Nunito-Italic[wght].ttf in Resources */,
 				57B657392B65903D00D9F2EF /* Stars.json in Resources */,
 				57F502672B64B88300936023 /* Nunito[wght].ttf in Resources */,
+				574501372B673AAF00B3F77C /* LaserStars3.json in Resources */,
 				579BFC752B58A197007EEEEA /* Preview Assets.xcassets in Resources */,
 				575735E22B645EB800EDAE5C /* Polite Chicky.json in Resources */,
 				57B657372B657F9A00D9F2EF /* TigerAstronaut.json in Resources */,
 				5745012B2B67188600B3F77C /* pinkStars.json in Resources */,
+				574501312B67352500B3F77C /* LaserStars.json in Resources */,
+				574501332B6737C900B3F77C /* LaserStars (1).json in Resources */,
 				579BFC722B58A197007EEEEA /* Assets.xcassets in Resources */,
+				574501352B67396900B3F77C /* LaserStars2.json in Resources */,
 				575735E42B645FF800EDAE5C /* Welcome Kitty.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -354,6 +373,7 @@
 				574501272B66F44C00B3F77C /* LoginView.swift in Sources */,
 				579BFC6E2B58A195007EEEEA /* Senior_Design_V1App.swift in Sources */,
 				57F502692B64C39300936023 /* GlowingView.swift in Sources */,
+				5745012F2B672C7800B3F77C /* TestView.swift in Sources */,
 				575735DA2B645CAD00EDAE5C /* LottiePlusView.swift in Sources */,
 				574501292B67039500B3F77C /* RegisterView.swift in Sources */,
 				575735E02B645EAC00EDAE5C /* Constants.swift in Sources */,

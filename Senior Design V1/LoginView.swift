@@ -18,19 +18,23 @@ struct LoginView: View {
             
             VStack {
 
-                GeometryReader { geometry in
-                    
-                    let height = geometry.size.height
-                    let width = geometry.size.width
-                    
-                    Circle()
-                        .fill(Color.red)
-                        .opacity(0.65)
-                        .frame(width: width * 2, height: height * 2)
-                        .position(x: width, y: 0)
-                        .glow()
-                }
+//                GeometryReader { geometry in
+//
+//                    let height = geometry.size.height
+//                    let width = geometry.size.width
+//
+//                    Circle()
+//                        .fill(Color.red)
+//                        .opacity(0.65)
+//                        .frame(width: width * 2, height: height * 2)
+//                        .position(x: width, y: 0)
+//                        .glow()
+//                }
                 
+                LottiePlusView(name: Constants.laserStars,
+                               loopMode: .loop).ignoresSafeArea()
+                    .frame(width: 425)
+
                 
                 Spacer()
                 
