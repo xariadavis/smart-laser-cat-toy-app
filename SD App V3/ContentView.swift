@@ -51,46 +51,47 @@ struct ContentView: View {
                     
                     NavigationLink(value: "Register") {
                         Text("Sign Up")
-                        .font(Font.custom("Quicksand-SemiBold", size: 20))
-                        .frame(maxWidth: .infinity)
-                        .padding(15)
-                        .foregroundColor(.black)
-                        .background(Color.red.opacity(0.9))
-                        .cornerRadius(40)
-                        
-                        // Apply glowing border effect
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 40)
-                                .stroke(Color.red, lineWidth: 4)
-                                .glow()
-                                .shadow(color: Color.red.opacity(0.3), radius: 5)
-                                .shadow(color: Color.red.opacity(0.3), radius: 10)
-                                .shadow(color: Color.red.opacity(0.3), radius: 15)
-                                .shadow(color: Color.red.opacity(0.3), radius: 20)
-                        )
-                        .padding(.horizontal, 40)
-                        .padding(.vertical, 10)
+                            .font(Font.custom("Quicksand-SemiBold", size: 20))
+                            .frame(maxWidth: .infinity)
+                            .padding(15)
+                            .foregroundColor(Color.primary)
+                            .background(Color.red.opacity(0.9))
+                            .cornerRadius(40)
+                            
+                            // Apply glowing border effect
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 40)
+                                    .stroke(Color.red, lineWidth: 4)
+                                    .glow()
+                                    .shadow(color: Color.red.opacity(0.3), radius: 5)
+                                    .shadow(color: Color.red.opacity(0.3), radius: 10)
+                                    .shadow(color: Color.red.opacity(0.3), radius: 15)
+                                    .shadow(color: Color.red.opacity(0.3), radius: 20)
+                            )
+                            .padding(.horizontal, 40)
+                            .padding(.vertical, 10)
                     }
                     .buttonStyle(PlainButtonStyle())
                     
                     NavigationLink(value: "Login") {
                         Text("Login")
                             .font(Font.custom("Quicksand-SemiBold", size: 20))
-                            .frame(maxWidth: .infinity)
                             .padding(15)
-                            .foregroundColor(.black)
+                            .foregroundColor(Color.primary)
+                            .frame(maxWidth: .infinity) 
+                            .contentShape(Rectangle())
                             .overlay(
                                 RoundedRectangle(cornerRadius: 40)
                                     .stroke(Color.red.opacity(0.9), lineWidth: 2)
+                                    // Apply glow effect
+                                    .shadow(color: Color.red.opacity(0.3), radius: 10, x: 0, y: 0)
+                                    .shadow(color: Color.red.opacity(0.3), radius: 20, x: 0, y: 0)
+                                    .shadow(color: Color.red.opacity(0.3), radius: 30, x: 0, y: 0)
+                                    .shadow(color: Color.red.opacity(0.3), radius: 40, x: 0, y: 0)
                             )
-                            .padding(.horizontal, 40)
-                            // Apply glow effect
-                            .shadow(color: Color.red.opacity(0.3), radius: 10, x: 0, y: 0)
-                            .shadow(color: Color.red.opacity(0.3), radius: 20, x: 0, y: 0)
-                            .shadow(color: Color.red.opacity(0.3), radius: 30, x: 0, y: 0)
-                            .shadow(color: Color.red.opacity(0.3), radius: 40, x: 0, y: 0)
                     }
                     .buttonStyle(PlainButtonStyle())
+                    .padding(.horizontal, 40)
                     
                     Spacer()
                     
