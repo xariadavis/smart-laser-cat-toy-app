@@ -10,51 +10,54 @@ import SwiftUI
 struct ContentView: View {
     
     let gradient = LinearGradient(
-        gradient: Gradient(colors: [Color.blue.opacity(0.25), Color.white, Color.blue.opacity(0.2)]),
+        gradient: Gradient(colors: [Color.midBlue.opacity(0.15), Color(.systemGray6), Color.white.opacity(0.2)]),
         startPoint: .top,
         endPoint: .bottom
     )
+
+    @State private var isLoginActive = false
+    @State private var isRegisterActive = false
     
     var body: some View {
-        ZStack {
-                        
-            gradient.ignoresSafeArea()
-  
-            VStack {
-                // Welcome label
-                Text("Welcome")
-                    .font(Font.custom("TitanOne", size: 55))
-                    .foregroundColor(.black)
+        NavigationStack {
+            ZStack {
+                gradient.ignoresSafeArea()
                 
-                // Some type of catch phrase
-                Text("Insert catch phrase")
-                    .font(Font.custom("Quicksand-SemiBold", size: 20))
-                    .foregroundColor(.black.opacity(0.7))
+                VStack {
+                    // Welcome label
+                    Text("Welcome")
+                        .font(Font.custom("TitanOne", size: 60))
+                        .foregroundColor(.black)
+                    
+                    // Some type of catch phrase
+                    Text("Insert catch phrase")
+                        .font(Font.custom("Quicksand-SemiBold", size: 20))
+                        .foregroundColor(.black.opacity(0.7))
+                    
+                    Spacer()
+                }
+                .padding(.top, 30)
                 
-                Spacer()
-            }
-            .padding(.top, 30)
-            
-            
-            LottiePlusView(name: Constants.GingerHunt, loopMode: .loop)
-                .offset(y: -50)
-            
-            VStack {
                 
-                LottiePlusView(name: Constants.LaserDots, loopMode: .loop, animationSpeed: 1)
-                    .frame(width: 125)
-                    .offset(x: 50, y: 260)
+                LottiePlusView(name: Constants.GingerHunt, loopMode: .loop)
+                    .offset(y: -50)
                 
-
-                NavigationLink(destination: RegisterView()) {
-                    Text("Sign Up")
+                VStack {
+                    
+                    LottiePlusView(name: Constants.LaserDots, loopMode: .loop, animationSpeed: 2)
+                        .frame(width: 125)
+                        .offset(x: 50, y: 260)
+                    
+                    
+                    NavigationLink(value: "Register") {
+                        Text("Sign Up")
                         .font(Font.custom("Quicksand-SemiBold", size: 20))
                         .frame(maxWidth: .infinity)
-                        .padding(20)
+                        .padding(15)
                         .foregroundColor(.black)
                         .background(Color.red.opacity(0.9))
                         .cornerRadius(40)
-                    
+                        
                         // Apply glowing border effect
                         .overlay(
                             RoundedRectangle(cornerRadius: 40)
@@ -67,31 +70,45 @@ struct ContentView: View {
                         )
                         .padding(.horizontal, 40)
                         .padding(.vertical, 10)
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                    
+                    NavigationLink(value: "Login") {
+                        Text("Login")
+                            .font(Font.custom("Quicksand-SemiBold", size: 20))
+                            .frame(maxWidth: .infinity)
+                            .padding(15)
+                            .foregroundColor(.black)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 40)
+                                    .stroke(Color.red.opacity(0.9), lineWidth: 2)
+                            )
+                            .padding(.horizontal, 40)
+                            // Apply glow effect
+                            .shadow(color: Color.red.opacity(0.3), radius: 10, x: 0, y: 0)
+                            .shadow(color: Color.red.opacity(0.3), radius: 20, x: 0, y: 0)
+                            .shadow(color: Color.red.opacity(0.3), radius: 30, x: 0, y: 0)
+                            .shadow(color: Color.red.opacity(0.3), radius: 40, x: 0, y: 0)
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                    
+                    Spacer()
+                    
                 }
-
-                NavigationLink(destination: LoginView()) {
-                    Text("Login")
-                        .font(Font.custom("Quicksand-SemiBold", size: 20))
-                        .frame(maxWidth: .infinity)
-                        .padding(20)
-                        .foregroundColor(.black)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 40)
-                                .stroke(Color.red.opacity(0.9), lineWidth: 2)
-                        )
-                        .padding(.horizontal, 40)
-                        // Apply glow effect
-                        .shadow(color: Color.red.opacity(0.3), radius: 10, x: 0, y: 0)
-                        .shadow(color: Color.red.opacity(0.3), radius: 20, x: 0, y: 0)
-                        .shadow(color: Color.red.opacity(0.3), radius: 30, x: 0, y: 0)
-                        .shadow(color: Color.red.opacity(0.3), radius: 40, x: 0, y: 0)
+                .padding(.bottom, 25)
+                .navigationDestination(for: String.self) { destination in
+                    switch destination {
+                    case "Register":
+                        RegisterView()
+                    case "Login":
+                        LoginView()
+                    case "Profile":
+                        ProfileView()
+                    default:
+                        EmptyView()
+                    }
                 }
-            
-                Spacer()
-                
             }
-            .padding(.bottom, 25)
-            
         }
     }
 }
