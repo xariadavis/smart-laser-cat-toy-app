@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     let gradient = LinearGradient(
-        gradient: Gradient(colors: [Color.midBlue.opacity(0.15), Color(.systemGray6), Color.white.opacity(0.2)]),
+        gradient: Gradient(colors: [Color.white.opacity(0.15), Color(.systemGray6), Color.white.opacity(0.2)]),
         startPoint: .top,
         endPoint: .bottom
     )
@@ -101,10 +101,13 @@ struct ContentView: View {
                     switch destination {
                     case "Register":
                         RegisterView()
+                            .navigationBarBackButtonHidden(true)
                     case "Login":
                         LoginView()
+                            .navigationBarBackButtonHidden(true)
                     case "Profile":
                         ProfileView()
+                            .navigationBarBackButtonHidden(true)
                     default:
                         EmptyView()
                     }

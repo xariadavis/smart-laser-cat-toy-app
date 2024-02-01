@@ -90,7 +90,7 @@ struct RegisterView: View {
                 
                 Spacer()
                 
-                NavigationLink(value: "Profile") {
+                NavigationLink(destination: ProfileView().navigationBarBackButtonHidden(true)) {
                     Text("Sign Up")
                         .font(Font.custom("Quicksand-SemiBold", size: 20))
                         .frame(maxWidth: .infinity)
@@ -110,10 +110,18 @@ struct RegisterView: View {
                 .buttonStyle(PlainButtonStyle())
   
                 // Make this a link
-                Text("Already have an account? Log in ")
-                    .foregroundColor(.midBlue)
-                    .padding(.vertical, 10)
-                    .font(Font.custom("Quicksand-SemiBold", size: 17))
+                NavigationLink(destination: LoginView().navigationBarBackButtonHidden(true)) {
+                    HStack (spacing: 4) {
+                        Text("Already have an account?")
+                            .foregroundColor(.midBlue)
+                            .padding(.vertical, 10)
+                            .font(Font.custom("Quicksand-SemiBold", size: 17))
+                        Text("Login")
+                            .foregroundColor(.midBlue)
+                            .padding(.vertical, 10)
+                            .font(Font.custom("Quicksand-SemiBold", size: 17))
+                    }
+                }
             }
             .opacity(opacity)
             .onAppear {

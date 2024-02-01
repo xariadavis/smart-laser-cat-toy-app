@@ -78,7 +78,7 @@ struct LoginView: View {
                 
                 Spacer()
                 
-                NavigationLink(value: "Profile") {
+                NavigationLink(destination: ProfileView().navigationBarBackButtonHidden(true)) {
                     Text("Login")
                         .font(Font.custom("Quicksand-SemiBold", size: 20))
                         .frame(maxWidth: .infinity)
@@ -97,11 +97,19 @@ struct LoginView: View {
                 }
                 .buttonStyle(PlainButtonStyle())
   
-                // Make this a link
-                Text("New here? Sign Up")
-                    .foregroundColor(.midBlue)
-                    .padding(.vertical, 10)
-                    .font(Font.custom("Quicksand-SemiBold", size: 17))
+                NavigationLink(destination: RegisterView().navigationBarBackButtonHidden(true)) {
+                    HStack (spacing: 4) {
+                        Text("New here?")
+                            .foregroundColor(.midBlue)
+                            .padding(.vertical, 10)
+                            .font(Font.custom("Quicksand-SemiBold", size: 17))
+                        Text("Sign Up")
+                            .foregroundColor(.midBlue)
+                            .padding(.vertical, 10)
+                            .font(Font.custom("Quicksand-SemiBold", size: 17))
+                    }
+                }
+
             }
             .opacity(opacity)
             .onAppear {
