@@ -27,12 +27,12 @@ struct ContentView: View {
                     // Welcome label
                     Text("Welcome")
                         .font(Font.custom("TitanOne", size: 60))
-                        .foregroundColor(.black)
+                        .foregroundColor(Color.primary)
                     
                     // Some type of catch phrase
                     Text("Insert catch phrase")
                         .font(Font.custom("Quicksand-SemiBold", size: 20))
-                        .foregroundColor(.black.opacity(0.7))
+                        .foregroundColor(Color.primary.opacity(0.7))
                     
                     Spacer()
                 }

@@ -83,7 +83,7 @@ struct LoginView: View {
                         .font(Font.custom("Quicksand-SemiBold", size: 20))
                         .frame(maxWidth: .infinity)
                         .padding(15)
-                        .foregroundColor(.black)
+                        .foregroundColor(Color.primary)
                         .background(Color.red.opacity(0.9))
                         .cornerRadius(40)
                     
