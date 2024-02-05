@@ -8,6 +8,33 @@
         "revision" : "26d84192430ed5b104d64b8086872bb4979d65a4",
         "version" : "4.4.0"
       }
+    },
+    {
+      "identity" : "neumorphic",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/costachung/neumorphic/",
+      "state" : {
+        "branch" : "master",
+        "revision" : "03c6f7b3d27bfb28a082db2e9ffae45fbc69cb8b"
+      }
+    },
+    {
+      "identity" : "scalingheaderscrollview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/exyte/ScalingHeaderScrollView.git",
+      "state" : {
+        "revision" : "a3d0454aeebaf70362806599d8287db21724e349",
+        "version" : "1.1.0"
+      }
+    },
+    {
+      "identity" : "swiftui-introspect",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/siteline/swiftui-introspect",
+      "state" : {
+        "revision" : "18e965f867e37a558ad13c12d330dbe047099180",
+        "version" : "1.1.2"
+      }
     }
   ],
   "version" : 2

@@ -1,5 +1,5 @@
 //
-//  LoginView.swift
+//  RegisterView.swift
 //  SD App V3
 //
 //  Created by Xaria Davis on 1/30/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LoginView: View {
+struct RegisterView: View {
     
     let gradient = LinearGradient(
         gradient: Gradient(colors: [Color.midBlue.opacity(0.15), Color(.systemGray6), Color.white.opacity(0.2)]),
@@ -15,6 +15,8 @@ struct LoginView: View {
         endPoint: .bottom
     )
     
+    @State private var fullName = ""
+    @State private var petName = ""
     @State private var email = ""
     @State private var password = ""
     @State private var wrongEmail = 0
@@ -31,8 +33,8 @@ struct LoginView: View {
             LottiePlusView(name: Constants.LaserDots, loopMode: .loop, animationSpeed: 0.7)
                 .blur(radius: 5)
                 .frame(width: 250)
-                .offset(x: -70, y: -150)
-                .rotationEffect(.degrees(40))
+                .offset(x: -90, y: -150)
+                .rotationEffect(.degrees(210))
                 .opacity(opacity)
                 .onAppear {
                     withAnimation(.easeIn(duration: 0.4)) {
@@ -45,10 +47,26 @@ struct LoginView: View {
                 VStack(alignment: .leading) {
                     
 //                    if !isTextFieldFocused {
-                        Text("Welcome\nBack")
-                            .font(Font.custom("TitanOne", size: 55))
+                        Text("Welcome to\nappName!")
+                            .font(Font.custom("TitanOne", size: 50))
                             .multilineTextAlignment(.leading)
 //                    }
+                    
+                    TextField("Full Name", text: $fullName)
+                        .font(Font.custom("Quicksand-SemiBold", size: 20))
+                        .foregroundColor(.primary)
+                        .padding()
+                        .background(Color(.systemGray5))
+                        .cornerRadius(15)
+                        .focused($isTextFieldFocused)
+                    
+                    TextField("Pet's Name", text: $petName)
+                        .font(Font.custom("Quicksand-SemiBold", size: 20))
+                        .foregroundColor(.primary)
+                        .padding()
+                        .background(Color(.systemGray5))
+                        .cornerRadius(15)
+                        .focused($isTextFieldFocused)
                     
                     TextField("Email Address", text: $email)
                         .font(Font.custom("Quicksand-SemiBold", size: 20))
@@ -56,6 +74,7 @@ struct LoginView: View {
                         .padding()
                         .background(Color(.systemGray5))
                         .cornerRadius(15)
+                        .autocapitalization(.none)
                         .focused($isTextFieldFocused)
                     
                     SecureField("Password", text: $password)
@@ -70,16 +89,10 @@ struct LoginView: View {
                 .padding(.horizontal, 30)
                 
                 
-                // Make this a link
-                Text("Forgot Password?")
-                    .padding(.top, 10)
-                    .foregroundColor(.midBlue)
-                    .font(Font.custom("Quicksand-Bold", size: 17))
-                
                 Spacer()
                 
                 NavigationLink(destination: ProfileView().navigationBarBackButtonHidden(true)) {
-                    Text("Login")
+                    Text("Sign Up")
                         .font(Font.custom("Quicksand-SemiBold", size: 20))
                         .frame(maxWidth: .infinity)
                         .padding(15)
@@ -97,19 +110,19 @@ struct LoginView: View {
                 }
                 .buttonStyle(PlainButtonStyle())
   
-                NavigationLink(destination: RegisterView().navigationBarBackButtonHidden(true)) {
+                // Make this a link
+                NavigationLink(destination: LoginView().navigationBarBackButtonHidden(true)) {
                     HStack (spacing: 4) {
-                        Text("New here?")
+                        Text("Already have an account?")
                             .foregroundColor(.midBlue)
                             .padding(.vertical, 10)
                             .font(Font.custom("Quicksand-SemiBold", size: 17))
-                        Text("Sign Up")
+                        Text("Login")
                             .foregroundColor(.midBlue)
                             .padding(.vertical, 10)
                             .font(Font.custom("Quicksand-SemiBold", size: 17))
                     }
                 }
-
             }
             .opacity(opacity)
             .onAppear {
@@ -121,8 +134,8 @@ struct LoginView: View {
     }
 }
 
-struct LoginView_Previews: PreviewProvider {
+struct RegisterView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView()
+        RegisterView()
     }
 }

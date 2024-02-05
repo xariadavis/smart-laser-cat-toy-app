@@ -14,4 +14,5 @@ enum Constants {
     static var LaserDots = "LaserDots"
     static var test = "test"
     static var Test2 = "Test2"
+    static var LaserStars = "LaserStars"
 }
