@@ -22,20 +22,35 @@ struct ActivityCard: View {
                 .cornerRadius(20)
                 .padding(.horizontal, 20)
             
-            HStack {
+            HStack(spacing: 20) {
             
-                ZStack(alignment: .center) {
+//                ZStack(alignment: .center) {
+//                    Circle()
+//                        .stroke(lineWidth: 20)
+//                        .fill(Color.Neumorphic.main)
+//                        .softInnerShadow(
+//                            Circle(),
+//                            darkShadow: Color.Neumorphic.darkShadow,
+//                            lightShadow: Color.Neumorphic.lightShadow,
+//                            spread: 0.7,
+//                            radius: 10
+//                        )
+//                        .frame(width: 150, height: 150)
+//
+//                    Circle()
+//                        .trim(from: 0.0, to: CGFloat(min(self.progress, 1.0)))
+//                        .stroke(style: StrokeStyle(lineWidth: 12.0, lineCap: .round, lineJoin: .round))
+//                        .foregroundColor(Color.red)
+//                        .rotationEffect(Angle(degrees: 270))
+//                        .animation(.easeInOut(duration: 2.0))
+//                        .frame(width: 150, height: 130)
+//                }
+                
+                ZStack {
                     Circle()
-                        .stroke(lineWidth: 20)
-                        .fill(Color.Neumorphic.main)
-                        .softInnerShadow(
-                            Circle(),
-                            darkShadow: Color.Neumorphic.darkShadow,
-                            lightShadow: Color.Neumorphic.lightShadow,
-                            spread: 0.7,
-                            radius: 10
-                        )
-                        .frame(width: 150, height: 150)
+                        .stroke(lineWidth: 12)
+                        .fill(Color(.systemGray5))
+                        .frame(width: 125, height: 125)
                     
                     Circle()
                         .trim(from: 0.0, to: CGFloat(min(self.progress, 1.0)))
@@ -43,13 +58,12 @@ struct ActivityCard: View {
                         .foregroundColor(Color.red)
                         .rotationEffect(Angle(degrees: 270))
                         .animation(.easeInOut(duration: 2.0))
-                        .frame(width: 150, height: 130)
+                        .frame(width: 125, height: 125)
                 }
                 
                 VStack {
-                    Text("Good Work!")
-                        .padding(.horizontal, 20)
-                    Text("Other words/stats")
+                    Text("Good Work!\nOther Words and stuff")
+                        .multilineTextAlignment(.leading)
                 }
             }
         }
