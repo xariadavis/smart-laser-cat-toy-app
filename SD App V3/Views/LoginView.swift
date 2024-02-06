@@ -27,7 +27,10 @@ struct LoginView: View {
     var body: some View {
         ZStack {
             
-            gradient.ignoresSafeArea()
+            // gradient.ignoresSafeArea()
+            Color(.systemGray6).ignoresSafeArea()
+            
+            
             LottiePlusView(name: Constants.LaserDots, loopMode: .loop, animationSpeed: 0.7)
                 .blur(radius: 5)
                 .frame(width: 250)
@@ -60,7 +63,7 @@ struct LoginView: View {
                     
 
                     Text("Welcome\nBack")
-                        .font(Font.custom("TitanOne", size: 55))
+                        .font(Font.custom("TitanOne", size: 50))
                         .multilineTextAlignment(.leading)
 
                     

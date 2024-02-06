@@ -11,7 +11,7 @@ struct Glow: ViewModifier {
     func body(content: Content) -> some View {
         ZStack{
             content
-                .blur(radius: 15)
+                .blur(radius: 3)
             content
         }
     }

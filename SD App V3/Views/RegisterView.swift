@@ -29,7 +29,9 @@ struct RegisterView: View {
     var body: some View {
         ZStack {
             
-            gradient.ignoresSafeArea()
+            // gradient.ignoresSafeArea()
+            Color(.systemGray6).ignoresSafeArea()
+            
             LottiePlusView(name: Constants.LaserDots, loopMode: .loop, animationSpeed: 0.7)
                 .blur(radius: 5)
                 .frame(width: 250)
@@ -91,7 +93,7 @@ struct RegisterView: View {
                 
                 Spacer()
                 
-                NavigationLink(destination: ProfileView().navigationBarBackButtonHidden(true)) {
+                NavigationLink(destination: DashboardView().navigationBarBackButtonHidden(true)) {
                     Text("Sign Up")
                         .font(Font.custom("Quicksand-SemiBold", size: 20))
                         .frame(maxWidth: .infinity)

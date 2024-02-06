@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     let gradient = LinearGradient(
-        gradient: Gradient(colors: [Color.white.opacity(0.15), Color(.systemGray6), Color.white.opacity(0.2)]),
+        gradient: Gradient(colors: [Color(.systemGray5).opacity(0.15), Color(.systemGray6), Color.white.opacity(0.2)]),
         startPoint: .top,
         endPoint: .bottom
     )
@@ -23,7 +23,9 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                gradient.ignoresSafeArea()
+                
+                //gradient.ignoresSafeArea()
+                Color(.systemGray6).ignoresSafeArea()
                 
                 VStack {
                     // Welcome label

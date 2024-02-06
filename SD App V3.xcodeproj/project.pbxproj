@@ -35,7 +35,7 @@
 		573A95C02B70082100149372 /* Neumorphic in Frameworks */ = {isa = PBXBuildFile; productRef = 573A95BF2B70082100149372 /* Neumorphic */; };
 		573A95C22B70107900149372 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573A95C12B70107900149372 /* DashboardView.swift */; };
 		573A95C42B7019D900149372 /* Pattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573A95C32B7019D900149372 /* Pattern.swift */; };
-		573A95C62B701A9D00149372 /* ListCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573A95C52B701A9D00149372 /* ListCard.swift */; };
+		573A95C62B701A9D00149372 /* ActivityCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573A95C52B701A9D00149372 /* ActivityCard.swift */; };
 		573A95C82B701BB700149372 /* PatternCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573A95C72B701BB700149372 /* PatternCard.swift */; };
 		573A95CB2B701E9800149372 /* Kitty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573A95CA2B701E9800149372 /* Kitty.swift */; };
 		575ED2E32B6C57CA00110CDC /* LaserStars.json in Resources */ = {isa = PBXBuildFile; fileRef = 575ED2E22B6C57CA00110CDC /* LaserStars.json */; };
@@ -75,7 +75,7 @@
 		573A95BC2B7007AD00149372 /* ProfileCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCard.swift; sourceTree = "<group>"; };
 		573A95C12B70107900149372 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		573A95C32B7019D900149372 /* Pattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pattern.swift; sourceTree = "<group>"; };
-		573A95C52B701A9D00149372 /* ListCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCard.swift; sourceTree = "<group>"; };
+		573A95C52B701A9D00149372 /* ActivityCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCard.swift; sourceTree = "<group>"; };
 		573A95C72B701BB700149372 /* PatternCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternCard.swift; sourceTree = "<group>"; };
 		573A95CA2B701E9800149372 /* Kitty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kitty.swift; sourceTree = "<group>"; };
 		575ED2E22B6C57CA00110CDC /* LaserStars.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LaserStars.json; sourceTree = "<group>"; };
@@ -193,7 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				573A95BC2B7007AD00149372 /* ProfileCard.swift */,
-				573A95C52B701A9D00149372 /* ListCard.swift */,
+				573A95C52B701A9D00149372 /* ActivityCard.swift */,
 				573A95C72B701BB700149372 /* PatternCard.swift */,
 			);
 			path = Components;
@@ -340,7 +340,7 @@
 				572FE3CB2B69915800CB3E61 /* RegisterView.swift in Sources */,
 				572FE3C92B69914D00CB3E61 /* LoginView.swift in Sources */,
 				571850A22B69B0030004747C /* TestView.swift in Sources */,
-				573A95C62B701A9D00149372 /* ListCard.swift in Sources */,
+				573A95C62B701A9D00149372 /* ActivityCard.swift in Sources */,
 				575F7B9D2B7061B1009082ED /* ProfileScreenViewModel.swift in Sources */,
 				573A95CB2B701E9800149372 /* Kitty.swift in Sources */,
 				57106BE72B71A95600C03637 /* LaserPattern.swift in Sources */,

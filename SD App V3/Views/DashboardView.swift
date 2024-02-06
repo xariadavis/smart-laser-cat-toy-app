@@ -9,7 +9,10 @@ import SwiftUI
 import Neumorphic
 
 struct DashboardView: View {
+    @State var progressValue: Float = 0.3
+    
     var body: some View {
+        
         ZStack(alignment: .center) {
             
             // Background color
@@ -36,7 +39,7 @@ struct DashboardView: View {
                         .padding(.horizontal, 30)
 
                     // Activity Card centered
-                    ListCard()
+                    ActivityCard(progress: self.$progressValue)
                         .padding(.bottom, 15)
                     
                     // Patterns Title aligned to the left

@@ -11,7 +11,7 @@ struct ProfileCard: View {
     @State private var gradientStart = UnitPoint(x: -0.5, y: -0.5)
     @State private var gradientEnd = UnitPoint(x: 0, y: 0)
     
-    let maxWidth = 350.0
+    let maxWidth = 330.0
     let maxHeight = 450.0
     
     var body: some View {
@@ -24,7 +24,7 @@ struct ProfileCard: View {
                 .shadow(radius: 7)
                 .overlay(
                     RoundedRectangle(cornerRadius: 20)
-                        .stroke(LinearGradient(gradient: Gradient(colors: laserGradientColors), startPoint: gradientStart, endPoint: gradientEnd), lineWidth: 5)
+                        .stroke(LinearGradient(gradient: Gradient(colors: laserGradientColors), startPoint: gradientStart, endPoint: gradientEnd), lineWidth: 10)
                         .onAppear {
                             withAnimation(Animation.linear(duration: 3).repeatForever(autoreverses: true)) {
                                 // Move the gradient around
@@ -46,7 +46,7 @@ struct ProfileCard: View {
             VStack() {
                 Spacer()
                 Text("Sir Walter Honey Bee 🐝")
-                    .font(Font.custom("TitanOne", size: 20))
+                    .font(Font.custom("QuickSand-Bold", size: 20))
                     .foregroundColor(.white)
                     .padding(.horizontal, 5)
             }
