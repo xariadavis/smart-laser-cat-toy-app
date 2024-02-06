@@ -11,6 +11,7 @@ enum Constants {
     static var RedLaserBlob = "RedLaserBlob"
     static var LaserBubbles = "LaserBubbles"
     static var GingerHunt = "GingerHunt"
+    static var GingerHunt_Dark = "GingerHunt_Dark"
     static var LaserDots = "LaserDots"
     static var test = "test"
     static var Test2 = "Test2"

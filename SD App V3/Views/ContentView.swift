@@ -14,6 +14,8 @@ struct ContentView: View {
         startPoint: .top,
         endPoint: .bottom
     )
+    
+    @Environment(\.colorScheme) var colorScheme
 
     @State private var isLoginActive = false
     @State private var isRegisterActive = false
@@ -39,7 +41,7 @@ struct ContentView: View {
                 .padding(.top, 30)
                 
                 
-                LottiePlusView(name: Constants.GingerHunt, loopMode: .loop)
+                LottiePlusView(name: colorScheme == .dark ? Constants.GingerHunt_Dark : Constants.GingerHunt, loopMode: .loop)
                     .offset(y: -50)
                 
                 VStack {

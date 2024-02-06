@@ -20,9 +20,10 @@ struct DashboardView: View {
                     
                     // Temp Text aligned to the left
                     Text("Happy Playing")
-                        .font(Font.custom("TitanOne", size: 25))
+                        .font(Font.custom("TitanOne", size: 30))
                         .frame(maxWidth: .infinity, alignment: .leading)  // Align text to the leading edge
                         .padding(.horizontal, 30)
+                        .padding(.top, 10)
 
                     // Kitty Profile Card centered
                     ProfileCard()

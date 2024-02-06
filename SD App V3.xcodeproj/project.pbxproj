@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		57106BE72B71A95600C03637 /* LaserPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57106BE62B71A95600C03637 /* LaserPattern.swift */; };
 		57106BE92B71E6E000C03637 /* border.json in Resources */ = {isa = PBXBuildFile; fileRef = 57106BE82B71E6E000C03637 /* border.json */; };
+		57106BF12B72063300C03637 /* GingerHunt_Dark.json in Resources */ = {isa = PBXBuildFile; fileRef = 57106BF02B72063300C03637 /* GingerHunt_Dark.json */; };
 		571850A22B69B0030004747C /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571850A12B69B0030004747C /* TestView.swift */; };
 		572FE3AE2B698ADE00CB3E61 /* SD_App_V3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572FE3AD2B698ADE00CB3E61 /* SD_App_V3App.swift */; };
 		572FE3B02B698ADE00CB3E61 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572FE3AF2B698ADE00CB3E61 /* ContentView.swift */; };
@@ -48,6 +49,7 @@
 /* Begin PBXFileReference section */
 		57106BE62B71A95600C03637 /* LaserPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaserPattern.swift; sourceTree = "<group>"; };
 		57106BE82B71E6E000C03637 /* border.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = border.json; sourceTree = "<group>"; };
+		57106BF02B72063300C03637 /* GingerHunt_Dark.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GingerHunt_Dark.json; sourceTree = "<group>"; };
 		571850A12B69B0030004747C /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		572FE3AA2B698ADE00CB3E61 /* SD App V3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SD App V3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		572FE3AD2B698ADE00CB3E61 /* SD_App_V3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SD_App_V3App.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 		572FE3BB2B698E5000CB3E61 /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
+				57106BF02B72063300C03637 /* GingerHunt_Dark.json */,
 				57106BE82B71E6E000C03637 /* border.json */,
 				575ED2E22B6C57CA00110CDC /* LaserStars.json */,
 				572FE3DE2B699DD400CB3E61 /* Test2.json */,
@@ -314,6 +317,7 @@
 				572FE3B22B698AE000CB3E61 /* Assets.xcassets in Resources */,
 				572FE3D12B6994F600CB3E61 /* LaserBubbles.json in Resources */,
 				572FE3DB2B699BA100CB3E61 /* LaserDots.json in Resources */,
+				57106BF12B72063300C03637 /* GingerHunt_Dark.json in Resources */,
 				572FE3DD2B699CE200CB3E61 /* test.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
