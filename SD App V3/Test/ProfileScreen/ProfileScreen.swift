@@ -34,7 +34,7 @@ struct ProfileScreen: View {
             } content: {
                 ScrollView {
                     ForEach(0..<10) { item in
-                        CardView(imageName: "paperplane", title: "Pattern #\(item)", description: "Description for pattern \(item)")
+                        PatternCard(iconName: "paperplane", name: "Pattern #\(item)", description: "Description for pattern \(item)")
                         
                     }
                     .padding(.top, 5)

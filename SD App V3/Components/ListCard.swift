@@ -13,11 +13,10 @@ struct ListCard: View {
         ZStack {
             Rectangle()
                 .fill(Color.Neumorphic.main)
-                .frame(width: .infinity, height: 100)
-                .cornerRadius(30)
-                .padding()
+                .frame(width: 350, height: 100)
+                .cornerRadius(20)
+                .padding(.horizontal, 20)
         }
-        
     }
 }
 

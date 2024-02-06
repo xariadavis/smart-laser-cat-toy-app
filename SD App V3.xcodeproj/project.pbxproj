@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		57106BE72B71A95600C03637 /* LaserPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57106BE62B71A95600C03637 /* LaserPattern.swift */; };
 		571850A22B69B0030004747C /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571850A12B69B0030004747C /* TestView.swift */; };
 		572FE3AE2B698ADE00CB3E61 /* SD_App_V3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572FE3AD2B698ADE00CB3E61 /* SD_App_V3App.swift */; };
 		572FE3B02B698ADE00CB3E61 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572FE3AF2B698ADE00CB3E61 /* ContentView.swift */; };
@@ -28,12 +29,12 @@
 		572FE3DF2B699DD400CB3E61 /* Test2.json in Resources */ = {isa = PBXBuildFile; fileRef = 572FE3DE2B699DD400CB3E61 /* Test2.json */; };
 		572FF8302B6ABF8600190F52 /* MainPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572FF82F2B6ABF8500190F52 /* MainPalette.swift */; };
 		572FF8322B6ADFF000190F52 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572FF8312B6ADFF000190F52 /* ProfileView.swift */; };
-		573A95BD2B7007AD00149372 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573A95BC2B7007AD00149372 /* Card.swift */; };
+		573A95BD2B7007AD00149372 /* ProfileCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573A95BC2B7007AD00149372 /* ProfileCard.swift */; };
 		573A95C02B70082100149372 /* Neumorphic in Frameworks */ = {isa = PBXBuildFile; productRef = 573A95BF2B70082100149372 /* Neumorphic */; };
 		573A95C22B70107900149372 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573A95C12B70107900149372 /* DashboardView.swift */; };
 		573A95C42B7019D900149372 /* Pattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573A95C32B7019D900149372 /* Pattern.swift */; };
 		573A95C62B701A9D00149372 /* ListCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573A95C52B701A9D00149372 /* ListCard.swift */; };
-		573A95C82B701BB700149372 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573A95C72B701BB700149372 /* CardView.swift */; };
+		573A95C82B701BB700149372 /* PatternCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573A95C72B701BB700149372 /* PatternCard.swift */; };
 		573A95CB2B701E9800149372 /* Kitty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573A95CA2B701E9800149372 /* Kitty.swift */; };
 		575ED2E32B6C57CA00110CDC /* LaserStars.json in Resources */ = {isa = PBXBuildFile; fileRef = 575ED2E22B6C57CA00110CDC /* LaserStars.json */; };
 		575F7B962B705F4A009082ED /* ScalingHeaderScrollView in Frameworks */ = {isa = PBXBuildFile; productRef = 575F7B952B705F4A009082ED /* ScalingHeaderScrollView */; };
@@ -44,6 +45,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		57106BE62B71A95600C03637 /* LaserPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaserPattern.swift; sourceTree = "<group>"; };
 		571850A12B69B0030004747C /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		572FE3AA2B698ADE00CB3E61 /* SD App V3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SD App V3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		572FE3AD2B698ADE00CB3E61 /* SD_App_V3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SD_App_V3App.swift; sourceTree = "<group>"; };
@@ -66,11 +68,11 @@
 		572FE3DE2B699DD400CB3E61 /* Test2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Test2.json; sourceTree = "<group>"; };
 		572FF82F2B6ABF8500190F52 /* MainPalette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPalette.swift; sourceTree = "<group>"; };
 		572FF8312B6ADFF000190F52 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
-		573A95BC2B7007AD00149372 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		573A95BC2B7007AD00149372 /* ProfileCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCard.swift; sourceTree = "<group>"; };
 		573A95C12B70107900149372 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		573A95C32B7019D900149372 /* Pattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pattern.swift; sourceTree = "<group>"; };
 		573A95C52B701A9D00149372 /* ListCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCard.swift; sourceTree = "<group>"; };
-		573A95C72B701BB700149372 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		573A95C72B701BB700149372 /* PatternCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternCard.swift; sourceTree = "<group>"; };
 		573A95CA2B701E9800149372 /* Kitty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kitty.swift; sourceTree = "<group>"; };
 		575ED2E22B6C57CA00110CDC /* LaserStars.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LaserStars.json; sourceTree = "<group>"; };
 		575F7B992B7061B1009082ED /* ProfileScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
@@ -93,6 +95,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		57106BE52B71A94400C03637 /* UserStuff */ = {
+			isa = PBXGroup;
+			children = (
+				57106BE62B71A95600C03637 /* LaserPattern.swift */,
+			);
+			path = UserStuff;
+			sourceTree = "<group>";
+		};
 		572FE3A12B698ADE00CB3E61 = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +122,7 @@
 		572FE3AC2B698ADE00CB3E61 /* SD App V3 */ = {
 			isa = PBXGroup;
 			children = (
+				57106BE52B71A94400C03637 /* UserStuff */,
 				575F7B972B706194009082ED /* Test */,
 				572FE3D92B6996AB00CB3E61 /* SD-App-V3-Info.plist */,
 				57FFA0DE2B70553500E8F92A /* Images */,
@@ -175,9 +186,9 @@
 		573A95BB2B7007A000149372 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				573A95BC2B7007AD00149372 /* Card.swift */,
+				573A95BC2B7007AD00149372 /* ProfileCard.swift */,
 				573A95C52B701A9D00149372 /* ListCard.swift */,
-				573A95C72B701BB700149372 /* CardView.swift */,
+				573A95C72B701BB700149372 /* PatternCard.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -314,7 +325,7 @@
 				573A95C22B70107900149372 /* DashboardView.swift in Sources */,
 				572FE3AE2B698ADE00CB3E61 /* SD_App_V3App.swift in Sources */,
 				572FF8322B6ADFF000190F52 /* ProfileView.swift in Sources */,
-				573A95C82B701BB700149372 /* CardView.swift in Sources */,
+				573A95C82B701BB700149372 /* PatternCard.swift in Sources */,
 				572FE3BF2B698E8900CB3E61 /* LottiePlusView.swift in Sources */,
 				575F7B9C2B7061B1009082ED /* ProfileScreen.swift in Sources */,
 				572FF8302B6ABF8600190F52 /* MainPalette.swift in Sources */,
@@ -324,11 +335,12 @@
 				573A95C62B701A9D00149372 /* ListCard.swift in Sources */,
 				575F7B9D2B7061B1009082ED /* ProfileScreenViewModel.swift in Sources */,
 				573A95CB2B701E9800149372 /* Kitty.swift in Sources */,
+				57106BE72B71A95600C03637 /* LaserPattern.swift in Sources */,
 				573A95C42B7019D900149372 /* Pattern.swift in Sources */,
 				572FE3C72B698F6A00CB3E61 /* Constants.swift in Sources */,
 				575F7B9E2B7061B1009082ED /* ProfileHelpers.swift in Sources */,
 				572FE3CD2B6992AC00CB3E61 /* GlowingView.swift in Sources */,
-				573A95BD2B7007AD00149372 /* Card.swift in Sources */,
+				573A95BD2B7007AD00149372 /* ProfileCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

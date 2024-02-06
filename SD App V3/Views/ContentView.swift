@@ -56,11 +56,11 @@ struct ContentView: View {
                             .padding(15)
                             .foregroundColor(Color.primary)
                             .background(Color.red.opacity(0.9))
-                            .cornerRadius(40)
+                            .cornerRadius(30)
                             
                             // Apply glowing border effect
                             .overlay(
-                                RoundedRectangle(cornerRadius: 40)
+                                RoundedRectangle(cornerRadius: 30)
                                     .stroke(Color.red, lineWidth: 4)
                                     .glow()
                                     .shadow(color: Color.red.opacity(0.3), radius: 5)
@@ -81,7 +81,7 @@ struct ContentView: View {
                             .frame(maxWidth: .infinity) 
                             .contentShape(Rectangle())
                             .overlay(
-                                RoundedRectangle(cornerRadius: 40)
+                                RoundedRectangle(cornerRadius: 30)
                                     .stroke(Color.red.opacity(0.9), lineWidth: 2)
                                     // Apply glow effect
                                     .shadow(color: Color.red.opacity(0.3), radius: 10, x: 0, y: 0)

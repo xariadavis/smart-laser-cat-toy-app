@@ -93,18 +93,18 @@ struct LoginView: View {
                 
                 Spacer()
                 
-                NavigationLink(destination: ProfileScreen().navigationBarBackButtonHidden(true)) {
+                NavigationLink(destination: DashboardView().navigationBarBackButtonHidden(true)) {
                     Text("Login")
                         .font(Font.custom("Quicksand-SemiBold", size: 20))
                         .frame(maxWidth: .infinity)
                         .padding(15)
                         .foregroundColor(Color.primary)
                         .background(Color.red.opacity(0.9))
-                        .cornerRadius(40)
+                        .cornerRadius(30)
                     
                         // Apply glowing border effect
                         .overlay(
-                            RoundedRectangle(cornerRadius: 40)
+                            RoundedRectangle(cornerRadius: 30)
                                 .stroke(Color.red, lineWidth: 2)
                         )
                         .padding(.horizontal, 40)
