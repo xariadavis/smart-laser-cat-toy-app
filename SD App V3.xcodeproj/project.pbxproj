@@ -43,9 +43,6 @@
 		575F7B9C2B7061B1009082ED /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575F7B992B7061B1009082ED /* ProfileScreen.swift */; };
 		575F7B9D2B7061B1009082ED /* ProfileScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575F7B9A2B7061B1009082ED /* ProfileScreenViewModel.swift */; };
 		575F7B9E2B7061B1009082ED /* ProfileHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575F7B9B2B7061B1009082ED /* ProfileHelpers.swift */; };
-		57CE0E3F2B72DAC100D5C22F /* ActivityCard2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CE0E3E2B72DAC100D5C22F /* ActivityCard2.swift */; };
-		57CE0E412B72DAD400D5C22F /* ActivityCard3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CE0E402B72DAD400D5C22F /* ActivityCard3.swift */; };
-		57CE0E432B72DC7A00D5C22F /* ActivityCard4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CE0E422B72DC7A00D5C22F /* ActivityCard4.swift */; };
 		57FFA0E02B70559200E8F92A /* WaltyKitten.png in Resources */ = {isa = PBXBuildFile; fileRef = 57FFA0DF2B70559200E8F92A /* WaltyKitten.png */; };
 /* End PBXBuildFile section */
 
@@ -85,9 +82,6 @@
 		575F7B992B7061B1009082ED /* ProfileScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		575F7B9A2B7061B1009082ED /* ProfileScreenViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileScreenViewModel.swift; sourceTree = "<group>"; };
 		575F7B9B2B7061B1009082ED /* ProfileHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileHelpers.swift; sourceTree = "<group>"; };
-		57CE0E3E2B72DAC100D5C22F /* ActivityCard2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCard2.swift; sourceTree = "<group>"; };
-		57CE0E402B72DAD400D5C22F /* ActivityCard3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCard3.swift; sourceTree = "<group>"; };
-		57CE0E422B72DC7A00D5C22F /* ActivityCard4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCard4.swift; sourceTree = "<group>"; };
 		57FFA0DF2B70559200E8F92A /* WaltyKitten.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WaltyKitten.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -200,9 +194,6 @@
 			children = (
 				573A95BC2B7007AD00149372 /* ProfileCard.swift */,
 				573A95C52B701A9D00149372 /* ActivityCard.swift */,
-				57CE0E3E2B72DAC100D5C22F /* ActivityCard2.swift */,
-				57CE0E402B72DAD400D5C22F /* ActivityCard3.swift */,
-				57CE0E422B72DC7A00D5C22F /* ActivityCard4.swift */,
 				573A95C72B701BB700149372 /* PatternCard.swift */,
 			);
 			path = Components;
@@ -338,10 +329,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57CE0E412B72DAD400D5C22F /* ActivityCard3.swift in Sources */,
 				572FE3B02B698ADE00CB3E61 /* ContentView.swift in Sources */,
 				573A95C22B70107900149372 /* DashboardView.swift in Sources */,
-				57CE0E432B72DC7A00D5C22F /* ActivityCard4.swift in Sources */,
 				572FE3AE2B698ADE00CB3E61 /* SD_App_V3App.swift in Sources */,
 				572FF8322B6ADFF000190F52 /* ProfileView.swift in Sources */,
 				573A95C82B701BB700149372 /* PatternCard.swift in Sources */,
@@ -354,7 +343,6 @@
 				573A95C62B701A9D00149372 /* ActivityCard.swift in Sources */,
 				575F7B9D2B7061B1009082ED /* ProfileScreenViewModel.swift in Sources */,
 				573A95CB2B701E9800149372 /* Kitty.swift in Sources */,
-				57CE0E3F2B72DAC100D5C22F /* ActivityCard2.swift in Sources */,
 				57106BE72B71A95600C03637 /* LaserPattern.swift in Sources */,
 				573A95C42B7019D900149372 /* Pattern.swift in Sources */,
 				572FE3C72B698F6A00CB3E61 /* Constants.swift in Sources */,
