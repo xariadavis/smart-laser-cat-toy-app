@@ -42,17 +42,6 @@ struct DashboardView: View {
                     ActivityCard(progress: self.$progressValue)
                         .padding(.bottom, 15)
                     
-                    // Activity Card centered
-                    ActivityCard2(progress: self.$progressValue)
-                        .padding(.bottom, 15)
-                    
-                    // Activity Card centered
-                    ActivityCard3(progress: self.$progressValue)
-                        .padding(.bottom, 15)
-                    
-                    // Activity Card centered
-                    ActivityCard4(progress: self.$progressValue)
-                        .padding(.bottom, 15)
                     
                     // Patterns Title aligned to the left
                     Text("Patterns")
