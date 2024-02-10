@@ -26,7 +26,7 @@ struct ProfileCard: View {
                     RoundedRectangle(cornerRadius: 20)
                         .stroke(LinearGradient(gradient: Gradient(colors: laserGradientColors), startPoint: gradientStart, endPoint: gradientEnd), lineWidth: 10)
                         .onAppear {
-                            withAnimation(Animation.linear(duration: 3).repeatForever(autoreverses: true)) {
+                            withAnimation(Animation.linear(duration: 2).repeatForever(autoreverses: true)) {
                                 // Move the gradient around
                                 gradientStart = UnitPoint(x: 1.5, y: 1.5)
                                 gradientEnd = UnitPoint(x: 2, y: 2)

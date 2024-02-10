@@ -6,25 +6,26 @@
 //
 
 import SwiftUI
+import PZCircularControl
 
 struct TestView: View {
     var body: some View {
         ZStack {
-            Color(.blue).ignoresSafeArea()
             
-            // Square with glassmorphic effect
-            Rectangle()
-                .fill(Color.clear) // Make sure the rectangle is transparent
-                .frame(width: 200, height: 200) // Square size
-                .background(
-                    VisualEffectView(effect: UIBlurEffect(style: .systemThinMaterialLight))
+            PZCircularControl(
+                PZCircularControlParams(
+                    innerBackgroundColor: Color.clear,
+                    outerBackgroundColor: Color.gray.opacity(0.5),
+                    tintColor: LinearGradient(gradient: Gradient(colors: [.myOrange, .myRed]), startPoint: .bottomLeading, endPoint: .topLeading),
+                    textColor: .gray,
+                    barWidth: 30.0,
+                    glowDistance: 30.0,
+                    initialValue: CGFloat(Float.random(in: 0...1))
                 )
-                .cornerRadius(20) 
-                .shadow(color: Color.red.opacity(0.3), radius: 10, x: 0, y: 0)
-                .shadow(color: Color.red.opacity(0.3), radius: 20, x: 0, y: 0)
-                .padding()
+                
+            )
+
         }
-        
     }
 }
 

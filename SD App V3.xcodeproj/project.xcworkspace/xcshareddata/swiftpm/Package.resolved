@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "animatedtabbar",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/exyte/AnimatedTabBar.git",
+      "state" : {
+        "revision" : "f5f342227283e76c7b49371e735516bac3caef68",
+        "version" : "0.1.2"
+      }
+    },
+    {
       "identity" : "lottie-spm",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/airbnb/lottie-spm.git",
@@ -16,6 +25,15 @@
       "state" : {
         "branch" : "master",
         "revision" : "03c6f7b3d27bfb28a082db2e9ffae45fbc69cb8b"
+      }
+    },
+    {
+      "identity" : "pzcircularcontrol",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/philptr/PZCircularControl.git",
+      "state" : {
+        "revision" : "1ccbec964d1589d7662065112353ede98078fc82",
+        "version" : "0.1.2"
       }
     },
     {
