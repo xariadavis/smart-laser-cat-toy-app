@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5704DDED2B7881C600253D4F /* ColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5704DDEC2B7881C600253D4F /* ColorButton.swift */; };
+		5704DDF02B788CC700253D4F /* AnimatedTabBar in Frameworks */ = {isa = PBXBuildFile; productRef = 5704DDEF2B788CC700253D4F /* AnimatedTabBar */; };
+		5704DDF22B788DC800253D4F /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5704DDF12B788DC800253D4F /* TabBar.swift */; };
 		57106BE72B71A95600C03637 /* LaserPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57106BE62B71A95600C03637 /* LaserPattern.swift */; };
 		57106BE92B71E6E000C03637 /* border.json in Resources */ = {isa = PBXBuildFile; fileRef = 57106BE82B71E6E000C03637 /* border.json */; };
 		57106BF12B72063300C03637 /* GingerHunt_Dark.json in Resources */ = {isa = PBXBuildFile; fileRef = 57106BF02B72063300C03637 /* GingerHunt_Dark.json */; };
@@ -44,11 +47,12 @@
 		575F7B9D2B7061B1009082ED /* ProfileScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575F7B9A2B7061B1009082ED /* ProfileScreenViewModel.swift */; };
 		575F7B9E2B7061B1009082ED /* ProfileHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575F7B9B2B7061B1009082ED /* ProfileHelpers.swift */; };
 		579691682B7346A500FCA50F /* PZCircularControl in Frameworks */ = {isa = PBXBuildFile; productRef = 579691672B7346A500FCA50F /* PZCircularControl */; };
-		57CD18622B77FE3A00489389 /* AnimatedTabBar in Frameworks */ = {isa = PBXBuildFile; productRef = 57CD18612B77FE3A00489389 /* AnimatedTabBar */; };
 		57FFA0E02B70559200E8F92A /* WaltyKitten.png in Resources */ = {isa = PBXBuildFile; fileRef = 57FFA0DF2B70559200E8F92A /* WaltyKitten.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5704DDEC2B7881C600253D4F /* ColorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorButton.swift; sourceTree = "<group>"; };
+		5704DDF12B788DC800253D4F /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		57106BE62B71A95600C03637 /* LaserPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaserPattern.swift; sourceTree = "<group>"; };
 		57106BE82B71E6E000C03637 /* border.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = border.json; sourceTree = "<group>"; };
 		57106BF02B72063300C03637 /* GingerHunt_Dark.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GingerHunt_Dark.json; sourceTree = "<group>"; };
@@ -92,7 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57CD18622B77FE3A00489389 /* AnimatedTabBar in Frameworks */,
+				5704DDF02B788CC700253D4F /* AnimatedTabBar in Frameworks */,
 				573A95C02B70082100149372 /* Neumorphic in Frameworks */,
 				579691682B7346A500FCA50F /* PZCircularControl in Frameworks */,
 				572FE3C22B698EBC00CB3E61 /* Lottie in Frameworks */,
@@ -189,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				572FF82F2B6ABF8500190F52 /* MainPalette.swift */,
+				5704DDEC2B7881C600253D4F /* ColorButton.swift */,
 			);
 			path = Colors;
 			sourceTree = "<group>";
@@ -199,6 +204,7 @@
 				573A95BC2B7007AD00149372 /* ProfileCard.swift */,
 				573A95C52B701A9D00149372 /* ActivityCard.swift */,
 				573A95C72B701BB700149372 /* PatternCard.swift */,
+				5704DDF12B788DC800253D4F /* TabBar.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -262,7 +268,7 @@
 				573A95BF2B70082100149372 /* Neumorphic */,
 				575F7B952B705F4A009082ED /* ScalingHeaderScrollView */,
 				579691672B7346A500FCA50F /* PZCircularControl */,
-				57CD18612B77FE3A00489389 /* AnimatedTabBar */,
+				5704DDEF2B788CC700253D4F /* AnimatedTabBar */,
 			);
 			productName = "SD App V3";
 			productReference = 572FE3AA2B698ADE00CB3E61 /* SD App V3.app */;
@@ -297,7 +303,7 @@
 				573A95BE2B70082100149372 /* XCRemoteSwiftPackageReference "neumorphic" */,
 				575F7B942B705F4A009082ED /* XCRemoteSwiftPackageReference "ScalingHeaderScrollView" */,
 				579691662B7346A500FCA50F /* XCRemoteSwiftPackageReference "PZCircularControl" */,
-				57CD18602B77FE3A00489389 /* XCRemoteSwiftPackageReference "AnimatedTabBar" */,
+				5704DDEE2B788CC700253D4F /* XCRemoteSwiftPackageReference "AnimatedTabBar" */,
 			);
 			productRefGroup = 572FE3AB2B698ADE00CB3E61 /* Products */;
 			projectDirPath = "";
@@ -340,6 +346,7 @@
 				572FE3B02B698ADE00CB3E61 /* ContentView.swift in Sources */,
 				573A95C22B70107900149372 /* DashboardView.swift in Sources */,
 				572FE3AE2B698ADE00CB3E61 /* SD_App_V3App.swift in Sources */,
+				5704DDED2B7881C600253D4F /* ColorButton.swift in Sources */,
 				572FF8322B6ADFF000190F52 /* ProfileView.swift in Sources */,
 				573A95C82B701BB700149372 /* PatternCard.swift in Sources */,
 				572FE3BF2B698E8900CB3E61 /* LottiePlusView.swift in Sources */,
@@ -355,6 +362,7 @@
 				573A95C42B7019D900149372 /* Pattern.swift in Sources */,
 				572FE3C72B698F6A00CB3E61 /* Constants.swift in Sources */,
 				575F7B9E2B7061B1009082ED /* ProfileHelpers.swift in Sources */,
+				5704DDF22B788DC800253D4F /* TabBar.swift in Sources */,
 				572FE3CD2B6992AC00CB3E61 /* GlowingView.swift in Sources */,
 				573A95BD2B7007AD00149372 /* ProfileCard.swift in Sources */,
 			);
@@ -563,6 +571,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		5704DDEE2B788CC700253D4F /* XCRemoteSwiftPackageReference "AnimatedTabBar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/xariadavis/AnimatedTabBar.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		572FE3C02B698EBC00CB3E61 /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
@@ -595,17 +611,14 @@
 				minimumVersion = 0.1.2;
 			};
 		};
-		57CD18602B77FE3A00489389 /* XCRemoteSwiftPackageReference "AnimatedTabBar" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/exyte/AnimatedTabBar.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.2;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		5704DDEF2B788CC700253D4F /* AnimatedTabBar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5704DDEE2B788CC700253D4F /* XCRemoteSwiftPackageReference "AnimatedTabBar" */;
+			productName = AnimatedTabBar;
+		};
 		572FE3C12B698EBC00CB3E61 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 572FE3C02B698EBC00CB3E61 /* XCRemoteSwiftPackageReference "lottie-spm" */;
@@ -625,11 +638,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 579691662B7346A500FCA50F /* XCRemoteSwiftPackageReference "PZCircularControl" */;
 			productName = PZCircularControl;
-		};
-		57CD18612B77FE3A00489389 /* AnimatedTabBar */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 57CD18602B77FE3A00489389 /* XCRemoteSwiftPackageReference "AnimatedTabBar" */;
-			productName = AnimatedTabBar;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

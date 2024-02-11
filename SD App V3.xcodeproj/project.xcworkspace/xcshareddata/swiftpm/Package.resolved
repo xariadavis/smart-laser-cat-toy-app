@@ -3,10 +3,10 @@
     {
       "identity" : "animatedtabbar",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/exyte/AnimatedTabBar.git",
+      "location" : "https://github.com/xariadavis/AnimatedTabBar.git",
       "state" : {
-        "revision" : "f5f342227283e76c7b49371e735516bac3caef68",
-        "version" : "0.1.2"
+        "branch" : "main",
+        "revision" : "875e368efb105e3c62a87d7b7791f3ebafa883e6"
       }
     },
     {

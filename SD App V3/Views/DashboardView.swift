@@ -15,6 +15,7 @@ struct DashboardView: View {
         
         ZStack(alignment: .center) {
             
+            
             // Background color
             Color(.systemGray5).ignoresSafeArea()
 
@@ -56,8 +57,9 @@ struct DashboardView: View {
                     }
                 }
                 .padding([.leading, .trailing], 20)  // Add padding to the left and right if desired
-
             }
+            TabBar()
+                .padding(.horizontal, 20)
         }
     }
 }

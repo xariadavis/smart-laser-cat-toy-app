@@ -7,6 +7,7 @@
 
 import SwiftUI
 import PZCircularControl
+import AnimatedTabBar
 
 struct TestView: View {
     var body: some View {
