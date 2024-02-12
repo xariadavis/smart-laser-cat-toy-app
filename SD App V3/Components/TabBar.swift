@@ -17,7 +17,7 @@ struct TabBar: View {
     @State private var selectedIndex = 0
     @State private var prevSelectedIndex = 0
 
-    let names = ["heart", "leaf", "drop", "circle", "book"]
+    let names = ["house", "arrowshape.turn.up.backward", "text.justify", "pawprint", "gearshape"]
 
     // a hack for keyframe animation
     @State var time = 0.0
@@ -45,10 +45,12 @@ struct TabBar: View {
             AnimatedTabBar(selectedIndex: $selectedIndex, prevSelectedIndex: $prevSelectedIndex) {
                 colorButtonAt(0, type: .bell)
                 colorButtonAt(1, type: .bell)
-                colorButtonAt(2, type: .plus)
-                colorButtonAt(3, type: .calendar)
+                colorButtonAt(2, type: .gear)
+                colorButtonAt(3, type: .bell)
                 colorButtonAt(4, type: .gear)
             }
+            .barColor(Color.Neumorphic.main)
+            .barBackgroundColor(Color(.systemGray5))
             .cornerRadius(16)
             .selectedColor(.exampleGrey)
             .unselectedColor(.exampleLightGrey)
@@ -64,7 +66,7 @@ struct TabBar: View {
     
     func colorButtonAt(_ index: Int, type: ColorButton.AnimationType) -> some View {
         ColorButton(
-            image: Image("colorTab\(index+1)"),
+            image: Image(systemName: names[index]),
             colorImage: Image("colorTab\(index+1)Bg"),
             isSelected: selectedIndex == index,
             fromLeft: prevSelectedIndex < index,

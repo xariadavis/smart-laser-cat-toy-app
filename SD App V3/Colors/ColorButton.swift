@@ -23,6 +23,7 @@ public struct ColorButton: View {
     public var toLeft: Bool
     public var animationType: AnimationType
 
+    @Environment(\.colorScheme) var colorScheme
     @State var t: CGFloat = 0
     @State var tForBg: CGFloat = 0
 
@@ -37,12 +38,16 @@ public struct ColorButton: View {
             switch animationType {
             case .bell:
                 ColorButtonOutlineBell(image: image, t: t)
+                    .foregroundColor(colorScheme == .dark ? .white : .black)
             case .plus:
                 ColorButtonOutlinePlus(image: image, t: t)
+                    .foregroundColor(colorScheme == .dark ? .white : .black)
             case .calendar:
                 ColorButtonOutlineCalendar(image: image, fromLeft: fromLeft, t: t)
+                    .foregroundColor(colorScheme == .dark ? .white : .black)
             case .gear:
                 ColorButtonOutlineGear(image: image, t: t)
+                    .foregroundColor(colorScheme == .dark ? .white : .black)
             }
         }
         .padding(8)
