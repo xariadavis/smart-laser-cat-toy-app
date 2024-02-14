@@ -31,7 +31,7 @@ struct ProfileView: View {
                         VStack(alignment: .leading) {
                             // Kitty's name
                             Text("Sir Walter Honey Bee 🐝")
-                                .font(Font.custom("Quicksand-Bold", size: 23))
+                                .font(Font.custom("TitanOne", size: 25))
                                 .padding(10)
                             
                             HStack {
@@ -43,8 +43,14 @@ struct ProfileView: View {
                                 InfoCard(iconName: "scalemass", title: "Weight", detail: "15 lb")
                             }
                             
+                            
+                            Text("Favorites")
+                                .font(Font.custom("TitanOne", size: 23))
+                                .padding(.top, 20)
+                            CarouselView()
+                            
                             Text("Activity")
-                                .font(Font.custom("Quicksand-Semibold", size: 20))
+                                .font(Font.custom("TitanOne", size: 23))
                                 .padding(.top, 20)
                             
                             // Maybe put activity card before this one
@@ -90,6 +96,7 @@ struct ProfileView: View {
                     Spacer()
                     
                 }
+                .padding(.bottom, 95)
                 
             }
             .ignoresSafeArea()
@@ -139,6 +146,44 @@ struct Rounded: Shape {
 }
 
 
+struct CarouselView: View {
+    // This array holds the data which you want to display in your carousel.
+
+    var body: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 10) {
+                ForEach(laserPatterns.prefix(4)) { pattern in
+                    CarouselItemView(pattern: pattern)
+                        .frame(width: 150, height: 150)
+                        .background(Color.Neumorphic.main)
+                        .cornerRadius(12)
+                }
+            }
+        }
+    }
+}
+
+struct CarouselItemView: View {
+    let pattern: LaserPattern
+
+    var body: some View {
+        VStack {
+            Image(pattern.iconName)
+                .resizable()
+                .scaledToFill()
+                .frame(width: 75, height: 75)
+                .clipped()
+                .cornerRadius(10)
+                .padding(5)
+            
+            Text(pattern.name)
+                .font(Font.custom("Quicksand-Semibold", size: 15))
+                .padding(.horizontal, 5)
+        }
+    }
+}
+
+
 struct BarView: View {
     
     var value: CGFloat
@@ -162,7 +207,7 @@ struct BarView: View {
                 .font(Font.custom("Quicksand-Regular", size: 16))
                 .frame(width: 35, alignment: .center) // Fix the width of the label
             
-            Text("\(Int(((value / 150) * 100)))%")
+            Text("\(Int(((value / 150) * 100)))m")
                 .font(Font.custom("Quicksand-Regular", size: 14))
                 .foregroundColor(.secondary)
         }
