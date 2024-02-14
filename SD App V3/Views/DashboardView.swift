@@ -57,10 +57,8 @@ struct DashboardView: View {
                     }
                 }
                 .padding(.bottom, 75)
-                .padding([.leading, .trailing], 20)  // Add padding to the left and right if desired
+//                .padding([.leading, .trailing], 20)  // Add padding to the left and right if desired
             }
-            TabBar()
-                .padding(.horizontal, 20)
         }
     }
 }

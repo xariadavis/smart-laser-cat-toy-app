@@ -9,7 +9,18 @@ import SwiftUI
 
 struct PatternsView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            
+            Color(.systemGray5).ignoresSafeArea()
+            
+            ScrollView {
+                // List of Patterns centered
+                ForEach(laserPatterns) { pattern in
+                    PatternCard(iconName: pattern.iconName, name: pattern.name, description: pattern.description)
+                    // If PatternCard is not centered by default, apply centering here if needed
+                }
+            }
+        }
     }
 }
 

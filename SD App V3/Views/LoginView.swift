@@ -96,7 +96,7 @@ struct LoginView: View {
                 
                 Spacer()
                 
-                NavigationLink(destination: DashboardView().navigationBarBackButtonHidden(true)) {
+                NavigationLink(destination: ContentView().navigationBarBackButtonHidden(true)) {
                     Text("Login")
                         .font(Font.custom("Quicksand-SemiBold", size: 20))
                         .frame(maxWidth: .infinity)

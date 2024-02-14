@@ -1,37 +1,42 @@
-//
-//  TestView.swift
-//  SD App V3
-//
-//  Created by Xaria Davis on 1/30/24.
-//
-
 import SwiftUI
-import PZCircularControl
-import AnimatedTabBar
 
-struct TestView: View {
+struct LaserCapsuleProgressBar: View {
+    var progress: CGFloat // Assume a value between 0.0 and 1.0
+    
     var body: some View {
-        ZStack {
-            
-            PZCircularControl(
-                PZCircularControlParams(
-                    innerBackgroundColor: Color.clear,
-                    outerBackgroundColor: Color.gray.opacity(0.5),
-                    tintColor: LinearGradient(gradient: Gradient(colors: [.myOrange, .myRed]), startPoint: .bottomLeading, endPoint: .topLeading),
-                    textColor: .gray,
-                    barWidth: 30.0,
-                    glowDistance: 30.0,
-                    initialValue: CGFloat(Float.random(in: 0...1))
-                )
+        GeometryReader { geometry in
+            ZStack(alignment: .bottom) {
+                // Background capsule
+                Capsule()
+                    .frame(width: geometry.size.width, height: geometry.size.height)
+                    .foregroundColor(.gray.opacity(0.2))
                 
-            )
-
+                // Foreground capsule with gradient
+                Capsule()
+                    .frame(width: geometry.size.width, height: geometry.size.height * progress)
+                    .foregroundColor(.clear)
+                    .background(
+                        LinearGradient(gradient: Gradient(colors: [.red.opacity(0.6), .red]), startPoint: .top, endPoint: .bottom)
+                    )
+                    .animation(.linear, value: progress)
+                
+                // Laser effect
+                if progress > 0 {
+                    Rectangle()
+                        .frame(width: geometry.size.width, height: 2)
+                        .foregroundColor(.white)
+                        .offset(y: -geometry.size.height * (1 - progress))
+                        .animation(.easeOut(duration: 0.2), value: progress)
+                }
+            }
         }
+        .frame(height: 30) // Set the fixed height for the progress bar
     }
 }
 
-struct TestView_Previews: PreviewProvider {
+struct LaserCapsuleProgressBar_Previews: PreviewProvider {
     static var previews: some View {
-        TestView()
+        LaserCapsuleProgressBar(progress: 0.5)
+            .padding()
     }
 }

@@ -11,7 +11,7 @@ import SwiftUI
 struct SD_App_V3App: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            WelcomeView()
         }
     }
 }

@@ -9,7 +9,24 @@ import SwiftUI
 
 struct DeviceView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            
+            //Color(.systemGray5).ignoresSafeArea()
+            
+            let gradient = RadialGradient(
+                gradient: Gradient(colors: [Color.red, Color.red]),
+                center: .center,
+                startRadius: 0,
+                endRadius: UIScreen.main.bounds.width / 2
+            )
+            
+            Rectangle()
+                .fill(gradient)
+                .ignoresSafeArea()
+                        
+            LottiePlusView(name: Constants.Enclosure, loopMode: .loop)
+                .scaleEffect(1.2)                
+        }
     }
 }
 

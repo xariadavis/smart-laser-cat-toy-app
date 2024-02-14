@@ -14,6 +14,9 @@
 		57106BE92B71E6E000C03637 /* border.json in Resources */ = {isa = PBXBuildFile; fileRef = 57106BE82B71E6E000C03637 /* border.json */; };
 		57106BF12B72063300C03637 /* GingerHunt_Dark.json in Resources */ = {isa = PBXBuildFile; fileRef = 57106BF02B72063300C03637 /* GingerHunt_Dark.json */; };
 		571850A22B69B0030004747C /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571850A12B69B0030004747C /* TestView.swift */; };
+		5723CE9A2B7BEC9800F5E172 /* Enclosure.json in Resources */ = {isa = PBXBuildFile; fileRef = 5723CE992B7BEC9800F5E172 /* Enclosure.json */; };
+		5723CE9C2B7BEE1000F5E172 /* Signal.json in Resources */ = {isa = PBXBuildFile; fileRef = 5723CE9B2B7BEE1000F5E172 /* Signal.json */; };
+		5723CE9E2B7C046A00F5E172 /* EnclosureBorder.json in Resources */ = {isa = PBXBuildFile; fileRef = 5723CE9D2B7C046A00F5E172 /* EnclosureBorder.json */; };
 		572FE3AE2B698ADE00CB3E61 /* SD_App_V3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572FE3AD2B698ADE00CB3E61 /* SD_App_V3App.swift */; };
 		572FE3B02B698ADE00CB3E61 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572FE3AF2B698ADE00CB3E61 /* ContentView.swift */; };
 		572FE3B22B698AE000CB3E61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 572FE3B12B698AE000CB3E61 /* Assets.xcassets */; };
@@ -47,6 +50,10 @@
 		575F7B9D2B7061B1009082ED /* ProfileScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575F7B9A2B7061B1009082ED /* ProfileScreenViewModel.swift */; };
 		575F7B9E2B7061B1009082ED /* ProfileHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575F7B9B2B7061B1009082ED /* ProfileHelpers.swift */; };
 		579691682B7346A500FCA50F /* PZCircularControl in Frameworks */ = {isa = PBXBuildFile; productRef = 579691672B7346A500FCA50F /* PZCircularControl */; };
+		57E462342B7AAC2E00F9D6A7 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E462332B7AAC2E00F9D6A7 /* WelcomeView.swift */; };
+		57E462362B7AB2B000F9D6A7 /* DeviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E462352B7AB2B000F9D6A7 /* DeviceView.swift */; };
+		57E462382B7AB2BF00F9D6A7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E462372B7AB2BF00F9D6A7 /* SettingsView.swift */; };
+		57E4623A2B7AB2CA00F9D6A7 /* PatternsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E462392B7AB2CA00F9D6A7 /* PatternsView.swift */; };
 		57FFA0E02B70559200E8F92A /* WaltyKitten.png in Resources */ = {isa = PBXBuildFile; fileRef = 57FFA0DF2B70559200E8F92A /* WaltyKitten.png */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +64,9 @@
 		57106BE82B71E6E000C03637 /* border.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = border.json; sourceTree = "<group>"; };
 		57106BF02B72063300C03637 /* GingerHunt_Dark.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GingerHunt_Dark.json; sourceTree = "<group>"; };
 		571850A12B69B0030004747C /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		5723CE992B7BEC9800F5E172 /* Enclosure.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Enclosure.json; path = ../../../../../../../../Downloads/Enclosure.json; sourceTree = "<group>"; };
+		5723CE9B2B7BEE1000F5E172 /* Signal.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Signal.json; path = ../../../../../../../../Downloads/Signal.json; sourceTree = "<group>"; };
+		5723CE9D2B7C046A00F5E172 /* EnclosureBorder.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = EnclosureBorder.json; path = ../../../../../../../../Downloads/EnclosureBorder.json; sourceTree = "<group>"; };
 		572FE3AA2B698ADE00CB3E61 /* SD App V3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SD App V3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		572FE3AD2B698ADE00CB3E61 /* SD_App_V3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SD_App_V3App.swift; sourceTree = "<group>"; };
 		572FE3AF2B698ADE00CB3E61 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -88,6 +98,10 @@
 		575F7B992B7061B1009082ED /* ProfileScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		575F7B9A2B7061B1009082ED /* ProfileScreenViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileScreenViewModel.swift; sourceTree = "<group>"; };
 		575F7B9B2B7061B1009082ED /* ProfileHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileHelpers.swift; sourceTree = "<group>"; };
+		57E462332B7AAC2E00F9D6A7 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		57E462352B7AB2B000F9D6A7 /* DeviceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceView.swift; sourceTree = "<group>"; };
+		57E462372B7AB2BF00F9D6A7 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		57E462392B7AB2CA00F9D6A7 /* PatternsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternsView.swift; sourceTree = "<group>"; };
 		57FFA0DF2B70559200E8F92A /* WaltyKitten.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WaltyKitten.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -134,6 +148,7 @@
 		572FE3AC2B698ADE00CB3E61 /* SD App V3 */ = {
 			isa = PBXGroup;
 			children = (
+				572FE3AD2B698ADE00CB3E61 /* SD_App_V3App.swift */,
 				57106BE52B71A94400C03637 /* UserStuff */,
 				575F7B972B706194009082ED /* Test */,
 				572FE3D92B6996AB00CB3E61 /* SD-App-V3-Info.plist */,
@@ -143,7 +158,6 @@
 				572FF82E2B6ABF6B00190F52 /* Colors */,
 				572FE3D42B69967B00CB3E61 /* Fonts */,
 				572FE3BB2B698E5000CB3E61 /* Lottie */,
-				572FE3AD2B698ADE00CB3E61 /* SD_App_V3App.swift */,
 				572FE3B12B698AE000CB3E61 /* Assets.xcassets */,
 				572FE3B32B698AE000CB3E61 /* Preview Content */,
 				572FE3CC2B6992AC00CB3E61 /* GlowingView.swift */,
@@ -165,6 +179,9 @@
 		572FE3BB2B698E5000CB3E61 /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
+				5723CE9D2B7C046A00F5E172 /* EnclosureBorder.json */,
+				5723CE9B2B7BEE1000F5E172 /* Signal.json */,
+				5723CE992B7BEC9800F5E172 /* Enclosure.json */,
 				57106BF02B72063300C03637 /* GingerHunt_Dark.json */,
 				57106BE82B71E6E000C03637 /* border.json */,
 				575ED2E22B6C57CA00110CDC /* LaserStars.json */,
@@ -217,6 +234,10 @@
 				572FE3CA2B69915800CB3E61 /* RegisterView.swift */,
 				572FF8312B6ADFF000190F52 /* ProfileView.swift */,
 				573A95C12B70107900149372 /* DashboardView.swift */,
+				57E462332B7AAC2E00F9D6A7 /* WelcomeView.swift */,
+				57E462352B7AB2B000F9D6A7 /* DeviceView.swift */,
+				57E462372B7AB2BF00F9D6A7 /* SettingsView.swift */,
+				57E462392B7AB2CA00F9D6A7 /* PatternsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -320,6 +341,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				572FE3BD2B698E5D00CB3E61 /* RedLaserBlob.json in Resources */,
+				5723CE9C2B7BEE1000F5E172 /* Signal.json in Resources */,
 				572FE3D82B69969000CB3E61 /* TitanOne-Regular.ttf in Resources */,
 				57106BE92B71E6E000C03637 /* border.json in Resources */,
 				57FFA0E02B70559200E8F92A /* WaltyKitten.png in Resources */,
@@ -327,11 +349,13 @@
 				572FE3D32B6995DB00CB3E61 /* GingerHunt.json in Resources */,
 				575ED2E32B6C57CA00110CDC /* LaserStars.json in Resources */,
 				572FE3D72B69969000CB3E61 /* Quicksand[wght].ttf in Resources */,
+				5723CE9A2B7BEC9800F5E172 /* Enclosure.json in Resources */,
 				572FE3B52B698AE000CB3E61 /* Preview Assets.xcassets in Resources */,
 				572FE3B22B698AE000CB3E61 /* Assets.xcassets in Resources */,
 				572FE3D12B6994F600CB3E61 /* LaserBubbles.json in Resources */,
 				572FE3DB2B699BA100CB3E61 /* LaserDots.json in Resources */,
 				57106BF12B72063300C03637 /* GingerHunt_Dark.json in Resources */,
+				5723CE9E2B7C046A00F5E172 /* EnclosureBorder.json in Resources */,
 				572FE3DD2B699CE200CB3E61 /* test.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -353,9 +377,13 @@
 				575F7B9C2B7061B1009082ED /* ProfileScreen.swift in Sources */,
 				572FF8302B6ABF8600190F52 /* MainPalette.swift in Sources */,
 				572FE3CB2B69915800CB3E61 /* RegisterView.swift in Sources */,
+				57E462342B7AAC2E00F9D6A7 /* WelcomeView.swift in Sources */,
 				572FE3C92B69914D00CB3E61 /* LoginView.swift in Sources */,
 				571850A22B69B0030004747C /* TestView.swift in Sources */,
+				57E4623A2B7AB2CA00F9D6A7 /* PatternsView.swift in Sources */,
 				573A95C62B701A9D00149372 /* ActivityCard.swift in Sources */,
+				57E462362B7AB2B000F9D6A7 /* DeviceView.swift in Sources */,
+				57E462382B7AB2BF00F9D6A7 /* SettingsView.swift in Sources */,
 				575F7B9D2B7061B1009082ED /* ProfileScreenViewModel.swift in Sources */,
 				573A95CB2B701E9800149372 /* Kitty.swift in Sources */,
 				57106BE72B71A95600C03637 /* LaserPattern.swift in Sources */,

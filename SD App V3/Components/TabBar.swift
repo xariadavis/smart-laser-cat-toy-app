@@ -17,13 +17,14 @@ struct TabBar: View {
     @State private var selectedIndex = 0
     @State private var prevSelectedIndex = 0
 
-    let names = ["house", "arrowshape.turn.up.backward", "text.justify", "pawprint", "gearshape"]
+    let names = ["house", "text.justify", "macpro.gen2", "pawprint", "gearshape"]
 
     // a hack for keyframe animation
     @State var time = 0.0
     let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
 
     var body: some View {
+        
 #if swift(>=5.9)
         if #available(iOS 17.0, *) {
             tabbars()
@@ -41,11 +42,26 @@ struct TabBar: View {
     func tabbars() -> some View {
         ZStack(alignment: .bottom) {
             Color.clear.ignoresSafeArea()
+            
+            switch selectedIndex {
+            case 0:
+                DashboardView()
+            case 1:
+                PatternsView()
+            case 2:
+                DeviceView()
+            case 3:
+                ProfileView()
+            case 4:
+                SettingsView()
+            default:
+                EmptyView() // Fallback view
+            }
 
             AnimatedTabBar(selectedIndex: $selectedIndex, prevSelectedIndex: $prevSelectedIndex) {
                 colorButtonAt(0, type: .bell)
                 colorButtonAt(1, type: .bell)
-                colorButtonAt(2, type: .gear)
+                colorButtonAt(2, type: .bell)
                 colorButtonAt(3, type: .bell)
                 colorButtonAt(4, type: .gear)
             }
@@ -60,6 +76,7 @@ struct TabBar: View {
             .ballAnimation(.interpolatingSpring(stiffness: 130, damping: 15))
             .indentAnimation(.easeOut(duration: 0.3))
             .frame(height: 0)
+            .shadow(radius: 5)
 
         }
     }
