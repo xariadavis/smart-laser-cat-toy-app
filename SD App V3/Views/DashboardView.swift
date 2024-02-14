@@ -56,8 +56,7 @@ struct DashboardView: View {
                             // If PatternCard is not centered by default, apply centering here if needed
                     }
                 }
-                .padding(.bottom, 75)
-//                .padding([.leading, .trailing], 20)  // Add padding to the left and right if desired
+                .padding(.bottom, 85)
             }
         }
     }

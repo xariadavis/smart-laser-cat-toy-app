@@ -60,7 +60,7 @@ struct ProfileView: View {
                                     .fontWeight(.bold)
                                     .padding(.bottom, 20)
                                 
-                                HStack(alignment: .center, spacing: 8) {
+                                HStack(alignment: .center, spacing: 10) {
                                     Spacer()
                                     BarView(value: 35, day: "M")
                                     BarView(value: 20, day: "T")
@@ -78,7 +78,7 @@ struct ProfileView: View {
                             // Last Play Session
                             
                             
-                            // Carousel for favorite patterns?
+                            
                             
                         }
                         .padding()
@@ -143,8 +143,10 @@ struct BarView: View {
     
     var value: CGFloat
     var day: String
+    let progress = 0
     
     var body: some View {
+        
         VStack {
             ZStack(alignment: .bottom) {
                 Capsule()
@@ -157,8 +159,12 @@ struct BarView: View {
             }
             
             Text(day)
-                .font(Font.custom("Quicksand-Regular", size: 15))
+                .font(Font.custom("Quicksand-Regular", size: 16))
                 .frame(width: 35, alignment: .center) // Fix the width of the label
+            
+            Text("\(Int(((value / 150) * 100)))%")
+                .font(Font.custom("Quicksand-Regular", size: 14))
+                .foregroundColor(.secondary)
         }
         
     }
