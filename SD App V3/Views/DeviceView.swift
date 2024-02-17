@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PZCircularControl
 
 struct DeviceView: View {
     var body: some View {
@@ -13,53 +14,47 @@ struct DeviceView: View {
             
             Color(.systemGray5).ignoresSafeArea()
             
-            let gradient = RadialGradient(
-                gradient: Gradient(colors: [Color.red, Color.red]),
-                center: .center,
-                startRadius: 0,
-                endRadius: UIScreen.main.bounds.width / 2
-            )
             
-            VStack(alignment: .leading) {
-                
-                // The red cover
-                CurvedRectangle()
-                    .fill(gradient)
-                    .frame(height: 300)
-                    .glow()
-                    .overlay(
-                        LottiePlusView(name: Constants.Enclosure, loopMode: .loop, animationSpeed: 0.3)
-                        .scaleEffect(1.2)
-                        .padding(.top, 50)
-                    )
-                
-                Spacer()
+            VStack {
                 
                 Text("My Device")
-                    .font(Font.custom("TitanOne", size: 25))
-                    .padding(10)
+                Text("Connected")
+                
+                BatteryProgress()
+                    .padding(.horizontal, 75)
                 
                 Spacer()
                 
+                
             }
-            .ignoresSafeArea()
+                
+                
+                // If not active
+                    // Last Played Text
+                    
+                    // Start playing button
+                
+                // Else
+                    // Card with uptime
+                
+            
         }
     }
 }
 
-
-struct CurvedRectangle: Shape {
-    func path(in rect: CGRect) -> Path {
-        var path = Path()
-        
-        path.move(to: CGPoint.zero)
-        path.addLine(to: CGPoint(x: rect.maxX, y: 0))
-        path.addLine(to: CGPoint(x: rect.maxX, y: rect.maxY))
-        path.addQuadCurve(to: CGPoint(x: 0, y: rect.maxY), control: CGPoint(x: rect.midX, y: rect.maxY + 50))
-        
-        path.closeSubpath()
-        
-        return path
+struct BatteryProgress: View {
+    var body: some View {
+        PZCircularControl(
+            PZCircularControlParams(
+                innerBackgroundColor: Color.clear,
+                outerBackgroundColor: Color.Neumorphic.main,
+                tintColor: LinearGradient(gradient: Gradient(colors: [.red, .pink]), startPoint: .topLeading, endPoint: .bottomTrailing),
+                barWidth: 18.0,
+                glowDistance: 10.0,
+                font: Font.custom("Quicksand-Regular", size: 30),
+                initialValue: CGFloat(Float.random(in: 0...1))
+            )
+        )
     }
 }
 

@@ -40,7 +40,8 @@ struct DashboardView: View {
                         .padding(.horizontal, 30)
 
                     // Activity Card centered
-                    ActivityCard(progress: self.$progressValue)
+                    ActivityCard()
+                        .padding(.horizontal, 20)
                         .padding(.bottom, 15)
                     
                     

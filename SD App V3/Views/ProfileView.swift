@@ -54,6 +54,7 @@ struct ProfileView: View {
                                 .padding(.top, 20)
                             
                             // Maybe put activity card before this one
+                            ActivityCard()
                             
                             VStack {
                                 // Total calculated playtime this week

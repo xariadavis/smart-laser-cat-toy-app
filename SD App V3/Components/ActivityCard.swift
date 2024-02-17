@@ -11,46 +11,30 @@ import PZCircularControl
 
 struct ActivityCard: View {
     
-    @Binding var progress: Float
+    @State var progressValue: Float = 0.0
     
     var body: some View {
-        
-        // Important things to implement
-            // - Have a goal amount of time want cat to play
-            // - Have a progress bar
-            // - Have a daily and a weekly tracker
-        
-        // Stretch
-            // - Having daily progress will be stretch; also requires more user information
-            // - Streaks?
 
         ZStack {
-  
-            Rectangle()
-                .fill(Color.Neumorphic.main)
-                .frame(width: 350, height: 200)
-                .cornerRadius(20)
-                .padding(.horizontal, 20)
             
-            HStack(spacing: 30) {
+            HStack() {
+
+                KittyProgressBar(progress: self.$progressValue)
+                    .frame(width: 14, height: 14)
+                    .rotationEffect(Angle.degrees(180))
+                    .offset(x: 125, y: 60)
+                    .padding(20)
+                    .onAppear() {
+                        self.progressValue = 0.6
+                    }
                 
-                ZStack {
+                // (progress * 100)
+                Text("\(Int(self.progressValue * 100))%")
+                    .font(Font.custom("Quicksand-SemiBold", size: 30))
+                    .foregroundColor(Color.primary.opacity(0.5))
+                
+                Spacer()
                     
-                    PZCircularControl(
-                        PZCircularControlParams(
-                            innerBackgroundColor: Color.clear,
-                            outerBackgroundColor: Color.red.opacity(0.3),
-                            tintColor: LinearGradient(gradient: Gradient(colors: [.red, .myRed]), startPoint: .bottomLeading, endPoint: .topLeading),
-                            textColor: Color.primary.opacity(0.5),
-                            barWidth: 12.0,
-                            glowDistance: 0.0,
-                            font: Font.custom("Quicksand-Regular", size: 30),
-                            initialValue: CGFloat(Float.random(in: 0...1))
-                        )
-                    )
-                    .frame(width: 120)
-                }
-                
                 VStack(spacing: 20) {
                     // Good job or something?
                     Text("Nice Effort!")
@@ -72,7 +56,32 @@ struct ActivityCard: View {
                         .offset(x: -25)
 
                 }
+                .padding(.vertical, 30)
             }
+            .padding(10)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(Color.Neumorphic.main)
+            .cornerRadius(20)
+
+        }
+    }
+}
+
+struct KittyProgressBar: View {
+    @Binding var progress: Float
+    var color: Color = Color.green
+    
+    var body: some View {
+        ZStack {
+            KittyShape()
+                .stroke(lineWidth: 12)
+                .opacity(0.20)
+                .foregroundColor(Color.red.opacity(0.4))
+            KittyShape()
+                .trim(from: 0.0, to: CGFloat(min(self.progress, 1.0)))
+                .stroke(style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round))
+                .foregroundStyle(RadialGradient(gradient: Gradient(colors: [.red, .pink]), center: .center, startRadius: 0, endRadius: 300))
+                .animation(.easeIn(duration: 2.0))
         }
     }
 }
@@ -84,6 +93,6 @@ struct ActivityCard_Previews: PreviewProvider {
         
         @State var progress: Float = 0.1
         
-        ActivityCard(progress: $progress)
+        ActivityCard()
     }
 }

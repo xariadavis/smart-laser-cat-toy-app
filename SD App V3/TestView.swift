@@ -1,42 +1,45 @@
 import SwiftUI
 
-struct LaserCapsuleProgressBar: View {
-    var progress: CGFloat // Assume a value between 0.0 and 1.0
+struct CustomProgressBar: View {
+    @State var progressValue: Float = 0.0
     
     var body: some View {
-        GeometryReader { geometry in
-            ZStack(alignment: .bottom) {
-                // Background capsule
-                Capsule()
-                    .frame(width: geometry.size.width, height: geometry.size.height)
-                    .foregroundColor(.gray.opacity(0.2))
-                
-                // Foreground capsule with gradient
-                Capsule()
-                    .frame(width: geometry.size.width, height: geometry.size.height * progress)
-                    .foregroundColor(.clear)
-                    .background(
-                        LinearGradient(gradient: Gradient(colors: [.red.opacity(0.6), .red]), startPoint: .top, endPoint: .bottom)
-                    )
-                    .animation(.linear, value: progress)
-                
-                // Laser effect
-                if progress > 0 {
-                    Rectangle()
-                        .frame(width: geometry.size.width, height: 2)
-                        .foregroundColor(.white)
-                        .offset(y: -geometry.size.height * (1 - progress))
-                        .animation(.easeOut(duration: 0.2), value: progress)
+        VStack {
+            KittyProgressBar(progress: self.$progressValue)
+                .frame(width: 20, height: 20)
+                .rotationEffect(Angle.degrees(180))
+                .padding(20.0)
+                .onAppear() {
+                    self.progressValue = 1.0
                 }
-            }
         }
-        .frame(height: 30) // Set the fixed height for the progress bar
     }
 }
 
-struct LaserCapsuleProgressBar_Previews: PreviewProvider {
+
+struct KittyProgressBar_1: View {
+    @Binding var progress: Float
+    var color: Color = Color.green
+    
+    var body: some View {
+        ZStack {
+            KittyShape()
+                .stroke(lineWidth: 20)
+                .opacity(0.20)
+                .foregroundColor(.gray)
+            KittyShape()
+                .trim(from: 0.0, to: CGFloat(min(self.progress, 1.0)))
+                .stroke(style: StrokeStyle(lineWidth: 12, lineCap: .round, lineJoin: .round))
+                .foregroundStyle(RadialGradient(gradient: Gradient(colors: [.red, .pink]), center: .center, startRadius: 0, endRadius: 300))
+                .animation(.easeIn(duration: 2.0))
+        }
+    }
+}
+
+
+struct CustomProgressBar_Previews: PreviewProvider {
     static var previews: some View {
-        LaserCapsuleProgressBar(progress: 0.5)
-            .padding()
+        
+        CustomProgressBar()
     }
 }

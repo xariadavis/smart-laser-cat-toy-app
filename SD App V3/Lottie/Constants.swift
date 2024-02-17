@@ -19,5 +19,6 @@ enum Constants {
     static var border = "border"
     static var Enclosure = "Enclosure"
     static var EnclosureBorder = "EnclosureBorder"
+    static var EnclosureBorderWaves = "Enclosure_Border_Waves"
     static var Signal = "Signal"
 }
