@@ -93,7 +93,7 @@ struct RegisterView: View {
                 
                 Spacer()
                 
-                NavigationLink(destination: DashboardView().navigationBarBackButtonHidden(true)) {
+                NavigationLink(destination: ContentView().navigationBarBackButtonHidden(true)) {
                     Text("Sign Up")
                         .font(Font.custom("Quicksand-SemiBold", size: 20))
                         .frame(maxWidth: .infinity)

@@ -41,23 +41,26 @@ struct TabBar: View {
     
     func tabbars() -> some View {
         ZStack(alignment: .bottom) {
-            Color.clear.ignoresSafeArea()
+            Color(.systemGray5).ignoresSafeArea()
             
-            switch selectedIndex {
-            case 0:
-                DashboardView()
-            case 1:
-                PatternsView()
-            case 2:
-                DeviceView()
-            case 3:
-                ProfileView()
-            case 4:
-                SettingsView()
-            default:
-                EmptyView() // Fallback view
+            Group {
+                switch selectedIndex {
+                case 0:
+                    DashboardView()
+                case 1:
+                    PatternsView()
+                case 2:
+                    DeviceView()
+                case 3:
+                    ProfileView()
+                case 4:
+                    SettingsView()
+                default:
+                    EmptyView() // Fallback view
+                }
             }
-
+//            .transition(.scale(scale: 0.9))
+            
             AnimatedTabBar(selectedIndex: $selectedIndex, prevSelectedIndex: $prevSelectedIndex) {
                 colorButtonAt(0, type: .bell)
                 colorButtonAt(1, type: .bell)
@@ -77,8 +80,9 @@ struct TabBar: View {
             .indentAnimation(.easeOut(duration: 0.3))
             .frame(height: 0)
             .shadow(radius: 5)
-
         }
+//        .animation(.easeInOut(duration: 0.3), value: selectedIndex)
+
     }
     
     func colorButtonAt(_ index: Int, type: ColorButton.AnimationType) -> some View {
@@ -88,7 +92,8 @@ struct TabBar: View {
             isSelected: selectedIndex == index,
             fromLeft: prevSelectedIndex < index,
             toLeft: selectedIndex < index,
-            animationType: type)
+            animationType: type
+        )
     }
 }
 

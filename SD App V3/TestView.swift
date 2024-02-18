@@ -5,7 +5,7 @@ struct CustomProgressBar: View {
     
     var body: some View {
         VStack {
-            KittyProgressBar(progress: self.$progressValue)
+            KittyProgressBar_1(progress: self.$progressValue)
                 .frame(width: 20, height: 20)
                 .rotationEffect(Angle.degrees(180))
                 .padding(20.0)

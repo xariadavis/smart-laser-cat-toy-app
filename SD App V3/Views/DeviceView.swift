@@ -44,17 +44,19 @@ struct DeviceView: View {
 
 struct BatteryProgress: View {
     var body: some View {
-        PZCircularControl(
-            PZCircularControlParams(
-                innerBackgroundColor: Color.clear,
-                outerBackgroundColor: Color.Neumorphic.main,
-                tintColor: LinearGradient(gradient: Gradient(colors: [.red, .pink]), startPoint: .topLeading, endPoint: .bottomTrailing),
-                barWidth: 18.0,
-                glowDistance: 10.0,
-                font: Font.custom("Quicksand-Regular", size: 30),
-                initialValue: CGFloat(Float.random(in: 0...1))
-            )
-        )
+//        PZCircularControl(
+//            PZCircularControlParams(
+//                innerBackgroundColor: Color.clear,
+//                outerBackgroundColor: Color.Neumorphic.main,
+//                tintColor: LinearGradient(gradient: Gradient(colors: [.red, .pink]), startPoint: .topLeading, endPoint: .bottomTrailing),
+//                barWidth: 18.0,
+//                glowDistance: 10.0,
+//                font: Font.custom("Quicksand-Regular", size: 30),
+//                initialValue: CGFloat(Float.random(in: 0...1))
+//            )
+//        )
+        
+        Text("Cry")
     }
 }
 

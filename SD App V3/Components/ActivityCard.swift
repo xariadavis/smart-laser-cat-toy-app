@@ -7,11 +7,11 @@
 
 import SwiftUI
 import Neumorphic
-import PZCircularControl
 
 struct ActivityCard: View {
     
     @State var progressValue: Float = 0.0
+    @State var isFirstLoad: Bool = true
     
     var body: some View {
 
@@ -69,6 +69,7 @@ struct ActivityCard: View {
 
 struct KittyProgressBar: View {
     @Binding var progress: Float
+    
     var color: Color = Color.green
     
     var body: some View {
@@ -79,9 +80,10 @@ struct KittyProgressBar: View {
                 .foregroundColor(Color.red.opacity(0.4))
             KittyShape()
                 .trim(from: 0.0, to: CGFloat(min(self.progress, 1.0)))
-                .stroke(style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round))
+                .stroke(style: StrokeStyle(lineWidth: 10, lineCap: .round,
+                                           lineJoin: .round))
                 .foregroundStyle(RadialGradient(gradient: Gradient(colors: [.red, .pink]), center: .center, startRadius: 0, endRadius: 300))
-                .animation(.easeIn(duration: 2.0))
+                .animation(.easeInOut(duration: 1.0), value: progress)
         }
     }
 }

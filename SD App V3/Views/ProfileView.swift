@@ -53,7 +53,6 @@ struct ProfileView: View {
                                 .font(Font.custom("TitanOne", size: 23))
                                 .padding(.top, 20)
                             
-                            // Maybe put activity card before this one
                             ActivityCard()
                             
                             VStack {
@@ -196,11 +195,11 @@ struct BarView: View {
         VStack {
             ZStack(alignment: .bottom) {
                 Capsule()
-                    .frame(width: 20, height: 150)
+                    .frame(width: 15, height: 150)
                     .foregroundColor(Color.red.opacity(0.2))
                 
                 Capsule()
-                    .frame(width: 20, height: value)
+                    .frame(width: 15, height: value)
                     .foregroundColor(Color.red)
             }
             
