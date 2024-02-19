@@ -13,11 +13,21 @@ struct PatternsView: View {
             
             Color(.systemGray5).ignoresSafeArea()
             
-            ScrollView {
-                // List of Patterns centered
-                ForEach(laserPatterns) { pattern in
-                    PatternCard(iconName: pattern.iconName, name: pattern.name, description: pattern.description)
-                    // If PatternCard is not centered by default, apply centering here if needed
+            VStack {
+                
+                // Title
+                Text("Patterns")
+                    .font(Font.custom("TitanOne", size: 30))
+                    .frame(maxWidth: .infinity, alignment: .leading)  // Align text to the leading edge
+                    .padding(.horizontal, 30)
+                    .padding(.top, 10)
+                
+                ScrollView {
+                    // List of Patterns centered
+                    ForEach(laserPatterns) { pattern in
+                        PatternCard(iconName: pattern.iconName, name: pattern.name, description: pattern.description)
+                        // If PatternCard is not centered by default, apply centering here if needed
+                    }
                 }
             }
         }

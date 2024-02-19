@@ -47,6 +47,7 @@ struct ProfileView: View {
                             Text("Favorites")
                                 .font(Font.custom("TitanOne", size: 23))
                                 .padding(.top, 20)
+                            
                             CarouselView()
                             
                             Text("Activity")

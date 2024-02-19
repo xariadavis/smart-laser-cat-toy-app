@@ -12,52 +12,56 @@ struct DashboardView: View {
     @State var progressValue: Float = 0.3
     
     var body: some View {
-        
-        ZStack(alignment: .center) {
-            
-            
-            // Background color
-            Color(.systemGray5).ignoresSafeArea()
-
-            ScrollView {
+            ZStack(alignment: .center) {
+                
+                
+                // Background color
+                Color(.systemGray5).ignoresSafeArea()
+                
                 VStack {
                     
-                    // Temp Text aligned to the left
-                    Text("Happy Playing")
-                        .font(Font.custom("TitanOne", size: 30))
-                        .frame(maxWidth: .infinity, alignment: .leading)  // Align text to the leading edge
-                        .padding(.horizontal, 30)
-                        .padding(.top, 10)
-
-                    // Kitty Profile Card centered
-                    ProfileCard()
-                        .padding(.bottom, 15)
-                    
-                    // Activity Card Title aligned to the left
-                    Text("Activity")
-                        .font(Font.custom("TitanOne", size: 25))
-                        .frame(maxWidth: .infinity, alignment: .leading)  // Align text to the leading edge
-                        .padding(.horizontal, 30)
-
-                    // Activity Card centered
-                    ActivityCard()
-                        .padding(.horizontal, 20)
-                        .padding(.bottom, 15)
-                    
-                    
-                    // Patterns Title aligned to the left
-                    Text("Patterns")
-                        .font(Font.custom("TitanOne", size: 25))
-                        .frame(maxWidth: .infinity, alignment: .leading)  // Align text to the leading edge
-                        .padding(.horizontal, 30)
-
-                    // List of Patterns centered
-                    ForEach(laserPatterns) { pattern in
-                        PatternCard(iconName: pattern.iconName, name: pattern.name, description: pattern.description)
-                            // If PatternCard is not centered by default, apply centering here if needed
+                    VStack {
+                        // Temp Text aligned to the left
+                        Text("Dashboard")
+                            .font(Font.custom("TitanOne", size: 30))
+                            .frame(maxWidth: .infinity, alignment: .leading)  // Align text to the leading edge
+                            .padding(.horizontal, 30)
+                            .padding(.top, 10)
                     }
-                }
-                .padding(.bottom, 85)
+                
+                    ScrollView {
+                        VStack {
+                            
+                            // Kitty Profile Card centered
+                            ProfileCard()
+                                .padding(.bottom, 15)
+                            
+                            // Activity Card Title aligned to the left
+                            Text("Activity")
+                                .font(Font.custom("TitanOne", size: 25))
+                                .frame(maxWidth: .infinity, alignment: .leading)  // Align text to the leading edge
+                                .padding(.horizontal, 30)
+                            
+                            // Activity Card centered
+                            ActivityCard()
+                                .padding(.horizontal, 20)
+                                .padding(.bottom, 15)
+                            
+                            
+                            // Patterns Title aligned to the left
+                            Text("Patterns")
+                                .font(Font.custom("TitanOne", size: 25))
+                                .frame(maxWidth: .infinity, alignment: .leading)  // Align text to the leading edge
+                                .padding(.horizontal, 30)
+                            
+                            // List of Patterns centered
+                            ForEach(laserPatterns) { pattern in
+                                PatternCard(iconName: pattern.iconName, name: pattern.name, description: pattern.description)
+                                
+                            }
+                        }
+                        .padding(.bottom, 85)
+                    }
             }
         }
     }

@@ -13,6 +13,7 @@ struct PatternCard: View {
     var description: String
 
     var body: some View {
+        
         ZStack {
             
             HStack(spacing: 10) {
