@@ -10,6 +10,7 @@ import Neumorphic
 
 struct DashboardView: View {
     @State var progressValue: Float = 0.3
+    @Binding var selectedIndex: Int
     
     var body: some View {
             ZStack(alignment: .center) {
@@ -49,16 +50,21 @@ struct DashboardView: View {
                             
                             
                             // Patterns Title aligned to the left
-                            Text("Patterns")
+                            Text("Favorites")
                                 .font(Font.custom("TitanOne", size: 25))
                                 .frame(maxWidth: .infinity, alignment: .leading)  // Align text to the leading edge
                                 .padding(.horizontal, 30)
                             
                             // List of Patterns centered
-                            ForEach(laserPatterns) { pattern in
+                            ForEach(laserPatterns.filter {$0.isFavorite}) { pattern in
                                 PatternCard(iconName: pattern.iconName, name: pattern.name, description: pattern.description)
                                 
                             }
+                            
+                            Button("See more") {
+                                selectedIndex = 1
+                            }
+
                         }
                         .padding(.bottom, 85)
                     }
@@ -67,8 +73,8 @@ struct DashboardView: View {
     }
 }
 
-struct DashboardView_Previews: PreviewProvider {
-    static var previews: some View {
-        DashboardView()
-    }
-}
+//struct DashboardView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        DashboardView(selectedIndex: $selectedIndex)
+//    }
+//}

@@ -14,7 +14,7 @@ struct CircleValues {
 }
 
 struct TabBar: View {
-    @State private var selectedIndex = 0
+    @Binding var selectedIndex: Int
     @State private var prevSelectedIndex = 0
 
     let names = ["house", "text.justify", "macpro.gen2", "pawprint", "gearshape"]
@@ -46,7 +46,7 @@ struct TabBar: View {
             Group {
                 switch selectedIndex {
                 case 0:
-                    DashboardView()
+                    DashboardView(selectedIndex: $selectedIndex)
                 case 1:
                     PatternsView()
                 case 2:
@@ -97,8 +97,10 @@ struct TabBar: View {
     }
 }
 
-struct TabBar_Previews: PreviewProvider {
-    static var previews: some View {
-        TabBar()
-    }
-}
+//struct TabBar_Previews: PreviewProvider {
+//    
+//    static var previews: some View {
+//        State private var selectedIndex = 0
+//        TabBar(selectedIndex: $selectedIndex)
+//    }
+//}

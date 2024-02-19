@@ -31,6 +31,7 @@ struct PatternsView: View {
                         
                         FavoritesCarousel(width: 175, height: 175)
                             .padding(.horizontal)
+                            .padding(.bottom, 15)
                         
                         Text("All Patterns")
                             .font(Font.custom("TitanOne", size: 23))
