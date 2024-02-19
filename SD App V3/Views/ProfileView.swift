@@ -48,7 +48,8 @@ struct ProfileView: View {
                                 .font(Font.custom("TitanOne", size: 23))
                                 .padding(.top, 20)
                             
-                            CarouselView()
+                            
+                            FavoritesCarousel(width: 150, height: 150)
                             
                             Text("Activity")
                                 .font(Font.custom("TitanOne", size: 23))
@@ -143,44 +144,6 @@ struct Rounded: Shape {
         let path = UIBezierPath(roundedRect: rect, byRoundingCorners: [.topLeft,.topRight], cornerRadii: CGSize(width: 35, height: 35))
         
         return Path(path.cgPath)
-    }
-}
-
-
-struct CarouselView: View {
-    // This array holds the data which you want to display in your carousel.
-
-    var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 10) {
-                ForEach(laserPatterns.prefix(4)) { pattern in
-                    CarouselItemView(pattern: pattern)
-                        .frame(width: 150, height: 150)
-                        .background(Color.Neumorphic.main)
-                        .cornerRadius(12)
-                }
-            }
-        }
-    }
-}
-
-struct CarouselItemView: View {
-    let pattern: LaserPattern
-
-    var body: some View {
-        VStack {
-            Image(pattern.iconName)
-                .resizable()
-                .scaledToFill()
-                .frame(width: 75, height: 75)
-                .clipped()
-                .cornerRadius(10)
-                .padding(5)
-            
-            Text(pattern.name)
-                .font(Font.custom("Quicksand-Semibold", size: 15))
-                .padding(.horizontal, 5)
-        }
     }
 }
 

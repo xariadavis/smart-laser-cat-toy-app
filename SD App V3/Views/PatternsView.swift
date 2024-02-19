@@ -13,7 +13,7 @@ struct PatternsView: View {
             
             Color(.systemGray5).ignoresSafeArea()
             
-            VStack {
+            VStack() {
                 
                 // Title
                 Text("Patterns")
@@ -23,11 +23,26 @@ struct PatternsView: View {
                     .padding(.top, 10)
                 
                 ScrollView {
-                    // List of Patterns centered
-                    ForEach(laserPatterns) { pattern in
-                        PatternCard(iconName: pattern.iconName, name: pattern.name, description: pattern.description)
-                        // If PatternCard is not centered by default, apply centering here if needed
+                    
+                    VStack(alignment: .leading) {
+                        Text("Favorites")
+                            .font(Font.custom("TitanOne", size: 23))
+                            .padding(.horizontal, 30)
+                        
+                        FavoritesCarousel(width: 175, height: 175)
+                            .padding(.horizontal)
+                        
+                        Text("All Patterns")
+                            .font(Font.custom("TitanOne", size: 23))
+                            .padding(.horizontal, 30)
+                        
+                        // List of Patterns centered
+                        ForEach(laserPatterns) { pattern in
+                            PatternCard(iconName: pattern.iconName, name: pattern.name, description: pattern.description)
+                            // If PatternCard is not centered by default, apply centering here if needed
+                        }
                     }
+                    .padding(.bottom, 85)
                 }
             }
         }
