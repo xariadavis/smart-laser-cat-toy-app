@@ -1,45 +1,41 @@
 import SwiftUI
 
-struct CustomProgressBar: View {
-    @State var progressValue: Float = 0.0
-    
+struct LightSaberButton: View {
+    @State private var saberActivated = false
+
     var body: some View {
-        VStack {
-            KittyProgressBar_1(progress: self.$progressValue)
-                .frame(width: 20, height: 20)
-                .rotationEffect(Angle.degrees(180))
-                .padding(20.0)
-                .onAppear() {
-                    self.progressValue = 1.0
+        Button(action: {
+            withAnimation(.easeInOut(duration: 0.5)) {
+                saberActivated.toggle()
+            }
+        }) {
+            VStack {
+                if saberActivated {
+                    // Light Saber Blade
+                    Capsule()
+                        .fill(LinearGradient(gradient: Gradient(colors: [Color.white.opacity(0.5), Color.blue]), startPoint: .top, endPoint: .bottom))
+                        .frame(width: 10, height: 100) // Adjust size to your liking
+                        .transition(.slide)
+                        .animation(.easeInOut(duration: 0.5), value: saberActivated)
                 }
+                // Light Saber Handle
+                Capsule()
+                    .fill(LinearGradient(gradient: Gradient(colors: [Color.gray, Color.black]), startPoint: .top, endPoint: .bottom))
+                    .frame(width: 20, height: 30) // Adjust size to match your design
+            }
+            .frame(width: 20, height: saberActivated ? 130 : 30) // Adjust for total size
         }
+        .padding()
+        .background(Color.clear)
+        .cornerRadius(10)
     }
 }
 
-
-struct KittyProgressBar_1: View {
-    @Binding var progress: Float
-    var color: Color = Color.green
-    
-    var body: some View {
-        ZStack {
-            KittyShape()
-                .stroke(lineWidth: 20)
-                .opacity(0.20)
-                .foregroundColor(.gray)
-            KittyShape()
-                .trim(from: 0.0, to: CGFloat(min(self.progress, 1.0)))
-                .stroke(style: StrokeStyle(lineWidth: 12, lineCap: .round, lineJoin: .round))
-                .foregroundStyle(RadialGradient(gradient: Gradient(colors: [.red, .pink]), center: .center, startRadius: 0, endRadius: 300))
-                .animation(.easeIn(duration: 2.0))
-        }
-    }
-}
 
 
 struct CustomProgressBar_Previews: PreviewProvider {
     static var previews: some View {
         
-        CustomProgressBar()
+        LightSaberButton()
     }
 }

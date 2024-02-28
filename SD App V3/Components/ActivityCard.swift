@@ -12,7 +12,7 @@ struct ActivityCard: View {
     
     @State var progressValue: Float = 0.0
     @State var isFirstLoad: Bool = true
-    
+        
     var body: some View {
 
         ZStack {
@@ -35,27 +35,38 @@ struct ActivityCard: View {
                 
                 Spacer()
                     
-                VStack(spacing: 20) {
-                    // Good job or something?
-                    Text("Nice Effort!")
-                        .font(Font.custom("Quicksand-Bold", size: 23))
+                VStack(alignment:.leading, spacing: 15) {
+                    
+                    let formattedDateString = DateFormatterService.formattedDate()
+                    Text(formattedDateString)
+                        .font(Font.custom("Quicksand-Bold", size: 20))
                         .foregroundColor(Color.primary)
-                        .offset(x: -10)
+                    
                     
                     // Weekly Goal
-                    Text("10/100 mins of \npawsome play 🐾")
-                        .multilineTextAlignment(.leading)
-                        .font(Font.custom("Quicksand-Medium", size: 17))
-                        .fontWeight(.semibold)
-                        .foregroundColor(Color.secondary)
+                    VStack(alignment: .leading) {
+                        Text("Today's playtime")
+                            .font(Font.custom("Quicksand-Bold", size: 16))
+                            .foregroundColor(Color.secondary)
+                        
+                        Text("18/30 mins")
+                            .font(Font.custom("Quicksand-Semibold", size: 14))
+                            .foregroundColor(Color.secondary)
+                    }
+                    .padding(.trailing, 20)
                     
-                    Text("90 mins left!")
-                        .font(Font.custom("Quicksand-Medium", size: 17))
-                        .fontWeight(.semibold)
-                        .foregroundColor(Color.secondary)
-                        .offset(x: -25)
+                    VStack(alignment: .leading) {
+                        Text("Left this week")
+                            .font(Font.custom("Quicksand-Bold", size: 16))
+                            .foregroundColor(Color.secondary)
+                        
+                        Text("80 mins")
+                            .font(Font.custom("Quicksand-Semibold", size: 14))
+                            .foregroundColor(Color.secondary)
+                    }
 
                 }
+                .offset(y: -5)
                 .padding(.vertical, 30)
             }
             .padding(10)
@@ -87,6 +98,26 @@ struct KittyProgressBar: View {
         }
     }
 }
+
+
+struct DateFormatterService {
+    static func formattedDate() -> String {
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMM" // Month
+        
+        let calendar = Calendar.current
+        let day = calendar.component(.day, from: date)
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .ordinal
+        let dayOrdinal = numberFormatter.string(from: NSNumber(value: day)) ?? ""
+        
+        let month = dateFormatter.string(from: date)
+        let formattedDate = "\(month) \(dayOrdinal)"
+        return formattedDate
+    }
+}
+
 
 struct ActivityCard_Previews: PreviewProvider {
 

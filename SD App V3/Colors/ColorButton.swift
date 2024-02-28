@@ -34,7 +34,7 @@ public struct ColorButton: View {
     public var body: some View {
         ZStack {
             ColorButtonBg(colorImage: colorImage, isSelected: isSelected, fromLeft: fromLeft, toLeft: toLeft, t: tForBg)
-                .offset(x: 3, y: 3)
+                //.offset(x: 3, y: 3)
             switch animationType {
             case .bell:
                 ColorButtonOutlineBell(image: image, t: t)

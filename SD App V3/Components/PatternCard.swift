@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct PatternCard: View {
-    var iconName: String
-    var name: String
-    var description: String
+    
+    let pattern: LaserPattern
 
     var body: some View {
         
@@ -18,7 +17,7 @@ struct PatternCard: View {
             
             HStack(spacing: 10) {
                 
-                Image(iconName) // Replace with your image name or use systemName for SF Symbols
+                Image(pattern.iconName) // Replace with your image name or use systemName for SF Symbols
                     .resizable()
                     .scaledToFill()
                     .frame(width: 70, height: 70)
@@ -27,12 +26,26 @@ struct PatternCard: View {
                     .padding(5)
                 
                 VStack(alignment: .leading, spacing: 10) {
-                    Text(name)
-                        .font(Font.custom("Quicksand-Bold", size: 17))
-                        .fontWeight(.bold)
-                        .padding(.top, 10)
                     
-                    Text(description)
+                    HStack {
+                        Text(pattern.name)
+                            .font(Font.custom("Quicksand-Bold", size: 17))
+                            .fontWeight(.bold)
+                            .padding(.top, 10)
+                        
+                        if(pattern.isFavorite) {
+                            Spacer()
+                            
+                            Image("Sparkle")
+                                .resizable()
+                                .frame(width: 20, height: 20)
+                                .padding(.horizontal, 5)
+                        }
+                        
+                        // If pattern is a favorite then mark it with the favorites symbol
+                    }
+                    
+                    Text(pattern.description)
                         .font(Font.custom("Quicksand-Bold", size: 14))
                         .foregroundColor(.secondary)
                         .lineLimit(3)
@@ -51,6 +64,8 @@ struct PatternCard: View {
 
 struct PatternCard_Previews: PreviewProvider {
     static var previews: some View {
-        PatternCard(iconName: "CirclePattern", name: "This is a placeholder", description: "This is also a placehodler")
+        let _: LaserPattern
+        
+        PatternCard(pattern: laserPatterns[2])
     }
 }

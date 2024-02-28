@@ -39,7 +39,7 @@ struct PatternsView: View {
                         
                         // List of Patterns centered
                         ForEach(laserPatterns) { pattern in
-                            PatternCard(iconName: pattern.iconName, name: pattern.name, description: pattern.description)
+                            PatternCard(pattern: pattern)
                             // If PatternCard is not centered by default, apply centering here if needed
                         }
                     }

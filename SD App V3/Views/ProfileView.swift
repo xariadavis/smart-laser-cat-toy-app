@@ -17,7 +17,9 @@ struct ProfileView: View {
             ScrollView {
                 VStack {
                     // Image
-                    Image("KittyProfilePic") // Initialize Image with name
+                    
+//                    Image("KittyProfilePic")
+                    Image("MOCK_CAT_PFP") // Initialize Image with name
                         .resizable()
                         .scaledToFill() // Fill the ZStack, you can adjust this as needed
                         .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2) // Half the screen height
@@ -30,17 +32,17 @@ struct ProfileView: View {
                         
                         VStack(alignment: .leading) {
                             // Kitty's name
-                            Text("Sir Walter Honey Bee 🐝")
+                            Text("\(MOCK_CAT.name)")
                                 .font(Font.custom("TitanOne", size: 25))
                                 .padding(10)
                             
                             HStack {
-                                InfoCard(iconName: "clock", title: "Age", detail: "2 years")
-                                InfoCard(iconName: "pawprint", title: "Breed", detail: "DMH")
+                                InfoCard(iconName: "clock", title: "Age", detail: "\(MOCK_CAT.age) years")
+                                InfoCard(iconName: "pawprint", title: "Breed", detail: "\(MOCK_CAT.breed)")
                             }
                             HStack {
-                                InfoCard(iconName: "person", title: "Sex", detail: "Male")
-                                InfoCard(iconName: "scalemass", title: "Weight", detail: "15 lb")
+                                InfoCard(iconName: "person", title: "Sex", detail: "\(MOCK_CAT.sex)")
+                                InfoCard(iconName: "scalemass", title: "Weight", detail: "\(MOCK_CAT.weight) lb")
                             }
                             
                             
@@ -81,7 +83,7 @@ struct ProfileView: View {
                                 }
                             }
                             .padding(.vertical, 30)
-                            .background(RoundedRectangle(cornerRadius: 10).fill(Color.Neumorphic.main))
+                            .background(RoundedRectangle(cornerRadius: 20).fill(Color.Neumorphic.main))
                             
                             // Last Play Session
                             

@@ -48,9 +48,8 @@
 		574DD6182B83208F003C39B2 /* FavoritesCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574DD6172B83208F003C39B2 /* FavoritesCarousel.swift */; };
 		575ED2E32B6C57CA00110CDC /* LaserStars.json in Resources */ = {isa = PBXBuildFile; fileRef = 575ED2E22B6C57CA00110CDC /* LaserStars.json */; };
 		575F7B962B705F4A009082ED /* ScalingHeaderScrollView in Frameworks */ = {isa = PBXBuildFile; productRef = 575F7B952B705F4A009082ED /* ScalingHeaderScrollView */; };
-		575F7B9C2B7061B1009082ED /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575F7B992B7061B1009082ED /* ProfileScreen.swift */; };
-		575F7B9D2B7061B1009082ED /* ProfileScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575F7B9A2B7061B1009082ED /* ProfileScreenViewModel.swift */; };
-		575F7B9E2B7061B1009082ED /* ProfileHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575F7B9B2B7061B1009082ED /* ProfileHelpers.swift */; };
+		576056932B884EBF00FC6150 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576056922B884EBF00FC6150 /* User.swift */; };
+		576056952B88510700FC6150 /* Cat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576056942B88510700FC6150 /* Cat.swift */; };
 		578BA2B72B7D918800C377E4 /* Enclosure_Border_Waves.json in Resources */ = {isa = PBXBuildFile; fileRef = 578BA2B62B7D918800C377E4 /* Enclosure_Border_Waves.json */; };
 		579691682B7346A500FCA50F /* PZCircularControl in Frameworks */ = {isa = PBXBuildFile; productRef = 579691672B7346A500FCA50F /* PZCircularControl */; };
 		57BB10DA2B7FD2280070DE63 /* KDCircularProgress in Frameworks */ = {isa = PBXBuildFile; productRef = 57BB10D92B7FD2280070DE63 /* KDCircularProgress */; };
@@ -101,9 +100,8 @@
 		573A95CA2B701E9800149372 /* Kitty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kitty.swift; sourceTree = "<group>"; };
 		574DD6172B83208F003C39B2 /* FavoritesCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCarousel.swift; sourceTree = "<group>"; };
 		575ED2E22B6C57CA00110CDC /* LaserStars.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LaserStars.json; sourceTree = "<group>"; };
-		575F7B992B7061B1009082ED /* ProfileScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
-		575F7B9A2B7061B1009082ED /* ProfileScreenViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileScreenViewModel.swift; sourceTree = "<group>"; };
-		575F7B9B2B7061B1009082ED /* ProfileHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileHelpers.swift; sourceTree = "<group>"; };
+		576056922B884EBF00FC6150 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		576056942B88510700FC6150 /* Cat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cat.swift; sourceTree = "<group>"; };
 		578BA2B62B7D918800C377E4 /* Enclosure_Border_Waves.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Enclosure_Border_Waves.json; path = ../../../../../../../../Downloads/Enclosure_Border_Waves.json; sourceTree = "<group>"; };
 		57E462332B7AAC2E00F9D6A7 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		57E462352B7AB2B000F9D6A7 /* DeviceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceView.swift; sourceTree = "<group>"; };
@@ -133,6 +131,8 @@
 			isa = PBXGroup;
 			children = (
 				57106BE62B71A95600C03637 /* LaserPattern.swift */,
+				576056922B884EBF00FC6150 /* User.swift */,
+				576056942B88510700FC6150 /* Cat.swift */,
 			);
 			path = UserStuff;
 			sourceTree = "<group>";
@@ -167,7 +167,6 @@
 				5719F10B2B7FFF320024514E /* CustomShapes */,
 				572FE3AD2B698ADE00CB3E61 /* SD_App_V3App.swift */,
 				57106BE52B71A94400C03637 /* UserStuff */,
-				575F7B972B706194009082ED /* Test */,
 				572FE3D92B6996AB00CB3E61 /* SD-App-V3-Info.plist */,
 				57FFA0DE2B70553500E8F92A /* Images */,
 				573A95C92B701E6600149372 /* Views */,
@@ -175,12 +174,12 @@
 				572FF82E2B6ABF6B00190F52 /* Colors */,
 				572FE3D42B69967B00CB3E61 /* Fonts */,
 				572FE3BB2B698E5000CB3E61 /* Lottie */,
-				572FE3B12B698AE000CB3E61 /* Assets.xcassets */,
 				572FE3B32B698AE000CB3E61 /* Preview Content */,
 				572FE3CC2B6992AC00CB3E61 /* GlowingView.swift */,
 				571850A12B69B0030004747C /* TestView.swift */,
 				573A95C32B7019D900149372 /* Pattern.swift */,
 				573A95CA2B701E9800149372 /* Kitty.swift */,
+				572FE3B12B698AE000CB3E61 /* Assets.xcassets */,
 			);
 			path = "SD App V3";
 			sourceTree = "<group>";
@@ -259,24 +258,6 @@
 				57E462392B7AB2CA00F9D6A7 /* PatternsView.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		575F7B972B706194009082ED /* Test */ = {
-			isa = PBXGroup;
-			children = (
-				575F7B982B7061B1009082ED /* ProfileScreen */,
-			);
-			path = Test;
-			sourceTree = "<group>";
-		};
-		575F7B982B7061B1009082ED /* ProfileScreen */ = {
-			isa = PBXGroup;
-			children = (
-				575F7B992B7061B1009082ED /* ProfileScreen.swift */,
-				575F7B9A2B7061B1009082ED /* ProfileScreenViewModel.swift */,
-				575F7B9B2B7061B1009082ED /* ProfileHelpers.swift */,
-			);
-			path = ProfileScreen;
 			sourceTree = "<group>";
 		};
 		57FFA0DE2B70553500E8F92A /* Images */ = {
@@ -391,13 +372,14 @@
 			files = (
 				572FE3B02B698ADE00CB3E61 /* ContentView.swift in Sources */,
 				573A95C22B70107900149372 /* DashboardView.swift in Sources */,
+				576056952B88510700FC6150 /* Cat.swift in Sources */,
 				572FE3AE2B698ADE00CB3E61 /* SD_App_V3App.swift in Sources */,
 				574DD6182B83208F003C39B2 /* FavoritesCarousel.swift in Sources */,
 				5704DDED2B7881C600253D4F /* ColorButton.swift in Sources */,
 				572FF8322B6ADFF000190F52 /* ProfileView.swift in Sources */,
 				573A95C82B701BB700149372 /* PatternCard.swift in Sources */,
 				572FE3BF2B698E8900CB3E61 /* LottiePlusView.swift in Sources */,
-				575F7B9C2B7061B1009082ED /* ProfileScreen.swift in Sources */,
+				576056932B884EBF00FC6150 /* User.swift in Sources */,
 				572FF8302B6ABF8600190F52 /* MainPalette.swift in Sources */,
 				572FE3CB2B69915800CB3E61 /* RegisterView.swift in Sources */,
 				57E462342B7AAC2E00F9D6A7 /* WelcomeView.swift in Sources */,
@@ -407,13 +389,11 @@
 				573A95C62B701A9D00149372 /* ActivityCard.swift in Sources */,
 				57E462362B7AB2B000F9D6A7 /* DeviceView.swift in Sources */,
 				57E462382B7AB2BF00F9D6A7 /* SettingsView.swift in Sources */,
-				575F7B9D2B7061B1009082ED /* ProfileScreenViewModel.swift in Sources */,
 				573A95CB2B701E9800149372 /* Kitty.swift in Sources */,
 				57106BE72B71A95600C03637 /* LaserPattern.swift in Sources */,
 				573A95C42B7019D900149372 /* Pattern.swift in Sources */,
 				5719F10D2B7FFF440024514E /* KittyShape.swift in Sources */,
 				572FE3C72B698F6A00CB3E61 /* Constants.swift in Sources */,
-				575F7B9E2B7061B1009082ED /* ProfileHelpers.swift in Sources */,
 				5704DDF22B788DC800253D4F /* TabBar.swift in Sources */,
 				572FE3CD2B6992AC00CB3E61 /* GlowingView.swift in Sources */,
 				573A95BD2B7007AD00149372 /* ProfileCard.swift in Sources */,

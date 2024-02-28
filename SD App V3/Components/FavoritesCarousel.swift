@@ -42,6 +42,7 @@ struct CarouselItemView: View {
             
             Text(pattern.name)
                 .font(Font.custom("Quicksand-Semibold", size: 15))
+                .fontWeight(.bold)
                 .padding(.horizontal, 5)
         }
     }

@@ -11,7 +11,7 @@ struct ProfileCard: View {
     @State private var gradientStart = UnitPoint(x: -0.5, y: -0.5)
     @State private var gradientEnd = UnitPoint(x: 0, y: 0)
     
-    let maxWidth = 330.0
+    let maxWidth = UIScreen.main.bounds.width - 50
     let maxHeight = 450.0
     
     var body: some View {
@@ -34,7 +34,8 @@ struct ProfileCard: View {
                         }
                 )
             
-            Image("KittyProfilePic")
+//            Image("KittyProfilePic")
+            Image("MOCK_CAT_PFP")
                 .resizable()
                 .scaledToFill()
                 .frame(width: maxWidth, height: maxHeight)
@@ -45,7 +46,7 @@ struct ProfileCard: View {
             
             VStack() {
                 Spacer()
-                Text("Sir Walter Honey Bee 🐝")
+                Text("\(MOCK_CAT.name)")
                     .font(Font.custom("QuickSand-Bold", size: 20))
                     .foregroundColor(.white)
                     .padding(.horizontal, 5)
@@ -54,7 +55,6 @@ struct ProfileCard: View {
             
         }
         .frame(width: maxWidth, height: maxHeight)
-//        .clipShape(RoundedRectangle(cornerRadius: 30))
         .padding(5)
     }
 }

@@ -57,24 +57,34 @@ struct DashboardView: View {
                             
                             // List of Patterns centered
                             ForEach(laserPatterns.filter {$0.isFavorite}) { pattern in
-                                PatternCard(iconName: pattern.iconName, name: pattern.name, description: pattern.description)
-                                
+                                PatternCard(pattern: pattern)
                             }
                             
-                            Button("See more") {
+                            HStack {
+                                Text("See more")
+                                Image(systemName: "arrow.right")
+                            }
+                            .font(Font.custom("Quicksand-SemiBold", size: 17))
+                            .frame(maxWidth: .infinity)
+                            .padding(15)
+                            .foregroundColor(Color.primary)
+                            .background(Color.red.opacity(0.0))
+                            .cornerRadius(15)
+                            .padding(.horizontal, 15)
+                            .onTapGesture {
                                 selectedIndex = 1
                             }
 
                         }
-                        .padding(.bottom, 85)
+                        .padding(.bottom, 70)
                     }
             }
         }
     }
 }
 
-//struct DashboardView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        DashboardView(selectedIndex: $selectedIndex)
-//    }
-//}
+struct DashboardView_Previews: PreviewProvider {
+    static var previews: some View {
+        DashboardView(selectedIndex: .constant(1))
+    }
+}

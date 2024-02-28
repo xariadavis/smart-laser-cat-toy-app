@@ -17,7 +17,7 @@ struct TabBar: View {
     @Binding var selectedIndex: Int
     @State private var prevSelectedIndex = 0
 
-    let names = ["house", "text.justify", "macpro.gen2", "pawprint", "gearshape"]
+    let names = ["house", "circle.circle", "pawprint", "gearshape"]
 
     // a hack for keyframe animation
     @State var time = 0.0
@@ -50,10 +50,8 @@ struct TabBar: View {
                 case 1:
                     PatternsView()
                 case 2:
-                    DeviceView()
-                case 3:
                     ProfileView()
-                case 4:
+                case 3:
                     SettingsView()
                 default:
                     EmptyView() // Fallback view
@@ -65,8 +63,7 @@ struct TabBar: View {
                 colorButtonAt(0, type: .bell)
                 colorButtonAt(1, type: .bell)
                 colorButtonAt(2, type: .bell)
-                colorButtonAt(3, type: .bell)
-                colorButtonAt(4, type: .gear)
+                colorButtonAt(3, type: .gear)
             }
             .barColor(Color.Neumorphic.main)
             .barBackgroundColor(Color(.systemGray5))
@@ -89,6 +86,8 @@ struct TabBar: View {
         ColorButton(
             image: Image(systemName: names[index]),
             colorImage: Image("colorTab\(index+1)Bg"),
+//            colorImage: Image(systemName: "\(names[index]).fill"),
+//            colorImage: Image(systemName: "\(names[index])"),
             isSelected: selectedIndex == index,
             fromLeft: prevSelectedIndex < index,
             toLeft: selectedIndex < index,
