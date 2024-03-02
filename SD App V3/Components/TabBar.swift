@@ -85,7 +85,7 @@ struct TabBar: View {
     func colorButtonAt(_ index: Int, type: ColorButton.AnimationType) -> some View {
         ColorButton(
             image: Image(systemName: names[index]),
-            colorImage: Image("colorTab\(index+1)Bg"),
+            colorImage: (Image(systemName: names[index])),
 //            colorImage: Image(systemName: "\(names[index]).fill"),
 //            colorImage: Image(systemName: "\(names[index])"),
             isSelected: selectedIndex == index,

@@ -62,25 +62,25 @@ struct ProfileView: View {
                             VStack {
                                 // Total calculated playtime this week
                                 Text("Total Playtime")
+                                    .font(Font.custom("Quicksand-Bold", size: 20))
+                                    .foregroundColor(.primary)
+                                    .padding(.bottom, 1)
+                                
+                                let last7DaysRange = DateFormatterService.getLast7DaysRange()
+                                Text(last7DaysRange)
                                     .font(Font.custom("Quicksand-Semibold", size: 17))
                                     .foregroundColor(.secondary)
                                 
                                 Text("2h 45m")
                                     .font(Font.custom("Quicksand-Semibold", size: 18))
                                     .fontWeight(.bold)
+                                    .foregroundColor(.secondary)
                                     .padding(.bottom, 20)
+                                    
                                 
-                                HStack(alignment: .center, spacing: 10) {
-                                    Spacer()
-                                    BarView(value: 35, day: "M")
-                                    BarView(value: 20, day: "T")
-                                    BarView(value: 114, day: "W")
-                                    BarView(value: 30, day: "Th")
-                                    BarView(value: 55, day: "F")
-                                    BarView(value: 100, day: "Sa")
-                                    BarView(value: 120, day: "Su")
-                                    Spacer()
-                                }
+                                WeeklyProgressView()
+
+                               
                             }
                             .padding(.vertical, 30)
                             .background(RoundedRectangle(cornerRadius: 20).fill(Color.Neumorphic.main))
@@ -154,8 +154,7 @@ struct BarView: View {
     
     var value: CGFloat
     var day: String
-    let progress = 0
-    
+
     var body: some View {
         
         VStack {
@@ -170,17 +169,75 @@ struct BarView: View {
             }
             
             Text(day)
-                .font(Font.custom("Quicksand-Regular", size: 16))
-                .frame(width: 35, alignment: .center) // Fix the width of the label
+                .font(.system(size: 16))
+                .frame(width: 35, alignment: .center)
             
-            Text("\(Int(((value / 150) * 100)))m")
-                .font(Font.custom("Quicksand-Regular", size: 14))
+            Text("\(Int((value / 150) * 100))m")
+                .font(.system(size: 14))
                 .foregroundColor(.secondary)
         }
-        
     }
 }
 
+struct WeeklyProgressView: View {
+    func getLast7Days() -> [Date] {
+        let calendar = Calendar.current
+        return (0..<7).map { i in
+            calendar.date(byAdding: .day, value: -i, to: Date())!
+        }.reversed()
+    }
+    
+    func dayAbbreviation(from date: Date) -> String {
+        let calendar = Calendar.current
+        let dayOfWeek = calendar.component(.weekday, from: date)
+        switch dayOfWeek {
+        case 1:
+            return "Su"
+        case 2:
+            return "M"
+        case 3:
+            return "T"
+        case 4:
+            return "W"
+        case 5:
+            return "Th"
+        case 6:
+            return "F"
+        case 7:
+            return "S"
+        default:
+            return ""
+        }
+    }
+    
+    var body: some View {
+        HStack(alignment: .center, spacing: 10) {
+            Spacer()
+            ForEach(getLast7Days(), id: \.self) { date in
+                let value = CGFloat(Int.random(in: 20...120)) // Replace with actual data
+                BarView(value: value, day: dayAbbreviation(from: date))
+            }
+            Spacer()
+        }
+    }
+}
+
+
+struct WeekRangeService {
+    static func getLast7DaysRange() -> String {
+        let calendar = Calendar.current
+        let endDate = Date()
+        guard let startDate = calendar.date(byAdding: .day, value: -6, to: endDate) else { return "" }
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd"
+        
+        let startDateString = dateFormatter.string(from: startDate)
+        let endDateString = dateFormatter.string(from: endDate)
+        
+        return "\(startDateString) - \(endDateString)"
+    }
+}
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {

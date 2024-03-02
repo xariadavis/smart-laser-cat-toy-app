@@ -11,7 +11,9 @@ struct ContentView: View {
     @State private var selectedIndex = 0
     
     var body: some View {
+        
         TabBar(selectedIndex: $selectedIndex)
+
     }
 }
 

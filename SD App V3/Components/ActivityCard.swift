@@ -56,11 +56,11 @@ struct ActivityCard: View {
                     .padding(.trailing, 20)
                     
                     VStack(alignment: .leading) {
-                        Text("Left this week")
+                        Text("Time Remaining")
                             .font(Font.custom("Quicksand-Bold", size: 16))
                             .foregroundColor(Color.secondary)
                         
-                        Text("80 mins")
+                        Text("12 mins")
                             .font(Font.custom("Quicksand-Semibold", size: 14))
                             .foregroundColor(Color.secondary)
                     }
@@ -115,6 +115,37 @@ struct DateFormatterService {
         let month = dateFormatter.string(from: date)
         let formattedDate = "\(month) \(dayOrdinal)"
         return formattedDate
+    }
+    
+    static func getLast7DaysRange() -> String {
+        let calendar = Calendar.current
+        let endDate = Date()
+        guard let startDate = calendar.date(byAdding: .day, value: -6, to: endDate) else { return "" }
+        
+        // Formatter for the month and day
+        let monthDayFormatter = DateFormatter()
+        monthDayFormatter.dateFormat = "MMMM d"
+        
+        // Formatter for just the day
+        let dayFormatter = DateFormatter()
+        dayFormatter.dateFormat = "d"
+        
+        let startMonthDay = monthDayFormatter.string(from: startDate)
+        let endDay = dayFormatter.string(from: endDate)
+        
+        // Check if start and end dates are in the same month
+        if calendar.isDate(startDate, equalTo: endDate, toGranularity: .month) {
+            return "\(startMonthDay) - \(endDay)"
+        } else {
+            let endMonthDay = monthDayFormatter.string(from: endDate)
+            return "\(startMonthDay) - \(endMonthDay)"
+        }
+    }
+    
+    private static func string(from date: Date, dateFormat: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = dateFormat
+        return dateFormatter.string(from: date)
     }
 }
 

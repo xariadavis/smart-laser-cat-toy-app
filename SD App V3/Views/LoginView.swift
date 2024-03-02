@@ -15,6 +15,7 @@ struct LoginView: View {
         endPoint: .bottom
     )
     
+    @EnvironmentObject var authViewModel: AuthViewModel
     @State private var email = ""
     @State private var password = ""
     @State private var wrongEmail = 0
@@ -75,6 +76,7 @@ struct LoginView: View {
                         .cornerRadius(15)
                         .focused($isTextFieldFocused)
                         .autocapitalization(.none)
+                        .autocorrectionDisabled()
                     
                     SecureField("Password", text: $password)
                         .font(Font.custom("Quicksand-SemiBold", size: 20))
@@ -96,7 +98,11 @@ struct LoginView: View {
                 
                 Spacer()
                 
-                NavigationLink(destination: ContentView().navigationBarBackButtonHidden(true)) {
+                Button {
+                    Task {
+                        await authViewModel.signIn(email: email, password: password)
+                    }
+                } label: {
                     Text("Login")
                         .font(Font.custom("Quicksand-SemiBold", size: 20))
                         .frame(maxWidth: .infinity)
@@ -113,8 +119,7 @@ struct LoginView: View {
                         .padding(.horizontal, 40)
                         .padding(.vertical, 10)
                 }
-                .buttonStyle(PlainButtonStyle())
-  
+
                 NavigationLink(destination: RegisterView().navigationBarBackButtonHidden(true)) {
                     HStack (spacing: 4) {
                         Text("New here?")

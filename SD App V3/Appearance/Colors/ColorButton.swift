@@ -38,16 +38,16 @@ public struct ColorButton: View {
             switch animationType {
             case .bell:
                 ColorButtonOutlineBell(image: image, t: t)
-                    .foregroundColor(colorScheme == .dark ? .white : .black)
+                    .foregroundColor(isSelected ? .red : (colorScheme == .dark ? .white : .black))
             case .plus:
                 ColorButtonOutlinePlus(image: image, t: t)
-                    .foregroundColor(colorScheme == .dark ? .white : .black)
+                    .foregroundColor(isSelected ? .red : (colorScheme == .dark ? .white : .black))
             case .calendar:
                 ColorButtonOutlineCalendar(image: image, fromLeft: fromLeft, t: t)
-                    .foregroundColor(colorScheme == .dark ? .white : .black)
+                    .foregroundColor(isSelected ? .red : (colorScheme == .dark ? .white : .black))
             case .gear:
                 ColorButtonOutlineGear(image: image, t: t)
-                    .foregroundColor(colorScheme == .dark ? .white : .black)
+                    .foregroundColor(isSelected ? .red : (colorScheme == .dark ? .white : .black))
             }
         }
         .padding(8)
@@ -173,6 +173,7 @@ struct ColorButtonBg: View {
         colorImage
             .scaleEffect(t)
             .offset(x: offset)
+            .foregroundColor(.red)
     }
 }
 

@@ -17,8 +17,11 @@ struct RegisterView: View {
     
     @State private var fullName = ""
     @State private var petName = ""
-    @State private var email = ""
-    @State private var password = ""
+    
+    @EnvironmentObject var authViewModel: AuthViewModel
+    @State private var email: String = ""
+    @State private var password: String = ""
+    
     @State private var wrongEmail = 0
     @State private var wrongPassword = 0
     @State private var showingLoginScreen = false
@@ -77,6 +80,7 @@ struct RegisterView: View {
                         .background(Color(.systemGray5))
                         .cornerRadius(15)
                         .autocapitalization(.none)
+                        .autocorrectionDisabled()
                         .focused($isTextFieldFocused)
                     
                     SecureField("Password", text: $password)
@@ -93,7 +97,12 @@ struct RegisterView: View {
                 
                 Spacer()
                 
-                NavigationLink(destination: ContentView().navigationBarBackButtonHidden(true)) {
+                
+                Button {
+                    Task {
+                        await authViewModel.signUp(email: email, password: password)
+                    }
+                } label: {
                     Text("Sign Up")
                         .font(Font.custom("Quicksand-SemiBold", size: 20))
                         .frame(maxWidth: .infinity)
@@ -110,7 +119,7 @@ struct RegisterView: View {
                         .padding(.horizontal, 40)
                         .padding(.vertical, 10)
                 }
-                .buttonStyle(PlainButtonStyle())
+
   
                 // Make this a link
                 NavigationLink(destination: LoginView().navigationBarBackButtonHidden(true)) {
@@ -138,6 +147,9 @@ struct RegisterView: View {
 
 struct RegisterView_Previews: PreviewProvider {
     static var previews: some View {
-        RegisterView()
+        // Create an instance of AuthViewModel
+        let authViewModel = AuthViewModel()
+        // Attach the AuthViewModel as an environment object
+        RegisterView().environmentObject(authViewModel)
     }
 }

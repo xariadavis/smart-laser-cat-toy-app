@@ -15,9 +15,14 @@
 		57106BF12B72063300C03637 /* GingerHunt_Dark.json in Resources */ = {isa = PBXBuildFile; fileRef = 57106BF02B72063300C03637 /* GingerHunt_Dark.json */; };
 		571850A22B69B0030004747C /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571850A12B69B0030004747C /* TestView.swift */; };
 		5719F10D2B7FFF440024514E /* KittyShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5719F10C2B7FFF440024514E /* KittyShape.swift */; };
-		5723CE9A2B7BEC9800F5E172 /* Enclosure.json in Resources */ = {isa = PBXBuildFile; fileRef = 5723CE992B7BEC9800F5E172 /* Enclosure.json */; };
-		5723CE9C2B7BEE1000F5E172 /* Signal.json in Resources */ = {isa = PBXBuildFile; fileRef = 5723CE9B2B7BEE1000F5E172 /* Signal.json */; };
-		5723CE9E2B7C046A00F5E172 /* EnclosureBorder.json in Resources */ = {isa = PBXBuildFile; fileRef = 5723CE9D2B7C046A00F5E172 /* EnclosureBorder.json */; };
+		571E11532B927C2600D6D1B4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 571E11522B927C2600D6D1B4 /* GoogleService-Info.plist */; };
+		571E11562B927D0F00D6D1B4 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 571E11552B927D0F00D6D1B4 /* FirebaseAnalytics */; };
+		571E11582B927D0F00D6D1B4 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 571E11572B927D0F00D6D1B4 /* FirebaseAnalyticsSwift */; };
+		571E115A2B927D0F00D6D1B4 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 571E11592B927D0F00D6D1B4 /* FirebaseAuth */; };
+		571E115C2B927D0F00D6D1B4 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 571E115B2B927D0F00D6D1B4 /* FirebaseDatabase */; };
+		571E115E2B927D0F00D6D1B4 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 571E115D2B927D0F00D6D1B4 /* FirebaseDatabaseSwift */; };
+		571E11602B927D0F00D6D1B4 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 571E115F2B927D0F00D6D1B4 /* FirebaseFirestore */; };
+		571E11622B927D0F00D6D1B4 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 571E11612B927D0F00D6D1B4 /* FirebaseFirestoreSwift */; };
 		572FE3AE2B698ADE00CB3E61 /* SD_App_V3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572FE3AD2B698ADE00CB3E61 /* SD_App_V3App.swift */; };
 		572FE3B02B698ADE00CB3E61 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572FE3AF2B698ADE00CB3E61 /* ContentView.swift */; };
 		572FE3B22B698AE000CB3E61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 572FE3B12B698AE000CB3E61 /* Assets.xcassets */; };
@@ -33,7 +38,7 @@
 		572FE3D32B6995DB00CB3E61 /* GingerHunt.json in Resources */ = {isa = PBXBuildFile; fileRef = 572FE3D22B6995DB00CB3E61 /* GingerHunt.json */; };
 		572FE3D72B69969000CB3E61 /* Quicksand[wght].ttf in Resources */ = {isa = PBXBuildFile; fileRef = 572FE3D52B69969000CB3E61 /* Quicksand[wght].ttf */; };
 		572FE3D82B69969000CB3E61 /* TitanOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 572FE3D62B69969000CB3E61 /* TitanOne-Regular.ttf */; };
-		572FE3DB2B699BA100CB3E61 /* LaserDots.json in Resources */ = {isa = PBXBuildFile; fileRef = 572FE3DA2B699BA100CB3E61 /* LaserDots.json */; };
+		572FE3DB2B699BA100CB3E61 /* LaserDots2.json in Resources */ = {isa = PBXBuildFile; fileRef = 572FE3DA2B699BA100CB3E61 /* LaserDots2.json */; };
 		572FE3DD2B699CE200CB3E61 /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = 572FE3DC2B699CE200CB3E61 /* test.json */; };
 		572FE3DF2B699DD400CB3E61 /* Test2.json in Resources */ = {isa = PBXBuildFile; fileRef = 572FE3DE2B699DD400CB3E61 /* Test2.json */; };
 		572FF8302B6ABF8600190F52 /* MainPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572FF82F2B6ABF8500190F52 /* MainPalette.swift */; };
@@ -50,13 +55,16 @@
 		575F7B962B705F4A009082ED /* ScalingHeaderScrollView in Frameworks */ = {isa = PBXBuildFile; productRef = 575F7B952B705F4A009082ED /* ScalingHeaderScrollView */; };
 		576056932B884EBF00FC6150 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576056922B884EBF00FC6150 /* User.swift */; };
 		576056952B88510700FC6150 /* Cat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576056942B88510700FC6150 /* Cat.swift */; };
-		578BA2B72B7D918800C377E4 /* Enclosure_Border_Waves.json in Resources */ = {isa = PBXBuildFile; fileRef = 578BA2B62B7D918800C377E4 /* Enclosure_Border_Waves.json */; };
 		579691682B7346A500FCA50F /* PZCircularControl in Frameworks */ = {isa = PBXBuildFile; productRef = 579691672B7346A500FCA50F /* PZCircularControl */; };
 		57BB10DA2B7FD2280070DE63 /* KDCircularProgress in Frameworks */ = {isa = PBXBuildFile; productRef = 57BB10D92B7FD2280070DE63 /* KDCircularProgress */; };
 		57E462342B7AAC2E00F9D6A7 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E462332B7AAC2E00F9D6A7 /* WelcomeView.swift */; };
 		57E462362B7AB2B000F9D6A7 /* DeviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E462352B7AB2B000F9D6A7 /* DeviceView.swift */; };
 		57E462382B7AB2BF00F9D6A7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E462372B7AB2BF00F9D6A7 /* SettingsView.swift */; };
 		57E4623A2B7AB2CA00F9D6A7 /* PatternsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E462392B7AB2CA00F9D6A7 /* PatternsView.swift */; };
+		57FC47022B928D9D00C2EC42 /* LaserDots.json in Resources */ = {isa = PBXBuildFile; fileRef = 57FC47012B928D9D00C2EC42 /* LaserDots.json */; };
+		57FC47052B928E2500C2EC42 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FC47042B928E2500C2EC42 /* AuthenticationService.swift */; };
+		57FC47072B92A15600C2EC42 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FC47062B92A15600C2EC42 /* AuthViewModel.swift */; };
+		57FC47092B92AB9800C2EC42 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FC47082B92AB9800C2EC42 /* RootView.swift */; };
 		57FFA0E02B70559200E8F92A /* WaltyKitten.png in Resources */ = {isa = PBXBuildFile; fileRef = 57FFA0DF2B70559200E8F92A /* WaltyKitten.png */; };
 /* End PBXBuildFile section */
 
@@ -68,9 +76,7 @@
 		57106BF02B72063300C03637 /* GingerHunt_Dark.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GingerHunt_Dark.json; sourceTree = "<group>"; };
 		571850A12B69B0030004747C /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		5719F10C2B7FFF440024514E /* KittyShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KittyShape.swift; sourceTree = "<group>"; };
-		5723CE992B7BEC9800F5E172 /* Enclosure.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Enclosure.json; path = ../../../../../../../../Downloads/Enclosure.json; sourceTree = "<group>"; };
-		5723CE9B2B7BEE1000F5E172 /* Signal.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Signal.json; path = ../../../../../../../../Downloads/Signal.json; sourceTree = "<group>"; };
-		5723CE9D2B7C046A00F5E172 /* EnclosureBorder.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = EnclosureBorder.json; path = ../../../../../../../../Downloads/EnclosureBorder.json; sourceTree = "<group>"; };
+		571E11522B927C2600D6D1B4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		572FE3AA2B698ADE00CB3E61 /* SD App V3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SD App V3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		572FE3AD2B698ADE00CB3E61 /* SD_App_V3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SD_App_V3App.swift; sourceTree = "<group>"; };
 		572FE3AF2B698ADE00CB3E61 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -87,7 +93,7 @@
 		572FE3D52B69969000CB3E61 /* Quicksand[wght].ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand[wght].ttf"; sourceTree = "<group>"; };
 		572FE3D62B69969000CB3E61 /* TitanOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitanOne-Regular.ttf"; sourceTree = "<group>"; };
 		572FE3D92B6996AB00CB3E61 /* SD-App-V3-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "SD-App-V3-Info.plist"; sourceTree = SOURCE_ROOT; };
-		572FE3DA2B699BA100CB3E61 /* LaserDots.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LaserDots.json; sourceTree = "<group>"; };
+		572FE3DA2B699BA100CB3E61 /* LaserDots2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LaserDots2.json; sourceTree = "<group>"; };
 		572FE3DC2B699CE200CB3E61 /* test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = test.json; sourceTree = "<group>"; };
 		572FE3DE2B699DD400CB3E61 /* Test2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Test2.json; sourceTree = "<group>"; };
 		572FF82F2B6ABF8500190F52 /* MainPalette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPalette.swift; sourceTree = "<group>"; };
@@ -102,11 +108,14 @@
 		575ED2E22B6C57CA00110CDC /* LaserStars.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LaserStars.json; sourceTree = "<group>"; };
 		576056922B884EBF00FC6150 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		576056942B88510700FC6150 /* Cat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cat.swift; sourceTree = "<group>"; };
-		578BA2B62B7D918800C377E4 /* Enclosure_Border_Waves.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Enclosure_Border_Waves.json; path = ../../../../../../../../Downloads/Enclosure_Border_Waves.json; sourceTree = "<group>"; };
 		57E462332B7AAC2E00F9D6A7 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		57E462352B7AB2B000F9D6A7 /* DeviceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceView.swift; sourceTree = "<group>"; };
 		57E462372B7AB2BF00F9D6A7 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		57E462392B7AB2CA00F9D6A7 /* PatternsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternsView.swift; sourceTree = "<group>"; };
+		57FC47012B928D9D00C2EC42 /* LaserDots.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LaserDots.json; path = ../../../../../../../../../Downloads/LaserDots.json; sourceTree = "<group>"; };
+		57FC47042B928E2500C2EC42 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
+		57FC47062B92A15600C2EC42 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		57FC47082B92AB9800C2EC42 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		57FFA0DF2B70559200E8F92A /* WaltyKitten.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WaltyKitten.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,10 +124,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				571E115C2B927D0F00D6D1B4 /* FirebaseDatabase in Frameworks */,
+				571E11562B927D0F00D6D1B4 /* FirebaseAnalytics in Frameworks */,
 				5704DDF02B788CC700253D4F /* AnimatedTabBar in Frameworks */,
 				57BB10DA2B7FD2280070DE63 /* KDCircularProgress in Frameworks */,
 				573A95C02B70082100149372 /* Neumorphic in Frameworks */,
+				571E11602B927D0F00D6D1B4 /* FirebaseFirestore in Frameworks */,
+				571E115A2B927D0F00D6D1B4 /* FirebaseAuth in Frameworks */,
+				571E11622B927D0F00D6D1B4 /* FirebaseFirestoreSwift in Frameworks */,
+				571E11582B927D0F00D6D1B4 /* FirebaseAnalyticsSwift in Frameworks */,
 				579691682B7346A500FCA50F /* PZCircularControl in Frameworks */,
+				571E115E2B927D0F00D6D1B4 /* FirebaseDatabaseSwift in Frameworks */,
 				572FE3C22B698EBC00CB3E61 /* Lottie in Frameworks */,
 				575F7B962B705F4A009082ED /* ScalingHeaderScrollView in Frameworks */,
 			);
@@ -145,6 +161,23 @@
 			path = CustomShapes;
 			sourceTree = "<group>";
 		};
+		571E11502B927B4800D6D1B4 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		571E11512B927B6000D6D1B4 /* Appearance */ = {
+			isa = PBXGroup;
+			children = (
+				572FF82E2B6ABF6B00190F52 /* Colors */,
+				572FE3D42B69967B00CB3E61 /* Fonts */,
+				572FE3BB2B698E5000CB3E61 /* Lottie */,
+			);
+			path = Appearance;
+			sourceTree = "<group>";
+		};
 		572FE3A12B698ADE00CB3E61 = {
 			isa = PBXGroup;
 			children = (
@@ -164,16 +197,16 @@
 		572FE3AC2B698ADE00CB3E61 /* SD App V3 */ = {
 			isa = PBXGroup;
 			children = (
-				5719F10B2B7FFF320024514E /* CustomShapes */,
+				57FC47032B928E1300C2EC42 /* Authentication */,
 				572FE3AD2B698ADE00CB3E61 /* SD_App_V3App.swift */,
-				57106BE52B71A94400C03637 /* UserStuff */,
+				571E11522B927C2600D6D1B4 /* GoogleService-Info.plist */,
 				572FE3D92B6996AB00CB3E61 /* SD-App-V3-Info.plist */,
+				571E11512B927B6000D6D1B4 /* Appearance */,
+				571E11502B927B4800D6D1B4 /* Firebase */,
+				57106BE52B71A94400C03637 /* UserStuff */,
 				57FFA0DE2B70553500E8F92A /* Images */,
 				573A95C92B701E6600149372 /* Views */,
 				573A95BB2B7007A000149372 /* Components */,
-				572FF82E2B6ABF6B00190F52 /* Colors */,
-				572FE3D42B69967B00CB3E61 /* Fonts */,
-				572FE3BB2B698E5000CB3E61 /* Lottie */,
 				572FE3B32B698AE000CB3E61 /* Preview Content */,
 				572FE3CC2B6992AC00CB3E61 /* GlowingView.swift */,
 				571850A12B69B0030004747C /* TestView.swift */,
@@ -195,16 +228,13 @@
 		572FE3BB2B698E5000CB3E61 /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
-				578BA2B62B7D918800C377E4 /* Enclosure_Border_Waves.json */,
-				5723CE9D2B7C046A00F5E172 /* EnclosureBorder.json */,
-				5723CE9B2B7BEE1000F5E172 /* Signal.json */,
-				5723CE992B7BEC9800F5E172 /* Enclosure.json */,
 				57106BF02B72063300C03637 /* GingerHunt_Dark.json */,
+				57FC47012B928D9D00C2EC42 /* LaserDots.json */,
 				57106BE82B71E6E000C03637 /* border.json */,
 				575ED2E22B6C57CA00110CDC /* LaserStars.json */,
 				572FE3DE2B699DD400CB3E61 /* Test2.json */,
 				572FE3DC2B699CE200CB3E61 /* test.json */,
-				572FE3DA2B699BA100CB3E61 /* LaserDots.json */,
+				572FE3DA2B699BA100CB3E61 /* LaserDots2.json */,
 				572FE3D22B6995DB00CB3E61 /* GingerHunt.json */,
 				572FE3D02B6994F500CB3E61 /* LaserBubbles.json */,
 				572FE3BC2B698E5D00CB3E61 /* RedLaserBlob.json */,
@@ -235,6 +265,7 @@
 		573A95BB2B7007A000149372 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				5719F10B2B7FFF320024514E /* CustomShapes */,
 				573A95BC2B7007AD00149372 /* ProfileCard.swift */,
 				573A95C52B701A9D00149372 /* ActivityCard.swift */,
 				573A95C72B701BB700149372 /* PatternCard.swift */,
@@ -256,8 +287,18 @@
 				57E462352B7AB2B000F9D6A7 /* DeviceView.swift */,
 				57E462372B7AB2BF00F9D6A7 /* SettingsView.swift */,
 				57E462392B7AB2CA00F9D6A7 /* PatternsView.swift */,
+				57FC47082B92AB9800C2EC42 /* RootView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		57FC47032B928E1300C2EC42 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				57FC47042B928E2500C2EC42 /* AuthenticationService.swift */,
+				57FC47062B92A15600C2EC42 /* AuthViewModel.swift */,
+			);
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 		57FFA0DE2B70553500E8F92A /* Images */ = {
@@ -291,6 +332,13 @@
 				579691672B7346A500FCA50F /* PZCircularControl */,
 				5704DDEF2B788CC700253D4F /* AnimatedTabBar */,
 				57BB10D92B7FD2280070DE63 /* KDCircularProgress */,
+				571E11552B927D0F00D6D1B4 /* FirebaseAnalytics */,
+				571E11572B927D0F00D6D1B4 /* FirebaseAnalyticsSwift */,
+				571E11592B927D0F00D6D1B4 /* FirebaseAuth */,
+				571E115B2B927D0F00D6D1B4 /* FirebaseDatabase */,
+				571E115D2B927D0F00D6D1B4 /* FirebaseDatabaseSwift */,
+				571E115F2B927D0F00D6D1B4 /* FirebaseFirestore */,
+				571E11612B927D0F00D6D1B4 /* FirebaseFirestoreSwift */,
 			);
 			productName = "SD App V3";
 			productReference = 572FE3AA2B698ADE00CB3E61 /* SD App V3.app */;
@@ -327,6 +375,7 @@
 				579691662B7346A500FCA50F /* XCRemoteSwiftPackageReference "PZCircularControl" */,
 				5704DDEE2B788CC700253D4F /* XCRemoteSwiftPackageReference "AnimatedTabBar" */,
 				57BB10D82B7FD2280070DE63 /* XCRemoteSwiftPackageReference "KDCircularProgress" */,
+				571E11542B927D0F00D6D1B4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 572FE3AB2B698ADE00CB3E61 /* Products */;
 			projectDirPath = "";
@@ -343,22 +392,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				572FE3BD2B698E5D00CB3E61 /* RedLaserBlob.json in Resources */,
-				5723CE9C2B7BEE1000F5E172 /* Signal.json in Resources */,
 				572FE3D82B69969000CB3E61 /* TitanOne-Regular.ttf in Resources */,
 				57106BE92B71E6E000C03637 /* border.json in Resources */,
 				57FFA0E02B70559200E8F92A /* WaltyKitten.png in Resources */,
 				572FE3DF2B699DD400CB3E61 /* Test2.json in Resources */,
 				572FE3D32B6995DB00CB3E61 /* GingerHunt.json in Resources */,
 				575ED2E32B6C57CA00110CDC /* LaserStars.json in Resources */,
+				57FC47022B928D9D00C2EC42 /* LaserDots.json in Resources */,
 				572FE3D72B69969000CB3E61 /* Quicksand[wght].ttf in Resources */,
-				5723CE9A2B7BEC9800F5E172 /* Enclosure.json in Resources */,
 				572FE3B52B698AE000CB3E61 /* Preview Assets.xcassets in Resources */,
 				572FE3B22B698AE000CB3E61 /* Assets.xcassets in Resources */,
 				572FE3D12B6994F600CB3E61 /* LaserBubbles.json in Resources */,
-				578BA2B72B7D918800C377E4 /* Enclosure_Border_Waves.json in Resources */,
-				572FE3DB2B699BA100CB3E61 /* LaserDots.json in Resources */,
+				572FE3DB2B699BA100CB3E61 /* LaserDots2.json in Resources */,
 				57106BF12B72063300C03637 /* GingerHunt_Dark.json in Resources */,
-				5723CE9E2B7C046A00F5E172 /* EnclosureBorder.json in Resources */,
+				571E11532B927C2600D6D1B4 /* GoogleService-Info.plist in Resources */,
 				572FE3DD2B699CE200CB3E61 /* test.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -371,6 +418,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				572FE3B02B698ADE00CB3E61 /* ContentView.swift in Sources */,
+				57FC47052B928E2500C2EC42 /* AuthenticationService.swift in Sources */,
 				573A95C22B70107900149372 /* DashboardView.swift in Sources */,
 				576056952B88510700FC6150 /* Cat.swift in Sources */,
 				572FE3AE2B698ADE00CB3E61 /* SD_App_V3App.swift in Sources */,
@@ -383,6 +431,7 @@
 				572FF8302B6ABF8600190F52 /* MainPalette.swift in Sources */,
 				572FE3CB2B69915800CB3E61 /* RegisterView.swift in Sources */,
 				57E462342B7AAC2E00F9D6A7 /* WelcomeView.swift in Sources */,
+				57FC47092B92AB9800C2EC42 /* RootView.swift in Sources */,
 				572FE3C92B69914D00CB3E61 /* LoginView.swift in Sources */,
 				571850A22B69B0030004747C /* TestView.swift in Sources */,
 				57E4623A2B7AB2CA00F9D6A7 /* PatternsView.swift in Sources */,
@@ -393,6 +442,7 @@
 				57106BE72B71A95600C03637 /* LaserPattern.swift in Sources */,
 				573A95C42B7019D900149372 /* Pattern.swift in Sources */,
 				5719F10D2B7FFF440024514E /* KittyShape.swift in Sources */,
+				57FC47072B92A15600C2EC42 /* AuthViewModel.swift in Sources */,
 				572FE3C72B698F6A00CB3E61 /* Constants.swift in Sources */,
 				5704DDF22B788DC800253D4F /* TabBar.swift in Sources */,
 				572FE3CD2B6992AC00CB3E61 /* GlowingView.swift in Sources */,
@@ -611,6 +661,14 @@
 				kind = branch;
 			};
 		};
+		571E11542B927D0F00D6D1B4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
 		572FE3C02B698EBC00CB3E61 /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
@@ -658,6 +716,41 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5704DDEE2B788CC700253D4F /* XCRemoteSwiftPackageReference "AnimatedTabBar" */;
 			productName = AnimatedTabBar;
+		};
+		571E11552B927D0F00D6D1B4 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 571E11542B927D0F00D6D1B4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		571E11572B927D0F00D6D1B4 /* FirebaseAnalyticsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 571E11542B927D0F00D6D1B4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsSwift;
+		};
+		571E11592B927D0F00D6D1B4 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 571E11542B927D0F00D6D1B4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		571E115B2B927D0F00D6D1B4 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 571E11542B927D0F00D6D1B4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		571E115D2B927D0F00D6D1B4 /* FirebaseDatabaseSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 571E11542B927D0F00D6D1B4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabaseSwift;
+		};
+		571E115F2B927D0F00D6D1B4 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 571E11542B927D0F00D6D1B4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		571E11612B927D0F00D6D1B4 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 571E11542B927D0F00D6D1B4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
 		};
 		572FE3C12B698EBC00CB3E61 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;

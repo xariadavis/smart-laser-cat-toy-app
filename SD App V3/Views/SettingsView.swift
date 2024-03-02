@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct SettingsView: View {
+    
+    @EnvironmentObject var authViewModel: AuthViewModel
+    
     var body: some View {
         ZStack {
             Color(.systemGray5).ignoresSafeArea()
@@ -25,7 +28,9 @@ struct SettingsView: View {
                 
                 
                 Button {
-                    print("Logging out...")
+                    Task {
+                        authViewModel.signOut()
+                    }
                 } label: {
                     Text("Log out")
                         .font(Font.custom("Quicksand-SemiBold", size: 20))
