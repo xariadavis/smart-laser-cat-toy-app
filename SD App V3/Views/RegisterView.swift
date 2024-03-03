@@ -57,7 +57,7 @@ struct RegisterView: View {
                             .multilineTextAlignment(.leading)
 //                    }
                     
-                    TextField("Full Name", text: $fullName)
+                    TextField("Your Name", text: $fullName)
                         .font(Font.custom("Quicksand-SemiBold", size: 20))
                         .foregroundColor(.primary)
                         .padding()
@@ -98,11 +98,13 @@ struct RegisterView: View {
                 Spacer()
                 
                 
-                Button {
-                    Task {
-                        await authViewModel.signUp(email: email, password: password)
+                VStack {
+                    Button {
+                        Task {
+                            await authViewModel.signUp(email: email, password: password)
+                        }
                     }
-                } label: {
+                label: {
                     Text("Sign Up")
                         .font(Font.custom("Quicksand-SemiBold", size: 20))
                         .frame(maxWidth: .infinity)
@@ -111,7 +113,7 @@ struct RegisterView: View {
                         .background(Color.red.opacity(0.9))
                         .cornerRadius(40)
                     
-                        // Apply glowing border effect
+                    // Apply glowing border effect
                         .overlay(
                             RoundedRectangle(cornerRadius: 40)
                                 .stroke(Color.red, lineWidth: 2)
@@ -119,8 +121,13 @@ struct RegisterView: View {
                         .padding(.horizontal, 40)
                         .padding(.vertical, 10)
                 }
-
-  
+                }
+                .alert(authViewModel.messageTitle ?? "Alert", isPresented: $authViewModel.showAlert, presenting: authViewModel.message) { detail in
+                    Button("OK", role: .cancel) { }
+                } message: { detail in
+                    Text(detail)
+                }
+                
                 // Make this a link
                 NavigationLink(destination: LoginView().navigationBarBackButtonHidden(true)) {
                     HStack (spacing: 4) {

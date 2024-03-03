@@ -55,8 +55,10 @@
 		575F7B962B705F4A009082ED /* ScalingHeaderScrollView in Frameworks */ = {isa = PBXBuildFile; productRef = 575F7B952B705F4A009082ED /* ScalingHeaderScrollView */; };
 		576056932B884EBF00FC6150 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576056922B884EBF00FC6150 /* User.swift */; };
 		576056952B88510700FC6150 /* Cat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576056942B88510700FC6150 /* Cat.swift */; };
+		577AADD72B943BBC009589CF /* CatLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 577AADD62B943BBC009589CF /* CatLogo.png */; };
 		579691682B7346A500FCA50F /* PZCircularControl in Frameworks */ = {isa = PBXBuildFile; productRef = 579691672B7346A500FCA50F /* PZCircularControl */; };
 		57BB10DA2B7FD2280070DE63 /* KDCircularProgress in Frameworks */ = {isa = PBXBuildFile; productRef = 57BB10D92B7FD2280070DE63 /* KDCircularProgress */; };
+		57CFDE312B92E698002AD48F /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CFDE302B92E698002AD48F /* ForgotPasswordView.swift */; };
 		57E462342B7AAC2E00F9D6A7 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E462332B7AAC2E00F9D6A7 /* WelcomeView.swift */; };
 		57E462362B7AB2B000F9D6A7 /* DeviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E462352B7AB2B000F9D6A7 /* DeviceView.swift */; };
 		57E462382B7AB2BF00F9D6A7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E462372B7AB2BF00F9D6A7 /* SettingsView.swift */; };
@@ -108,6 +110,8 @@
 		575ED2E22B6C57CA00110CDC /* LaserStars.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LaserStars.json; sourceTree = "<group>"; };
 		576056922B884EBF00FC6150 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		576056942B88510700FC6150 /* Cat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cat.swift; sourceTree = "<group>"; };
+		577AADD62B943BBC009589CF /* CatLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CatLogo.png; path = ../../../../../../../../Desktop/CatLogo.png; sourceTree = "<group>"; };
+		57CFDE302B92E698002AD48F /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
 		57E462332B7AAC2E00F9D6A7 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		57E462352B7AB2B000F9D6A7 /* DeviceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceView.swift; sourceTree = "<group>"; };
 		57E462372B7AB2BF00F9D6A7 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -278,6 +282,7 @@
 		573A95C92B701E6600149372 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				57CFDE302B92E698002AD48F /* ForgotPasswordView.swift */,
 				572FE3AF2B698ADE00CB3E61 /* ContentView.swift */,
 				572FE3C82B69914D00CB3E61 /* LoginView.swift */,
 				572FE3CA2B69915800CB3E61 /* RegisterView.swift */,
@@ -304,6 +309,7 @@
 		57FFA0DE2B70553500E8F92A /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				577AADD62B943BBC009589CF /* CatLogo.png */,
 				57FFA0DF2B70559200E8F92A /* WaltyKitten.png */,
 			);
 			path = Images;
@@ -352,7 +358,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1520;
 				TargetAttributes = {
 					572FE3A92B698ADE00CB3E61 = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -393,6 +399,7 @@
 			files = (
 				572FE3BD2B698E5D00CB3E61 /* RedLaserBlob.json in Resources */,
 				572FE3D82B69969000CB3E61 /* TitanOne-Regular.ttf in Resources */,
+				577AADD72B943BBC009589CF /* CatLogo.png in Resources */,
 				57106BE92B71E6E000C03637 /* border.json in Resources */,
 				57FFA0E02B70559200E8F92A /* WaltyKitten.png in Resources */,
 				572FE3DF2B699DD400CB3E61 /* Test2.json in Resources */,
@@ -417,6 +424,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57CFDE312B92E698002AD48F /* ForgotPasswordView.swift in Sources */,
 				572FE3B02B698ADE00CB3E61 /* ContentView.swift in Sources */,
 				57FC47052B928E2500C2EC42 /* AuthenticationService.swift in Sources */,
 				573A95C22B70107900149372 /* DashboardView.swift in Sources */,
@@ -489,6 +497,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -503,7 +512,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -549,6 +558,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -557,7 +567,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -582,6 +592,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
@@ -613,6 +624,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.1;

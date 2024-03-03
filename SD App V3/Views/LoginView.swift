@@ -43,21 +43,7 @@ struct LoginView: View {
                         opacity = 1
                     }
                 }
-            
-            // Try LaserStars instead
-//            LottiePlusView(name: Constants.LaserStars, loopMode: .loop, animationSpeed: 1)
-//                .blur(radius: 3)
-//                .frame(width: 400)
-//                .offset(x: -70, y: -150)
-//                .rotationEffect(.degrees(40))
-//                .opacity(opacity)
-//                .onAppear {
-//                    withAnimation(.easeIn(duration: 0.4)) {
-//                        opacity = 1
-//                    }
-//                }
-            
-            
+
             VStack {
                 
                 VStack(alignment: .leading) {
@@ -91,33 +77,45 @@ struct LoginView: View {
                 
                 
                 // Make this a link
-                Text("Forgot Password?")
-                    .padding(.top, 10)
-                    .foregroundColor(.midBlue)
-                    .font(Font.custom("Quicksand-Bold", size: 17))
+                NavigationLink {
+                    ForgotPasswordView()
+                } label: {
+                    Text("Forgot Password?")
+                        .padding(.top, 10)
+                        .foregroundColor(.midBlue)
+                        .font(Font.custom("Quicksand-Bold", size: 17))
+                }
+
                 
                 Spacer()
                 
-                Button {
-                    Task {
-                        await authViewModel.signIn(email: email, password: password)
-                    }
-                } label: {
-                    Text("Login")
-                        .font(Font.custom("Quicksand-SemiBold", size: 20))
-                        .frame(maxWidth: .infinity)
-                        .padding(15)
-                        .foregroundColor(Color.primary)
-                        .background(Color.red.opacity(0.9))
-                        .cornerRadius(30)
-                    
+                VStack {
+                    Button {
+                        Task {
+                            await authViewModel.signIn(email: email, password: password)
+                        }
+                    } label: {
+                        Text("Login")
+                            .font(Font.custom("Quicksand-SemiBold", size: 20))
+                            .frame(maxWidth: .infinity)
+                            .padding(15)
+                            .foregroundColor(Color.primary)
+                            .background(Color.red.opacity(0.9))
+                            .cornerRadius(30)
+                        
                         // Apply glowing border effect
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 30)
-                                .stroke(Color.red, lineWidth: 2)
-                        )
-                        .padding(.horizontal, 40)
-                        .padding(.vertical, 10)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 30)
+                                    .stroke(Color.red, lineWidth: 2)
+                            )
+                            .padding(.horizontal, 40)
+                            .padding(.vertical, 10)
+                    }
+                }
+                .alert(authViewModel.messageTitle ?? "Alert", isPresented: $authViewModel.showAlert, presenting: authViewModel.message) { detail in
+                    Button("OK", role: .cancel) { }
+                } message: { detail in
+                    Text(detail)
                 }
 
                 NavigationLink(destination: RegisterView().navigationBarBackButtonHidden(true)) {

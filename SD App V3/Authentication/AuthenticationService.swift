@@ -27,6 +27,7 @@ protocol AuthenticationService {
     func signIn(withEmail email: String, password: String) async throws -> AuthDataResultModel
     func getAuthenticatedUser() throws -> AuthDataResultModel
     func signOut() throws
+    func resetPassword(email: String) async throws
 }
 
 class FirebaseAuthService: AuthenticationService {
@@ -54,5 +55,10 @@ class FirebaseAuthService: AuthenticationService {
     
     func signOut() throws {
         try Auth.auth().signOut()
+    }
+    
+    // Send reset password email
+    func resetPassword(email: String) async throws {
+        try await Auth.auth().sendPasswordReset(withEmail: email)
     }
 }
