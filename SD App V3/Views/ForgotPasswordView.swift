@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ForgotPasswordView: View {
     @State private var email = ""
+    @State private var showAlert = false // Local state for controlling alert visibility
     @EnvironmentObject var authViewModel: AuthViewModel
 
     var body: some View {
@@ -62,17 +63,30 @@ struct ForgotPasswordView: View {
                             .padding(.horizontal, 30)
                     }
                 }
-                .alert(authViewModel.messageTitle ?? "Alert", isPresented: $authViewModel.showAlert, presenting: authViewModel.message) { detail in
+                .alert(authViewModel.messageTitle ?? "Alert", isPresented: $showAlert, presenting: authViewModel.message) { detail in
                     Button("OK", role: .cancel) { }
                 } message: { detail in
                     Text(detail)
                 }
+                .sync($authViewModel.showAlert, with: $showAlert)
                 
                 Spacer()
                 
             }
             .padding(.top, 50)
         }
+    }
+}
+
+extension View {
+    func sync(_ published: Binding<Bool>, with binding: Binding<Bool>) -> some View {
+        self
+            .onChange(of: published.wrappedValue) { published in
+                binding.wrappedValue = published
+            }
+            .onChange(of: binding.wrappedValue) { binding in
+                published.wrappedValue = binding
+            }
     }
 }
 

@@ -12,11 +12,11 @@ struct RootView: View {
 
     var body: some View {
         Group {
-            if authViewModel.isAuthenticated {
-                SettingsView() // Or your main app view
-            } else {
-                ContentView() // Your login/signup view
-            }
+//            if authViewModel.isAuthenticated {
+//                SettingsView() // Or your main app view
+//            } else {
+//                ContentView() // Your login/signup view
+//            }
         }
     }
 }

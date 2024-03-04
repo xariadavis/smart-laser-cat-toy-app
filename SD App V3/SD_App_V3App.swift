@@ -17,21 +17,26 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 }
 
 
+@available(iOS 17.0, *)
 @main
 struct SD_App_V3App: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
     @StateObject private var authViewModel = AuthViewModel()
-    
+    @State var isAuthenticated: Bool = false
+
     var body: some Scene {
         WindowGroup {
-            if authViewModel.isAuthenticated {
-                ContentView()
-                    .environmentObject(authViewModel)
-            } else {
-                WelcomeView()
-                    .environmentObject(authViewModel)
+            Group {
+                if isAuthenticated {
+                    ContentView()
+                        .environmentObject(authViewModel)
+                } else {
+                    WelcomeView()
+                        .environmentObject(authViewModel)
+                }
             }
+            .sync($authViewModel.isAuthenticated, with: $isAuthenticated)
         }
     }
 }

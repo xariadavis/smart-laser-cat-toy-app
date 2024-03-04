@@ -59,6 +59,7 @@ class FirebaseAuthService: AuthenticationService {
     
     // Send reset password email
     func resetPassword(email: String) async throws {
+        print("In AuthernticatioNService: resetPassword")
         try await Auth.auth().sendPasswordReset(withEmail: email)
     }
 }

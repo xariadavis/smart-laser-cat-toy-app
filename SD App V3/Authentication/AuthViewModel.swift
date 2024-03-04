@@ -10,6 +10,7 @@ import FirebaseAuth
 
 @MainActor
 class AuthViewModel: ObservableObject {
+    
     private let authService: AuthenticationService = FirebaseAuthService()
     @Published var isAuthenticated: Bool = false
     @Published var user: AuthDataResultModel?
@@ -27,6 +28,7 @@ class AuthViewModel: ObservableObject {
             self.isAuthenticated = false
         }
     }
+
     
     func signUp(email: String, password: String) async {
         do {
@@ -95,7 +97,14 @@ class AuthViewModel: ObservableObject {
     
     // Send reset password email
     func resetPassword(email: String) async {
+        
+        self.messageTitle = nil // Or some default state
+        self.message = nil
+        
         do {
+            
+            print("In AuthViewModel: resetPassword")
+            
             try await authService.resetPassword(email: email)
             
             self.messageTitle = "Success"
