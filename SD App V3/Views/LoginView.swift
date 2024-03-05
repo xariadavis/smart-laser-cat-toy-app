@@ -25,6 +25,7 @@ struct LoginView: View {
     @State private var opacity = 0.0
     
     @State private var showAlert: Bool = false
+    @State private var showDashboard: Bool = false
     
     @FocusState private var isTextFieldFocused: Bool
         
@@ -96,6 +97,10 @@ struct LoginView: View {
                     Button {
                         Task {
                             await authViewModel.signIn(email: email, password: password)
+                            
+                            // show dashboard if successful
+                            showDashboard = authViewModel.isAuthenticated
+                            
                         }
                     } label: {
                         Text("Login")
@@ -114,6 +119,9 @@ struct LoginView: View {
                             .padding(.horizontal, 40)
                             .padding(.vertical, 10)
                     }
+                }
+                .fullScreenCover(isPresented: $showDashboard) {
+                    ContentView()
                 }
                 .alert(isPresented: $showAlert) {
                     Alert(title: Text("Error"), message: Text(authViewModel.message ?? "Message"), dismissButton: .default(Text("OK")))

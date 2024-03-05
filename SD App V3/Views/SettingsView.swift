@@ -28,6 +28,7 @@ struct SettingsView: View {
                 
                 
                 Button {
+                    print("Log out button pressed")
                     Task {
                         authViewModel.signOut()
                     }
