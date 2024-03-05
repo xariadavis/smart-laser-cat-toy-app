@@ -12,6 +12,7 @@ struct ForgotPasswordView: View {
     @EnvironmentObject var authViewModel: AuthViewModel
     
     @State private var showAlert: Bool = false
+    @State private var isSuccess: Bool = false
 
     var body: some View {
         ZStack {
@@ -65,9 +66,10 @@ struct ForgotPasswordView: View {
                     }
                 }
                 .alert(isPresented: $showAlert) {
-                    Alert(title: Text("in ForgotPasswordView"), message: Text(authViewModel.message ?? "Message"), dismissButton: .default(Text("OK")))
+                    Alert(title: Text(isSuccess ? "Success" : "Error"), message: Text(authViewModel.message ?? "Message"), dismissButton: .default(Text("OK")))
                 }
                 .syncBool($authViewModel.showAlert, with: $showAlert)
+                .syncBool($authViewModel.isSuccess, with: $isSuccess)
                 
                 Spacer()
                 

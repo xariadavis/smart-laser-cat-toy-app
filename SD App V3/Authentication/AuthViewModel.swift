@@ -16,6 +16,7 @@ class AuthViewModel: ObservableObject {
     @Published var user: AuthDataResultModel?
     @Published var message: String?
     @Published var showAlert: Bool = false
+    @Published var isSuccess: Bool = false
     
     init(authService: AuthenticationService) {
         self.authService = authService
@@ -105,10 +106,13 @@ class AuthViewModel: ObservableObject {
             try await authService.resetPassword(email: email)
             self.message = "If the email is associated with an account, we'll send a reset password link to your email."
             self.showAlert = true
+            self.isSuccess = true
+            
         } catch let error as NSError {
             
             self.message = error.localizedDescription
             self.showAlert = true
+            self.isSuccess = false
         }
     }
 }

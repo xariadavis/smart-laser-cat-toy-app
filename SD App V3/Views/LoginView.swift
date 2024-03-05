@@ -116,7 +116,7 @@ struct LoginView: View {
                     }
                 }
                 .alert(isPresented: $showAlert) {
-                    Alert(title: Text("in LoginView"), message: Text(authViewModel.message ?? "Message"), dismissButton: .default(Text("OK")))
+                    Alert(title: Text("Error"), message: Text(authViewModel.message ?? "Message"), dismissButton: .default(Text("OK")))
                 }
                 .syncBool($authViewModel.showAlert, with: $showAlert)
 
