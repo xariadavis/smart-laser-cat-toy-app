@@ -23,7 +23,9 @@
 		571E115E2B927D0F00D6D1B4 /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 571E115D2B927D0F00D6D1B4 /* FirebaseDatabaseSwift */; };
 		571E11602B927D0F00D6D1B4 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 571E115F2B927D0F00D6D1B4 /* FirebaseFirestore */; };
 		571E11622B927D0F00D6D1B4 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 571E11612B927D0F00D6D1B4 /* FirebaseFirestoreSwift */; };
-		572E9D442B9585E5003869CD /* AuthenticationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572E9D432B9585E5003869CD /* AuthenticationState.swift */; };
+		572E9D462B964CD6003869CD /* AuthDataResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572E9D452B964CD6003869CD /* AuthDataResultModel.swift */; };
+		572E9D482B964F49003869CD /* FirebaseAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572E9D472B964F49003869CD /* FirebaseAuthService.swift */; };
+		572E9D4A2B96C64D003869CD /* PubSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572E9D492B96C64D003869CD /* PubSync.swift */; };
 		572FE3AE2B698ADE00CB3E61 /* SD_App_V3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572FE3AD2B698ADE00CB3E61 /* SD_App_V3App.swift */; };
 		572FE3B02B698ADE00CB3E61 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572FE3AF2B698ADE00CB3E61 /* ContentView.swift */; };
 		572FE3B22B698AE000CB3E61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 572FE3B12B698AE000CB3E61 /* Assets.xcassets */; };
@@ -80,7 +82,9 @@
 		571850A12B69B0030004747C /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		5719F10C2B7FFF440024514E /* KittyShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KittyShape.swift; sourceTree = "<group>"; };
 		571E11522B927C2600D6D1B4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
-		572E9D432B9585E5003869CD /* AuthenticationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationState.swift; sourceTree = "<group>"; };
+		572E9D452B964CD6003869CD /* AuthDataResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDataResultModel.swift; sourceTree = "<group>"; };
+		572E9D472B964F49003869CD /* FirebaseAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthService.swift; sourceTree = "<group>"; };
+		572E9D492B96C64D003869CD /* PubSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PubSync.swift; sourceTree = "<group>"; };
 		572FE3AA2B698ADE00CB3E61 /* SD App V3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SD App V3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		572FE3AD2B698ADE00CB3E61 /* SD_App_V3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SD_App_V3App.swift; sourceTree = "<group>"; };
 		572FE3AF2B698ADE00CB3E61 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -304,7 +308,9 @@
 			children = (
 				57FC47042B928E2500C2EC42 /* AuthenticationService.swift */,
 				57FC47062B92A15600C2EC42 /* AuthViewModel.swift */,
-				572E9D432B9585E5003869CD /* AuthenticationState.swift */,
+				572E9D452B964CD6003869CD /* AuthDataResultModel.swift */,
+				572E9D472B964F49003869CD /* FirebaseAuthService.swift */,
+				572E9D492B96C64D003869CD /* PubSync.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -431,6 +437,7 @@
 				572FE3B02B698ADE00CB3E61 /* ContentView.swift in Sources */,
 				57FC47052B928E2500C2EC42 /* AuthenticationService.swift in Sources */,
 				573A95C22B70107900149372 /* DashboardView.swift in Sources */,
+				572E9D482B964F49003869CD /* FirebaseAuthService.swift in Sources */,
 				576056952B88510700FC6150 /* Cat.swift in Sources */,
 				572FE3AE2B698ADE00CB3E61 /* SD_App_V3App.swift in Sources */,
 				574DD6182B83208F003C39B2 /* FavoritesCarousel.swift in Sources */,
@@ -443,12 +450,12 @@
 				572FE3CB2B69915800CB3E61 /* RegisterView.swift in Sources */,
 				57E462342B7AAC2E00F9D6A7 /* WelcomeView.swift in Sources */,
 				57FC47092B92AB9800C2EC42 /* RootView.swift in Sources */,
+				572E9D462B964CD6003869CD /* AuthDataResultModel.swift in Sources */,
 				572FE3C92B69914D00CB3E61 /* LoginView.swift in Sources */,
 				571850A22B69B0030004747C /* TestView.swift in Sources */,
 				57E4623A2B7AB2CA00F9D6A7 /* PatternsView.swift in Sources */,
 				573A95C62B701A9D00149372 /* ActivityCard.swift in Sources */,
 				57E462362B7AB2B000F9D6A7 /* DeviceView.swift in Sources */,
-				572E9D442B9585E5003869CD /* AuthenticationState.swift in Sources */,
 				57E462382B7AB2BF00F9D6A7 /* SettingsView.swift in Sources */,
 				573A95CB2B701E9800149372 /* Kitty.swift in Sources */,
 				57106BE72B71A95600C03637 /* LaserPattern.swift in Sources */,
@@ -456,6 +463,7 @@
 				5719F10D2B7FFF440024514E /* KittyShape.swift in Sources */,
 				57FC47072B92A15600C2EC42 /* AuthViewModel.swift in Sources */,
 				572FE3C72B698F6A00CB3E61 /* Constants.swift in Sources */,
+				572E9D4A2B96C64D003869CD /* PubSync.swift in Sources */,
 				5704DDF22B788DC800253D4F /* TabBar.swift in Sources */,
 				572FE3CD2B6992AC00CB3E61 /* GlowingView.swift in Sources */,
 				573A95BD2B7007AD00149372 /* ProfileCard.swift in Sources */,

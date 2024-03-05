@@ -9,8 +9,9 @@ import SwiftUI
 
 struct ForgotPasswordView: View {
     @State private var email = ""
-    @State private var showAlert = false // Local state for controlling alert visibility
     @EnvironmentObject var authViewModel: AuthViewModel
+    
+    @State private var showAlert: Bool = false
 
     var body: some View {
         ZStack {
@@ -63,12 +64,10 @@ struct ForgotPasswordView: View {
                             .padding(.horizontal, 30)
                     }
                 }
-                .alert(authViewModel.messageTitle ?? "Alert", isPresented: $showAlert, presenting: authViewModel.message) { detail in
-                    Button("OK", role: .cancel) { }
-                } message: { detail in
-                    Text(detail)
+                .alert(isPresented: $showAlert) {
+                    Alert(title: Text("in ForgotPasswordView"), message: Text(authViewModel.message ?? "Message"), dismissButton: .default(Text("OK")))
                 }
-                .sync($authViewModel.showAlert, with: $showAlert)
+                .syncBool($authViewModel.showAlert, with: $showAlert)
                 
                 Spacer()
                 
@@ -78,22 +77,10 @@ struct ForgotPasswordView: View {
     }
 }
 
-extension View {
-    func sync(_ published: Binding<Bool>, with binding: Binding<Bool>) -> some View {
-        self
-            .onChange(of: published.wrappedValue) { published in
-                binding.wrappedValue = published
-            }
-            .onChange(of: binding.wrappedValue) { binding in
-                published.wrappedValue = binding
-            }
-    }
-}
-
-struct ForgotPasswordView_Previews: PreviewProvider {
-    static var previews: some View {
-        let authViewModel = AuthViewModel()
-        // Attach the AuthViewModel as an environment object
-        ForgotPasswordView().environmentObject(authViewModel)
-    }
-}
+//struct ForgotPasswordView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let authViewModel = AuthViewModel()
+//        // Attach the AuthViewModel as an environment object
+//        ForgotPasswordView().environmentObject(authViewModel)
+//    }
+//}

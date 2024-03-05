@@ -11,20 +11,24 @@ import FirebaseAuth
 @MainActor
 class AuthViewModel: ObservableObject {
     
-    private let authService: AuthenticationService = FirebaseAuthService()
+    private let authService: AuthenticationService
     @Published var isAuthenticated: Bool = false
     @Published var user: AuthDataResultModel?
     @Published var message: String?
-    @Published var messageTitle: String?
     @Published var showAlert: Bool = false
     
-    init() {
+    init(authService: AuthenticationService) {
+        self.authService = authService
+        // Initial check for authentication state
+        self.checkAuthentication()
+    }
+    
+    func checkAuthentication() {
         // Check if a user is already logged in when the app starts
-        do {
-            let user = try authService.getAuthenticatedUser()
+        if let user = authService.getAuthenticatedUser() {
             self.user = user
             self.isAuthenticated = true
-        } catch {
+        } else {
             self.isAuthenticated = false
         }
     }
@@ -36,13 +40,11 @@ class AuthViewModel: ObservableObject {
             self.user = authResult
             self.isAuthenticated = true
             self.message = nil // Clear any previous error message
-            self.messageTitle = nil
             
         } catch let error as NSError{
             print("Registration -- code: \(error.code), Description: \(error.localizedDescription)")
             let errorCode = error.code
             // Most common errors
-            self.messageTitle = "Error"
             switch errorCode {
             case 17008:
                 self.message = "The email address is invalid. Please try again."
@@ -61,7 +63,6 @@ class AuthViewModel: ObservableObject {
             self.user = authResult
             self.isAuthenticated = true
             self.message = nil // Clear any previous error message
-            self.messageTitle = nil
             self.showAlert = false
         } catch let error as NSError {
             print("Error code: \(error.code), Description: \(error.localizedDescription)")
@@ -97,22 +98,15 @@ class AuthViewModel: ObservableObject {
     
     // Send reset password email
     func resetPassword(email: String) async {
-        
-        self.messageTitle = nil // Or some default state
-        self.message = nil
-        
         do {
             
             print("In AuthViewModel: resetPassword")
             
             try await authService.resetPassword(email: email)
-            
-            self.messageTitle = "Success"
             self.message = "If the email is associated with an account, we'll send a reset password link to your email."
             self.showAlert = true
         } catch let error as NSError {
             
-            self.messageTitle = "Error"
             self.message = error.localizedDescription
             self.showAlert = true
         }

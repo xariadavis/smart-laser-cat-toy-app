@@ -16,12 +16,15 @@ struct LoginView: View {
     )
     
     @EnvironmentObject var authViewModel: AuthViewModel
+    
     @State private var email = ""
     @State private var password = ""
     @State private var wrongEmail = 0
     @State private var wrongPassword = 0
     @State private var showingLoginScreen = false
     @State private var opacity = 0.0
+    
+    @State private var showAlert: Bool = false
     
     @FocusState private var isTextFieldFocused: Bool
         
@@ -112,11 +115,10 @@ struct LoginView: View {
                             .padding(.vertical, 10)
                     }
                 }
-                .alert(authViewModel.messageTitle ?? "Alert", isPresented: $authViewModel.showAlert, presenting: authViewModel.message) { detail in
-                    Button("OK", role: .cancel) { }
-                } message: { detail in
-                    Text(detail)
+                .alert(isPresented: $showAlert) {
+                    Alert(title: Text("in LoginView"), message: Text(authViewModel.message ?? "Message"), dismissButton: .default(Text("OK")))
                 }
+                .syncBool($authViewModel.showAlert, with: $showAlert)
 
                 NavigationLink(destination: RegisterView().navigationBarBackButtonHidden(true)) {
                     HStack (spacing: 4) {

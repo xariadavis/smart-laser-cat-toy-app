@@ -21,6 +21,7 @@ struct RegisterView: View {
     @EnvironmentObject var authViewModel: AuthViewModel
     @State private var email: String = ""
     @State private var password: String = ""
+    @State private var showAlert: Bool = false
     
     @State private var wrongEmail = 0
     @State private var wrongPassword = 0
@@ -104,29 +105,28 @@ struct RegisterView: View {
                             await authViewModel.signUp(email: email, password: password)
                         }
                     }
-                label: {
-                    Text("Sign Up")
-                        .font(Font.custom("Quicksand-SemiBold", size: 20))
-                        .frame(maxWidth: .infinity)
-                        .padding(15)
-                        .foregroundColor(Color.primary)
-                        .background(Color.red.opacity(0.9))
-                        .cornerRadius(40)
-                    
-                    // Apply glowing border effect
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 40)
-                                .stroke(Color.red, lineWidth: 2)
-                        )
-                        .padding(.horizontal, 40)
-                        .padding(.vertical, 10)
+                    label: {
+                        Text("Sign Up")
+                            .font(Font.custom("Quicksand-SemiBold", size: 20))
+                            .frame(maxWidth: .infinity)
+                            .padding(15)
+                            .foregroundColor(Color.primary)
+                            .background(Color.red.opacity(0.9))
+                            .cornerRadius(40)
+                        
+                        // Apply glowing border effect
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 40)
+                                    .stroke(Color.red, lineWidth: 2)
+                            )
+                            .padding(.horizontal, 40)
+                            .padding(.vertical, 10)
+                    }
                 }
+                .alert(isPresented: $showAlert) {
+                    Alert(title: Text("in RegsiterView"), message: Text(authViewModel.message ?? "Message"), dismissButton: .default(Text("OK")))
                 }
-                .alert(authViewModel.messageTitle ?? "Alert", isPresented: $authViewModel.showAlert, presenting: authViewModel.message) { detail in
-                    Button("OK", role: .cancel) { }
-                } message: { detail in
-                    Text(detail)
-                }
+                .syncBool($authViewModel.showAlert, with: $showAlert)
                 
                 // Make this a link
                 NavigationLink(destination: LoginView().navigationBarBackButtonHidden(true)) {
@@ -152,11 +152,11 @@ struct RegisterView: View {
     }
 }
 
-struct RegisterView_Previews: PreviewProvider {
-    static var previews: some View {
-        // Create an instance of AuthViewModel
-        let authViewModel = AuthViewModel()
-        // Attach the AuthViewModel as an environment object
-        RegisterView().environmentObject(authViewModel)
-    }
-}
+//struct RegisterView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        // Create an instance of AuthViewModel
+//        //let authViewModel = AuthViewModel()
+//        // Attach the AuthViewModel as an environment object
+//        //RegisterView().environmentObject(authViewModel)
+//    }
+//}
