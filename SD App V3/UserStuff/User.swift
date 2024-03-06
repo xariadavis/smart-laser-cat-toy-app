@@ -12,8 +12,6 @@ struct User: Identifiable, Codable {
     var id: String
     var name: String
     var email: String
-    
-    // Link user to cat later?
-    // var cat: Cat
+    var catID: String  // Store the cats ID for reference
 
 }

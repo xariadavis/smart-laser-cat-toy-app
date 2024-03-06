@@ -99,7 +99,7 @@ struct RegisterView: View {
                 VStack {
                     Button {
                         Task {
-                            await authViewModel.signUp(email: email, password: password, name: fullName)
+                            await authViewModel.signUp(email: email, password: password, name: fullName, catName: petName)
                         }
                     }
                     label: {

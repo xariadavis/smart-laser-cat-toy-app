@@ -21,4 +21,11 @@ class UserManager: UserManagerProtocol {
         try userDocument(userID: user.id).setData(from: user, merge: false)
     }
     
+    func addCat(userID: String, cat: Cat) async throws -> String {
+        let catData = try Firestore.Encoder().encode(cat)
+        let newCat = try await userCollection.document(userID).collection("cats").addDocument(data: catData)
+        
+        return newCat.documentID
+    }
+    
 }

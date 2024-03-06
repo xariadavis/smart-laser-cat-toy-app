@@ -12,5 +12,6 @@ import FirebaseFirestoreSwift
 protocol UserManagerProtocol {
     func userDocument(userID: String) -> DocumentReference
     func createNewUser(user: User) async throws
+    func addCat(userID: String, cat: Cat) async throws -> String
 }
 

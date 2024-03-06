@@ -39,14 +39,24 @@ class AuthViewModel: ObservableObject {
     }
 
     
-    func signUp(email: String, password: String, name: String) async {
+    func signUp(email: String, password: String, name: String, catName: String) async {
         do {
             let authResult = try await authService.createUser(withEmail: email, password: password)
             self.user = authResult
             self.isAuthenticated = true
             self.message = nil // Clear any previous error message
             
-            try await userService.createNewUser(user: User(id: self.user?.uid ?? "error", name: name, email: email))
+            // Create a cat using their name
+            var newCat = Cat(name: catName)
+            
+            // Use the owner's ID to link to cat
+            newCat.ownerID = self.user?.uid
+            
+            // Add the cat to subcollection
+            let newCatID = try await userService.addCat(userID: self.user?.uid ?? "error", cat: newCat)
+            
+            // Use cat's ID to link to owner
+            try await userService.createNewUser(user: User(id: self.user?.uid ?? "error", name: name, email: email, catID: newCatID))
             
         } catch let error as NSError{
             print("Registration -- code: \(error.code), Description: \(error.localizedDescription)")

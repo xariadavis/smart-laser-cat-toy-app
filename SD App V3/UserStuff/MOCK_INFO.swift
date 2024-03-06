@@ -9,7 +9,7 @@ import Foundation
 
 // Create a kitty profile
 // let MOCK_CAT = Cat(name: "Garfield the Cat 🍝", age: 2, weight: 27.1, sex: "Male", breed: "Persian")
-let MOCK_CAT = Cat(name: "Sir Walter Honey Bee 🐝", age: 2, weight: 15.4, sex: "Male", breed: "DMH")
+let MOCK_CAT = Cat(id: "12345", name: "Sir Walter Honey Bee 🐝", age: 2, weight: 15.4, sex: "Male", breed: "DMH", favoritePatterns: [])
 
 // Create a user and link them to the kitty profile
-let MOCK_USER = User(id: "1234", name: "Xaria", email: "testing@test.com")
+// let MOCK_USER = User(id: "1234", name: "Xaria", email: "testing@test.com")
