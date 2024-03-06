@@ -53,6 +53,9 @@
 		573A95C62B701A9D00149372 /* ActivityCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573A95C52B701A9D00149372 /* ActivityCard.swift */; };
 		573A95C82B701BB700149372 /* PatternCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573A95C72B701BB700149372 /* PatternCard.swift */; };
 		573A95CB2B701E9800149372 /* Kitty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573A95CA2B701E9800149372 /* Kitty.swift */; };
+		574D7B582B98358A00903E9D /* UserManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574D7B572B98358A00903E9D /* UserManagerProtocol.swift */; };
+		574D7B5A2B98359800903E9D /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574D7B592B98359800903E9D /* UserManager.swift */; };
+		574D7B5C2B9835CD00903E9D /* MOCK_INFO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574D7B5B2B9835CD00903E9D /* MOCK_INFO.swift */; };
 		574DD6182B83208F003C39B2 /* FavoritesCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574DD6172B83208F003C39B2 /* FavoritesCarousel.swift */; };
 		575ED2E32B6C57CA00110CDC /* LaserStars.json in Resources */ = {isa = PBXBuildFile; fileRef = 575ED2E22B6C57CA00110CDC /* LaserStars.json */; };
 		575F7B962B705F4A009082ED /* ScalingHeaderScrollView in Frameworks */ = {isa = PBXBuildFile; productRef = 575F7B952B705F4A009082ED /* ScalingHeaderScrollView */; };
@@ -112,6 +115,9 @@
 		573A95C52B701A9D00149372 /* ActivityCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCard.swift; sourceTree = "<group>"; };
 		573A95C72B701BB700149372 /* PatternCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternCard.swift; sourceTree = "<group>"; };
 		573A95CA2B701E9800149372 /* Kitty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kitty.swift; sourceTree = "<group>"; };
+		574D7B572B98358A00903E9D /* UserManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManagerProtocol.swift; sourceTree = "<group>"; };
+		574D7B592B98359800903E9D /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		574D7B5B2B9835CD00903E9D /* MOCK_INFO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MOCK_INFO.swift; sourceTree = "<group>"; };
 		574DD6172B83208F003C39B2 /* FavoritesCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCarousel.swift; sourceTree = "<group>"; };
 		575ED2E22B6C57CA00110CDC /* LaserStars.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LaserStars.json; sourceTree = "<group>"; };
 		576056922B884EBF00FC6150 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -159,6 +165,9 @@
 				57106BE62B71A95600C03637 /* LaserPattern.swift */,
 				576056922B884EBF00FC6150 /* User.swift */,
 				576056942B88510700FC6150 /* Cat.swift */,
+				574D7B572B98358A00903E9D /* UserManagerProtocol.swift */,
+				574D7B592B98359800903E9D /* UserManager.swift */,
+				574D7B5B2B9835CD00903E9D /* MOCK_INFO.swift */,
 			);
 			path = UserStuff;
 			sourceTree = "<group>";
@@ -169,13 +178,6 @@
 				5719F10C2B7FFF440024514E /* KittyShape.swift */,
 			);
 			path = CustomShapes;
-			sourceTree = "<group>";
-		};
-		571E11502B927B4800D6D1B4 /* Firebase */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Firebase;
 			sourceTree = "<group>";
 		};
 		571E11512B927B6000D6D1B4 /* Appearance */ = {
@@ -212,7 +214,6 @@
 				572FE3D92B6996AB00CB3E61 /* SD-App-V3-Info.plist */,
 				57FC47032B928E1300C2EC42 /* Authentication */,
 				571E11512B927B6000D6D1B4 /* Appearance */,
-				571E11502B927B4800D6D1B4 /* Firebase */,
 				57106BE52B71A94400C03637 /* UserStuff */,
 				57FFA0DE2B70553500E8F92A /* Images */,
 				573A95C92B701E6600149372 /* Views */,
@@ -437,12 +438,14 @@
 				572FE3B02B698ADE00CB3E61 /* ContentView.swift in Sources */,
 				57FC47052B928E2500C2EC42 /* AuthenticationService.swift in Sources */,
 				573A95C22B70107900149372 /* DashboardView.swift in Sources */,
+				574D7B582B98358A00903E9D /* UserManagerProtocol.swift in Sources */,
 				572E9D482B964F49003869CD /* FirebaseAuthService.swift in Sources */,
 				576056952B88510700FC6150 /* Cat.swift in Sources */,
 				572FE3AE2B698ADE00CB3E61 /* SD_App_V3App.swift in Sources */,
 				574DD6182B83208F003C39B2 /* FavoritesCarousel.swift in Sources */,
 				5704DDED2B7881C600253D4F /* ColorButton.swift in Sources */,
 				572FF8322B6ADFF000190F52 /* ProfileView.swift in Sources */,
+				574D7B5C2B9835CD00903E9D /* MOCK_INFO.swift in Sources */,
 				573A95C82B701BB700149372 /* PatternCard.swift in Sources */,
 				572FE3BF2B698E8900CB3E61 /* LottiePlusView.swift in Sources */,
 				576056932B884EBF00FC6150 /* User.swift in Sources */,
@@ -450,6 +453,7 @@
 				572FE3CB2B69915800CB3E61 /* RegisterView.swift in Sources */,
 				57E462342B7AAC2E00F9D6A7 /* WelcomeView.swift in Sources */,
 				57FC47092B92AB9800C2EC42 /* RootView.swift in Sources */,
+				574D7B5A2B98359800903E9D /* UserManager.swift in Sources */,
 				572E9D462B964CD6003869CD /* AuthDataResultModel.swift in Sources */,
 				572FE3C92B69914D00CB3E61 /* LoginView.swift in Sources */,
 				571850A22B69B0030004747C /* TestView.swift in Sources */,

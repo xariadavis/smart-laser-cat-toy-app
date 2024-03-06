@@ -25,7 +25,7 @@ struct SD_App_V3App: App {
 //    let authService = FirebaseAuthService()
 //    @State var isAuthenticated: Bool = false
     
-    @StateObject private var authViewModel = AuthViewModel(authService: FirebaseAuthService())
+    @StateObject private var authViewModel = AuthViewModel(authService: FirebaseAuthService(), userService: UserManager())
 
     var body: some Scene {
         WindowGroup {

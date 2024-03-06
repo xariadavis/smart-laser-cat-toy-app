@@ -12,14 +12,18 @@ import FirebaseAuth
 class AuthViewModel: ObservableObject {
     
     private let authService: AuthenticationService
+    private let userService: UserManagerProtocol
+    
     @Published var isAuthenticated: Bool = false
     @Published var user: AuthDataResultModel?
     @Published var message: String?
     @Published var showAlert: Bool = false
     @Published var isSuccess: Bool = false
     
-    init(authService: AuthenticationService) {
+    init(authService: AuthenticationService, userService: UserManagerProtocol) {
         self.authService = authService
+        self.userService = userService
+        
         // Initial check for authentication state
         self.checkAuthentication()
     }
@@ -41,6 +45,8 @@ class AuthViewModel: ObservableObject {
             self.user = authResult
             self.isAuthenticated = true
             self.message = nil // Clear any previous error message
+            
+            try await userService.createNewUser(user: User(id: self.user?.uid ?? "error", name: "Test", email: email))
             
         } catch let error as NSError{
             print("Registration -- code: \(error.code), Description: \(error.localizedDescription)")
