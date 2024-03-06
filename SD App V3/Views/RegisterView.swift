@@ -23,9 +23,6 @@ struct RegisterView: View {
     @State private var password: String = ""
     @State private var showAlert: Bool = false
     
-    @State private var wrongEmail = 0
-    @State private var wrongPassword = 0
-    @State private var showingLoginScreen = false
     @State private var opacity = 0.0
     
     @FocusState private var isTextFieldFocused: Bool
@@ -102,7 +99,7 @@ struct RegisterView: View {
                 VStack {
                     Button {
                         Task {
-                            await authViewModel.signUp(email: email, password: password)
+                            await authViewModel.signUp(email: email, password: password, name: fullName)
                         }
                     }
                     label: {
