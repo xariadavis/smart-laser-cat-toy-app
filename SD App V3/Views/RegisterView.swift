@@ -15,17 +15,16 @@ struct RegisterView: View {
         endPoint: .bottom
     )
     
-    @State private var fullName = ""
+    @State private var ownerName = ""
     @State private var petName = ""
     
     @EnvironmentObject var authViewModel: AuthViewModel
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var showAlert: Bool = false
+    @State private var alertMessage: String = "Please fill in all required fields."
     
     @State private var opacity = 0.0
-    
-    @FocusState private var isTextFieldFocused: Bool
         
     var body: some View {
         ZStack {
@@ -49,19 +48,16 @@ struct RegisterView: View {
                 
                 VStack(alignment: .leading) {
                     
-//                    if !isTextFieldFocused {
-                        Text("Welcome to\nappName!")
-                            .font(Font.custom("TitanOne", size: 50))
-                            .multilineTextAlignment(.leading)
-//                    }
+                    Text("Welcome to\nappName!")
+                        .font(Font.custom("TitanOne", size: 50))
+                        .multilineTextAlignment(.leading)
                     
-                    TextField("Your Name", text: $fullName)
+                    TextField("Your Name", text: $ownerName)
                         .font(Font.custom("Quicksand-SemiBold", size: 20))
                         .foregroundColor(.primary)
                         .padding()
                         .background(Color(.systemGray5))
                         .cornerRadius(15)
-                        .focused($isTextFieldFocused)
                     
                     TextField("Pet's Name", text: $petName)
                         .font(Font.custom("Quicksand-SemiBold", size: 20))
@@ -69,7 +65,6 @@ struct RegisterView: View {
                         .padding()
                         .background(Color(.systemGray5))
                         .cornerRadius(15)
-                        .focused($isTextFieldFocused)
                     
                     TextField("Email Address", text: $email)
                         .font(Font.custom("Quicksand-SemiBold", size: 20))
@@ -79,7 +74,6 @@ struct RegisterView: View {
                         .cornerRadius(15)
                         .autocapitalization(.none)
                         .autocorrectionDisabled()
-                        .focused($isTextFieldFocused)
                     
                     SecureField("Password", text: $password)
                         .font(Font.custom("Quicksand-SemiBold", size: 20))
@@ -87,20 +81,38 @@ struct RegisterView: View {
                         .padding()
                         .background(Color(.systemGray5))
                         .cornerRadius(15)
-                        .focused($isTextFieldFocused)
                 }
                 .padding(.top, 50)
                 .padding(.horizontal, 30)
                 
-                
                 Spacer()
-                
                 
                 VStack {
                     Button {
-                        Task {
-                            await authViewModel.signUp(email: email, password: password, name: fullName, catName: petName)
+                        if ownerName.trimmingCharacters(in: .whitespaces).isEmpty ||
+                           petName.trimmingCharacters(in: .whitespaces).isEmpty ||
+                           email.trimmingCharacters(in: .whitespaces).isEmpty ||
+                           password.trimmingCharacters(in: .whitespaces).isEmpty {
+                            
+                            // Constructing the message for missing fields
+                            var missingFields = [String]()
+                            if ownerName.isEmpty { missingFields.append("Name") }
+                            if petName.isEmpty { missingFields.append("Pet Name") }
+                            if email.isEmpty { missingFields.append("Email") }
+                            if password.isEmpty { missingFields.append("Password") }
+                            
+                            alertMessage = "Please fill in the required fields: \(missingFields.joined(separator: ", "))"
+                            showAlert = true
+                            
+                            print("authMessage: \(authViewModel.message ?? "default")")
+                        } else {
+                            Task {
+                                await authViewModel.signUp(email: email, password: password, name: ownerName, catName: petName)
+                                alertMessage = authViewModel.message ?? "Error with signUp"
+                                print("Registered successfully")
+                            }
                         }
+
                     }
                     label: {
                         Text("Sign Up")
@@ -121,7 +133,7 @@ struct RegisterView: View {
                     }
                 }
                 .alert(isPresented: $showAlert) {
-                    Alert(title: Text("Error"), message: Text(authViewModel.message ?? "Message"), dismissButton: .default(Text("OK")))
+                    Alert(title: Text("Error"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
                 }
                 .syncBool($authViewModel.showAlert, with: $showAlert)
                 
