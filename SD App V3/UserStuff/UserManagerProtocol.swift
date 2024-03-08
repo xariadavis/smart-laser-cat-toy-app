@@ -13,5 +13,6 @@ protocol UserManagerProtocol {
     func userDocument(userID: String) -> DocumentReference
     func createNewUser(user: User) async throws
     func addCat(userID: String, cat: Cat) async throws -> String
+    func fetchAndCacheUser(withId id: String, completion: @escaping (Result<User, Error>) -> Void)
 }
 

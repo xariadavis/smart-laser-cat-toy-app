@@ -22,17 +22,16 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct SD_App_V3App: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
-//    let authService = FirebaseAuthService()
-//    @State var isAuthenticated: Bool = false
     
     @StateObject private var authViewModel = AuthViewModel(authService: FirebaseAuthService(), userService: UserManager())
-
+    
+    @StateObject var userViewModel = UserViewModel()
+    
     var body: some Scene {
         WindowGroup {
             Group {
                 if authViewModel.isAuthenticated {
                     ContentView()
-                        // .environmentObject(AuthViewModel(authService: FirebaseAuthService()))
                 } else {
                     WelcomeView()
                         // .environmentObject(AuthViewModel(authService: FirebaseAuthService()))
@@ -40,6 +39,7 @@ struct SD_App_V3App: App {
     
             }
             .environmentObject(authViewModel)
+            .environmentObject(userViewModel)
         }
     }
 }

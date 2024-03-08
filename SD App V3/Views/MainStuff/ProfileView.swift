@@ -37,12 +37,12 @@ struct ProfileView: View {
                                 .padding(10)
                             
                             HStack {
-                                InfoCard(iconName: "clock", title: "Age", detail: "\(MOCK_CAT.age) years")
-                                InfoCard(iconName: "pawprint", title: "Breed", detail: "\(MOCK_CAT.breed)")
+                                InfoCard(iconName: "clock", title: "Age", detail: "\(String(describing: MOCK_CAT.age)) years")
+                                InfoCard(iconName: "pawprint", title: "Breed", detail: "\(String(describing: MOCK_CAT.breed))")
                             }
                             HStack {
-                                InfoCard(iconName: "person", title: "Sex", detail: "\(MOCK_CAT.sex)")
-                                InfoCard(iconName: "scalemass", title: "Weight", detail: "\(MOCK_CAT.weight) lb")
+                                InfoCard(iconName: "person", title: "Sex", detail: "\(String(describing: MOCK_CAT.sex))")
+                                InfoCard(iconName: "scalemass", title: "Weight", detail: "\(String(describing: MOCK_CAT.weight)) lb")
                             }
                             
                             

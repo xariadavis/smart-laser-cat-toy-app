@@ -57,22 +57,22 @@
 		574D7B5A2B98359800903E9D /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574D7B592B98359800903E9D /* UserManager.swift */; };
 		574D7B5C2B9835CD00903E9D /* MOCK_INFO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574D7B5B2B9835CD00903E9D /* MOCK_INFO.swift */; };
 		574DD6182B83208F003C39B2 /* FavoritesCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574DD6172B83208F003C39B2 /* FavoritesCarousel.swift */; };
+		575E012D2B9ABBEB0089A7AC /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575E012C2B9ABBEB0089A7AC /* UserViewModel.swift */; };
 		575ED2E32B6C57CA00110CDC /* LaserStars.json in Resources */ = {isa = PBXBuildFile; fileRef = 575ED2E22B6C57CA00110CDC /* LaserStars.json */; };
 		575F7B962B705F4A009082ED /* ScalingHeaderScrollView in Frameworks */ = {isa = PBXBuildFile; productRef = 575F7B952B705F4A009082ED /* ScalingHeaderScrollView */; };
 		576056932B884EBF00FC6150 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576056922B884EBF00FC6150 /* User.swift */; };
 		576056952B88510700FC6150 /* Cat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576056942B88510700FC6150 /* Cat.swift */; };
 		577AADD72B943BBC009589CF /* CatLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 577AADD62B943BBC009589CF /* CatLogo.png */; };
 		579691682B7346A500FCA50F /* PZCircularControl in Frameworks */ = {isa = PBXBuildFile; productRef = 579691672B7346A500FCA50F /* PZCircularControl */; };
+		579A415B2B9969BF0011138D /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579A415A2B9969BF0011138D /* OnboardingView.swift */; };
 		57BB10DA2B7FD2280070DE63 /* KDCircularProgress in Frameworks */ = {isa = PBXBuildFile; productRef = 57BB10D92B7FD2280070DE63 /* KDCircularProgress */; };
 		57CFDE312B92E698002AD48F /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CFDE302B92E698002AD48F /* ForgotPasswordView.swift */; };
 		57E462342B7AAC2E00F9D6A7 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E462332B7AAC2E00F9D6A7 /* WelcomeView.swift */; };
-		57E462362B7AB2B000F9D6A7 /* DeviceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E462352B7AB2B000F9D6A7 /* DeviceView.swift */; };
 		57E462382B7AB2BF00F9D6A7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E462372B7AB2BF00F9D6A7 /* SettingsView.swift */; };
 		57E4623A2B7AB2CA00F9D6A7 /* PatternsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E462392B7AB2CA00F9D6A7 /* PatternsView.swift */; };
 		57FC47022B928D9D00C2EC42 /* LaserDots.json in Resources */ = {isa = PBXBuildFile; fileRef = 57FC47012B928D9D00C2EC42 /* LaserDots.json */; };
 		57FC47052B928E2500C2EC42 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FC47042B928E2500C2EC42 /* AuthenticationService.swift */; };
 		57FC47072B92A15600C2EC42 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FC47062B92A15600C2EC42 /* AuthViewModel.swift */; };
-		57FC47092B92AB9800C2EC42 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FC47082B92AB9800C2EC42 /* RootView.swift */; };
 		57FFA0E02B70559200E8F92A /* WaltyKitten.png in Resources */ = {isa = PBXBuildFile; fileRef = 57FFA0DF2B70559200E8F92A /* WaltyKitten.png */; };
 /* End PBXBuildFile section */
 
@@ -119,19 +119,19 @@
 		574D7B592B98359800903E9D /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		574D7B5B2B9835CD00903E9D /* MOCK_INFO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MOCK_INFO.swift; sourceTree = "<group>"; };
 		574DD6172B83208F003C39B2 /* FavoritesCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCarousel.swift; sourceTree = "<group>"; };
+		575E012C2B9ABBEB0089A7AC /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		575ED2E22B6C57CA00110CDC /* LaserStars.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LaserStars.json; sourceTree = "<group>"; };
 		576056922B884EBF00FC6150 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		576056942B88510700FC6150 /* Cat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cat.swift; sourceTree = "<group>"; };
 		577AADD62B943BBC009589CF /* CatLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CatLogo.png; path = ../../../../../../../../Desktop/CatLogo.png; sourceTree = "<group>"; };
+		579A415A2B9969BF0011138D /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		57CFDE302B92E698002AD48F /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
 		57E462332B7AAC2E00F9D6A7 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
-		57E462352B7AB2B000F9D6A7 /* DeviceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceView.swift; sourceTree = "<group>"; };
 		57E462372B7AB2BF00F9D6A7 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		57E462392B7AB2CA00F9D6A7 /* PatternsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternsView.swift; sourceTree = "<group>"; };
 		57FC47012B928D9D00C2EC42 /* LaserDots.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LaserDots.json; path = ../../../../../../../../../Downloads/LaserDots.json; sourceTree = "<group>"; };
 		57FC47042B928E2500C2EC42 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		57FC47062B92A15600C2EC42 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
-		57FC47082B92AB9800C2EC42 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		57FFA0DF2B70559200E8F92A /* WaltyKitten.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WaltyKitten.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -168,6 +168,7 @@
 				574D7B572B98358A00903E9D /* UserManagerProtocol.swift */,
 				574D7B592B98359800903E9D /* UserManager.swift */,
 				574D7B5B2B9835CD00903E9D /* MOCK_INFO.swift */,
+				575E012C2B9ABBEB0089A7AC /* UserViewModel.swift */,
 			);
 			path = UserStuff;
 			sourceTree = "<group>";
@@ -219,8 +220,8 @@
 				573A95C92B701E6600149372 /* Views */,
 				573A95BB2B7007A000149372 /* Components */,
 				572FE3B32B698AE000CB3E61 /* Preview Content */,
-				572FE3CC2B6992AC00CB3E61 /* GlowingView.swift */,
 				571850A12B69B0030004747C /* TestView.swift */,
+				572FE3CC2B6992AC00CB3E61 /* GlowingView.swift */,
 				573A95C32B7019D900149372 /* Pattern.swift */,
 				573A95CA2B701E9800149372 /* Kitty.swift */,
 				572FE3B12B698AE000CB3E61 /* Assets.xcassets */,
@@ -289,19 +290,34 @@
 		573A95C92B701E6600149372 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				57CFDE302B92E698002AD48F /* ForgotPasswordView.swift */,
+				579A41582B9968F00011138D /* MainStuff */,
+				579A41572B9968CC0011138D /* AuthenticationViews */,
 				572FE3AF2B698ADE00CB3E61 /* ContentView.swift */,
-				572FE3C82B69914D00CB3E61 /* LoginView.swift */,
-				572FE3CA2B69915800CB3E61 /* RegisterView.swift */,
-				572FF8312B6ADFF000190F52 /* ProfileView.swift */,
-				573A95C12B70107900149372 /* DashboardView.swift */,
-				57E462332B7AAC2E00F9D6A7 /* WelcomeView.swift */,
-				57E462352B7AB2B000F9D6A7 /* DeviceView.swift */,
-				57E462372B7AB2BF00F9D6A7 /* SettingsView.swift */,
-				57E462392B7AB2CA00F9D6A7 /* PatternsView.swift */,
-				57FC47082B92AB9800C2EC42 /* RootView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		579A41572B9968CC0011138D /* AuthenticationViews */ = {
+			isa = PBXGroup;
+			children = (
+				57E462332B7AAC2E00F9D6A7 /* WelcomeView.swift */,
+				57CFDE302B92E698002AD48F /* ForgotPasswordView.swift */,
+				572FE3C82B69914D00CB3E61 /* LoginView.swift */,
+				572FE3CA2B69915800CB3E61 /* RegisterView.swift */,
+				579A415A2B9969BF0011138D /* OnboardingView.swift */,
+			);
+			path = AuthenticationViews;
+			sourceTree = "<group>";
+		};
+		579A41582B9968F00011138D /* MainStuff */ = {
+			isa = PBXGroup;
+			children = (
+				572FF8312B6ADFF000190F52 /* ProfileView.swift */,
+				573A95C12B70107900149372 /* DashboardView.swift */,
+				57E462372B7AB2BF00F9D6A7 /* SettingsView.swift */,
+				57E462392B7AB2CA00F9D6A7 /* PatternsView.swift */,
+			);
+			path = MainStuff;
 			sourceTree = "<group>";
 		};
 		57FC47032B928E1300C2EC42 /* Authentication */ = {
@@ -452,17 +468,17 @@
 				572FF8302B6ABF8600190F52 /* MainPalette.swift in Sources */,
 				572FE3CB2B69915800CB3E61 /* RegisterView.swift in Sources */,
 				57E462342B7AAC2E00F9D6A7 /* WelcomeView.swift in Sources */,
-				57FC47092B92AB9800C2EC42 /* RootView.swift in Sources */,
 				574D7B5A2B98359800903E9D /* UserManager.swift in Sources */,
 				572E9D462B964CD6003869CD /* AuthDataResultModel.swift in Sources */,
 				572FE3C92B69914D00CB3E61 /* LoginView.swift in Sources */,
+				579A415B2B9969BF0011138D /* OnboardingView.swift in Sources */,
 				571850A22B69B0030004747C /* TestView.swift in Sources */,
 				57E4623A2B7AB2CA00F9D6A7 /* PatternsView.swift in Sources */,
 				573A95C62B701A9D00149372 /* ActivityCard.swift in Sources */,
-				57E462362B7AB2B000F9D6A7 /* DeviceView.swift in Sources */,
 				57E462382B7AB2BF00F9D6A7 /* SettingsView.swift in Sources */,
 				573A95CB2B701E9800149372 /* Kitty.swift in Sources */,
 				57106BE72B71A95600C03637 /* LaserPattern.swift in Sources */,
+				575E012D2B9ABBEB0089A7AC /* UserViewModel.swift in Sources */,
 				573A95C42B7019D900149372 /* Pattern.swift in Sources */,
 				5719F10D2B7FFF440024514E /* KittyShape.swift in Sources */,
 				57FC47072B92A15600C2EC42 /* AuthViewModel.swift in Sources */,

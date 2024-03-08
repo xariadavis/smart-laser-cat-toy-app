@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
-    
+        
     let gradient = LinearGradient(
         gradient: Gradient(colors: [Color.midBlue.opacity(0.15), Color(.systemGray6), Color.white.opacity(0.2)]),
         startPoint: .top,
@@ -100,7 +100,7 @@ struct LoginView: View {
                             
                             // show dashboard if successful
                             showDashboard = authViewModel.isAuthenticated
-                            
+                            print("full screen cover presented in login view")
                         }
                     } label: {
                         Text("Login")

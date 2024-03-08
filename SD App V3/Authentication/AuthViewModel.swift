@@ -7,13 +7,16 @@
 
 import Foundation
 import FirebaseAuth
+import SwiftUI
 
 @MainActor
 class AuthViewModel: ObservableObject {
+        
+    @EnvironmentObject var userViewModel: UserViewModel
     
     private let authService: AuthenticationService
     private let userService: UserManagerProtocol
-    
+        
     @Published var isAuthenticated: Bool = false
     @Published var user: AuthDataResultModel?
     @Published var message: String?
@@ -81,6 +84,21 @@ class AuthViewModel: ObservableObject {
             self.isAuthenticated = true
             self.message = nil // Clear any previous error message
             self.showAlert = false
+            print("current id ; \(String(describing: self.user?.uid))")
+            
+            userService.fetchAndCacheUser(withId: self.user?.uid ?? "Error fetching", completion: { result in
+                switch result {
+                    case .success(let user):
+                        print("Got user: \(user.name) + \(user.email)")
+                    case .failure(let error):
+                        print("Error fetching user: \(error.localizedDescription)")
+                }
+                
+            })
+            
+            userViewModel.loadUser()
+            
+            
         } catch let error as NSError {
             print("Error code: \(error.code), Description: \(error.localizedDescription)")
             let errorCode = error.code
@@ -130,5 +148,9 @@ class AuthViewModel: ObservableObject {
             self.showAlert = true
             self.isSuccess = false
         }
+    }
+    
+    func fetchUserID(user: User) {
+        
     }
 }

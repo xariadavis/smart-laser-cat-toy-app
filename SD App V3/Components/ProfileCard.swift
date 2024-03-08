@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct ProfileCard: View {
+        
+    @EnvironmentObject var userViewModel: UserViewModel
     
     let cardGradient = Gradient(colors: [Color.black.opacity(0.0), Color.black.opacity(0.5)])
     
@@ -46,10 +48,20 @@ struct ProfileCard: View {
             
             VStack() {
                 Spacer()
-                Text("\(MOCK_CAT.name)")
-                    .font(Font.custom("QuickSand-Bold", size: 20))
-                    .foregroundColor(.white)
-                    .padding(.horizontal, 5)
+                 //Text("\(MOCK_CAT.name)")
+                
+                if let user = userViewModel.currentUser {
+                    Text("\(user.name)")
+                        .font(Font.custom("QuickSand-Bold", size: 20))
+                        .foregroundColor(.white)
+                        .padding(.horizontal, 5)
+                    // Display more user information as needed
+                } else {
+                    Text("Error finding name")
+                        .font(Font.custom("QuickSand-Bold", size: 20))
+                        .foregroundColor(.white)
+                        .padding(.horizontal, 5)
+                }
             }
             .padding(20)
             
