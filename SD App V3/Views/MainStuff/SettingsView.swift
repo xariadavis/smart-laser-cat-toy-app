@@ -31,6 +31,7 @@ struct SettingsView: View {
                     print("Log out button pressed")
                     Task {
                         authViewModel.signOut()
+                        UserDefaults.standard.removeObject(forKey: "cachedUser")
                     }
                 } label: {
                     Text("Log out")

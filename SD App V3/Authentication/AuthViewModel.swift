@@ -84,20 +84,35 @@ class AuthViewModel: ObservableObject {
             self.isAuthenticated = true
             self.message = nil // Clear any previous error message
             self.showAlert = false
-            print("current id ; \(String(describing: self.user?.uid))")
+            print("current id ; \(String(self.user?.uid ?? "Error"))")
             
             userService.fetchAndCacheUser(withId: self.user?.uid ?? "Error fetching", completion: { result in
-                switch result {
+                DispatchQueue.main.async {
+                    switch result {
                     case .success(let user):
                         print("Got user: \(user.name) + \(user.email)")
+                        // Perform any further actions with fetched user data here
                     case .failure(let error):
                         print("Error fetching user: \(error.localizedDescription)")
-                }
+                        // Handle error, maybe update UI to show an error message
+                    }
+                    
+                    var loadedUser = self.userService.loadUser(withId: self.user?.uid ?? "could not load user")
+
+
+                    self.userService.fetchAndCacheCat(forUserId: loadedUser?.id ?? "No user loaded for cat", catId: loadedUser?.catID ?? "No cat ID", completion: { result in
+                        switch result {
+                            case .success(let user):
+                                print("Got cat: \(user.name)")
+                            case .failure(let error):
+                                print("Error fetching user: \(error.localizedDescription)")
+                        }
+
+                    })
+
                 
+                }
             })
-            
-            userViewModel.loadUser()
-            
             
         } catch let error as NSError {
             print("Error code: \(error.code), Description: \(error.localizedDescription)")

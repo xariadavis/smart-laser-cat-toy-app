@@ -11,10 +11,10 @@ class UserViewModel: ObservableObject {
     @Published var currentUser: User?
     
     init() {
-        loadUser()
+        loadUserPostCache()
     }
     
-    func loadUser() {
+    func loadUserPostCache() {
         
         print("UserViewModel: loadUser() called")
         

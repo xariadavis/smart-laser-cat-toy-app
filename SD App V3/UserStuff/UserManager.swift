@@ -47,6 +47,8 @@ class UserManager: UserManagerProtocol, ObservableObject {
         usersCollection.document(id).getDocument { documentSnapshot, error in
             guard let documentSnapshot = documentSnapshot, documentSnapshot.exists else {
                 completion(.failure(error ?? NSError(domain: "UserService", code: 404, userInfo: [NSLocalizedDescriptionKey: "User not found"])))
+                
+                print("UserManager: looks like doc does not exists")
                 return
             }
             
@@ -55,10 +57,13 @@ class UserManager: UserManagerProtocol, ObservableObject {
                 // Cache the fetched user
                 self.saveUser(user: user)
                 completion(.success(user))
+                print("User manager: Fetch successful -- \(user.id)")
             } catch {
                 completion(.failure(error))
             }
         }
+        
+        print("UserManager: fetchAndCacheUser() end")
     }
     
     // Saving User to UserDefaults
@@ -73,7 +78,7 @@ class UserManager: UserManagerProtocol, ObservableObject {
     }
     
     // Loading User from UserDefaults
-    private func loadUser(withId id: String) -> User? {
+    func loadUser(withId id: String) -> User? {
         if let userData = UserDefaults.standard.data(forKey: "cachedUser") {
             let decoder = JSONDecoder()
             do {
@@ -97,7 +102,45 @@ class UserManager: UserManagerProtocol, ObservableObject {
             print("Error updating user: \(error.localizedDescription)")
         }
     }
+    
+    
+    // MARK: Cat
+    
+    func cacheCat(cat: Cat) {
+        let encoder = JSONEncoder()
+        if let encodedCat = try? encoder.encode(cat) {
+            UserDefaults.standard.set(encodedCat, forKey: "cachedCat:\(cat.id ?? "Can't cache cat")")
+        }
+    }
 
+    
+    func loadCachedCat(forId catId: String) -> Cat? {
+        if let catData = UserDefaults.standard.data(forKey: "cachedCat:\(catId)") {
+            let decoder = JSONDecoder()
+            return try? decoder.decode(Cat.self, from: catData)
+        }
+        return nil
+    }
 
+    
+    func fetchAndCacheCat(forUserId userId: String, catId: String, completion: @escaping (Result<Cat, Error>) -> Void) {
+        
+        usersCollection.document(userId).collection("cats").document(catId).getDocument { documentSnapshot, error in
+            guard let documentSnapshot = documentSnapshot, documentSnapshot.exists else {
+                completion(.failure(error ?? NSError(domain: "UserService", code: 404, userInfo: [NSLocalizedDescriptionKey: "Cat not found"])))
+                return
+            }
+
+            do {
+                let cat = try documentSnapshot.data(as: Cat.self)
+                // Optionally cache the fetched cat
+                self.cacheCat(cat: cat)
+                completion(.success(cat))
+            } catch {
+                completion(.failure(error))
+            }
+        }
+    }
+    
     
 }
