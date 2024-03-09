@@ -37,6 +37,7 @@
 		57ECBCC62B9C34F10007E234 /* GlowModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ECBCC52B9C34F10007E234 /* GlowModifier.swift */; };
 		57ECBCCA2B9C36720007E234 /* TitanOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57ECBCC92B9C36720007E234 /* TitanOne-Regular.ttf */; };
 		57ECBCCC2B9C36880007E234 /* Quicksand[wght].ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57ECBCCB2B9C36880007E234 /* Quicksand[wght].ttf */; };
+		57ECBCCE2B9C4D750007E234 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ECBCCD2B9C4D750007E234 /* ForgotPasswordView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,7 @@
 		57ECBCC72B9C35F40007E234 /* SD-App-V4-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "SD-App-V4-Info.plist"; sourceTree = SOURCE_ROOT; };
 		57ECBCC92B9C36720007E234 /* TitanOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "TitanOne-Regular.ttf"; path = "../../../../../../../../../Desktop/test-app/sd1-app/SD App V3/Appearance/Fonts/TitanOne-Regular.ttf"; sourceTree = "<group>"; };
 		57ECBCCB2B9C36880007E234 /* Quicksand[wght].ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Quicksand[wght].ttf"; path = "../../../../../../../../../Desktop/test-app/sd1-app/SD App V3/Appearance/Fonts/Quicksand[wght].ttf"; sourceTree = "<group>"; };
+		57ECBCCD2B9C4D750007E234 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 			children = (
 				57ECBC882B9C22970007E234 /* LoginView.swift */,
 				57ECBC8A2B9C22A10007E234 /* SignUpView.swift */,
+				57ECBCCD2B9C4D750007E234 /* ForgotPasswordView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				57ECBC952B9C22EB0007E234 /* DashboardView.swift in Sources */,
 				57ECBCBC2B9C2D340007E234 /* Constants.swift in Sources */,
 				57ECBCA82B9C24360007E234 /* User.swift in Sources */,
+				57ECBCCE2B9C4D750007E234 /* ForgotPasswordView.swift in Sources */,
 				57ECBCC62B9C34F10007E234 /* GlowModifier.swift in Sources */,
 				57ECBC8F2B9C22BF0007E234 /* SignUpViewModel.swift in Sources */,
 				57ECBC9A2B9C23280007E234 /* PatternsListViewModel.swift in Sources */,

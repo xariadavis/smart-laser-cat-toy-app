@@ -12,6 +12,7 @@ struct WelcomeView: View {
     // Define view model
     @ObservedObject var viewModel: WelcomeViewModel
     @Environment(\.colorScheme) var colorScheme
+    @State private var navigationTarget: NavigationTarget?
 
     
     var body: some View {
@@ -47,6 +48,7 @@ struct WelcomeView: View {
                     
                     Button(action: {
                         viewModel.handleRegisterPress()
+                        navigationTarget = .register
                     }, label: {
                         Text("Sign Up")
                             .font(Font.custom("Quicksand-SemiBold", size: 20))
@@ -70,6 +72,8 @@ struct WelcomeView: View {
                     
                     Button(action: {
                         viewModel.handleLoginPress()
+                        navigationTarget = .login
+                        print(navigationTarget!)
                     }, label: {
                         Text("Log In")
                             .font(Font.custom("Quicksand-SemiBold", size: 20))
@@ -92,6 +96,14 @@ struct WelcomeView: View {
                     
                 }
                 .padding(.vertical)
+                .navigationDestination(for: NavigationTarget.self) { target in
+                    switch target {
+                    case .login:
+                        LoginView()
+                    case .register:
+                        SignUpView()
+                    }
+                }
                 
             }
             
@@ -99,6 +111,12 @@ struct WelcomeView: View {
         
     }
 }
+
+enum NavigationTarget {
+    case login
+    case register
+}
+
 
 #Preview {
     WelcomeView(viewModel: WelcomeViewModel())
