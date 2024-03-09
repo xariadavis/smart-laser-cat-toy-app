@@ -28,6 +28,15 @@
 		57ECBCAD2B9C249C0007E234 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ECBCAC2B9C249C0007E234 /* WelcomeView.swift */; };
 		57ECBCAF2B9C24A80007E234 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ECBCAE2B9C24A80007E234 /* WelcomeViewModel.swift */; };
 		57ECBCB12B9C24C80007E234 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ECBCB02B9C24C80007E234 /* TabBarView.swift */; };
+		57ECBCB42B9C2BA70007E234 /* LottiePlusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ECBCB32B9C2BA70007E234 /* LottiePlusView.swift */; };
+		57ECBCB72B9C2C340007E234 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 57ECBCB62B9C2C340007E234 /* Lottie */; };
+		57ECBCBC2B9C2D340007E234 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ECBCB92B9C2D340007E234 /* Constants.swift */; };
+		57ECBCBD2B9C2D340007E234 /* GingerHunt.json in Resources */ = {isa = PBXBuildFile; fileRef = 57ECBCBA2B9C2D340007E234 /* GingerHunt.json */; };
+		57ECBCBE2B9C2D340007E234 /* GingerHunt_Dark.json in Resources */ = {isa = PBXBuildFile; fileRef = 57ECBCBB2B9C2D340007E234 /* GingerHunt_Dark.json */; };
+		57ECBCC42B9C30ED0007E234 /* LaserDots.json in Resources */ = {isa = PBXBuildFile; fileRef = 57ECBCC32B9C30ED0007E234 /* LaserDots.json */; };
+		57ECBCC62B9C34F10007E234 /* GlowModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ECBCC52B9C34F10007E234 /* GlowModifier.swift */; };
+		57ECBCCA2B9C36720007E234 /* TitanOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57ECBCC92B9C36720007E234 /* TitanOne-Regular.ttf */; };
+		57ECBCCC2B9C36880007E234 /* Quicksand[wght].ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57ECBCCB2B9C36880007E234 /* Quicksand[wght].ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +62,15 @@
 		57ECBCAC2B9C249C0007E234 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		57ECBCAE2B9C24A80007E234 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
 		57ECBCB02B9C24C80007E234 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		57ECBCB32B9C2BA70007E234 /* LottiePlusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottiePlusView.swift; sourceTree = "<group>"; };
+		57ECBCB92B9C2D340007E234 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = "../../../../SD App V3 - copy/SD App V3/Appearance/Lottie/Constants.swift"; sourceTree = "<group>"; };
+		57ECBCBA2B9C2D340007E234 /* GingerHunt.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = GingerHunt.json; path = "../../../../SD App V3 - copy/SD App V3/Appearance/Lottie/GingerHunt.json"; sourceTree = "<group>"; };
+		57ECBCBB2B9C2D340007E234 /* GingerHunt_Dark.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = GingerHunt_Dark.json; path = "../../../../SD App V3 - copy/SD App V3/Appearance/Lottie/GingerHunt_Dark.json"; sourceTree = "<group>"; };
+		57ECBCC32B9C30ED0007E234 /* LaserDots.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LaserDots.json; sourceTree = "<group>"; };
+		57ECBCC52B9C34F10007E234 /* GlowModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlowModifier.swift; sourceTree = "<group>"; };
+		57ECBCC72B9C35F40007E234 /* SD-App-V4-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "SD-App-V4-Info.plist"; sourceTree = SOURCE_ROOT; };
+		57ECBCC92B9C36720007E234 /* TitanOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "TitanOne-Regular.ttf"; path = "../../../../../../../../../Desktop/test-app/sd1-app/SD App V3/Appearance/Fonts/TitanOne-Regular.ttf"; sourceTree = "<group>"; };
+		57ECBCCB2B9C36880007E234 /* Quicksand[wght].ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Quicksand[wght].ttf"; path = "../../../../../../../../../Desktop/test-app/sd1-app/SD App V3/Appearance/Fonts/Quicksand[wght].ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57ECBCB72B9C2C340007E234 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,10 +104,12 @@
 		57ECBC732B9C1AE60007E234 /* SD App V4 */ = {
 			isa = PBXGroup;
 			children = (
+				57ECBCC72B9C35F40007E234 /* SD-App-V4-Info.plist */,
 				57ECBCAB2B9C246B0007E234 /* Welcome */,
 				57ECBCA52B9C241D0007E234 /* MainSections */,
 				57ECBC832B9C21FC0007E234 /* Authentication */,
 				57ECBCA62B9C242D0007E234 /* Models */,
+				57ECBCB22B9C25970007E234 /* Utilities */,
 				57ECBC742B9C1AE60007E234 /* SD_App_V4App.swift */,
 				57ECBC762B9C1AE60007E234 /* ContentView.swift */,
 				57ECBC782B9C1AE70007E234 /* Assets.xcassets */,
@@ -198,6 +219,37 @@
 			path = Welcome;
 			sourceTree = "<group>";
 		};
+		57ECBCB22B9C25970007E234 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				57ECBCC82B9C363A0007E234 /* Fonts */,
+				57ECBCB82B9C2C420007E234 /* LottieFiles */,
+				57ECBCB32B9C2BA70007E234 /* LottiePlusView.swift */,
+				57ECBCC52B9C34F10007E234 /* GlowModifier.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		57ECBCB82B9C2C420007E234 /* LottieFiles */ = {
+			isa = PBXGroup;
+			children = (
+				57ECBCB92B9C2D340007E234 /* Constants.swift */,
+				57ECBCC32B9C30ED0007E234 /* LaserDots.json */,
+				57ECBCBB2B9C2D340007E234 /* GingerHunt_Dark.json */,
+				57ECBCBA2B9C2D340007E234 /* GingerHunt.json */,
+			);
+			path = LottieFiles;
+			sourceTree = "<group>";
+		};
+		57ECBCC82B9C363A0007E234 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				57ECBCCB2B9C36880007E234 /* Quicksand[wght].ttf */,
+				57ECBCC92B9C36720007E234 /* TitanOne-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -214,6 +266,9 @@
 			dependencies = (
 			);
 			name = "SD App V4";
+			packageProductDependencies = (
+				57ECBCB62B9C2C340007E234 /* Lottie */,
+			);
 			productName = "SD App V4";
 			productReference = 57ECBC712B9C1AE60007E234 /* SD App V4.app */;
 			productType = "com.apple.product-type.application";
@@ -242,6 +297,9 @@
 				Base,
 			);
 			mainGroup = 57ECBC682B9C1AE60007E234;
+			packageReferences = (
+				57ECBCB52B9C2C340007E234 /* XCRemoteSwiftPackageReference "lottie-spm" */,
+			);
 			productRefGroup = 57ECBC722B9C1AE60007E234 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -256,7 +314,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57ECBCC42B9C30ED0007E234 /* LaserDots.json in Resources */,
+				57ECBCCA2B9C36720007E234 /* TitanOne-Regular.ttf in Resources */,
+				57ECBCBE2B9C2D340007E234 /* GingerHunt_Dark.json in Resources */,
 				57ECBC7C2B9C1AE70007E234 /* Preview Assets.xcassets in Resources */,
+				57ECBCBD2B9C2D340007E234 /* GingerHunt.json in Resources */,
+				57ECBCCC2B9C36880007E234 /* Quicksand[wght].ttf in Resources */,
 				57ECBC792B9C1AE70007E234 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,10 +342,13 @@
 				57ECBC9D2B9C23540007E234 /* ProfileView.swift in Sources */,
 				57ECBC8D2B9C22B50007E234 /* LoginViewModel.swift in Sources */,
 				57ECBC952B9C22EB0007E234 /* DashboardView.swift in Sources */,
+				57ECBCBC2B9C2D340007E234 /* Constants.swift in Sources */,
 				57ECBCA82B9C24360007E234 /* User.swift in Sources */,
+				57ECBCC62B9C34F10007E234 /* GlowModifier.swift in Sources */,
 				57ECBC8F2B9C22BF0007E234 /* SignUpViewModel.swift in Sources */,
 				57ECBC9A2B9C23280007E234 /* PatternsListViewModel.swift in Sources */,
 				57ECBC752B9C1AE60007E234 /* SD_App_V4App.swift in Sources */,
+				57ECBCB42B9C2BA70007E234 /* LottiePlusView.swift in Sources */,
 				57ECBCAA2B9C243C0007E234 /* Cat.swift in Sources */,
 				57ECBC9F2B9C23670007E234 /* ProfileViewModel.swift in Sources */,
 				57ECBC932B9C22E20007E234 /* DashboardViewModel.swift in Sources */,
@@ -423,6 +489,7 @@
 				DEVELOPMENT_TEAM = X9PHZXT6J7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "SD-App-V4-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -453,6 +520,7 @@
 				DEVELOPMENT_TEAM = X9PHZXT6J7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "SD-App-V4-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -494,6 +562,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		57ECBCB52B9C2C340007E234 /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.4.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		57ECBCB62B9C2C340007E234 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 57ECBCB52B9C2C340007E234 /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 57ECBC692B9C1AE60007E234 /* Project object */;
 }

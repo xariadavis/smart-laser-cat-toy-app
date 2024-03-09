@@ -6,3 +6,15 @@
 //
 
 import Foundation
+
+class WelcomeViewModel: ObservableObject {
+    
+    func handleLoginPress() {
+        print("Login button pressed")
+    }
+    
+    func handleRegisterPress() {
+        print("Register button pressed")
+    }
+    
+}
