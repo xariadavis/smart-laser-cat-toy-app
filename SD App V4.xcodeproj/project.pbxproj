@@ -14,8 +14,11 @@
 		570F43052B9D63D90047E4DA /* PatternCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570F43042B9D63D90047E4DA /* PatternCard.swift */; };
 		570F43072B9D643A0047E4DA /* LaserPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570F43062B9D643A0047E4DA /* LaserPattern.swift */; };
 		570F43092B9D681A0047E4DA /* ColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570F43082B9D681A0047E4DA /* ColorButton.swift */; };
-		570F430C2B9D68720047E4DA /* AnimatedTabBar in Frameworks */ = {isa = PBXBuildFile; productRef = 570F430B2B9D68720047E4DA /* AnimatedTabBar */; };
 		570F430E2B9D6B0F0047E4DA /* FavoritesCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570F430D2B9D6B0F0047E4DA /* FavoritesCarousel.swift */; };
+		570F43132B9D87E50047E4DA /* AnimatedTabBar in Frameworks */ = {isa = PBXBuildFile; productRef = 570F43122B9D87E50047E4DA /* AnimatedTabBar */; };
+		570F43172B9D88540047E4DA /* AnimatedTabBar in Frameworks */ = {isa = PBXBuildFile; productRef = 570F43162B9D88540047E4DA /* AnimatedTabBar */; };
+		570F431B2B9D88A80047E4DA /* AnimatedTabBar in Frameworks */ = {isa = PBXBuildFile; productRef = 570F431A2B9D88A80047E4DA /* AnimatedTabBar */; };
+		570F431E2B9D88E10047E4DA /* AnimatedTabBar in Frameworks */ = {isa = PBXBuildFile; productRef = 570F431D2B9D88E10047E4DA /* AnimatedTabBar */; };
 		57ECBC752B9C1AE60007E234 /* SD_App_V4App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ECBC742B9C1AE60007E234 /* SD_App_V4App.swift */; };
 		57ECBC772B9C1AE60007E234 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ECBC762B9C1AE60007E234 /* ContentView.swift */; };
 		57ECBC792B9C1AE70007E234 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57ECBC782B9C1AE70007E234 /* Assets.xcassets */; };
@@ -97,8 +100,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				570F431E2B9D88E10047E4DA /* AnimatedTabBar in Frameworks */,
+				570F43172B9D88540047E4DA /* AnimatedTabBar in Frameworks */,
+				570F431B2B9D88A80047E4DA /* AnimatedTabBar in Frameworks */,
 				57ECBCB72B9C2C340007E234 /* Lottie in Frameworks */,
-				570F430C2B9D68720047E4DA /* AnimatedTabBar in Frameworks */,
+				570F43132B9D87E50047E4DA /* AnimatedTabBar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,11 +131,19 @@
 			path = Shapes;
 			sourceTree = "<group>";
 		};
+		570F430F2B9D7B260047E4DA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		57ECBC682B9C1AE60007E234 = {
 			isa = PBXGroup;
 			children = (
 				57ECBC732B9C1AE60007E234 /* SD App V4 */,
 				57ECBC722B9C1AE60007E234 /* Products */,
+				570F430F2B9D7B260047E4DA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -150,9 +164,9 @@
 				57ECBC832B9C21FC0007E234 /* Authentication */,
 				57ECBCA62B9C242D0007E234 /* Models */,
 				57ECBCB22B9C25970007E234 /* Utilities */,
+				570F42FA2B9D4C470047E4DA /* NavigationState.swift */,
 				57ECBC742B9C1AE60007E234 /* SD_App_V4App.swift */,
 				57ECBC762B9C1AE60007E234 /* ContentView.swift */,
-				570F42FA2B9D4C470047E4DA /* NavigationState.swift */,
 				57ECBC782B9C1AE70007E234 /* Assets.xcassets */,
 				57ECBC7A2B9C1AE70007E234 /* Preview Content */,
 			);
@@ -313,7 +327,10 @@
 			name = "SD App V4";
 			packageProductDependencies = (
 				57ECBCB62B9C2C340007E234 /* Lottie */,
-				570F430B2B9D68720047E4DA /* AnimatedTabBar */,
+				570F43122B9D87E50047E4DA /* AnimatedTabBar */,
+				570F43162B9D88540047E4DA /* AnimatedTabBar */,
+				570F431A2B9D88A80047E4DA /* AnimatedTabBar */,
+				570F431D2B9D88E10047E4DA /* AnimatedTabBar */,
 			);
 			productName = "SD App V4";
 			productReference = 57ECBC712B9C1AE60007E234 /* SD App V4.app */;
@@ -345,7 +362,7 @@
 			mainGroup = 57ECBC682B9C1AE60007E234;
 			packageReferences = (
 				57ECBCB52B9C2C340007E234 /* XCRemoteSwiftPackageReference "lottie-spm" */,
-				570F430A2B9D68720047E4DA /* XCRemoteSwiftPackageReference "AnimatedTabBar" */,
+				570F431C2B9D88E10047E4DA /* XCRemoteSwiftPackageReference "AnimatedTabBar" */,
 			);
 			productRefGroup = 57ECBC722B9C1AE60007E234 /* Products */;
 			projectDirPath = "";
@@ -622,12 +639,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		570F430A2B9D68720047E4DA /* XCRemoteSwiftPackageReference "AnimatedTabBar" */ = {
+		570F431C2B9D88E10047E4DA /* XCRemoteSwiftPackageReference "AnimatedTabBar" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/exyte/AnimatedTabBar.git";
+			repositoryURL = "https://github.com/xariadavis/AnimatedTabBar.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.2;
+				branch = main;
+				kind = branch;
 			};
 		};
 		57ECBCB52B9C2C340007E234 /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
@@ -641,9 +658,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		570F430B2B9D68720047E4DA /* AnimatedTabBar */ = {
+		570F43122B9D87E50047E4DA /* AnimatedTabBar */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 570F430A2B9D68720047E4DA /* XCRemoteSwiftPackageReference "AnimatedTabBar" */;
+			productName = AnimatedTabBar;
+		};
+		570F43162B9D88540047E4DA /* AnimatedTabBar */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AnimatedTabBar;
+		};
+		570F431A2B9D88A80047E4DA /* AnimatedTabBar */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AnimatedTabBar;
+		};
+		570F431D2B9D88E10047E4DA /* AnimatedTabBar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 570F431C2B9D88E10047E4DA /* XCRemoteSwiftPackageReference "AnimatedTabBar" */;
 			productName = AnimatedTabBar;
 		};
 		57ECBCB62B9C2C340007E234 /* Lottie */ = {

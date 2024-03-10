@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct DashboardView: View {
+    @EnvironmentObject var navigationState: NavigationState
+    
     var body: some View {
 
         ZStack {
@@ -41,21 +43,22 @@ struct DashboardView: View {
                     PatternCard(pattern: pattern)
                 }
                 
-                HStack {
-                    Text("See more")
-                    Image(systemName: "arrow.right")
-                }
-                .font(Font.custom("Quicksand-SemiBold", size: 17))
-                .frame(maxWidth: .infinity)
-                .padding(15)
-                .foregroundColor(Color.primary)
-                .background(Color.red.opacity(0.0))
-                .cornerRadius(15)
-                .padding(.horizontal, 15)
-                
-                
+                Button(action: {
+                    navigationState.path.append(MainNavigation.patternsList)
+                }, label: {
+                    HStack {
+                        Text("See more")
+                        Image(systemName: "arrow.right")
+                    }
+                    .font(Font.custom("Quicksand-SemiBold", size: 17))
+                    .frame(maxWidth: .infinity)
+                    .padding(15)
+                    .foregroundColor(Color.primary)
+                    .background(Color.red.opacity(0.0))
+                    .cornerRadius(15)
+                    .padding(.horizontal, 15)
+                })
             }
-            
         }
         .navigationTitle("Dashboard")
         .navigationBarTitleDisplayMode(.automatic)

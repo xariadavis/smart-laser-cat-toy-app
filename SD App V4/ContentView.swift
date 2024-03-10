@@ -28,6 +28,22 @@ struct ContentView: View {
                             .navigationBarBackButtonHidden(true)
                     }
                 }
+                .navigationDestination(for: MainNavigation.self) { target in
+                    switch target {
+                    case .dashboard:
+                        DashboardView()
+                            .navigationBarBackButtonHidden(true)
+                    case .patternsList:
+                        PatternsView()
+                            .navigationBarBackButtonHidden(true)
+                    case .profile:
+                        ProfileView()
+                            .navigationBarBackButtonHidden(true)
+                    case .settings:
+                        SettingsView()
+                            .navigationBarBackButtonHidden(true)
+                    }
+                }
         }
     }
 }

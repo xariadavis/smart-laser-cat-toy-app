@@ -1,13 +1,13 @@
 {
-  "originHash" : "20497d9b0fa57cdadd5513e915d41b04cbec509268d6cc4f0a9c798b973927e8",
+  "originHash" : "871fc2ecba3eee4426a5b3d84b0facdcd85ae6bd0ed7f281fb54abb6c594091c",
   "pins" : [
     {
       "identity" : "animatedtabbar",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/exyte/AnimatedTabBar.git",
+      "location" : "https://github.com/xariadavis/AnimatedTabBar.git",
       "state" : {
-        "revision" : "f5f342227283e76c7b49371e735516bac3caef68",
-        "version" : "0.1.2"
+        "branch" : "main",
+        "revision" : "dfe471f9dbfe98749371c4650e500223a247cf01"
       }
     },
     {
