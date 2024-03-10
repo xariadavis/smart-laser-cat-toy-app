@@ -7,8 +7,14 @@
 
 import SwiftUI
 
+enum NavigateFromLoginTo: Hashable {
+    case forgotPasword
+    case register
+}
+
 struct LoginView: View {
     
+    @EnvironmentObject var navigationState: NavigationState
     @State private var opacity = 0.0
     @State private var email: String = ""
     @State private var password: String = ""
@@ -65,7 +71,7 @@ struct LoginView: View {
                 .padding(.horizontal, 20)
                 
                 Button(action: {
-                    print("Forgot password button pressed")
+                    navigationState.path.append(NavigateFromLoginTo.forgotPasword)
                 }, label: {
                     Text("Forgot Password?")
                         .font(Font.custom("Quicksand-Bold", size: 17))
@@ -74,7 +80,6 @@ struct LoginView: View {
                 Spacer()
                 
                 Button {
-                    
                 } label: {
                     Text("Login")
                         .font(Font.custom("Quicksand-SemiBold", size: 20))
@@ -86,12 +91,31 @@ struct LoginView: View {
                         .padding(.horizontal, 40)
                 }
                 
+                Button(action: {
+                    navigationState.path.append(NavigateFromLoginTo.register)
+                }, label: {
+                    Text("New Here? Sign Up")
+                        .padding(.vertical, 10)
+                        .font(Font.custom("Quicksand-SemiBold", size: 17))
+                })
+                
             }
             .padding(.vertical)
+        }
+        .navigationDestination(for: NavigateFromLoginTo.self) { target in
+            switch target {
+            case .forgotPasword:
+                ForgotPasswordView()
+                    .navigationBarBackButtonHidden(true)
+            case .register:
+                SignUpView()
+                    .navigationBarBackButtonHidden(true)
+            }
         }
     }
 }
 
 #Preview {
     LoginView()
+        .environmentObject(NavigationState())
 }

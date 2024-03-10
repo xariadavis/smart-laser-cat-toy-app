@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		570F42FB2B9D4C470047E4DA /* NavigationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570F42FA2B9D4C470047E4DA /* NavigationState.swift */; };
 		57ECBC752B9C1AE60007E234 /* SD_App_V4App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ECBC742B9C1AE60007E234 /* SD_App_V4App.swift */; };
 		57ECBC772B9C1AE60007E234 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ECBC762B9C1AE60007E234 /* ContentView.swift */; };
 		57ECBC792B9C1AE70007E234 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57ECBC782B9C1AE70007E234 /* Assets.xcassets */; };
@@ -41,6 +42,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		570F42FA2B9D4C470047E4DA /* NavigationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationState.swift; sourceTree = "<group>"; };
 		57ECBC712B9C1AE60007E234 /* SD App V4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SD App V4.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		57ECBC742B9C1AE60007E234 /* SD_App_V4App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SD_App_V4App.swift; sourceTree = "<group>"; };
 		57ECBC762B9C1AE60007E234 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				57ECBC762B9C1AE60007E234 /* ContentView.swift */,
 				57ECBC782B9C1AE70007E234 /* Assets.xcassets */,
 				57ECBC7A2B9C1AE70007E234 /* Preview Content */,
+				570F42FA2B9D4C470047E4DA /* NavigationState.swift */,
 			);
 			path = "SD App V4";
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				57ECBCA42B9C238D0007E234 /* SettingsView.swift in Sources */,
+				570F42FB2B9D4C470047E4DA /* NavigationState.swift in Sources */,
 				57ECBCAF2B9C24A80007E234 /* WelcomeViewModel.swift in Sources */,
 				57ECBC8B2B9C22A10007E234 /* SignUpView.swift in Sources */,
 				57ECBC892B9C22970007E234 /* LoginView.swift in Sources */,
@@ -500,6 +504,7 @@
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -531,6 +536,7 @@
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
