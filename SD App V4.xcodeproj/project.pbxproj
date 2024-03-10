@@ -13,6 +13,9 @@
 		570F43032B9D62D20047E4DA /* KittyShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570F43022B9D62D20047E4DA /* KittyShape.swift */; };
 		570F43052B9D63D90047E4DA /* PatternCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570F43042B9D63D90047E4DA /* PatternCard.swift */; };
 		570F43072B9D643A0047E4DA /* LaserPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570F43062B9D643A0047E4DA /* LaserPattern.swift */; };
+		570F43092B9D681A0047E4DA /* ColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570F43082B9D681A0047E4DA /* ColorButton.swift */; };
+		570F430C2B9D68720047E4DA /* AnimatedTabBar in Frameworks */ = {isa = PBXBuildFile; productRef = 570F430B2B9D68720047E4DA /* AnimatedTabBar */; };
+		570F430E2B9D6B0F0047E4DA /* FavoritesCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570F430D2B9D6B0F0047E4DA /* FavoritesCarousel.swift */; };
 		57ECBC752B9C1AE60007E234 /* SD_App_V4App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ECBC742B9C1AE60007E234 /* SD_App_V4App.swift */; };
 		57ECBC772B9C1AE60007E234 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ECBC762B9C1AE60007E234 /* ContentView.swift */; };
 		57ECBC792B9C1AE70007E234 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57ECBC782B9C1AE70007E234 /* Assets.xcassets */; };
@@ -53,6 +56,8 @@
 		570F43022B9D62D20047E4DA /* KittyShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KittyShape.swift; sourceTree = "<group>"; };
 		570F43042B9D63D90047E4DA /* PatternCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternCard.swift; sourceTree = "<group>"; };
 		570F43062B9D643A0047E4DA /* LaserPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaserPattern.swift; sourceTree = "<group>"; };
+		570F43082B9D681A0047E4DA /* ColorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorButton.swift; sourceTree = "<group>"; };
+		570F430D2B9D6B0F0047E4DA /* FavoritesCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCarousel.swift; sourceTree = "<group>"; };
 		57ECBC712B9C1AE60007E234 /* SD App V4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SD App V4.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		57ECBC742B9C1AE60007E234 /* SD_App_V4App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SD_App_V4App.swift; sourceTree = "<group>"; };
 		57ECBC762B9C1AE60007E234 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -93,6 +98,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				57ECBCB72B9C2C340007E234 /* Lottie in Frameworks */,
+				570F430C2B9D68720047E4DA /* AnimatedTabBar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +112,7 @@
 				570F42FD2B9D58A50047E4DA /* ProfileCard.swift */,
 				570F42FF2B9D61380047E4DA /* ActivityCard.swift */,
 				570F43042B9D63D90047E4DA /* PatternCard.swift */,
+				570F430D2B9D6B0F0047E4DA /* FavoritesCarousel.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -263,6 +270,7 @@
 				57ECBCB82B9C2C420007E234 /* LottieFiles */,
 				57ECBCB32B9C2BA70007E234 /* LottiePlusView.swift */,
 				57ECBCC52B9C34F10007E234 /* GlowModifier.swift */,
+				570F43082B9D681A0047E4DA /* ColorButton.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -305,6 +313,7 @@
 			name = "SD App V4";
 			packageProductDependencies = (
 				57ECBCB62B9C2C340007E234 /* Lottie */,
+				570F430B2B9D68720047E4DA /* AnimatedTabBar */,
 			);
 			productName = "SD App V4";
 			productReference = 57ECBC712B9C1AE60007E234 /* SD App V4.app */;
@@ -336,6 +345,7 @@
 			mainGroup = 57ECBC682B9C1AE60007E234;
 			packageReferences = (
 				57ECBCB52B9C2C340007E234 /* XCRemoteSwiftPackageReference "lottie-spm" */,
+				570F430A2B9D68720047E4DA /* XCRemoteSwiftPackageReference "AnimatedTabBar" */,
 			);
 			productRefGroup = 57ECBC722B9C1AE60007E234 /* Products */;
 			projectDirPath = "";
@@ -386,6 +396,7 @@
 				57ECBC952B9C22EB0007E234 /* DashboardView.swift in Sources */,
 				57ECBCBC2B9C2D340007E234 /* Constants.swift in Sources */,
 				57ECBCA82B9C24360007E234 /* User.swift in Sources */,
+				570F430E2B9D6B0F0047E4DA /* FavoritesCarousel.swift in Sources */,
 				57ECBCCE2B9C4D750007E234 /* ForgotPasswordView.swift in Sources */,
 				57ECBCC62B9C34F10007E234 /* GlowModifier.swift in Sources */,
 				57ECBC8F2B9C22BF0007E234 /* SignUpViewModel.swift in Sources */,
@@ -395,6 +406,7 @@
 				57ECBCB42B9C2BA70007E234 /* LottiePlusView.swift in Sources */,
 				57ECBCAA2B9C243C0007E234 /* Cat.swift in Sources */,
 				57ECBC9F2B9C23670007E234 /* ProfileViewModel.swift in Sources */,
+				570F43092B9D681A0047E4DA /* ColorButton.swift in Sources */,
 				57ECBC932B9C22E20007E234 /* DashboardViewModel.swift in Sources */,
 				57ECBCA22B9C23820007E234 /* SettingsViewModel.swift in Sources */,
 			);
@@ -610,6 +622,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		570F430A2B9D68720047E4DA /* XCRemoteSwiftPackageReference "AnimatedTabBar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/exyte/AnimatedTabBar.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.2;
+			};
+		};
 		57ECBCB52B9C2C340007E234 /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
@@ -621,6 +641,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		570F430B2B9D68720047E4DA /* AnimatedTabBar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 570F430A2B9D68720047E4DA /* XCRemoteSwiftPackageReference "AnimatedTabBar" */;
+			productName = AnimatedTabBar;
+		};
 		57ECBCB62B9C2C340007E234 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 57ECBCB52B9C2C340007E234 /* XCRemoteSwiftPackageReference "lottie-spm" */;

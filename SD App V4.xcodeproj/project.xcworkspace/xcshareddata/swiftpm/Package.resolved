@@ -1,6 +1,15 @@
 {
-  "originHash" : "6b3386dc9ff1f3a74f1534de9c41d47137eae0901cfe819ed442f1b241549359",
+  "originHash" : "20497d9b0fa57cdadd5513e915d41b04cbec509268d6cc4f0a9c798b973927e8",
   "pins" : [
+    {
+      "identity" : "animatedtabbar",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/exyte/AnimatedTabBar.git",
+      "state" : {
+        "revision" : "f5f342227283e76c7b49371e735516bac3caef68",
+        "version" : "0.1.2"
+      }
+    },
     {
       "identity" : "lottie-spm",
       "kind" : "remoteSourceControl",

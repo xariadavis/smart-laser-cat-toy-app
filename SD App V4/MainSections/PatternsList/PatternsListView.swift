@@ -7,12 +7,53 @@
 
 import SwiftUI
 
-struct PatternsListView: View {
+import SwiftUI
+
+struct PatternsView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            
+            Color(.systemGray5).ignoresSafeArea()
+            
+            VStack() {
+                
+                // Title
+                Text("Patterns")
+                    .font(Font.custom("TitanOne", size: 30))
+                    .frame(maxWidth: .infinity, alignment: .leading)  // Align text to the leading edge
+                    .padding(.horizontal, 30)
+                    .padding(.top, 10)
+                
+                ScrollView {
+                    
+                    VStack(alignment: .leading) {
+                        Text("Favorites")
+                            .font(Font.custom("TitanOne", size: 23))
+                            .padding(.horizontal, 30)
+                        
+                        FavoritesCarousel(width: 175, height: 175)
+                            .padding(.horizontal)
+                            .padding(.bottom, 15)
+                        
+                        Text("All Patterns")
+                            .font(Font.custom("TitanOne", size: 23))
+                            .padding(.horizontal, 30)
+                        
+                        // List of Patterns centered
+                        ForEach(laserPatterns) { pattern in
+                            PatternCard(pattern: pattern)
+                            // If PatternCard is not centered by default, apply centering here if needed
+                        }
+                    }
+                    .padding(.bottom, 85)
+                }
+            }
+        }
     }
 }
 
-#Preview {
-    PatternsListView()
+struct PatternsView_Previews: PreviewProvider {
+    static var previews: some View {
+        PatternsView()
+    }
 }
