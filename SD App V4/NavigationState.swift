@@ -11,3 +11,11 @@ import SwiftUI
 class NavigationState: ObservableObject {
     @Published var path = NavigationPath()
 }
+
+
+enum AuthenticationNavigation {
+    case login
+    case register
+    case forgotPassword
+    case dashboard
+}

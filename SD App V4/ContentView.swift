@@ -13,6 +13,22 @@ struct ContentView: View {
     var body: some View {
         NavigationStack(path: $navigationState.path) {
             WelcomeView()
+                .navigationDestination(for: AuthenticationNavigation.self) { target in
+                    switch target {
+                    case .login:
+                        LoginView()
+                            .navigationBarBackButtonHidden(true)
+                    case .register:
+                        SignUpView()
+                            .navigationBarBackButtonHidden(true)
+                    case .forgotPassword:
+                        ForgotPasswordView()
+                            .navigationBarBackButtonHidden(true)
+                    case .dashboard:
+                        DashboardView()
+                            .navigationBarBackButtonHidden(true)
+                    }
+                }
         }
     }
 }

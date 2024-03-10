@@ -7,11 +7,6 @@
 
 import SwiftUI
 
-enum NavigateFromLoginTo: Hashable {
-    case forgotPasword
-    case register
-}
-
 struct LoginView: View {
     
     @EnvironmentObject var navigationState: NavigationState
@@ -71,7 +66,7 @@ struct LoginView: View {
                 .padding(.horizontal, 20)
                 
                 Button(action: {
-                    navigationState.path.append(NavigateFromLoginTo.forgotPasword)
+                    navigationState.path.append(AuthenticationNavigation.forgotPassword)
                 }, label: {
                     Text("Forgot Password?")
                         .font(Font.custom("Quicksand-Bold", size: 17))
@@ -92,7 +87,7 @@ struct LoginView: View {
                 }
                 
                 Button(action: {
-                    navigationState.path.append(NavigateFromLoginTo.register)
+                    navigationState.path.append(AuthenticationNavigation.register)
                 }, label: {
                     Text("New Here? Sign Up")
                         .padding(.vertical, 10)
@@ -101,16 +96,6 @@ struct LoginView: View {
                 
             }
             .padding(.vertical)
-        }
-        .navigationDestination(for: NavigateFromLoginTo.self) { target in
-            switch target {
-            case .forgotPasword:
-                ForgotPasswordView()
-                    .navigationBarBackButtonHidden(true)
-            case .register:
-                SignUpView()
-                    .navigationBarBackButtonHidden(true)
-            }
         }
     }
 }

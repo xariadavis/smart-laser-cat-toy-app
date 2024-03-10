@@ -7,11 +7,6 @@
 
 import SwiftUI
 
-enum NavigateFromWelcomeTo: Hashable {
-    case login
-    case register
-}
-
 struct WelcomeView: View {
     
     @Environment(\.colorScheme) var colorScheme
@@ -49,7 +44,7 @@ struct WelcomeView: View {
                 Spacer()
                 
                 Button(action: {
-                    navigationState.path.append(NavigateFromWelcomeTo.register)
+                    navigationState.path.append(AuthenticationNavigation.register)
                 }, label: {
                     Text("Sign Up")
                         .font(Font.custom("Quicksand-SemiBold", size: 20))
@@ -72,7 +67,7 @@ struct WelcomeView: View {
                 })
                 
                 Button(action: {
-                    navigationState.path.append(NavigateFromWelcomeTo.login)
+                    navigationState.path.append(AuthenticationNavigation.login)
                 }, label: {
                     Text("Log In")
                         .font(Font.custom("Quicksand-SemiBold", size: 20))
@@ -96,16 +91,6 @@ struct WelcomeView: View {
             }
             .padding(.vertical)
             
-        }
-        .navigationDestination(for: NavigateFromWelcomeTo.self) { target in
-            switch target {
-            case .login:
-                LoginView()
-                    .navigationBarBackButtonHidden(true)
-            case .register:
-                SignUpView()
-                    .navigationBarBackButtonHidden(true)
-            }
         }
     }
 }

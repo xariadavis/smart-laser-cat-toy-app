@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SignUpView: View {
     
+    @EnvironmentObject var navigationState: NavigationState
     @State private var opacity = 0.0
     @State private var ownerName: String = ""
     @State private var petName: String = ""
@@ -50,9 +51,7 @@ struct SignUpView: View {
                         .multilineTextAlignment(.center)
                         .padding(.bottom, 30)
                 }
-                
-                // Textfields
-                
+                                
                 Group {
                     
                     TextField("Your Name", text: $ownerName)
@@ -104,15 +103,22 @@ struct SignUpView: View {
                         .padding(.vertical, 10)
                 })
                 
+                // Already have an account
+                Button(action: {
+                    navigationState.path.append(AuthenticationNavigation.login)
+                }, label: {
+                    Text("Already have an account? Log in")
+                        .padding(.vertical, 10)
+                        .font(Font.custom("Quicksand-SemiBold", size: 17))
+                })
                 
             }
             
         }
-        
-        
     }
 }
 
 #Preview {
     SignUpView()
+        .environmentObject(NavigationState())
 }
