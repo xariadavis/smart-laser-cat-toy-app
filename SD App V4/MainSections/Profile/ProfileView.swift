@@ -29,7 +29,7 @@ struct ProfileView: View {
                 activitySection
                 totalPlaytimeSection
             }
-            .padding(.bottom, 95)
+            .padding(.bottom, 120)
         }
     }
 
@@ -44,16 +44,18 @@ struct ProfileView: View {
     private var infoSection: some View {
         VStack(alignment: .leading) {
             sectionTitle("Cat name", fontSize: 25)
-            HStack {
-                InfoCard(iconName: "clock", title: "Age", detail: "2 years")
-                InfoCard(iconName: "pawprint", title: "Breed", detail: "DMH")
+            Group {
+                HStack {
+                    InfoCard(iconName: "clock", title: "Age", detail: "2 years")
+                    InfoCard(iconName: "pawprint", title: "Breed", detail: "DMH")
+                }
+                HStack {
+                    InfoCard(iconName: "person", title: "Sex", detail: "Male")
+                    InfoCard(iconName: "scalemass", title: "Weight", detail: "15.5 lb")
+                }
             }
-            HStack {
-                InfoCard(iconName: "person", title: "Sex", detail: "Male")
-                InfoCard(iconName: "scalemass", title: "Weight", detail: "15.5 lb")
-            }
+            .padding(.horizontal)
         }
-        .padding()
         .background(RoundedRectangle(cornerRadius: 20).fill(Color(.systemGray5)))
         .padding(.top, -50)
     }

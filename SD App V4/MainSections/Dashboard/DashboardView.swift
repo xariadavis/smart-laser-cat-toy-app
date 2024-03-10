@@ -15,53 +15,65 @@ struct DashboardView: View {
         ZStack {
             
             Color(.systemGray5).ignoresSafeArea()
-            
-            ScrollView {
+  
+            VStack {
                 
-                ProfileCard()
-                    .padding(.bottom, 15)
-                
-                // Activity Card Title aligned to the left
-                Text("Activity")
-                    .font(Font.custom("TitanOne", size: 25))
-                    .frame(maxWidth: .infinity, alignment: .leading)  // Align text to the leading edge
-                    .padding(.horizontal, 30)
-                
-                ActivityCard()
-                    .padding(.horizontal, 20)
-                    .padding(.bottom, 15)
-                
-                
-                // Patterns Title aligned to the left
-                Text("Favorites")
-                    .font(Font.custom("TitanOne", size: 25))
-                    .frame(maxWidth: .infinity, alignment: .leading)  // Align text to the leading edge
-                    .padding(.horizontal, 30)
-                
-                // List of Patterns centered
-                ForEach(laserPatterns.filter {$0.isFavorite}) { pattern in
-                    PatternCard(pattern: pattern)
+                VStack {
+                    Text("Dashboard")
+                        .font(Font.custom("TitanOne", size: 30))
+                        .frame(maxWidth: .infinity, alignment: .leading)  // Align text to the leading edge
+                        .padding(.horizontal, 30)
+                        .padding(.top, 10)
                 }
                 
-                Button(action: {
-                    navigationState.path.append(MainNavigation.patternsList)
-                }, label: {
-                    HStack {
-                        Text("See more")
-                        Image(systemName: "arrow.right")
+                ScrollView {
+                    VStack {
+                        
+                        ProfileCard()
+                            .padding(.bottom, 15)
+                        
+                        // Activity Card Title aligned to the left
+                        Text("Activity")
+                            .font(Font.custom("TitanOne", size: 25))
+                            .frame(maxWidth: .infinity, alignment: .leading)  // Align text to the leading edge
+                            .padding(.horizontal, 30)
+                        
+                        ActivityCard()
+                            .padding(.horizontal, 20)
+                            .padding(.bottom, 15)
+                        
+                        
+                        // Patterns Title aligned to the left
+                        Text("Favorites")
+                            .font(Font.custom("TitanOne", size: 25))
+                            .frame(maxWidth: .infinity, alignment: .leading)  // Align text to the leading edge
+                            .padding(.horizontal, 30)
+                        
+                        // List of Patterns centered
+                        ForEach(laserPatterns.filter {$0.isFavorite}) { pattern in
+                            PatternCard(pattern: pattern)
+                        }
+                        
+                        Button(action: {
+                            navigationState.path.append(MainNavigation.patternsList)
+                        }, label: {
+                            HStack {
+                                Text("See more")
+                                Image(systemName: "arrow.right")
+                            }
+                            .font(Font.custom("Quicksand-SemiBold", size: 17))
+                            .frame(maxWidth: .infinity)
+                            .padding(15)
+                            .foregroundColor(Color.primary)
+                            .background(Color.red.opacity(0.0))
+                            .cornerRadius(15)
+                            .padding(.horizontal, 15)
+                        })
                     }
-                    .font(Font.custom("Quicksand-SemiBold", size: 17))
-                    .frame(maxWidth: .infinity)
-                    .padding(15)
-                    .foregroundColor(Color.primary)
-                    .background(Color.red.opacity(0.0))
-                    .cornerRadius(15)
-                    .padding(.horizontal, 15)
-                })
+                    .padding(.bottom, 85)
+                }
             }
         }
-        .navigationTitle("Dashboard")
-        .navigationBarTitleDisplayMode(.automatic)
     }
 }
 

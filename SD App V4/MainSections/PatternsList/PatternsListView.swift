@@ -16,6 +16,14 @@ struct PatternsView: View {
             Color(.systemGray5).ignoresSafeArea()
             
             VStack() {
+                
+                // Title
+                Text("Patterns")
+                    .font(Font.custom("TitanOne", size: 30))
+                    .frame(maxWidth: .infinity, alignment: .leading)  // Align text to the leading edge
+                    .padding(.horizontal, 30)
+                    .padding(.top, 10)
+                
                 ScrollView {
                     
                     VStack(alignment: .leading) {
@@ -41,7 +49,6 @@ struct PatternsView: View {
                 }
             }
         }
-        .navigationTitle("Patterns")
     }
 }
 
