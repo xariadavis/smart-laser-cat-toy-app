@@ -21,6 +21,9 @@
 		570F431E2B9D88E10047E4DA /* AnimatedTabBar in Frameworks */ = {isa = PBXBuildFile; productRef = 570F431D2B9D88E10047E4DA /* AnimatedTabBar */; };
 		574529B52B9E214B0084EB53 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574529B42B9E214B0084EB53 /* RootView.swift */; };
 		574529B92B9E41E70084EB53 /* LaserDots.json in Resources */ = {isa = PBXBuildFile; fileRef = 574529B82B9E41E70084EB53 /* LaserDots.json */; };
+		574529BC2B9E46260084EB53 /* Appwrite in Frameworks */ = {isa = PBXBuildFile; productRef = 574529BB2B9E46260084EB53 /* Appwrite */; };
+		574529BF2B9E48BA0084EB53 /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574529BE2B9E48BA0084EB53 /* AppService.swift */; };
+		574529C12B9E48C40084EB53 /* AppServiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574529C02B9E48C40084EB53 /* AppServiceViewModel.swift */; };
 		57ECBC752B9C1AE60007E234 /* SD_App_V4App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ECBC742B9C1AE60007E234 /* SD_App_V4App.swift */; };
 		57ECBC772B9C1AE60007E234 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ECBC762B9C1AE60007E234 /* ContentView.swift */; };
 		57ECBC792B9C1AE70007E234 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57ECBC782B9C1AE70007E234 /* Assets.xcassets */; };
@@ -64,6 +67,8 @@
 		570F430D2B9D6B0F0047E4DA /* FavoritesCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCarousel.swift; sourceTree = "<group>"; };
 		574529B42B9E214B0084EB53 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		574529B82B9E41E70084EB53 /* LaserDots.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LaserDots.json; path = ../../../../../../../../../Downloads/LaserDots.json; sourceTree = "<group>"; };
+		574529BE2B9E48BA0084EB53 /* AppService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppService.swift; sourceTree = "<group>"; };
+		574529C02B9E48C40084EB53 /* AppServiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppServiceViewModel.swift; sourceTree = "<group>"; };
 		57ECBC712B9C1AE60007E234 /* SD App V4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SD App V4.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		57ECBC742B9C1AE60007E234 /* SD_App_V4App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SD_App_V4App.swift; sourceTree = "<group>"; };
 		57ECBC762B9C1AE60007E234 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -104,6 +109,7 @@
 			files = (
 				570F431E2B9D88E10047E4DA /* AnimatedTabBar in Frameworks */,
 				570F43172B9D88540047E4DA /* AnimatedTabBar in Frameworks */,
+				574529BC2B9E46260084EB53 /* Appwrite in Frameworks */,
 				570F431B2B9D88A80047E4DA /* AnimatedTabBar in Frameworks */,
 				57ECBCB72B9C2C340007E234 /* Lottie in Frameworks */,
 				570F43132B9D87E50047E4DA /* AnimatedTabBar in Frameworks */,
@@ -138,6 +144,15 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		574529BD2B9E48AC0084EB53 /* AuthService */ = {
+			isa = PBXGroup;
+			children = (
+				574529BE2B9E48BA0084EB53 /* AppService.swift */,
+				574529C02B9E48C40084EB53 /* AppServiceViewModel.swift */,
+			);
+			path = AuthService;
 			sourceTree = "<group>";
 		};
 		57ECBC682B9C1AE60007E234 = {
@@ -186,6 +201,7 @@
 		57ECBC832B9C21FC0007E234 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				574529BD2B9E48AC0084EB53 /* AuthService */,
 				57ECBC842B9C22060007E234 /* Views */,
 				57ECBC852B9C22130007E234 /* ViewModels */,
 			);
@@ -334,6 +350,7 @@
 				570F43162B9D88540047E4DA /* AnimatedTabBar */,
 				570F431A2B9D88A80047E4DA /* AnimatedTabBar */,
 				570F431D2B9D88E10047E4DA /* AnimatedTabBar */,
+				574529BB2B9E46260084EB53 /* Appwrite */,
 			);
 			productName = "SD App V4";
 			productReference = 57ECBC712B9C1AE60007E234 /* SD App V4.app */;
@@ -366,6 +383,7 @@
 			packageReferences = (
 				57ECBCB52B9C2C340007E234 /* XCRemoteSwiftPackageReference "lottie-spm" */,
 				570F431C2B9D88E10047E4DA /* XCRemoteSwiftPackageReference "AnimatedTabBar" */,
+				574529BA2B9E46260084EB53 /* XCRemoteSwiftPackageReference "sdk-for-apple" */,
 			);
 			productRefGroup = 57ECBC722B9C1AE60007E234 /* Products */;
 			projectDirPath = "";
@@ -405,6 +423,7 @@
 				57ECBC8B2B9C22A10007E234 /* SignUpView.swift in Sources */,
 				57ECBC892B9C22970007E234 /* LoginView.swift in Sources */,
 				57ECBC772B9C1AE60007E234 /* ContentView.swift in Sources */,
+				574529BF2B9E48BA0084EB53 /* AppService.swift in Sources */,
 				57ECBC982B9C231A0007E234 /* PatternsListView.swift in Sources */,
 				574529B52B9E214B0084EB53 /* RootView.swift in Sources */,
 				570F43052B9D63D90047E4DA /* PatternCard.swift in Sources */,
@@ -417,6 +436,7 @@
 				57ECBC952B9C22EB0007E234 /* DashboardView.swift in Sources */,
 				57ECBCBC2B9C2D340007E234 /* Constants.swift in Sources */,
 				57ECBCA82B9C24360007E234 /* User.swift in Sources */,
+				574529C12B9E48C40084EB53 /* AppServiceViewModel.swift in Sources */,
 				570F430E2B9D6B0F0047E4DA /* FavoritesCarousel.swift in Sources */,
 				57ECBCCE2B9C4D750007E234 /* ForgotPasswordView.swift in Sources */,
 				57ECBCC62B9C34F10007E234 /* GlowModifier.swift in Sources */,
@@ -651,6 +671,14 @@
 				kind = branch;
 			};
 		};
+		574529BA2B9E46260084EB53 /* XCRemoteSwiftPackageReference "sdk-for-apple" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/appwrite/sdk-for-apple";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		57ECBCB52B9C2C340007E234 /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
@@ -678,6 +706,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 570F431C2B9D88E10047E4DA /* XCRemoteSwiftPackageReference "AnimatedTabBar" */;
 			productName = AnimatedTabBar;
+		};
+		574529BB2B9E46260084EB53 /* Appwrite */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 574529BA2B9E46260084EB53 /* XCRemoteSwiftPackageReference "sdk-for-apple" */;
+			productName = Appwrite;
 		};
 		57ECBCB62B9C2C340007E234 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
