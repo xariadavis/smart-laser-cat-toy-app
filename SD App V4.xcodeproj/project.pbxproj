@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		570F42FB2B9D4C470047E4DA /* NavigationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570F42FA2B9D4C470047E4DA /* NavigationState.swift */; };
+		570F42FE2B9D58A50047E4DA /* ProfileCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570F42FD2B9D58A50047E4DA /* ProfileCard.swift */; };
+		570F43002B9D61380047E4DA /* ActivityCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570F42FF2B9D61380047E4DA /* ActivityCard.swift */; };
+		570F43032B9D62D20047E4DA /* KittyShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570F43022B9D62D20047E4DA /* KittyShape.swift */; };
+		570F43052B9D63D90047E4DA /* PatternCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570F43042B9D63D90047E4DA /* PatternCard.swift */; };
+		570F43072B9D643A0047E4DA /* LaserPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570F43062B9D643A0047E4DA /* LaserPattern.swift */; };
 		57ECBC752B9C1AE60007E234 /* SD_App_V4App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ECBC742B9C1AE60007E234 /* SD_App_V4App.swift */; };
 		57ECBC772B9C1AE60007E234 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ECBC762B9C1AE60007E234 /* ContentView.swift */; };
 		57ECBC792B9C1AE70007E234 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57ECBC782B9C1AE70007E234 /* Assets.xcassets */; };
@@ -43,6 +48,11 @@
 
 /* Begin PBXFileReference section */
 		570F42FA2B9D4C470047E4DA /* NavigationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationState.swift; sourceTree = "<group>"; };
+		570F42FD2B9D58A50047E4DA /* ProfileCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCard.swift; sourceTree = "<group>"; };
+		570F42FF2B9D61380047E4DA /* ActivityCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCard.swift; sourceTree = "<group>"; };
+		570F43022B9D62D20047E4DA /* KittyShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KittyShape.swift; sourceTree = "<group>"; };
+		570F43042B9D63D90047E4DA /* PatternCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternCard.swift; sourceTree = "<group>"; };
+		570F43062B9D643A0047E4DA /* LaserPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaserPattern.swift; sourceTree = "<group>"; };
 		57ECBC712B9C1AE60007E234 /* SD App V4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SD App V4.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		57ECBC742B9C1AE60007E234 /* SD_App_V4App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SD_App_V4App.swift; sourceTree = "<group>"; };
 		57ECBC762B9C1AE60007E234 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -89,6 +99,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		570F42FC2B9D58830047E4DA /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				570F43012B9D628E0047E4DA /* Shapes */,
+				570F42FD2B9D58A50047E4DA /* ProfileCard.swift */,
+				570F42FF2B9D61380047E4DA /* ActivityCard.swift */,
+				570F43042B9D63D90047E4DA /* PatternCard.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		570F43012B9D628E0047E4DA /* Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				570F43022B9D62D20047E4DA /* KittyShape.swift */,
+			);
+			path = Shapes;
+			sourceTree = "<group>";
+		};
 		57ECBC682B9C1AE60007E234 = {
 			isa = PBXGroup;
 			children = (
@@ -116,9 +145,9 @@
 				57ECBCB22B9C25970007E234 /* Utilities */,
 				57ECBC742B9C1AE60007E234 /* SD_App_V4App.swift */,
 				57ECBC762B9C1AE60007E234 /* ContentView.swift */,
+				570F42FA2B9D4C470047E4DA /* NavigationState.swift */,
 				57ECBC782B9C1AE70007E234 /* Assets.xcassets */,
 				57ECBC7A2B9C1AE70007E234 /* Preview Content */,
-				570F42FA2B9D4C470047E4DA /* NavigationState.swift */,
 			);
 			path = "SD App V4";
 			sourceTree = "<group>";
@@ -202,6 +231,7 @@
 				57ECBC962B9C22F80007E234 /* PatternsList */,
 				57ECBC9B2B9C23320007E234 /* Profile */,
 				57ECBCA02B9C23710007E234 /* Settings */,
+				570F42FC2B9D58830047E4DA /* Components */,
 				57ECBCB02B9C24C80007E234 /* TabBarView.swift */,
 			);
 			path = MainSections;
@@ -212,6 +242,7 @@
 			children = (
 				57ECBCA72B9C24360007E234 /* User.swift */,
 				57ECBCA92B9C243C0007E234 /* Cat.swift */,
+				570F43062B9D643A0047E4DA /* LaserPattern.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -337,6 +368,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				570F43002B9D61380047E4DA /* ActivityCard.swift in Sources */,
 				57ECBCA42B9C238D0007E234 /* SettingsView.swift in Sources */,
 				570F42FB2B9D4C470047E4DA /* NavigationState.swift in Sources */,
 				57ECBCAF2B9C24A80007E234 /* WelcomeViewModel.swift in Sources */,
@@ -344,9 +376,12 @@
 				57ECBC892B9C22970007E234 /* LoginView.swift in Sources */,
 				57ECBC772B9C1AE60007E234 /* ContentView.swift in Sources */,
 				57ECBC982B9C231A0007E234 /* PatternsListView.swift in Sources */,
+				570F43052B9D63D90047E4DA /* PatternCard.swift in Sources */,
+				570F43072B9D643A0047E4DA /* LaserPattern.swift in Sources */,
 				57ECBCB12B9C24C80007E234 /* TabBarView.swift in Sources */,
 				57ECBCAD2B9C249C0007E234 /* WelcomeView.swift in Sources */,
 				57ECBC9D2B9C23540007E234 /* ProfileView.swift in Sources */,
+				570F42FE2B9D58A50047E4DA /* ProfileCard.swift in Sources */,
 				57ECBC8D2B9C22B50007E234 /* LoginViewModel.swift in Sources */,
 				57ECBC952B9C22EB0007E234 /* DashboardView.swift in Sources */,
 				57ECBCBC2B9C2D340007E234 /* Constants.swift in Sources */,
@@ -356,6 +391,7 @@
 				57ECBC8F2B9C22BF0007E234 /* SignUpViewModel.swift in Sources */,
 				57ECBC9A2B9C23280007E234 /* PatternsListViewModel.swift in Sources */,
 				57ECBC752B9C1AE60007E234 /* SD_App_V4App.swift in Sources */,
+				570F43032B9D62D20047E4DA /* KittyShape.swift in Sources */,
 				57ECBCB42B9C2BA70007E234 /* LottiePlusView.swift in Sources */,
 				57ECBCAA2B9C243C0007E234 /* Cat.swift in Sources */,
 				57ECBC9F2B9C23670007E234 /* ProfileViewModel.swift in Sources */,

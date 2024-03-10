@@ -13,7 +13,7 @@ class NavigationState: ObservableObject {
 }
 
 
-enum AuthenticationNavigation {
+enum AuthenticationNavigation: Hashable {
     case login
     case register
     case forgotPassword
