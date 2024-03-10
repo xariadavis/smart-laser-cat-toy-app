@@ -20,6 +20,7 @@
 		570F431B2B9D88A80047E4DA /* AnimatedTabBar in Frameworks */ = {isa = PBXBuildFile; productRef = 570F431A2B9D88A80047E4DA /* AnimatedTabBar */; };
 		570F431E2B9D88E10047E4DA /* AnimatedTabBar in Frameworks */ = {isa = PBXBuildFile; productRef = 570F431D2B9D88E10047E4DA /* AnimatedTabBar */; };
 		574529B52B9E214B0084EB53 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574529B42B9E214B0084EB53 /* RootView.swift */; };
+		574529B92B9E41E70084EB53 /* LaserDots.json in Resources */ = {isa = PBXBuildFile; fileRef = 574529B82B9E41E70084EB53 /* LaserDots.json */; };
 		57ECBC752B9C1AE60007E234 /* SD_App_V4App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ECBC742B9C1AE60007E234 /* SD_App_V4App.swift */; };
 		57ECBC772B9C1AE60007E234 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ECBC762B9C1AE60007E234 /* ContentView.swift */; };
 		57ECBC792B9C1AE70007E234 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57ECBC782B9C1AE70007E234 /* Assets.xcassets */; };
@@ -46,7 +47,6 @@
 		57ECBCBC2B9C2D340007E234 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ECBCB92B9C2D340007E234 /* Constants.swift */; };
 		57ECBCBD2B9C2D340007E234 /* GingerHunt.json in Resources */ = {isa = PBXBuildFile; fileRef = 57ECBCBA2B9C2D340007E234 /* GingerHunt.json */; };
 		57ECBCBE2B9C2D340007E234 /* GingerHunt_Dark.json in Resources */ = {isa = PBXBuildFile; fileRef = 57ECBCBB2B9C2D340007E234 /* GingerHunt_Dark.json */; };
-		57ECBCC42B9C30ED0007E234 /* LaserDots.json in Resources */ = {isa = PBXBuildFile; fileRef = 57ECBCC32B9C30ED0007E234 /* LaserDots.json */; };
 		57ECBCC62B9C34F10007E234 /* GlowModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ECBCC52B9C34F10007E234 /* GlowModifier.swift */; };
 		57ECBCCA2B9C36720007E234 /* TitanOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57ECBCC92B9C36720007E234 /* TitanOne-Regular.ttf */; };
 		57ECBCCC2B9C36880007E234 /* Quicksand[wght].ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57ECBCCB2B9C36880007E234 /* Quicksand[wght].ttf */; };
@@ -63,6 +63,7 @@
 		570F43082B9D681A0047E4DA /* ColorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorButton.swift; sourceTree = "<group>"; };
 		570F430D2B9D6B0F0047E4DA /* FavoritesCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCarousel.swift; sourceTree = "<group>"; };
 		574529B42B9E214B0084EB53 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		574529B82B9E41E70084EB53 /* LaserDots.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LaserDots.json; path = ../../../../../../../../../Downloads/LaserDots.json; sourceTree = "<group>"; };
 		57ECBC712B9C1AE60007E234 /* SD App V4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SD App V4.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		57ECBC742B9C1AE60007E234 /* SD_App_V4App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SD_App_V4App.swift; sourceTree = "<group>"; };
 		57ECBC762B9C1AE60007E234 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -89,7 +90,6 @@
 		57ECBCB92B9C2D340007E234 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = "../../../../SD App V3 - copy/SD App V3/Appearance/Lottie/Constants.swift"; sourceTree = "<group>"; };
 		57ECBCBA2B9C2D340007E234 /* GingerHunt.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = GingerHunt.json; path = "../../../../SD App V3 - copy/SD App V3/Appearance/Lottie/GingerHunt.json"; sourceTree = "<group>"; };
 		57ECBCBB2B9C2D340007E234 /* GingerHunt_Dark.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = GingerHunt_Dark.json; path = "../../../../SD App V3 - copy/SD App V3/Appearance/Lottie/GingerHunt_Dark.json"; sourceTree = "<group>"; };
-		57ECBCC32B9C30ED0007E234 /* LaserDots.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LaserDots.json; sourceTree = "<group>"; };
 		57ECBCC52B9C34F10007E234 /* GlowModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlowModifier.swift; sourceTree = "<group>"; };
 		57ECBCC72B9C35F40007E234 /* SD-App-V4-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "SD-App-V4-Info.plist"; sourceTree = SOURCE_ROOT; };
 		57ECBCC92B9C36720007E234 /* TitanOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "TitanOne-Regular.ttf"; path = "../../../../../../../../../Desktop/test-app/sd1-app/SD App V3/Appearance/Fonts/TitanOne-Regular.ttf"; sourceTree = "<group>"; };
@@ -296,7 +296,7 @@
 			isa = PBXGroup;
 			children = (
 				57ECBCB92B9C2D340007E234 /* Constants.swift */,
-				57ECBCC32B9C30ED0007E234 /* LaserDots.json */,
+				574529B82B9E41E70084EB53 /* LaserDots.json */,
 				57ECBCBB2B9C2D340007E234 /* GingerHunt_Dark.json */,
 				57ECBCBA2B9C2D340007E234 /* GingerHunt.json */,
 			);
@@ -381,8 +381,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57ECBCC42B9C30ED0007E234 /* LaserDots.json in Resources */,
 				57ECBCCA2B9C36720007E234 /* TitanOne-Regular.ttf in Resources */,
+				574529B92B9E41E70084EB53 /* LaserDots.json in Resources */,
 				57ECBCBE2B9C2D340007E234 /* GingerHunt_Dark.json in Resources */,
 				57ECBC7C2B9C1AE70007E234 /* Preview Assets.xcassets in Resources */,
 				57ECBCBD2B9C2D340007E234 /* GingerHunt.json in Resources */,
