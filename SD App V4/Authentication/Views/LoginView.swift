@@ -75,7 +75,7 @@ struct LoginView: View {
                 Spacer()
                 
                 Button {
-                    navigationState.path.append(AuthenticationNavigation.dashboard)
+                    navigationState.path.append(AuthenticationNavigation.root)
                 } label: {
                     Text("Login")
                         .font(Font.custom("Quicksand-SemiBold", size: 20))

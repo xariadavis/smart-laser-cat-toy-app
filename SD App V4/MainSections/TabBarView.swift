@@ -1,20 +1,16 @@
-////
-////  TabBarView.swift
-////  SD App V4
-////
-////  Created by Xaria Davis on 3/9/24.
-////
 //
+//  TabBarView.swift
+//  SD App V4
+//
+//  Created by Xaria Davis on 3/9/24.
+//
+
 //import SwiftUI
 //import AnimatedTabBar
 //
-//enum Tab: Int, CaseIterable {
-//    case dashboard = 0, patterns, profile, settings
-//}
-//
 //struct TabBarView: View {
 //    @EnvironmentObject var navigationState: NavigationState
-//    @State private var prevSelectedIndex: Tab = .dashboard
+//    // @State private var prevSelectedIndex: Tab = .dashboard
 //
 //    let icons = ["house", "circle.circle", "pawprint", "gearshape"]
 //
@@ -24,7 +20,29 @@
 //            
 //            selectedView
 //            
-//            AnimatedTabBar(selectedIndex: Binding(get: { self.navigationState.currentTab.rawValue }, set: { self.navigationState.currentTab = Tab(rawValue: $0)! }), prevSelectedIndex: Binding(get: { self.prevSelectedIndex.rawValue }, set: { self.prevSelectedIndex = Tab(rawValue: $0)! })) {
+//            /*AnimatedTabBar(selectedIndex: Binding(get: { self.navigationState.currentTab.rawValue }, set: { self.navigationState.currentTab = Tab(rawValue: $0)! }), prevSelectedIndex: Binding(get: { self.prevSelectedIndex.rawValue }, set: { self.prevSelectedIndex = Tab(rawValue: $0)! })) */
+//            
+//            AnimatedTabBar(
+//                selectedIndex: Binding(
+//                    get: { self.navigationState.currentTab.rawValue },
+//                    set: {
+//                        if let newTab = Tab(rawValue: $0) {
+//                            self.navigationState.currentTab = newTab
+//                        } else {
+//                            // Handle the error or ignore the update
+//                            print("Invalid tab index: \($0)")
+//                        }
+//                    }
+//                ),
+//                prevSelectedIndex: Binding(
+//                    get: { self.prevSelectedIndex.rawValue },
+//                    set: {
+//                        if let newPrevTab = Tab(rawValue: $0) {
+//                            self.prevSelectedIndex = newPrevTab
+//                        }
+//                    }
+//                )
+//            ) {
 //                ForEach(Tab.allCases, id: \.self) { tab in
 //                    colorButtonFor(tab: tab)
 //                }

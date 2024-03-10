@@ -23,8 +23,8 @@ struct ContentView: View {
                             .navigationBarBackButtonHidden(true)
                     case .forgotPassword:
                         ForgotPasswordView()
-                    case .dashboard:
-                        DashboardView()
+                    case .root:
+                        RootView()
                             .navigationBarBackButtonHidden(true)
                     }
                 }

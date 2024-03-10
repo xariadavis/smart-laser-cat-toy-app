@@ -10,7 +10,7 @@ import SwiftUI
 
 class NavigationState: ObservableObject {
     @Published var path = NavigationPath()
-    // @Published var currentTab: Tab = .dashboard
+    //@Published var currentTab: Tab = .dashboard
 }
 
 
@@ -18,12 +18,12 @@ enum AuthenticationNavigation: Hashable {
     case login
     case register
     case forgotPassword
-    case dashboard
+    case root
 }
 
-enum MainNavigation: Hashable {
-    case dashboard
-    case patternsList
-    case profile
-    case settings
+enum MainNavigation: Int, Hashable, CaseIterable {
+    case dashboard = 0
+    case patternsList = 1
+    case profile = 2
+    case settings = 3
 }
