@@ -10,9 +10,9 @@ import Foundation
 struct Cat {
     
     var name: String
-    var breed: String
-    var sex: String
-    var age: Double
-    var weight: Double
+    var breed: String?
+    var sex: String?
+    var age: Double?
+    var weight: Double?
     
 }

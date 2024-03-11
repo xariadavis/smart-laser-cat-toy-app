@@ -14,7 +14,7 @@ struct SignUpView: View {
     
     @State private var opacity = 0.0
     @State private var ownerName: String = ""
-    @State private var petName: String = ""
+    @State private var catName: String = ""
     @State private var email: String = ""
     @State private var password: String = ""
     
@@ -63,7 +63,7 @@ struct SignUpView: View {
                         .background(Color(.systemGray5))
                         .cornerRadius(15)
                     
-                    TextField("Pet's Name", text: $petName)
+                    TextField("Pet's Name", text: $catName)
                         .font(Font.custom("Quicksand-SemiBold", size: 20))
                         .foregroundColor(.primary)
                         .padding()
@@ -91,12 +91,14 @@ struct SignUpView: View {
                 
                 Spacer()
                 
+                
+                // Sign Up
                 Button(action: {
-        
+                    
                     print("SignUpView: The email is \(email)")
                     print("SignUpView: The password is \(password)")
     
-                    viewModel.register(name: ownerName, email: email, password: password)
+                    viewModel.register(name: ownerName, email: email, password: password, catName: catName)
                     
                     print("SignUpView: onChange is \(viewModel.registrationSuccessful)")
                     
@@ -112,6 +114,8 @@ struct SignUpView: View {
                         .padding(.vertical, 10)
                 })
                 
+                
+                // Go to log in
                 Button(action: {
                     navigationState.path.append(AuthenticationNavigation.login)
                 }, label: {

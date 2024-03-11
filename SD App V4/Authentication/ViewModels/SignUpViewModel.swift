@@ -20,11 +20,22 @@ class SignUpViewModel: ObservableObject {
         self.authViewModel = authViewModel
     }
     
-    func register(name: String, email: String, password: String) {
+    func register(name: String, email: String, password: String, catName: String) {
+        
+        if(!isValid(name: name, email: email, password: password, catName: catName)) {
+            
+            self.registrationSuccessful = false
+            self.alertMessage = "Please enter all required information"
+            self.showAlert = true
+            
+            return
+            
+        }
         
         // Define the user
-        let user = User(uid: "", name: name, email: email, password: password)
-        
+        let cat = Cat(name: catName)
+        let user = User(uid: "", name: name, email: email, password: password, cat: cat)
+                
         // Call function and pass user
         authViewModel.register(user: user, completion: { [weak self] result in
             switch result {
@@ -47,5 +58,18 @@ class SignUpViewModel: ObservableObject {
             }
             
         })
+    }
+    
+    func isValid(name: String, email: String, password: String, catName: String) -> Bool {
+        if (name.trimmingCharacters(in: .whitespaces).isEmpty ||
+            catName.trimmingCharacters(in: .whitespaces).isEmpty ||
+            email.trimmingCharacters(in: .whitespaces).isEmpty ||
+            password.trimmingCharacters(in: .whitespaces).isEmpty) {
+            
+            return false
+        } else {
+            return true
+        }
+        
     }
 }
