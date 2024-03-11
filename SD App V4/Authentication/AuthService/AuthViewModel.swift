@@ -29,4 +29,18 @@ class AuthViewModel {
         }
     }
     
+    // Function to log in a user
+    func login(email: String, password: String, completion: @escaping (Result<Void, Error>) -> Void) {
+        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+            if let error = error {
+                // If there's an error during the login process, pass it to the completion handler
+                completion(.failure(error))
+                return
+            }
+            
+            // If login is successful, we don't need to do anything special here, so just return success
+            completion(.success(()))
+        }
+    }
+    
 }

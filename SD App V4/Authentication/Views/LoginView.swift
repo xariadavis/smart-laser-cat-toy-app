@@ -9,11 +9,12 @@ import SwiftUI
 
 struct LoginView: View {
     
+    @EnvironmentObject var navigationState: NavigationState
+    @ObservedObject var viewModel: LoginViewModel
+    
     @State private var opacity = 0.0
     @State private var email: String = ""
     @State private var password: String = ""
-    
-    @EnvironmentObject var navigationState: NavigationState
     
     var body: some View {
         ZStack {
@@ -76,7 +77,12 @@ struct LoginView: View {
                 Spacer()
                 
                 Button {
+                    
+                    print("Attempting to log in...")
+                    viewModel.login(email: email, password: password)
+                    
                     navigationState.path.append(AuthenticationNavigation.root)
+                    
                 } label: {
                     Text("Login")
                         .font(Font.custom("Quicksand-SemiBold", size: 20))
@@ -103,6 +109,6 @@ struct LoginView: View {
 }
 
 #Preview {
-    LoginView()
+    LoginView(viewModel: LoginViewModel(authViewModel: AuthViewModel()))
         .environmentObject(NavigationState())
 }

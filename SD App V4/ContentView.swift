@@ -16,7 +16,7 @@ struct ContentView: View {
                 .navigationDestination(for: AuthenticationNavigation.self) { target in
                     switch target {
                     case .login:
-                        LoginView()
+                        LoginView(viewModel: LoginViewModel(authViewModel: AuthViewModel()))
                             .navigationBarBackButtonHidden(true)
                     case .register:
                         SignUpView(viewModel: SignUpViewModel(authViewModel: AuthViewModel()))
