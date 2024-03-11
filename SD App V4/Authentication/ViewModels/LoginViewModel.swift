@@ -10,6 +10,8 @@ import Foundation
 class LoginViewModel: ObservableObject {
     
     @Published var isAuthenticated: Bool = false
+    @Published var showAlert: Bool = false
+    @Published var alertMessage: String = ""
 
     private let authViewModel: AuthViewModel
     
@@ -31,6 +33,8 @@ class LoginViewModel: ObservableObject {
                     
                     // Print the error's localized description to the console
                     print("Login failed with error: \(error.localizedDescription)")
+                    self?.alertMessage = error.localizedDescription
+                    self?.showAlert = true
                     
                     // Update the UI to show the error message to the user, for example, through an alert.
                 }

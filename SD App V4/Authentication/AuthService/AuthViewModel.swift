@@ -26,6 +26,8 @@ class AuthViewModel {
                 return
             }
             
+            completion(.success(()))
+            
         }
     }
     

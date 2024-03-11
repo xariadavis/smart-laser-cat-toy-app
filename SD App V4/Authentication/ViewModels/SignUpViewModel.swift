@@ -7,7 +7,12 @@
 
 import Foundation
 
+@MainActor
 class SignUpViewModel: ObservableObject {
+    
+    @Published var registrationSuccessful: Bool = false
+    @Published var showAlert: Bool = false
+    @Published var alertMessage: String = ""
     
     private let authViewModel: AuthViewModel
     
@@ -29,10 +34,14 @@ class SignUpViewModel: ObservableObject {
                 DispatchQueue.main.async {
                     // Update UI to show success, navigate to the next screen, etc.
                     print("Registration successful!")
+                    self?.registrationSuccessful = true
                 }
             case .failure(let error):
                 // Handle failure, update UI accordingly
                 DispatchQueue.main.async {
+                    self?.registrationSuccessful = false
+                    self?.alertMessage = error.localizedDescription
+                    self?.showAlert = true
                     print("Registration failed :( \(error.localizedDescription)")
                 }
             }

@@ -112,6 +112,11 @@ struct LoginView: View {
                     print("LoginView: Something went wrong")
                 }
             }
+            .alert("Login Error", isPresented: $viewModel.showAlert) {
+                Button("OK", role: .cancel) { }
+            } message: {
+                Text(viewModel.alertMessage)
+            }
         }
     }
 }

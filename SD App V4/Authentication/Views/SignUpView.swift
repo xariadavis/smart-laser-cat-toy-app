@@ -10,7 +10,7 @@ import SwiftUI
 struct SignUpView: View {
     
     @EnvironmentObject var navigationState: NavigationState
-    @ObservedObject var viewModel: SignUpViewModel
+    @StateObject var viewModel: SignUpViewModel
     
     @State private var opacity = 0.0
     @State private var ownerName: String = ""
@@ -95,9 +95,10 @@ struct SignUpView: View {
         
                     print("SignUpView: The email is \(email)")
                     print("SignUpView: The password is \(password)")
-                    
+    
                     viewModel.register(name: ownerName, email: email, password: password)
-                    navigationState.path.append(AuthenticationNavigation.onboarding)
+                    
+                    print("SignUpView: onChange is \(viewModel.registrationSuccessful)")
                     
                 }, label: {
                     Text("Sign Up")
@@ -119,6 +120,19 @@ struct SignUpView: View {
                         .font(Font.custom("Quicksand-SemiBold", size: 17))
                 })
                 
+            }
+            .onChange(of: viewModel.registrationSuccessful) { registrationSuccessful in
+                if registrationSuccessful {
+                    print("SignUpView: onChange is \(registrationSuccessful)")
+                    navigationState.path.append(AuthenticationNavigation.onboarding)
+                } else {
+                    print("SignUpView: Something went wrong")
+                }
+            }
+            .alert("Registration Error", isPresented: $viewModel.showAlert) {
+                Button("OK", role: .cancel) { }
+            } message: {
+                Text(viewModel.alertMessage)
             }
             
         }
