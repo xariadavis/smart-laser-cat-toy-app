@@ -9,10 +9,11 @@ import SwiftUI
 
 struct LoginView: View {
     
-    @EnvironmentObject var navigationState: NavigationState
     @State private var opacity = 0.0
     @State private var email: String = ""
     @State private var password: String = ""
+    
+    @EnvironmentObject var navigationState: NavigationState
     
     var body: some View {
         ZStack {

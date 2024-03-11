@@ -19,6 +19,7 @@ enum AuthenticationNavigation: Hashable {
     case register
     case forgotPassword
     case root
+    case onboarding
 }
 
 enum MainNavigation: Int, Hashable, CaseIterable {

@@ -19,13 +19,15 @@ struct ContentView: View {
                         LoginView()
                             .navigationBarBackButtonHidden(true)
                     case .register:
-                        SignUpView()
+                        SignUpView(viewModel: SignUpViewModel(authViewModel: AuthViewModel()))
                             .navigationBarBackButtonHidden(true)
                     case .forgotPassword:
                         ForgotPasswordView()
                     case .root:
                         RootView()
                             .navigationBarBackButtonHidden(true)
+                    case .onboarding:
+                        Onboarding()
                     }
                 }
                 .navigationDestination(for: MainNavigation.self) { target in

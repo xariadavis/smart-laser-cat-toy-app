@@ -10,6 +10,8 @@ import SwiftUI
 struct SignUpView: View {
     
     @EnvironmentObject var navigationState: NavigationState
+    @ObservedObject var viewModel: SignUpViewModel
+    
     @State private var opacity = 0.0
     @State private var ownerName: String = ""
     @State private var petName: String = ""
@@ -90,6 +92,12 @@ struct SignUpView: View {
                 Spacer()
                 
                 Button(action: {
+        
+                    print("SignUpView: The email is \(email)")
+                    print("SignUpView: The password is \(password)")
+                    
+                    viewModel.register(name: ownerName, email: email, password: password)
+                    navigationState.path.append(AuthenticationNavigation.onboarding)
                     
                 }, label: {
                     Text("Sign Up")
@@ -103,7 +111,6 @@ struct SignUpView: View {
                         .padding(.vertical, 10)
                 })
                 
-                // Already have an account
                 Button(action: {
                     navigationState.path.append(AuthenticationNavigation.login)
                 }, label: {
@@ -119,6 +126,6 @@ struct SignUpView: View {
 }
 
 #Preview {
-    SignUpView()
+    SignUpView(viewModel: SignUpViewModel(authViewModel: AuthViewModel()))
         .environmentObject(NavigationState())
 }
