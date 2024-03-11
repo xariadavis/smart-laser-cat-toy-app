@@ -10,7 +10,7 @@ import SwiftUI
 struct LoginView: View {
     
     @EnvironmentObject var navigationState: NavigationState
-    @ObservedObject var viewModel: LoginViewModel
+    @StateObject var viewModel: LoginViewModel
     
     @State private var opacity = 0.0
     @State private var email: String = ""
@@ -79,9 +79,9 @@ struct LoginView: View {
                 Button {
                     
                     print("Attempting to log in...")
+                    
                     viewModel.login(email: email, password: password)
                     
-                    navigationState.path.append(AuthenticationNavigation.root)
                     
                 } label: {
                     Text("Login")
@@ -104,6 +104,14 @@ struct LoginView: View {
                 
             }
             .padding(.vertical)
+            .onChange(of: viewModel.isAuthenticated) { isAuthenticated in
+                if isAuthenticated {
+                    navigationState.path.append(AuthenticationNavigation.root)
+                } else {
+                    // This might not be necessary, depending on your logic for handling authentication state
+                    print("LoginView: Something went wrong")
+                }
+            }
         }
     }
 }

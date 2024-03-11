@@ -8,6 +8,8 @@
 import Foundation
 
 class LoginViewModel: ObservableObject {
+    
+    @Published var isAuthenticated: Bool = false
 
     private let authViewModel: AuthViewModel
     
@@ -22,6 +24,7 @@ class LoginViewModel: ObservableObject {
                 case .success():
                     
                     print("Login successful!")
+                    self?.isAuthenticated = true
                     // Proceed with navigating the user to the next screen or updating the UI to reflect the successful login.
                     
                 case .failure(let error):
