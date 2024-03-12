@@ -13,7 +13,7 @@ class AuthViewModel {
     
     func register(user: User, completion: @escaping (Result<String, Error>) -> Void) {
         // Use FirebaseAuth to create a new user
-        Auth.auth().createUser(withEmail: user.email, password: user.password) { authResult, error in
+        Auth.auth().createUser(withEmail: user.email, password: user.password ?? "") { authResult, error in
             if let error = error {
                 // If there's an error in the Firebase registration process, return the error
                 completion(.failure(error))
@@ -64,8 +64,15 @@ class AuthViewModel {
             // User has cat
             if let cat = user.cat {
                 var catData: [String: Any] = [
-                    "name": cat.name
+                    "name": cat.name,
+                    "breed": cat.breed ?? "unknown",
+                    "sex": cat.sex ?? "unknown",
+                    "age": 0.0,
+                    "weight": 0.0
                 ]
+                
+                print("2: catName is \(cat.name)")
+                SharedRegistrationInfo.shared.catName = cat.name
                 
                 // Initially add the cat document to Firestore without the ID
                 let catDocRef = db.collection("users").document(uid).collection("cats").document()

@@ -53,7 +53,6 @@ class SignUpViewModel: ObservableObject {
                             // Proceed with next steps, e.g., navigating to a new screen
                         }
                     }
-                    
                 }
                 
             case .failure(let error):
@@ -81,5 +80,4 @@ class SignUpViewModel: ObservableObject {
         }
         
     }
-    
 }

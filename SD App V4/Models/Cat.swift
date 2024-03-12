@@ -9,6 +9,7 @@ import Foundation
 
 struct Cat {
     
+    var id: String?
     var name: String
     var breed: String?
     var sex: String?
