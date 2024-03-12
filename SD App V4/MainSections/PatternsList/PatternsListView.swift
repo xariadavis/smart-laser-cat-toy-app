@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PatternsView: View {
     
-    @StateObject private var viewModel = PatternsViewModel()
+    @ObservedObject var patternsManager = PatternsManager.shared
     
     var body: some View {
         ZStack {
@@ -42,7 +42,7 @@ struct PatternsView: View {
                             .padding(.horizontal, 30)
                         
                         // List of Patterns centered
-                        ForEach(viewModel.patterns) { pattern in
+                        ForEach(patternsManager.patterns) { pattern in
                             PatternCard(pattern: pattern)
                             // If PatternCard is not centered by default, apply centering here if needed
                         }
@@ -50,9 +50,6 @@ struct PatternsView: View {
                     .padding(.bottom, 85)
                 }
             }
-        }
-        .onAppear {
-            viewModel.fetchPatterns()
         }
     }
 }

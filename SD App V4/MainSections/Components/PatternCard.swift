@@ -6,13 +6,14 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct PatternCard: View {
     let pattern: LaserPattern
 
     var body: some View {
         HStack(spacing: 10) {
-            testAsyncFromDB
+            KFpatternIcon
             
             VStack(alignment: .leading, spacing: 10) {
                 patternTitle
@@ -24,29 +25,18 @@ struct PatternCard: View {
         .cornerRadius(20)
         .padding(.horizontal)
     }
-
-    private var patternIcon: some View {
-        Image(pattern.iconName) // Ensure your image name matches the pattern's icon name
+    
+    private var KFpatternIcon: some View {
+        KFImage(URL(string: pattern.iconName))
+            .placeholder {
+                ProgressView()
+            }
             .resizable()
             .scaledToFit()
             .frame(width: 70, height: 70)
             .clipped()
             .cornerRadius(10)
             .padding(5)
-    }
-    
-    private var testAsyncFromDB: some View {
-        AsyncImage(url: URL(string: pattern.iconName)) { image in
-            image
-                .resizable()
-                .scaledToFit()
-                .frame(width: 70, height: 70)
-                .clipped()
-                .cornerRadius(10)
-                .padding(5)
-        } placeholder: {
-            ProgressView()
-        }
     }
 
     private var patternTitle: some View {

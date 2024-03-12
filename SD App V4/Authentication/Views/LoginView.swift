@@ -11,6 +11,7 @@ struct LoginView: View {
     
     @EnvironmentObject var navigationState: NavigationState
     @StateObject var viewModel: LoginViewModel
+    @ObservedObject var patternsManager = PatternsManager.shared
     
     @State private var opacity = 0.0
     @State private var email: String = ""
@@ -81,6 +82,7 @@ struct LoginView: View {
                     print("Attempting to log in...")
 
                     viewModel.login(email: email, password: password)
+                    patternsManager.fetchPatterns()
                     
                     
                 } label: {

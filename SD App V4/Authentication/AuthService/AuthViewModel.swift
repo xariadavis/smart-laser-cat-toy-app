@@ -93,18 +93,20 @@ class AuthViewModel {
         }
     }
     
-    func fetchPatterns() {
-        db.collection("patterns").addSnapshotListener { querySnapshot, error in
+    func fetchPatterns(completion: @escaping ([LaserPattern]) -> Void) {
+        let db = Firestore.firestore()
+        db.collection("patterns").getDocuments { querySnapshot, error in
             guard let documents = querySnapshot?.documents else {
                 print("No documents")
+                completion([]) // Return an empty array if there's an error
                 return
             }
             
-            self.patterns = documents.compactMap { queryDocumentSnapshot in
+            let patterns = documents.compactMap { queryDocumentSnapshot -> LaserPattern? in
                 try? queryDocumentSnapshot.data(as: LaserPattern.self)
             }
+            print("Patterns fetched!")
+            completion(patterns) // Return the fetched patterns
         }
-        
-        print("Patterns fetched!")
     }
 }
