@@ -68,9 +68,9 @@ struct PatternCard: View {
 
 struct PatternCard_Previews: PreviewProvider {
     static var previews: some View {
-        let _: LaserPattern
-        
-        PatternCard(pattern: laserPatterns[2])
+        @ObservedObject var patternsManager = PatternsManager.shared
+
+        PatternCard(pattern: patternsManager.patterns[2])
     }
 }
 

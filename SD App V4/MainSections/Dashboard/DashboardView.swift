@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DashboardView: View {
     @EnvironmentObject var navigationState: NavigationState
+    @ObservedObject var patternsManager = PatternsManager.shared
     
     var body: some View {
 
@@ -50,7 +51,7 @@ struct DashboardView: View {
                             .padding(.horizontal, 30)
                         
                         // List of Patterns centered
-                        ForEach(laserPatterns.filter {$0.isFavorite}) { pattern in
+                        ForEach(patternsManager.patterns.filter {$0.isFavorite}) { pattern in
                             PatternCard(pattern: pattern)
                         }
                         

@@ -6,13 +6,16 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct FavoritesCarousel: View {
     var width: CGFloat
     var height: CGFloat
+    
+    @ObservedObject var patternsManager = PatternsManager.shared
 
     var favoritePatterns: [LaserPattern] {
-        laserPatterns.filter { $0.isFavorite }
+        patternsManager.patterns.filter { $0.isFavorite }
     }
 
     var body: some View {
@@ -36,7 +39,10 @@ struct CarouselItemView: View {
 
     var body: some View {
         VStack {
-            Image(pattern.iconName)
+            KFImage(URL(string: pattern.iconName))
+                .placeholder {
+                    ProgressView()
+                }
                 .resizable()
                 .scaledToFit()
                 .frame(width: width * 0.8, height: height * 0.7) // Allocate 70% of height to image
