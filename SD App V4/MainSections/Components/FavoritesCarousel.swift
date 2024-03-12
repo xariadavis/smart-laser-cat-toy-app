@@ -44,28 +44,27 @@ struct CarouselItemView: View {
                     ProgressView()
                 }
                 .resizable()
-                .scaledToFit()
-                .frame(width: width * 0.8, height: height * 0.7) // Allocate 70% of height to image
+                .scaledToFill()
+                .frame(width: width * 0.5, height: height * 0.5)
                 .clipped()
                 .cornerRadius(10)
+                .padding(5)
 
             Text(pattern.name)
                 .font(Font.custom("Quicksand-Semibold", size: 14)) // May adjust size for better fit
                 .fontWeight(.bold)
-                .lineLimit(1) // Ensure text is limited to a single line
-                .truncationMode(.tail) // If text is too long, it will be truncated at the end
+                .frame(width: width * 0.9)
                 .padding(.horizontal, 5)
-                .frame(width: width * 0.9) // Allocate full width for text, adjust as needed
+            
         }
-        .padding(5)
-        .frame(width: width, height: height) // Explicitly set the item's frame
+        .padding(.bottom, 10)
     }
 }
 
 
 struct FavoritesCarousel_Previews: PreviewProvider {
     static var previews: some View {
-        FavoritesCarousel(width: 300, height: 150)
+        FavoritesCarousel(width: 150, height: 150)
             .padding()
             .previewLayout(.sizeThatFits)
     }
