@@ -1,25 +1,16 @@
 //
-//  LaserPattern.swift
-//  SD App V3
+//  LaserPatternExamples.swift
+//  SD App V4
 //
-//  Created by Xaria Davis on 2/5/24.
+//  Created by Xaria Davis on 3/12/24.
 //
 
 import Foundation
 
-struct LaserPattern: Identifiable, Codable {
-    var id = UUID() // Unique identifier for each pattern
-    var name: String
-    var description: String
-    var iconName: String // Use an asset name
-    var isFavorite: Bool = false
-    var omega_1: Int
-    var omega_2: Int
-}
-
 let laserPatterns = [
     LaserPattern(name: "Level 0", description: "Classic circle provides a gentle introduction to the laser chase", iconName: "CirclePattern", isFavorite: false, omega_1: 1, omega_2: 1),
-    LaserPattern(name: "Scarlet Trinity", description: "A trio of arcs that promises triple the fun", iconName: "ThreePattern", isFavorite: false, omega_1: 1, omega_2: -2),
+    LaserPattern(name: "Scarlet Trinity", description: "1", iconName: "ThreePattern", isFavorite: false, omega_1: 1, omega_2: -2),
+    
     LaserPattern(name: "Starry Night", description: "A dazzling starburst for leaping and bounding with delight", iconName: "EightPattern", isFavorite: true, omega_1: 3, omega_2: -5),
     LaserPattern(name: "Flower Quadratica", description: "Intertwining serene loops into a dance of elegance", iconName: "FloralQuadratica", isFavorite: true, omega_1: 3, omega_2: -1),
     LaserPattern(name: "Crimson Clover Whirl", description: "Chase the lively twirl of a summer's clover", iconName: "CrimsonCloverWhirl", isFavorite: false, omega_1: 2, omega_2: -5),
@@ -35,4 +26,3 @@ let laserPatterns = [
     LaserPattern(name: "Convergence", description: "Curved paths weave together, crafting a playful pattern", iconName: "Convergence", isFavorite: false, omega_1: 1, omega_2: 6),
     LaserPattern(name: "Whisker's Embrace", description: "Nested within sweeping circles, a tender heart emerges", iconName: "WhiskersEmbrace", isFavorite: true, omega_1: 4, omega_2: 5)
 ]
-

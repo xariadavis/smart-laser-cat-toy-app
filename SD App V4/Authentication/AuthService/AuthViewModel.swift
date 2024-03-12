@@ -8,8 +8,10 @@
 import Foundation
 import FirebaseAuth
 import FirebaseFirestore
-
+ 
 class AuthViewModel {
+    
+    private let db = Firestore.firestore()
     
     func register(user: User, completion: @escaping (Result<String, Error>) -> Void) {
         // Use FirebaseAuth to create a new user
@@ -47,7 +49,6 @@ class AuthViewModel {
     }
     
     func saveUserInfo(user: User, uid: String, completion: @escaping (Error?) -> Void) {
-        let db = Firestore.firestore()
         let userData: [String: Any] = [
             "id": uid,
             "name": user.name,
@@ -55,7 +56,7 @@ class AuthViewModel {
         ]
         
         // Save user information to Firestore
-        db.collection("users").document(uid).setData(userData) { error in
+        self.db.collection("users").document(uid).setData(userData) { error in
             if let error = error {
                 completion(error)
                 return
@@ -75,7 +76,7 @@ class AuthViewModel {
                 SharedRegistrationInfo.shared.catName = cat.name
                 
                 // Initially add the cat document to Firestore without the ID
-                let catDocRef = db.collection("users").document(uid).collection("cats").document()
+                let catDocRef = self.db.collection("users").document(uid).collection("cats").document()
                 
                 // Now, include the generated ID in catData
                 catData["id"] = catDocRef.documentID
@@ -91,6 +92,19 @@ class AuthViewModel {
             }
         }
     }
-
     
+    func fetchPatterns() {
+        db.collection("patterns").addSnapshotListener { querySnapshot, error in
+            guard let documents = querySnapshot?.documents else {
+                print("No documents")
+                return
+            }
+            
+            self.patterns = documents.compactMap { queryDocumentSnapshot in
+                try? queryDocumentSnapshot.data(as: LaserPattern.self)
+            }
+        }
+        
+        print("Patterns fetched!")
+    }
 }

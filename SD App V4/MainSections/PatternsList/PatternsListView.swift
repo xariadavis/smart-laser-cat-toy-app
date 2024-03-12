@@ -7,9 +7,10 @@
 
 import SwiftUI
 
-import SwiftUI
-
 struct PatternsView: View {
+    
+    @StateObject private var viewModel = PatternsViewModel()
+    
     var body: some View {
         ZStack {
             
@@ -27,6 +28,7 @@ struct PatternsView: View {
                 ScrollView {
                     
                     VStack(alignment: .leading) {
+                        
                         Text("Favorites")
                             .font(Font.custom("TitanOne", size: 23))
                             .padding(.horizontal, 30)
@@ -40,7 +42,7 @@ struct PatternsView: View {
                             .padding(.horizontal, 30)
                         
                         // List of Patterns centered
-                        ForEach(laserPatterns) { pattern in
+                        ForEach(viewModel.patterns) { pattern in
                             PatternCard(pattern: pattern)
                             // If PatternCard is not centered by default, apply centering here if needed
                         }
@@ -48,6 +50,9 @@ struct PatternsView: View {
                     .padding(.bottom, 85)
                 }
             }
+        }
+        .onAppear {
+            viewModel.fetchPatterns()
         }
     }
 }

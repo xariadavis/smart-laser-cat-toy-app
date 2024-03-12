@@ -15,17 +15,30 @@ struct Onboarding: View {
             
             Color(.systemGray5).ignoresSafeArea()
             
-            Text("How old is \(String(describing: sharedInfo.catName))")
-            
-            
             VStack {
+                
+                Text("How old is \(String(describing: sharedInfo.catName))")
+                    .font(Font.custom("Quicksand-Bold", size: 30))
+
+                
                 Spacer()
+                
+                // Sign Up
                 Button(action: {
-                    print("1: catName is \(SharedRegistrationInfo.shared.catName)")
+                    
                 }, label: {
-                    /*@START_MENU_TOKEN@*/Text("Button")/*@END_MENU_TOKEN@*/
+                    Text("Next")
+                        .font(Font.custom("Quicksand-SemiBold", size: 20))
+                        .frame(maxWidth: .infinity)
+                        .padding(15)
+                        .foregroundColor(Color.primary)
+                        .background(Color.red.opacity(0.9))
+                        .cornerRadius(40)
+                        .padding(.horizontal, 40)
+                        .padding(.vertical, 10)
                 })
             }
+            .padding()
         }
     }
 }

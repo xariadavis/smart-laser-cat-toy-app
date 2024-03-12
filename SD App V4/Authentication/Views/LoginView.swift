@@ -79,7 +79,7 @@ struct LoginView: View {
                 Button {
                     
                     print("Attempting to log in...")
-                    
+
                     viewModel.login(email: email, password: password)
                     
                     
@@ -107,6 +107,7 @@ struct LoginView: View {
             .onChange(of: viewModel.isAuthenticated) { isAuthenticated in
                 if isAuthenticated {
                     navigationState.path.append(AuthenticationNavigation.root)
+                    
                 } else {
                     // This might not be necessary, depending on your logic for handling authentication state
                     print("LoginView: Something went wrong")
