@@ -31,4 +31,23 @@ class PatternsManager: ObservableObject {
         
         print("Patterns fetched!")
     }
+    
+    // Assuming patternId is already a String that matches the Firestore document ID
+    func toggleFavorite(for patternId: String) {
+        guard let index = patterns.firstIndex(where: { $0.id == patternId }) else { return }
+        let isFavorite = patterns[index].isFavorite
+        patterns[index].isFavorite.toggle() // Toggle locally
+
+        // Update Firestore
+        db.collection("patterns").document(patternId).updateData([
+            "isFavorite": !isFavorite  // Toggle the value in Firestore
+        ]) { error in
+            if let error = error {
+                print("Error updating document: \(error)")
+                self.patterns[index].isFavorite = isFavorite  // Revert if there was an error
+            } else {
+                print("Document successfully updated")
+            }
+        }
+    }
 }

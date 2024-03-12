@@ -9,7 +9,8 @@ import SwiftUI
 import Kingfisher
 
 struct PatternCard: View {
-    let pattern: LaserPattern
+    var pattern: LaserPattern
+    @ObservedObject var patternsManager = PatternsManager.shared
 
     var body: some View {
         HStack(spacing: 10) {
@@ -24,6 +25,13 @@ struct PatternCard: View {
         .background(Color.fromNeuroKit)
         .cornerRadius(20)
         .padding(.horizontal)
+        .onTapGesture(count: 2) {
+            print("Double tapped!")
+            patternsManager.toggleFavorite(for: pattern.id ?? "")
+        }
+        .onTapGesture {
+            print("Single tapped!")
+        }
     }
     
     private var KFpatternIcon: some View {
