@@ -25,6 +25,8 @@
 		5755528C2B9EBF6700C36DF7 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 5755528B2B9EBF6700C36DF7 /* FirebaseAuth */; };
 		5755528E2B9EC4F200C36DF7 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5755528D2B9EC4F200C36DF7 /* AuthViewModel.swift */; };
 		575552922B9ECB6000C36DF7 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575552912B9ECB6000C36DF7 /* Onboarding.swift */; };
+		57B8CD362B9FBFD2007391A1 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 57B8CD352B9FBFD2007391A1 /* FirebaseFirestore */; };
+		57B8CD382B9FBFD2007391A1 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 57B8CD372B9FBFD2007391A1 /* FirebaseFirestoreSwift */; };
 		57ECBC752B9C1AE60007E234 /* SD_App_V4App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ECBC742B9C1AE60007E234 /* SD_App_V4App.swift */; };
 		57ECBC772B9C1AE60007E234 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ECBC762B9C1AE60007E234 /* ContentView.swift */; };
 		57ECBC792B9C1AE70007E234 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57ECBC782B9C1AE70007E234 /* Assets.xcassets */; };
@@ -115,6 +117,8 @@
 				570F431B2B9D88A80047E4DA /* AnimatedTabBar in Frameworks */,
 				57ECBCB72B9C2C340007E234 /* Lottie in Frameworks */,
 				570F43132B9D87E50047E4DA /* AnimatedTabBar in Frameworks */,
+				57B8CD362B9FBFD2007391A1 /* FirebaseFirestore in Frameworks */,
+				57B8CD382B9FBFD2007391A1 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,6 +374,8 @@
 				570F431A2B9D88A80047E4DA /* AnimatedTabBar */,
 				570F431D2B9D88E10047E4DA /* AnimatedTabBar */,
 				5755528B2B9EBF6700C36DF7 /* FirebaseAuth */,
+				57B8CD352B9FBFD2007391A1 /* FirebaseFirestore */,
+				57B8CD372B9FBFD2007391A1 /* FirebaseFirestoreSwift */,
 			);
 			productName = "SD App V4";
 			productReference = 57ECBC712B9C1AE60007E234 /* SD App V4.app */;
@@ -740,6 +746,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 575552862B9EB9B000C36DF7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
+		};
+		57B8CD352B9FBFD2007391A1 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 575552862B9EB9B000C36DF7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		57B8CD372B9FBFD2007391A1 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 575552862B9EB9B000C36DF7 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
 		};
 		57ECBCB62B9C2C340007E234 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
