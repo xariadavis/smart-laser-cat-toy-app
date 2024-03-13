@@ -11,7 +11,7 @@ struct Cat {
     
     var id: String?
     var name: String
-    var breed: String?
+    var breed: String = ""
     var sex: String?
     var age: Int = 0
     var weight: Double?

@@ -47,12 +47,7 @@ struct WelcomeView: View {
                     navigationState.path.append(AuthenticationNavigation.register)
                 }, label: {
                     Text("Sign Up")
-                        .font(Font.custom("Quicksand-SemiBold", size: 20))
-                        .frame(maxWidth: .infinity)
-                        .padding(15)
-                        .foregroundColor(Color.primary)
-                        .background(Color.red.opacity(0.9))
-                        .cornerRadius(30)
+                        .redButton()
                         .overlay(
                             RoundedRectangle(cornerRadius: 30)
                                 .stroke(Color.red, lineWidth: 4)
@@ -71,6 +66,7 @@ struct WelcomeView: View {
                 }, label: {
                     Text("Log In")
                         .redOutlineButton()
+                        .padding(.horizontal, 40)
                 })
                 
             }

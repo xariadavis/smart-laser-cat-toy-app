@@ -22,12 +22,6 @@ struct Onboarding: View {
             
             VStack(alignment: .leading) {
                 
-                Text("What's \(String(describing: sharedInfo.catName)) gender?")
-                    .font(Font.custom("Quicksand-Bold", size: 30))
-                
-                Spacer()
-                
-                
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding()
@@ -100,7 +94,118 @@ struct Onboarding: View {
             })
         }
     }
+    
+    private var getCatGender: some View {
+        Group {
+            Text("What's \(String(describing: sharedInfo.catName))'s gender?")
+                .font(Font.custom("Quicksand-Bold", size: 30))
+            
+            Group {
+                Button(action: {
+                    self.newCat.sex = "Male"
+                }, label: {
+                    Text("Male")
+                        .redOutlineButton()
+                })
+                
+                Button(action: {
+                    self.newCat.sex = "Female"
+                }, label: {
+                    Text("Female")
+                        .redOutlineButton()
+                })
+            }
+            .padding(.horizontal, 20)
+            
+            Spacer()
+            
+            
+            Button(action: {
+                print("The cat's gender is: \(String(describing: self.newCat.sex))")
+            }, label: {
+                Text("Next")
+                    .redButton()
+                    .padding(.horizontal, 20)
+            })
+        }
+    }
+    
+    private var getCatBreed: some View {
+        Group {
+            Text("What breed is \(sharedInfo.catName)?")
+                .font(Font.custom("Quicksand-Bold", size: 30))
+            
+            Picker("Select a Breed", selection: $newCat.breed) {
+                ForEach(catBreeds, id: \.self) { breed in
+                    Text(breed).tag(breed)
+                }
+            }
+            .pickerStyle(WheelPickerStyle())
+            
+            Spacer()
+            
+            Button(action: {
+                print("The cat breed is: \(newCat.breed)")
+            }, label: {
+                Text("Next")
+                    .redButton()
+                    .padding(.horizontal, 20)
+            })
+        }
+    }
 }
+
+let catBreeds = [
+    "Abyssinian",
+    "American Bobtail",
+    "American Curl",
+    "American Shorthair",
+    "American Wirehair",
+    "Balinese",
+    "Bengal",
+    "Birman",
+    "Bombay",
+    "British Shorthair",
+    "Burmese",
+    "Burmilla",
+    "Chartreux",
+    "Cornish Rex",
+    "Devon Rex",
+    "Domestic Short Hair",
+    "Domestic Medium Hair",
+    "Domestic Long Hair",
+    "Egyptian Mau",
+    "Exotic Shorthair",
+    "Himalayan",
+    "Japanese Bobtail",
+    "Khao Manee",
+    "Korat",
+    "LaPerm",
+    "Maine Coon",
+    "Manx",
+    "Munchkin",
+    "Norwegian Forest Cat",
+    "Ocicat",
+    "Oriental",
+    "Persian",
+    "Peterbald",
+    "Pixie-bob",
+    "Ragamuffin",
+    "Ragdoll",
+    "Russian Blue",
+    "Scottish Fold",
+    "Selkirk Rex",
+    "Siamese",
+    "Siberian",
+    "Singapura",
+    "Somali",
+    "Sphynx",
+    "Tonkinese",
+    "Toyger",
+    "Turkish Angora",
+    "Turkish Van"
+]
+
 
 #Preview {
     Onboarding()

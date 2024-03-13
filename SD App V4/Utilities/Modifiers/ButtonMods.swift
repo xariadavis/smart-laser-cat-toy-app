@@ -28,8 +28,6 @@ struct RedButton: ViewModifier {
             .foregroundColor(Color.primary)
             .background(Color.red.opacity(0.9))
             .cornerRadius(40)
-            .padding(.horizontal, 40)
-            .padding(.vertical, 10)
     }
 }
 
@@ -51,6 +49,5 @@ struct RedOutlineButton: ViewModifier {
                     .shadow(color: Color.red.opacity(0.3), radius: 30, x: 0, y: 0)
                     .shadow(color: Color.red.opacity(0.3), radius: 40, x: 0, y: 0)
             )
-            .padding(.horizontal, 40)
     }
 }
