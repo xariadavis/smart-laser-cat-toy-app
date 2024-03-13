@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ProfileCard: View {
-    // @EnvironmentObject var userViewModel: UserViewModel
     
     private let cardCornerRadius: CGFloat = 20
     private let maxWidth = UIScreen.main.bounds.width - 50
@@ -31,7 +30,7 @@ struct ProfileCard: View {
             cardBackground
             profileImage
             cardGradient.clipShape(RoundedRectangle(cornerRadius: cardCornerRadius))
-            // userInfo
+            // userInfo()
         }
         .frame(width: maxWidth, height: maxHeight)
         .padding(5)
@@ -60,8 +59,8 @@ struct ProfileCard: View {
 //    private var userInfo: some View {
 //        VStack {
 //            Spacer()
-//            if let user = userViewModel.currentUser {
-//                userInfoText(user.name)
+//            if let cat = sharedInfo {
+//                userInfoText(cat.catName)
 //            } else {
 //                userInfoText("Error finding name")
 //            }

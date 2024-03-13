@@ -19,6 +19,8 @@
 		570F43172B9D88540047E4DA /* AnimatedTabBar in Frameworks */ = {isa = PBXBuildFile; productRef = 570F43162B9D88540047E4DA /* AnimatedTabBar */; };
 		570F431B2B9D88A80047E4DA /* AnimatedTabBar in Frameworks */ = {isa = PBXBuildFile; productRef = 570F431A2B9D88A80047E4DA /* AnimatedTabBar */; };
 		570F431E2B9D88E10047E4DA /* AnimatedTabBar in Frameworks */ = {isa = PBXBuildFile; productRef = 570F431D2B9D88E10047E4DA /* AnimatedTabBar */; };
+		573D65A22BA154960063CB6C /* ButtonMods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573D65A12BA154960063CB6C /* ButtonMods.swift */; };
+		573D65A42BA1568E0063CB6C /* TextfieldMods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573D65A32BA1568E0063CB6C /* TextfieldMods.swift */; };
 		574529B52B9E214B0084EB53 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574529B42B9E214B0084EB53 /* RootView.swift */; };
 		574529B92B9E41E70084EB53 /* LaserDots.json in Resources */ = {isa = PBXBuildFile; fileRef = 574529B82B9E41E70084EB53 /* LaserDots.json */; };
 		5755528A2B9EBE4B00C36DF7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 575552892B9EBE4A00C36DF7 /* GoogleService-Info.plist */; };
@@ -28,6 +30,7 @@
 		57A0E0AA2BA0B8E800C8E29C /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 57A0E0A92BA0B8E800C8E29C /* FirebaseStorage */; };
 		57A0E0AF2BA0CCE800C8E29C /* PatternsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A0E0AE2BA0CCE800C8E29C /* PatternsManager.swift */; };
 		57A0E0B22BA0D76300C8E29C /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 57A0E0B12BA0D76300C8E29C /* Kingfisher */; };
+		57A5E6F52BA1177600921818 /* LaserLoading.json in Resources */ = {isa = PBXBuildFile; fileRef = 57A5E6F42BA1177600921818 /* LaserLoading.json */; };
 		57B8CD362B9FBFD2007391A1 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 57B8CD352B9FBFD2007391A1 /* FirebaseFirestore */; };
 		57B8CD382B9FBFD2007391A1 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 57B8CD372B9FBFD2007391A1 /* FirebaseFirestoreSwift */; };
 		57B8CD3B2B9FEF01007391A1 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B8CD3A2B9FEF01007391A1 /* UserViewModel.swift */; };
@@ -73,12 +76,15 @@
 		570F43062B9D643A0047E4DA /* LaserPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaserPattern.swift; sourceTree = "<group>"; };
 		570F43082B9D681A0047E4DA /* ColorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorButton.swift; sourceTree = "<group>"; };
 		570F430D2B9D6B0F0047E4DA /* FavoritesCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCarousel.swift; sourceTree = "<group>"; };
+		573D65A12BA154960063CB6C /* ButtonMods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonMods.swift; sourceTree = "<group>"; };
+		573D65A32BA1568E0063CB6C /* TextfieldMods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextfieldMods.swift; sourceTree = "<group>"; };
 		574529B42B9E214B0084EB53 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		574529B82B9E41E70084EB53 /* LaserDots.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LaserDots.json; path = ../../../../../../../../../Downloads/LaserDots.json; sourceTree = "<group>"; };
 		575552892B9EBE4A00C36DF7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5755528D2B9EC4F200C36DF7 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		575552912B9ECB6000C36DF7 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
 		57A0E0AE2BA0CCE800C8E29C /* PatternsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternsManager.swift; sourceTree = "<group>"; };
+		57A5E6F42BA1177600921818 /* LaserLoading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LaserLoading.json; sourceTree = "<group>"; };
 		57B8CD3A2B9FEF01007391A1 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		57B8CD3D2B9FFF07007391A1 /* SharedRegistrationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedRegistrationInfo.swift; sourceTree = "<group>"; };
 		57ECBC712B9C1AE60007E234 /* SD App V4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SD App V4.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,6 +166,15 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		573D65A02BA1547D0063CB6C /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				573D65A12BA154960063CB6C /* ButtonMods.swift */,
+				573D65A32BA1568E0063CB6C /* TextfieldMods.swift */,
+			);
+			path = Modifiers;
 			sourceTree = "<group>";
 		};
 		574529BD2B9E48AC0084EB53 /* AuthService */ = {
@@ -359,6 +374,7 @@
 		57ECBCB22B9C25970007E234 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				573D65A02BA1547D0063CB6C /* Modifiers */,
 				57ECBCC82B9C363A0007E234 /* Fonts */,
 				57ECBCB82B9C2C420007E234 /* LottieFiles */,
 				57ECBCB32B9C2BA70007E234 /* LottiePlusView.swift */,
@@ -372,6 +388,7 @@
 			isa = PBXGroup;
 			children = (
 				57ECBCB92B9C2D340007E234 /* Constants.swift */,
+				57A5E6F42BA1177600921818 /* LaserLoading.json */,
 				574529B82B9E41E70084EB53 /* LaserDots.json */,
 				57ECBCBB2B9C2D340007E234 /* GingerHunt_Dark.json */,
 				57ECBCBA2B9C2D340007E234 /* GingerHunt.json */,
@@ -469,6 +486,7 @@
 				5755528A2B9EBE4B00C36DF7 /* GoogleService-Info.plist in Resources */,
 				574529B92B9E41E70084EB53 /* LaserDots.json in Resources */,
 				57ECBCBE2B9C2D340007E234 /* GingerHunt_Dark.json in Resources */,
+				57A5E6F52BA1177600921818 /* LaserLoading.json in Resources */,
 				57ECBC7C2B9C1AE70007E234 /* Preview Assets.xcassets in Resources */,
 				57ECBCBD2B9C2D340007E234 /* GingerHunt.json in Resources */,
 				57ECBCCC2B9C36880007E234 /* Quicksand[wght].ttf in Resources */,
@@ -490,6 +508,7 @@
 				57ECBC8B2B9C22A10007E234 /* SignUpView.swift in Sources */,
 				57ECBC892B9C22970007E234 /* LoginView.swift in Sources */,
 				57ECBC772B9C1AE60007E234 /* ContentView.swift in Sources */,
+				573D65A42BA1568E0063CB6C /* TextfieldMods.swift in Sources */,
 				57ECBC982B9C231A0007E234 /* PatternsListView.swift in Sources */,
 				574529B52B9E214B0084EB53 /* RootView.swift in Sources */,
 				570F43052B9D63D90047E4DA /* PatternCard.swift in Sources */,
@@ -508,6 +527,7 @@
 				57ECBCC62B9C34F10007E234 /* GlowModifier.swift in Sources */,
 				57A0E0AF2BA0CCE800C8E29C /* PatternsManager.swift in Sources */,
 				575552922B9ECB6000C36DF7 /* Onboarding.swift in Sources */,
+				573D65A22BA154960063CB6C /* ButtonMods.swift in Sources */,
 				57ECBC8F2B9C22BF0007E234 /* SignUpViewModel.swift in Sources */,
 				57ECBC9A2B9C23280007E234 /* PatternsListViewModel.swift in Sources */,
 				57ECBC752B9C1AE60007E234 /* SD_App_V4App.swift in Sources */,

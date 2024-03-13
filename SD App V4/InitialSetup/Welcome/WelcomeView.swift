@@ -70,22 +70,7 @@ struct WelcomeView: View {
                     navigationState.path.append(AuthenticationNavigation.login)
                 }, label: {
                     Text("Log In")
-                        .font(Font.custom("Quicksand-SemiBold", size: 20))
-                        .foregroundColor(Color.primary)
-                        .frame(maxWidth: .infinity)
-                        .padding(15)
-                        .cornerRadius(30)
-                        .contentShape(Rectangle())
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 30)
-                                .stroke(Color.red.opacity(0.9), lineWidth: 2)
-                                // Apply glow effect
-                                .shadow(color: Color.red.opacity(0.3), radius: 10, x: 0, y: 0)
-                                .shadow(color: Color.red.opacity(0.3), radius: 20, x: 0, y: 0)
-                                .shadow(color: Color.red.opacity(0.3), radius: 30, x: 0, y: 0)
-                                .shadow(color: Color.red.opacity(0.3), radius: 40, x: 0, y: 0)
-                        )
-                        .padding(.horizontal, 40)
+                        .redOutlineButton()
                 })
                 
             }

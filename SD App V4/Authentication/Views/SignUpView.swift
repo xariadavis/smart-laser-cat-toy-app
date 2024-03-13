@@ -62,6 +62,8 @@ struct SignUpView: View {
                         .padding()
                         .background(Color(.systemGray5))
                         .cornerRadius(15)
+                        .autocapitalization(.none)
+                        .autocorrectionDisabled(true)
                     
                     TextField("Pet's Name", text: $catName)
                         .font(Font.custom("Quicksand-SemiBold", size: 20))
@@ -69,6 +71,8 @@ struct SignUpView: View {
                         .padding()
                         .background(Color(.systemGray5))
                         .cornerRadius(15)
+                        .autocapitalization(.none)
+                        .autocorrectionDisabled(true)
                     
                     TextField("Email Address", text: $email)
                         .font(Font.custom("Quicksand-SemiBold", size: 20))
@@ -78,6 +82,8 @@ struct SignUpView: View {
                         .cornerRadius(15)
                         .autocapitalization(.none)
                         .autocorrectionDisabled()
+                        .autocapitalization(.none)
+                        .autocorrectionDisabled(true)
                     
                     SecureField("Password", text: $password)
                         .font(Font.custom("Quicksand-SemiBold", size: 20))

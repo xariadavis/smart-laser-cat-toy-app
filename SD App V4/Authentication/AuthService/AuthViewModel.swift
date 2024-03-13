@@ -69,7 +69,8 @@ class AuthViewModel {
                     "breed": cat.breed ?? "unknown",
                     "sex": cat.sex ?? "unknown",
                     "age": 0.0,
-                    "weight": 0.0
+                    "weight": 0.0,
+                    "color": cat.color ?? "unknown"
                 ]
                 
                 print("2: catName is \(cat.name)")

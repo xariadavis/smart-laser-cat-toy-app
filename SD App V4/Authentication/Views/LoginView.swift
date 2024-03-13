@@ -51,20 +51,10 @@ struct LoginView: View {
                 
                 Group {
                     TextField("Email Address", text: $email)
-                        .font(Font.custom("Quicksand-SemiBold", size: 20))
-                        .foregroundColor(.primary)
-                        .padding()
-                        .background(Color(.systemGray5))
-                        .cornerRadius(15)
-                        .autocapitalization(.none)
-                        .autocorrectionDisabled()
+                        .generalTextfield()
                     
                     SecureField("Password", text: $password)
-                        .font(Font.custom("Quicksand-SemiBold", size: 20))
-                        .foregroundColor(.primary)
-                        .padding()
-                        .background(Color(.systemGray5))
-                        .cornerRadius(15)
+                        .generalTextfield()
                 }
                 .padding(.horizontal, 20)
                 

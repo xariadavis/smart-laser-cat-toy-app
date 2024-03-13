@@ -30,14 +30,14 @@ struct PatternCard: View {
             patternsManager.toggleFavorite(for: pattern.id ?? "")
         }
         .onTapGesture {
-            print("Single tapped!")
+            print("Single tapped! -> omega_1 = \(pattern.omega_1) and omega_2 = \(pattern.omega_2)")
         }
     }
     
     private var KFpatternIcon: some View {
         KFImage(URL(string: pattern.iconName))
             .placeholder {
-                ProgressView()
+                LottiePlusView(name: Constants.LaserLoading)
             }
             .resizable()
             .scaledToFit()
