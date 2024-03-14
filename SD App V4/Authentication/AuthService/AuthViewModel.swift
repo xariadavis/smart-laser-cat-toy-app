@@ -66,7 +66,7 @@ class AuthViewModel {
             if let cat = user.cat {
                 var catData: [String: Any] = [
                     "name": cat.name,
-                    "breed": cat.breed ?? "unknown",
+                    "breed": cat.breed,
                     "sex": cat.sex ?? "unknown",
                     "age": 0.0,
                     "weight": 0.0,
@@ -74,7 +74,6 @@ class AuthViewModel {
                 ]
                 
                 print("2: catName is \(cat.name)")
-                SharedRegistrationInfo.shared.catName = cat.name
                 
                 // Initially add the cat document to Firestore without the ID
                 let catDocRef = self.db.collection("users").document(uid).collection("cats").document()

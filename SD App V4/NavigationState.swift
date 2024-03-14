@@ -10,7 +10,6 @@ import SwiftUI
 
 class NavigationState: ObservableObject {
     @Published var path = NavigationPath()
-    //@Published var currentTab: Tab = .dashboard
 }
 
 
@@ -19,7 +18,7 @@ enum AuthenticationNavigation: Hashable {
     case register
     case forgotPassword
     case root
-    case onboarding
+    case onboarding(catName: String)
 }
 
 enum MainNavigation: Int, Hashable, CaseIterable {

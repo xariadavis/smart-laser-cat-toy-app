@@ -7,10 +7,10 @@
 
 import Foundation
 
-class SharedRegistrationInfo: ObservableObject {
-    static let shared = SharedRegistrationInfo()
-    @Published var catName: String = ""
-    
-    private init() {}
-}
+//class SharedRegistrationInfo: ObservableObject {
+//    static let shared = SharedRegistrationInfo()
+//    @Published var catName: String = ""
+//    
+//    private init() {}
+//}
 

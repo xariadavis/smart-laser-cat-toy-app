@@ -134,7 +134,7 @@ struct SignUpView: View {
             .onChange(of: viewModel.registrationSuccessful) { registrationSuccessful in
                 if registrationSuccessful {
                     print("SignUpView: onChange is \(registrationSuccessful)")
-                    navigationState.path.append(AuthenticationNavigation.onboarding)
+                    navigationState.path.append(AuthenticationNavigation.onboarding(catName: catName))
                 } else {
                     print("SignUpView: Something went wrong")
                 }
