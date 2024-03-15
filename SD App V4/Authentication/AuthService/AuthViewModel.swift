@@ -61,35 +61,6 @@ class AuthViewModel {
                 completion(error)
                 return
             }
-            
-            // User has cat
-            if let cat = user.cat {
-                var catData: [String: Any] = [
-                    "name": cat.name,
-                    "breed": cat.breed,
-                    "sex": cat.sex ?? "unknown",
-                    "age": 0.0,
-                    "weight": 0.0,
-                    "color": cat.color ?? "unknown"
-                ]
-                
-                print("2: catName is \(cat.name)")
-                
-                // Initially add the cat document to Firestore without the ID
-                let catDocRef = self.db.collection("users").document(uid).collection("cats").document()
-                
-                // Now, include the generated ID in catData
-                catData["id"] = catDocRef.documentID
-                
-                // Finally, set the cat document with all data, including the ID
-                catDocRef.setData(catData) { error in
-                    completion(error)
-                }
-                
-            } else {
-                // No cat data to save, so complete without error
-                completion(nil)
-            }
         }
     }
     
@@ -109,4 +80,37 @@ class AuthViewModel {
             completion(patterns) // Return the fetched patterns
         }
     }
+    
+    func getCurrentUserID() -> String? {
+        return Auth.auth().currentUser?.uid
+    }
+
+    func saveCatInfo(cat: Cat, completion: @escaping (Error?) -> Void) {
+        let uid: String = getCurrentUserID() ?? "could not get uid"
+        
+        var catData: [String: Any] = [
+            "name": cat.name,
+            "breed": cat.breed,
+            "sex": cat.sex ?? "unknown",
+            "age": cat.age,
+            "weight": cat.weight ?? 0.0,
+            "color": cat.color ?? "unknown"
+        ]
+
+        // Create a new cat document in Firestore
+        let catDocRef = self.db.collection("users").document(uid).collection("cats").document()
+        catData["id"] = catDocRef.documentID
+        
+        // Save the cat data
+        catDocRef.setData(catData) { error in
+            if let error = error {
+                completion(error)
+            } else {
+                // Optionally, handle the cat's Firestore-generated ID here if necessary
+                print("Saved cat info with ID: \(catDocRef.documentID)")
+                completion(nil)
+            }
+        }
+    }
+
 }

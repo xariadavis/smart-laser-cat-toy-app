@@ -26,11 +26,12 @@
 		5755528A2B9EBE4B00C36DF7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 575552892B9EBE4A00C36DF7 /* GoogleService-Info.plist */; };
 		5755528C2B9EBF6700C36DF7 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 5755528B2B9EBF6700C36DF7 /* FirebaseAuth */; };
 		5755528E2B9EC4F200C36DF7 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5755528D2B9EC4F200C36DF7 /* AuthViewModel.swift */; };
-		575552922B9ECB6000C36DF7 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575552912B9ECB6000C36DF7 /* Onboarding.swift */; };
+		575552922B9ECB6000C36DF7 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575552912B9ECB6000C36DF7 /* OnboardingView.swift */; };
 		57A0E0AA2BA0B8E800C8E29C /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 57A0E0A92BA0B8E800C8E29C /* FirebaseStorage */; };
 		57A0E0AF2BA0CCE800C8E29C /* PatternsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A0E0AE2BA0CCE800C8E29C /* PatternsManager.swift */; };
 		57A0E0B22BA0D76300C8E29C /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 57A0E0B12BA0D76300C8E29C /* Kingfisher */; };
 		57A5E6F52BA1177600921818 /* LaserLoading.json in Resources */ = {isa = PBXBuildFile; fileRef = 57A5E6F42BA1177600921818 /* LaserLoading.json */; };
+		57B8715F2BA2B27200E7F92D /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B8715E2BA2B27200E7F92D /* OnboardingViewModel.swift */; };
 		57B8CD362B9FBFD2007391A1 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 57B8CD352B9FBFD2007391A1 /* FirebaseFirestore */; };
 		57B8CD382B9FBFD2007391A1 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 57B8CD372B9FBFD2007391A1 /* FirebaseFirestoreSwift */; };
 		57B8CD3B2B9FEF01007391A1 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B8CD3A2B9FEF01007391A1 /* UserViewModel.swift */; };
@@ -81,9 +82,10 @@
 		574529B82B9E41E70084EB53 /* LaserDots.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LaserDots.json; path = ../../../../../../../../../Downloads/LaserDots.json; sourceTree = "<group>"; };
 		575552892B9EBE4A00C36DF7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5755528D2B9EC4F200C36DF7 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
-		575552912B9ECB6000C36DF7 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
+		575552912B9ECB6000C36DF7 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		57A0E0AE2BA0CCE800C8E29C /* PatternsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternsManager.swift; sourceTree = "<group>"; };
 		57A5E6F42BA1177600921818 /* LaserLoading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LaserLoading.json; sourceTree = "<group>"; };
+		57B8715E2BA2B27200E7F92D /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		57B8CD3A2B9FEF01007391A1 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		57ECBC712B9C1AE60007E234 /* SD App V4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SD App V4.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		57ECBC742B9C1AE60007E234 /* SD_App_V4App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SD_App_V4App.swift; sourceTree = "<group>"; };
@@ -186,7 +188,8 @@
 		5755528F2B9ECB3400C36DF7 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				575552912B9ECB6000C36DF7 /* Onboarding.swift */,
+				575552912B9ECB6000C36DF7 /* OnboardingView.swift */,
+				57B8715E2BA2B27200E7F92D /* OnboardingViewModel.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -509,12 +512,13 @@
 				57ECBC8D2B9C22B50007E234 /* LoginViewModel.swift in Sources */,
 				57ECBC952B9C22EB0007E234 /* DashboardView.swift in Sources */,
 				57ECBCBC2B9C2D340007E234 /* Constants.swift in Sources */,
+				57B8715F2BA2B27200E7F92D /* OnboardingViewModel.swift in Sources */,
 				57ECBCA82B9C24360007E234 /* User.swift in Sources */,
 				570F430E2B9D6B0F0047E4DA /* FavoritesCarousel.swift in Sources */,
 				57ECBCCE2B9C4D750007E234 /* ForgotPasswordView.swift in Sources */,
 				57ECBCC62B9C34F10007E234 /* GlowModifier.swift in Sources */,
 				57A0E0AF2BA0CCE800C8E29C /* PatternsManager.swift in Sources */,
-				575552922B9ECB6000C36DF7 /* Onboarding.swift in Sources */,
+				575552922B9ECB6000C36DF7 /* OnboardingView.swift in Sources */,
 				573D65A22BA154960063CB6C /* ButtonMods.swift in Sources */,
 				57ECBC8F2B9C22BF0007E234 /* SignUpViewModel.swift in Sources */,
 				57ECBC9A2B9C23280007E234 /* PatternsListViewModel.swift in Sources */,

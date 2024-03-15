@@ -107,6 +107,7 @@ struct SignUpView: View {
                     viewModel.register(name: ownerName, email: email, password: password, catName: catName)
                     
                     print("SignUpView: onChange is \(viewModel.registrationSuccessful)")
+                    print("In sign up view: \(viewModel.userID)")
                     
                 }, label: {
                     Text("Sign Up")
@@ -135,6 +136,7 @@ struct SignUpView: View {
                 if registrationSuccessful {
                     print("SignUpView: onChange is \(registrationSuccessful)")
                     navigationState.path.append(AuthenticationNavigation.onboarding(catName: catName))
+                    print("In sign up view: \(viewModel.userID)")
                 } else {
                     print("SignUpView: Something went wrong")
                 }

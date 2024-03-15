@@ -7,9 +7,10 @@
 
 import SwiftUI
 
-struct Onboarding: View {
+struct OnboardingView: View {
     var catName: String
     
+    @StateObject var viewModel: OnboardingViewModel
     @State private var newCat: Cat
     @FocusState private var isTextFieldFocused: Bool
     @State private var weightString: String = ""
@@ -19,9 +20,10 @@ struct Onboarding: View {
     let transition = AnyTransition(.blurReplace)
     
     
-    init(catName: String) {
+    init(catName: String, authViewModel: AuthViewModel) {
         self.catName = catName
         _newCat = State(initialValue: Cat(name: catName))
+        _viewModel = StateObject(wrappedValue: OnboardingViewModel(authViewModel: authViewModel))
     }
         
     var body: some View {
@@ -174,7 +176,7 @@ struct Onboarding: View {
 
 // MARK: Utils
 
-extension Onboarding {
+extension OnboardingView {
     
     func handleButtonPress() {
         
@@ -195,6 +197,7 @@ extension Onboarding {
         
         if onboardingState == 4 {
             print("\(newCat.name) + \(newCat.age) + \(newCat.weight) + \(newCat.sex) + \(newCat.breed)")
+            viewModel.updateCatInfo(cat: newCat)
         } else {
             withAnimation(.spring()) {
                 onboardingState += 1
@@ -262,6 +265,6 @@ let catBreeds = [
 ]
 
 
-#Preview {
-    Onboarding(catName: "Walty")
-}
+//#Preview {
+//    OnboardingView(catName: "Walty")
+//}

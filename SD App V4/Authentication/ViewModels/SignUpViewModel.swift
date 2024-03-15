@@ -13,6 +13,7 @@ class SignUpViewModel: ObservableObject {
     @Published var registrationSuccessful: Bool = false
     @Published var showAlert: Bool = false
     @Published var alertMessage: String = ""
+    @Published var userID: String = ""
     
     private let authViewModel: AuthViewModel
     
@@ -38,22 +39,26 @@ class SignUpViewModel: ObservableObject {
         authViewModel.register(user: user, completion: { [weak self] result in
             switch result {
             case .success(let uid):
-
+                
                 DispatchQueue.main.async {
-                    
                     print("Registration successful!")
                     self?.registrationSuccessful = true
                     
-                    self?.authViewModel.saveUserInfo(user: user, uid: uid) { error in
+                    // Update the user's UID with the one returned from Firebase Auth
+                    var updatedUser = user
+                    updatedUser.uid = uid
+                    
+                    self?.authViewModel.saveUserInfo(user: updatedUser, uid: uid) { error in
                         if let error = error {
                             print("Failed to save user info: \(error.localizedDescription)")
-                            // Handle error (e.g., show an alert)
                         } else {
                             print("User info saved successfully")
-                            // Proceed with next steps, e.g., navigating to a new screen
+                            self?.userID = uid  // Correctly update the published userID property
+                            print("The user id is \(self?.userID)")
                         }
                     }
                 }
+
                 
             case .failure(let error):
                 // Handle failure, update UI accordingly

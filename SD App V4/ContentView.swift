@@ -27,7 +27,8 @@ struct ContentView: View {
                         RootView()
                             .navigationBarBackButtonHidden(true)
                     case .onboarding(let catName):
-                        Onboarding(catName: catName)
+                        let authViewModel = AuthViewModel()
+                        OnboardingView(catName: catName, authViewModel: authViewModel)
                     }
                 }
                 .navigationDestination(for: MainNavigation.self) { target in
