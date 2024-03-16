@@ -62,7 +62,6 @@ struct SignUpView: View {
                         .padding()
                         .background(Color(.systemGray5))
                         .cornerRadius(15)
-                        .autocapitalization(.none)
                         .autocorrectionDisabled(true)
                     
                     TextField("Pet's Name", text: $catName)
@@ -71,7 +70,6 @@ struct SignUpView: View {
                         .padding()
                         .background(Color(.systemGray5))
                         .cornerRadius(15)
-                        .autocapitalization(.none)
                         .autocorrectionDisabled(true)
                     
                     TextField("Email Address", text: $email)
