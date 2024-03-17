@@ -6,10 +6,15 @@
 //
 
 import Foundation
+import SwiftUI
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 class FirestoreManager {
+    
+    // TODO: If time allows maybe separate this out?
+    @ObservedObject var patternsManager = PatternsManager.shared  // TODO: Definitely fix this
+    
     private let db = Firestore.firestore()
     
     func saveUserInfo(user: AppUser, uid: String, completion: @escaping (Error?) -> Void) {
@@ -22,7 +27,7 @@ class FirestoreManager {
         db.collection("users").document(uid).setData(userData, completion: completion)
     }
     
-    func fetchPatterns(completion: @escaping ([LaserPattern]) -> Void) {
+    func fetchPatterns2(completion: @escaping ([LaserPattern]) -> Void) {
         db.collection("patterns").getDocuments { querySnapshot, error in
             guard let documents = querySnapshot?.documents else {
                 print("No documents")

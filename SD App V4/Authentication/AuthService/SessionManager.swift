@@ -14,6 +14,7 @@ class SessionManager: ObservableObject {
     
     @Published var isUserAuthenticated: Bool = false
     @Published var currentUser: AppUser?  // Using the custom type here
+    @ObservedObject var patternsManager = PatternsManager.shared
 
     init() {
         Auth.auth().addStateDidChangeListener { [weak self] (_, firebaseUser) in
@@ -22,6 +23,8 @@ class SessionManager: ObservableObject {
                 // Convert FirebaseAuth.User to AppUser
                 if let firebaseUser = firebaseUser {
                     self?.currentUser = AppUser(uid: firebaseUser.uid, name: firebaseUser.displayName ?? "", email: firebaseUser.email ?? "")
+                    print("The current user is \(firebaseUser.uid)")
+                    self?.patternsManager.fetchPatterns()
                 } else {
                     self?.currentUser = nil
                 }

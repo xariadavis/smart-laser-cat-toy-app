@@ -155,7 +155,7 @@ struct TabBar: View {
                 case 2:
                     ProfileView()
                 case 3:
-                    SettingsView()
+                    SettingsView(viewModel: SettingsViewModel(authViewModel: AuthViewModel()))
                 default:
                     EmptyView() // Fallback view
                 }

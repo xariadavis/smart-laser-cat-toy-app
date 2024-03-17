@@ -43,7 +43,7 @@ struct ContentView: View {
                         ProfileView()
                             .navigationBarBackButtonHidden(true)
                     case .settings:
-                        SettingsView()
+                        SettingsView(viewModel: SettingsViewModel(authViewModel: AuthViewModel()))
                             .navigationBarBackButtonHidden(true)
                     }
                 }

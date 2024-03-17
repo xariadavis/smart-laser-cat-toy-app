@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SettingsView: View {
     
+    @StateObject var viewModel: SettingsViewModel
     
     var body: some View {
         ZStack {
@@ -28,6 +29,7 @@ struct SettingsView: View {
                 
                 Button {
                     print("Log out button pressed")
+                    viewModel.logOut()
                 } label: {
                     Text("Log out")
                         .font(Font.custom("Quicksand-SemiBold", size: 20))
@@ -46,5 +48,5 @@ struct SettingsView: View {
 }
 
 #Preview {
-    SettingsView()
+    SettingsView(viewModel: SettingsViewModel(authViewModel: AuthViewModel()))
 }

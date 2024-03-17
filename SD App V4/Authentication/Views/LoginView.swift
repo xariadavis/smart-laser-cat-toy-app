@@ -72,7 +72,7 @@ struct LoginView: View {
                     print("Attempting to log in...")
 
                     viewModel.login(email: email, password: password)
-                    patternsManager.fetchPatterns()
+                    // patternsManager.fetchPatterns()
                     
                     
                 } label: {
