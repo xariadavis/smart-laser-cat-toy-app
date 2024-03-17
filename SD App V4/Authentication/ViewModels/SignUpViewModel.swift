@@ -15,10 +15,12 @@ class SignUpViewModel: ObservableObject {
     @Published var alertMessage: String = ""
     @Published var userID: String = ""
     
-    private let authViewModel: AuthViewModel
+    private var authViewModel: AuthViewModel
+    private var firestoreManager: FirestoreManager
     
-    init(authViewModel: AuthViewModel) {
+    init(authViewModel: AuthViewModel, firestoreManager: FirestoreManager) {
         self.authViewModel = authViewModel
+        self.firestoreManager = firestoreManager
     }
     
     
@@ -34,7 +36,7 @@ class SignUpViewModel: ObservableObject {
         }
                 
         let cat = Cat(name: catName)
-        let user = User(uid: "", name: name, email: email, password: password, cat: cat)
+        let user = AppUser(uid: "", name: name, email: email, password: password, cat: cat)
         
         authViewModel.register(user: user, completion: { [weak self] result in
             switch result {
@@ -48,7 +50,7 @@ class SignUpViewModel: ObservableObject {
                     var updatedUser = user
                     updatedUser.uid = uid
                     
-                    self?.authViewModel.saveUserInfo(user: updatedUser, uid: uid) { error in
+                    self?.firestoreManager.saveUserInfo(user: updatedUser, uid: uid) { error in
                         if let error = error {
                             print("Failed to save user info: \(error.localizedDescription)")
                         } else {

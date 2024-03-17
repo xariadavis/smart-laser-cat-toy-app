@@ -23,7 +23,7 @@ struct OnboardingView: View {
     init(catName: String, authViewModel: AuthViewModel) {
         self.catName = catName
         _newCat = State(initialValue: Cat(name: catName))
-        _viewModel = StateObject(wrappedValue: OnboardingViewModel(authViewModel: authViewModel))
+        _viewModel = StateObject(wrappedValue: OnboardingViewModel(authViewModel: authViewModel, firestoreManager: FirestoreManager()))
     }
         
     var body: some View {

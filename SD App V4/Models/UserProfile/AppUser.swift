@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct User {
+struct AppUser {
     
     var uid: String
     var name: String

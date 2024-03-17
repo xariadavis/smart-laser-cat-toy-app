@@ -10,14 +10,16 @@ import Foundation
 @MainActor
 class OnboardingViewModel: ObservableObject {
     
-    private let authViewModel: AuthViewModel
+    private var authViewModel: AuthViewModel
+    private var firestoreManager: FirestoreManager
     
-    init(authViewModel: AuthViewModel) {
+    init(authViewModel: AuthViewModel, firestoreManager: FirestoreManager) {
         self.authViewModel = authViewModel
+        self.firestoreManager = firestoreManager
     }
     
     func updateCatInfo(cat: Cat) {
-        authViewModel.saveCatInfo(cat: cat) { error in
+        firestoreManager.saveCatInfo(cat: cat, uid: authViewModel.getCurrentUserID() ?? "Current UserID not found") { error in
             if let error = error {
                 // TODO: Handle the error
                 print("Error updating cat info: \(error.localizedDescription)")

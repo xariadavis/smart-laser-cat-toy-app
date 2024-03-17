@@ -11,7 +11,7 @@ import FirebaseFirestoreSwift
 
 class UserViewModel: ObservableObject {
     
-    @Published var user: User?
+    @Published var user: AppUser?
     @Published var cat: Cat?
 
     private let db = Firestore.firestore()
@@ -29,7 +29,7 @@ class UserViewModel: ObservableObject {
             let email = userData?["email"] as? String ?? ""
 
             // Initialize the User object with basic info for now
-            self.user = User(uid: uid, name: name, email: email)
+            self.user = AppUser(uid: uid, name: name, email: email)
             
             // Proceed to fetch the cat's information
             self.fetchCatForUser(uid: uid)
@@ -53,7 +53,7 @@ class UserViewModel: ObservableObject {
             
             // If needed, update the user model here with the cat information
             if let user = self?.user {
-                self?.user = User(uid: user.uid, name: user.name, email: user.email, cat: self?.cat)
+                self?.user = AppUser(uid: user.uid, name: user.name, email: user.email, cat: self?.cat)
             }
         }
     }

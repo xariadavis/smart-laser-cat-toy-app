@@ -19,7 +19,7 @@ struct ContentView: View {
                         LoginView(viewModel: LoginViewModel(authViewModel: AuthViewModel()))
                             .navigationBarBackButtonHidden(true)
                     case .register:
-                        SignUpView(viewModel: SignUpViewModel(authViewModel: AuthViewModel()))
+                        SignUpView(viewModel: SignUpViewModel(authViewModel: AuthViewModel(), firestoreManager: FirestoreManager()))
                             .navigationBarBackButtonHidden(true)
                     case .forgotPassword:
                         ForgotPasswordView()

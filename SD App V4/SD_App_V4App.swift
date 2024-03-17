@@ -24,11 +24,19 @@ struct SD_App_V4App: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
     @StateObject private var navigationState = NavigationState()
+    @StateObject private var sessionManager = SessionManager()
+
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environmentObject(navigationState)
+            Group {
+                if sessionManager.isUserAuthenticated {
+                    RootView()
+                } else {
+                    ContentView()
+                }
+            }
+            .environmentObject(navigationState)
         }
     }
 }

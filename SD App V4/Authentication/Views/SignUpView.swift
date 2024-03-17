@@ -150,6 +150,6 @@ struct SignUpView: View {
 }
 
 #Preview {
-    SignUpView(viewModel: SignUpViewModel(authViewModel: AuthViewModel()))
+    SignUpView(viewModel: SignUpViewModel(authViewModel: AuthViewModel(), firestoreManager: FirestoreManager()))
         .environmentObject(NavigationState())
 }
