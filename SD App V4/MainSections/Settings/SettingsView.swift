@@ -10,6 +10,7 @@ import SwiftUI
 struct SettingsView: View {
     
     @StateObject var viewModel: SettingsViewModel
+    @EnvironmentObject var sessionManager: SessionManager
     
     var body: some View {
         ZStack {
@@ -29,6 +30,7 @@ struct SettingsView: View {
                 
                 Button {
                     print("Log out button pressed")
+                    // sessionManager.isUserAuthenticated = false
                     viewModel.logOut()
                 } label: {
                     Text("Log out")

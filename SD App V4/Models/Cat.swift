@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Cat {
+struct Cat: Codable {
     
     var id: String?
     var name: String

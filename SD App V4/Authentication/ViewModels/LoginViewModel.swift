@@ -9,7 +9,6 @@ import Foundation
 
 class LoginViewModel: ObservableObject {
     
-    @Published var isAuthenticated: Bool = false
     @Published var showAlert: Bool = false
     @Published var alertMessage: String = ""
 
@@ -26,8 +25,6 @@ class LoginViewModel: ObservableObject {
                 case .success():
                     
                     print("Login successful!")
-                    self?.isAuthenticated = true
-                    // Proceed with navigating the user to the next screen or updating the UI to reflect the successful login.
                     
                 case .failure(let error):
                     
@@ -36,7 +33,7 @@ class LoginViewModel: ObservableObject {
                     self?.alertMessage = error.localizedDescription
                     self?.showAlert = true
                     
-                    // Update the UI to show the error message to the user, for example, through an alert.
+                    // Update the UI to show the error message to the user
                 }
             }
         }

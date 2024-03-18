@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct DashboardView: View {
+    
+    @EnvironmentObject var userCatsViewModel: UserCatsViewModel
     @EnvironmentObject var navigationState: NavigationState
     @ObservedObject var patternsManager = PatternsManager.shared
     
@@ -74,6 +76,9 @@ struct DashboardView: View {
                     .padding(.bottom, 85)
                 }
             }
+        }
+        .onAppear {
+            print("DashboardView: Cat is \(userCatsViewModel.cat)")
         }
     }
 }

@@ -102,7 +102,19 @@ struct SignUpView: View {
                     print("SignUpView: The email is \(email)")
                     print("SignUpView: The password is \(password)")
     
-                    viewModel.register(name: ownerName, email: email, password: password, catName: catName)
+                    // When calling register from your view or button action
+                    viewModel.register(name: ownerName, email: email, password: password, catName: catName) { success, error in
+                        if success {
+                            // Now that registration is successful, navigate to the onboarding view
+                            DispatchQueue.main.async {
+                            navigationState.path.append(AuthenticationNavigation.onboarding(catName: catName))
+                            }
+                        } else {
+                        // Handle registration failure, potentially by showing an error message
+                        print("SignUpView: Registration failed with error: \(error?.localizedDescription ?? "Unknown error")")
+                        }
+                    }
+
                     
                     print("SignUpView: onChange is \(viewModel.registrationSuccessful)")
                     print("In sign up view: \(viewModel.userID)")
@@ -129,15 +141,6 @@ struct SignUpView: View {
                         .font(Font.custom("Quicksand-SemiBold", size: 17))
                 })
                 
-            }
-            .onChange(of: viewModel.registrationSuccessful) { registrationSuccessful in
-                if registrationSuccessful {
-                    print("SignUpView: onChange is \(registrationSuccessful)")
-                    navigationState.path.append(AuthenticationNavigation.onboarding(catName: catName))
-                    print("In sign up view: \(viewModel.userID)")
-                } else {
-                    print("SignUpView: Something went wrong")
-                }
             }
             .alert("Registration Error", isPresented: $viewModel.showAlert) {
                 Button("OK", role: .cancel) { }

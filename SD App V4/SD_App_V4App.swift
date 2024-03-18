@@ -22,10 +22,10 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct SD_App_V4App: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-    
+
     @StateObject private var navigationState = NavigationState()
     @StateObject private var sessionManager = SessionManager()
-
+    @StateObject private var userCatsViewModel = UserCatsViewModel()
 
     var body: some Scene {
         WindowGroup {
@@ -37,6 +37,9 @@ struct SD_App_V4App: App {
                 }
             }
             .environmentObject(navigationState)
+            .environmentObject(sessionManager)
+            .environmentObject(userCatsViewModel) // Correctly provide the instance
         }
     }
 }
+

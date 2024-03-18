@@ -16,9 +16,9 @@ class UserViewModel: ObservableObject {
 
     private let db = Firestore.firestore()
     
-    func fetchUserProfile(uid: String) {
+    func fetchUserProfile(id: String) {
         // Fetch the user's basic information
-        db.collection("users").document(uid).getDocument { [weak self] (document, error) in
+        db.collection("users").document(id).getDocument { [weak self] (document, error) in
             guard let self = self, let document = document, document.exists else {
                 print("User not found")
                 return
@@ -29,16 +29,16 @@ class UserViewModel: ObservableObject {
             let email = userData?["email"] as? String ?? ""
 
             // Initialize the User object with basic info for now
-            self.user = AppUser(uid: uid, name: name, email: email)
+            self.user = AppUser(id: id, name: name, email: email)
             
             // Proceed to fetch the cat's information
-            self.fetchCatForUser(uid: uid)
+            self.fetchCatForUser(id: id)
         }
     }
     
-    func fetchCatForUser(uid: String) {
+    func fetchCatForUser(id: String) {
         // Assuming there's only one cat per user, we can limit the query to fetch only one document
-        db.collection("users").document(uid).collection("cats").limit(to: 1).getDocuments { [weak self] (querySnapshot, error) in
+        db.collection("users").document(id).collection("cats").limit(to: 1).getDocuments { [weak self] (querySnapshot, error) in
             guard let document = querySnapshot?.documents.first else {
                 print("Cat not found")
                 return
@@ -53,7 +53,7 @@ class UserViewModel: ObservableObject {
             
             // If needed, update the user model here with the cat information
             if let user = self?.user {
-                self?.user = AppUser(uid: user.uid, name: user.name, email: user.email, cat: self?.cat)
+                self?.user = AppUser(id: user.id, name: user.name, email: user.email, cat: self?.cat)
             }
         }
     }

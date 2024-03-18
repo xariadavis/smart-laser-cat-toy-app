@@ -25,55 +25,51 @@ class SignUpViewModel: ObservableObject {
     
     
     // Register user and store information in db
-    func register(name: String, email: String, password: String, catName: String) {
-        
+    func register(name: String, email: String, password: String, catName: String, completion: @escaping (Bool, Error?) -> Void) {
         // Check if all fields are valid
         if(!isValid(name: name, email: email, password: password, catName: catName)) {
-            self.registrationSuccessful = false
-            self.alertMessage = "Please enter all required information"
-            self.showAlert = true
+            DispatchQueue.main.async {
+                self.alertMessage = "Please enter all required information"
+                self.showAlert = true
+            }
+            completion(false, nil)
             return
         }
-                
-        let cat = Cat(name: catName)
-        let user = AppUser(uid: "", name: name, email: email, password: password, cat: cat)
         
-        authViewModel.register(user: user, completion: { [weak self] result in
+        let cat = Cat(name: catName)
+        let user = AppUser(id: "", name: name, email: email, password: password, cat: cat)
+        
+        authViewModel.register(user: user) { [weak self] result in
             switch result {
-            case .success(let uid):
+            case .success(let id):
+                // Update the user's id with the one returned from Firebase Auth
+                var updatedUser = user
+                updatedUser.id = id
                 
-                DispatchQueue.main.async {
-                    print("Registration successful!")
-                    self?.registrationSuccessful = true
-                    
-                    // Update the user's UID with the one returned from Firebase Auth
-                    var updatedUser = user
-                    updatedUser.uid = uid
-                    
-                    self?.firestoreManager.saveUserInfo(user: updatedUser, uid: uid) { error in
+                self?.firestoreManager.saveUserInfo(user: updatedUser, id: id) { error in
+                    DispatchQueue.main.async {
                         if let error = error {
                             print("Failed to save user info: \(error.localizedDescription)")
+                            self?.alertMessage = "Failed to complete registration."
+                            self?.showAlert = true
+                            completion(false, error)
                         } else {
                             print("User info saved successfully")
-                            self?.userID = uid  // Correctly update the published userID property
-                            print("The user id is \(self?.userID)")
+                            self?.userID = id  // Ensure this property is used correctly in your view models
+                            completion(true, nil)
                         }
                     }
                 }
-
-                
             case .failure(let error):
-                // Handle failure, update UI accordingly
                 DispatchQueue.main.async {
-                    self?.registrationSuccessful = false
                     self?.alertMessage = error.localizedDescription
                     self?.showAlert = true
-                    print("Registration failed :( \(error.localizedDescription)")
+                    completion(false, error)
                 }
             }
-            
-        })
+        }
     }
+
     
     // MARK: Helpers
     func isValid(name: String, email: String, password: String, catName: String) -> Bool {

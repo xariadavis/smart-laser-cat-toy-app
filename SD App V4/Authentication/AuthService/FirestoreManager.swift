@@ -17,14 +17,14 @@ class FirestoreManager {
     
     private let db = Firestore.firestore()
     
-    func saveUserInfo(user: AppUser, uid: String, completion: @escaping (Error?) -> Void) {
+    func saveUserInfo(user: AppUser, id: String, completion: @escaping (Error?) -> Void) {
         let userData: [String: Any] = [
-            "id": uid,
+            "id": id,
             "name": user.name,
             "email": user.email
         ]
         
-        db.collection("users").document(uid).setData(userData, completion: completion)
+        self.db.collection("users").document(id).setData(userData, completion: completion)
     }
     
     func fetchPatterns2(completion: @escaping ([LaserPattern]) -> Void) {
@@ -43,7 +43,7 @@ class FirestoreManager {
         }
     }
     
-    func saveCatInfo(cat: Cat, uid: String, completion: @escaping (Error?) -> Void) {
+    func saveCatInfo(cat: Cat, id: String, completion: @escaping (Error?) -> Void) {
         var catData: [String: Any] = [
             "name": cat.name,
             "breed": cat.breed,
@@ -54,7 +54,7 @@ class FirestoreManager {
         ]
 
         // Create a new cat document in Firestore
-        let catDocRef = self.db.collection("users").document(uid).collection("cats").document()
+        let catDocRef = self.db.collection("users").document(id).collection("cats").document()
         catData["id"] = catDocRef.documentID
         
         // Save the cat data
@@ -69,4 +69,35 @@ class FirestoreManager {
         }
 
     }
+    
+    func fetchUserData(id: String, completion: @escaping (Result<AppUser, Error>) -> Void) {
+        print("In fetchUserData the id is \(id)")
+        self.db.collection("users").document(id).getDocument { (document, error) in
+            if let error = error {
+                completion(.failure(error))
+            } else if let document = document, document.exists, let user = try? document.data(as: AppUser.self) {
+                completion(.success(user))
+            } else {
+                completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Document does not exist"])))
+            }
+        }
+    }
+
+    
+    func fetchCatForUser(id: String, completion: @escaping (Result<Cat, Error>) -> Void) {
+        self.db.collection("users").document(id).collection("cats").limit(to: 1).getDocuments { (snapshot, error) in
+            if let error = error {
+                completion(.failure(error))
+            } else if let snapshot = snapshot, !snapshot.documents.isEmpty {
+                if let cat = try? snapshot.documents.first?.data(as: Cat.self) {
+                    completion(.success(cat))
+                } else {
+                    completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to decode cat"])))
+                }
+            } else {
+                completion(.failure(NSError(domain: "", code: -2, userInfo: [NSLocalizedDescriptionKey: "No cat found for user"])))
+            }
+        }
+    }
+
 }

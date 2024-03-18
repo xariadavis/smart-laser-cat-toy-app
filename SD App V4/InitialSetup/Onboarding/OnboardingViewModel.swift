@@ -19,7 +19,7 @@ class OnboardingViewModel: ObservableObject {
     }
     
     func updateCatInfo(cat: Cat) {
-        firestoreManager.saveCatInfo(cat: cat, uid: authViewModel.getCurrentUserID() ?? "Current UserID not found") { error in
+        firestoreManager.saveCatInfo(cat: cat, id: authViewModel.getCurrentUserID() ?? "Current UserID not found") { error in
             if let error = error {
                 // TODO: Handle the error
                 print("Error updating cat info: \(error.localizedDescription)")
