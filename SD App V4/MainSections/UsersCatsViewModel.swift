@@ -39,4 +39,9 @@ class UserCatsViewModel: ObservableObject {
             }
         }
     }
+    
+    func updateCatInfo(id: String, catID: String, updates: [String: Any]) {
+        print("UserCatsViewModel: In updateCatInfo the id is \(id) and the cat id is \(catID)")
+        firestoreManager.updateCatDataInFirestore(id: id, catID: catID, updates: updates)
+    }
 }

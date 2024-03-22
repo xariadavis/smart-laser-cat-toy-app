@@ -64,20 +64,32 @@ struct PatternDetailCover: View {
                 Text("Remaining:")
                     .font(Font.custom("Quicksand-Bold", size: 20))
                     .onAppear {
-                        timerViewModel.countdownTime = TimeInterval(userCatsViewModel.cat.timeRemaining)
-                        timerViewModel.startTimer()
+                        print("Session active: \(timerViewModel.sessionActive)")
+                        print("time remaining: \(timerViewModel.countdownTime)")
+                        print("time remaining: \(userCatsViewModel.cat.timeRemaining)")
                     }
                 
                 Text("\(timerViewModel.formattedTime)")
                     .font(Font.custom("Quicksand-Bold", size: 25))
                     .onAppear {
-                        timerViewModel.startTimer()
+                        
+                        if !timerViewModel.sessionActive {
+                            timerViewModel.countdownTime = TimeInterval(userCatsViewModel.cat.timeRemaining)
+                        }
+                        
+                        timerViewModel.startSession()
                     }
                 
                     
                 // Stop button with SF Symbol
                 Button(action: {
-                    timerViewModel.stopTimer()
+                    timerViewModel.endSession()
+                    
+                    userCatsViewModel.cat.timeRemaining = Int(timerViewModel.countdownTime)
+                     
+                    userCatsViewModel.updateCatInfo(id: userCatsViewModel.user.id, catID: userCatsViewModel.cat.id ?? "", updates: ["timeRemaining" : Int(timerViewModel.countdownTime)])
+                    
+                    print("Time remaining: \(userCatsViewModel.cat.timeRemaining)")
                     onDismiss()  // Call the dismiss action
                 }) {
                     HStack {

@@ -12,6 +12,7 @@ class TimerViewModel: ObservableObject {
     @Published var countdownTime: TimeInterval
     private var totalTime: TimeInterval
     private var timer: AnyCancellable?
+    @Published var sessionActive: Bool = false
 
     init(countdownTime: TimeInterval) {
         self.countdownTime = countdownTime
@@ -26,8 +27,7 @@ class TimerViewModel: ObservableObject {
                 if self.countdownTime > 0 {
                     self.countdownTime -= 1
                 } else {
-                    self.stopTimer()
-                    self.countdownTime = self.totalTime // Reset or adjust as needed
+                    self.stopTimer() // TODO: Consider what to do when the timer hits 0
                 }
             }
     }
@@ -35,6 +35,18 @@ class TimerViewModel: ObservableObject {
     func stopTimer() {
         timer?.cancel()
         timer = nil
+    }
+    
+    func startSession() {
+        guard !sessionActive else { return }
+        sessionActive = true
+        startTimer()
+    }
+
+    func endSession() {
+        guard sessionActive else { return }
+        stopTimer()
+        sessionActive = false
     }
     
     // Additional functionalities as needed, e.g., reset, pause, etc.

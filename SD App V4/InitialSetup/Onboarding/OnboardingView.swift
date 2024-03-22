@@ -221,6 +221,9 @@ extension OnboardingView {
         
         if onboardingState == 5 {
             print("\(newCat.name) + \(newCat.age) + \(newCat.weight) + \(newCat.sex) + \(newCat.breed)")
+            
+            newCat.dailyQuota *= 60
+            newCat.timeRemaining = newCat.dailyQuota
             viewModel.updateCatInfo(cat: newCat)
         } else {
             withAnimation(.spring()) {

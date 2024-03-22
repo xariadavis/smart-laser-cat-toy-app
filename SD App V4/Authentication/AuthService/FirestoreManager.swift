@@ -53,7 +53,7 @@ class FirestoreManager {
             "color": cat.color ?? "unknown",
             "dailyQuota": cat.dailyQuota,
             "timePlayedToday": cat.timePlayedToday,
-            "timeRemaining": cat.dailyQuota
+            "timeRemaining": cat.timeRemaining
         ]
 
         // Create a new cat document in Firestore
@@ -103,4 +103,16 @@ class FirestoreManager {
         }
     }
 
+    func updateCatDataInFirestore(id: String, catID: String, updates: [String: Any]) {
+        let db = Firestore.firestore()
+        let catDocument = db.collection("users").document(id).collection("cats").document(catID)
+
+        catDocument.updateData(updates) { error in
+            if let error = error {
+                print("Error updating document: \(error)")
+            } else {
+                print("Document successfully updated")
+            }
+        }
+    }
 }
