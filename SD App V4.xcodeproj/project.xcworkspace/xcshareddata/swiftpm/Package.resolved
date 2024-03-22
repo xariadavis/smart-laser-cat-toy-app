@@ -1,5 +1,5 @@
 {
-  "originHash" : "6bb9933a8dc5e6f34d4a4fed90c60142ba68adadf8b8bfc3fe8e954f587120ef",
+  "originHash" : "2905f21ba4ed97f46fab9ecd33c310d16b8c46cdb45e1e67ac0d37f282cf7deb",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -128,12 +128,30 @@
       }
     },
     {
+      "identity" : "minimizableview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/DominikButz/MinimizableView.git",
+      "state" : {
+        "revision" : "1a3f279dd1f5c90f891a358aa80cedfaf88d3aad",
+        "version" : "2.4.1"
+      }
+    },
+    {
       "identity" : "nanopb",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/firebase/nanopb.git",
       "state" : {
         "revision" : "b7e1104502eca3a213b46303391ca4d3bc8ddec1",
         "version" : "2.30910.0"
+      }
+    },
+    {
+      "identity" : "popupview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/exyte/PopupView.git",
+      "state" : {
+        "revision" : "8c85ff09d474dd3cfb69aba33046395bcf365573",
+        "version" : "2.9.1"
       }
     },
     {
@@ -269,6 +287,15 @@
       "state" : {
         "revision" : "025bcb1165deab2e20d4eaba79967ce73013f496",
         "version" : "1.2.1"
+      }
+    },
+    {
+      "identity" : "swiftui-introspect",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/siteline/swiftui-introspect",
+      "state" : {
+        "revision" : "0cd2a5a5895306bc21d54a2254302d24a9a571e4",
+        "version" : "1.1.3"
       }
     }
   ],

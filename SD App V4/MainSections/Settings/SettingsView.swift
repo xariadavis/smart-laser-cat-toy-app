@@ -30,7 +30,6 @@ struct SettingsView: View {
                 
                 Button {
                     print("Log out button pressed")
-                    // sessionManager.isUserAuthenticated = false
                     viewModel.logOut()
                 } label: {
                     Text("Log out")

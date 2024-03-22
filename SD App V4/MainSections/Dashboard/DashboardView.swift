@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import PopupView
 
 struct DashboardView: View {
     
     @EnvironmentObject var userCatsViewModel: UserCatsViewModel
     @EnvironmentObject var navigationState: NavigationState
     @ObservedObject var patternsManager = PatternsManager.shared
+    
+    @State private var selectedPattern: LaserPattern?
+    @State private var showingPatternDetail = false
     
     var body: some View {
 
@@ -54,7 +58,11 @@ struct DashboardView: View {
                         
                         // List of Patterns centered
                         ForEach(patternsManager.patterns.filter {$0.isFavorite}) { pattern in
-                            PatternCard(pattern: pattern)
+                            PatternCard(pattern: pattern, onSingleTap: {
+                                print("KJFDKJLDJALJSA TAAPPPPEEEDDD")
+                                self.selectedPattern = pattern
+                                self.showingPatternDetail = true
+                            })
                         }
                         
                         Button(action: {
@@ -80,6 +88,12 @@ struct DashboardView: View {
         .onAppear {
             print("DashboardView: Cat is \(userCatsViewModel.cat)")
         }
+        .sheet(isPresented: $showingPatternDetail) {
+            PatternDetailCover(pattern: $selectedPattern, onDismiss: {
+                showingPatternDetail = false
+            })
+        }
+
     }
 }
 

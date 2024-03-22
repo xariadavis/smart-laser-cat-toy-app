@@ -50,7 +50,10 @@ class FirestoreManager {
             "sex": cat.sex ?? "unknown",
             "age": cat.age,
             "weight": cat.weight ?? 0.0,
-            "color": cat.color ?? "unknown"
+            "color": cat.color ?? "unknown",
+            "dailyQuota": cat.dailyQuota,
+            "timePlayedToday": cat.timePlayedToday,
+            "timeRemaining": cat.dailyQuota
         ]
 
         // Create a new cat document in Firestore

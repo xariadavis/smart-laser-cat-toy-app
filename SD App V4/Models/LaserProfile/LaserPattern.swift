@@ -17,6 +17,7 @@ struct LaserPattern: Identifiable, Codable {
     var isFavorite: Bool = false
     var omega_1: Int
     var omega_2: Int
+    var isPlaying: Bool? = false
     
     // Converts the instance into a dictionary
     func toDictionary() -> [String: Any] {

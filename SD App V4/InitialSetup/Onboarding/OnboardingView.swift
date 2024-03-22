@@ -48,6 +48,9 @@ struct OnboardingView: View {
                     case 4:
                         getCatBreed
                             .transition(transition)
+                    case 5:
+                        getCatDailyQuota
+                            .transition(transition)
                     default:
                         WelcomeView()
                     }
@@ -161,6 +164,27 @@ struct OnboardingView: View {
         }
     }
     
+    // Not taken yet
+    private var getCatDailyQuota: some View {
+        Group {
+            Text("How long should \(newCat.name) play daily?")
+                .font(Font.custom("Quicksand-Bold", size: 30))
+            
+            // Picker
+            Picker(selection: $newCat.dailyQuota) {
+                ForEach(0..<60) { number in
+                    Text("\(number)")
+                        .tag(number)
+                }
+            } label: {
+                Text("Daily Quota")
+            }
+            .pickerStyle(WheelPickerStyle())
+            Spacer()
+            
+        }
+    }
+    
     private var bottomButton: some View {
         
         Button(action: {
@@ -195,7 +219,7 @@ extension OnboardingView {
             break
         }
         
-        if onboardingState == 4 {
+        if onboardingState == 5 {
             print("\(newCat.name) + \(newCat.age) + \(newCat.weight) + \(newCat.sex) + \(newCat.breed)")
             viewModel.updateCatInfo(cat: newCat)
         } else {

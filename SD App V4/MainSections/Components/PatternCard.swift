@@ -7,10 +7,13 @@
 
 import SwiftUI
 import Kingfisher
+import PopupView
 
 struct PatternCard: View {
+    
     var pattern: LaserPattern
     @ObservedObject var patternsManager = PatternsManager.shared
+    var onSingleTap: () -> Void
 
     var body: some View {
         HStack(spacing: 10) {
@@ -29,9 +32,9 @@ struct PatternCard: View {
             print("Double tapped!")
             patternsManager.toggleFavorite(for: pattern.id ?? "")
         }
-        .onTapGesture {
-            print("Single tapped! -> omega_1 = \(pattern.omega_1) and omega_2 = \(pattern.omega_2)")
-        }
+        .simultaneousGesture(TapGesture().onEnded {
+            onSingleTap()  // Execute the single tap action
+        })
     }
     
     private var KFpatternIcon: some View {
@@ -78,7 +81,9 @@ struct PatternCard_Previews: PreviewProvider {
     static var previews: some View {
         @ObservedObject var patternsManager = PatternsManager.shared
 
-        PatternCard(pattern: patternsManager.patterns[2])
+        PatternCard(pattern: patternsManager.patterns[2], onSingleTap: {
+            print("Single Tapped")
+        })
     }
 }
 
