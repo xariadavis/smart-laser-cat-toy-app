@@ -86,8 +86,7 @@ struct PatternDetailCover: View {
                     timerViewModel.endSession()
                     
                     userCatsViewModel.cat.timeRemaining = Int(timerViewModel.countdownTime)
-                     
-                    userCatsViewModel.updateCatInfo(id: userCatsViewModel.user.id, catID: userCatsViewModel.cat.id ?? "", updates: ["timeRemaining" : Int(timerViewModel.countdownTime)])
+                    userCatsViewModel.updateCatInfo(id: userCatsViewModel.user.id, catID: userCatsViewModel.cat.id ?? "", updates: ["timeRemaining" : Int(timerViewModel.countdownTime), "timePlayedToday":userCatsViewModel.cat.dailyQuota - Int(timerViewModel.countdownTime)])
                     
                     print("Time remaining: \(userCatsViewModel.cat.timeRemaining)")
                     onDismiss()  // Call the dismiss action
