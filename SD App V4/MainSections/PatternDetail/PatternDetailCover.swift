@@ -72,6 +72,7 @@ struct PatternDetailCover: View {
                 Text("\(timerViewModel.formattedTime)")
                     .font(Font.custom("Quicksand-Bold", size: 25))
                     .onAppear {
+                        timerViewModel.currentPattern = pattern
                         
                         if !timerViewModel.sessionActive {
                             timerViewModel.countdownTime = TimeInterval(userCatsViewModel.cat.timeRemaining)
