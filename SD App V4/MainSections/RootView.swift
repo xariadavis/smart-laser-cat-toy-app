@@ -13,51 +13,66 @@ struct RootView: View {
     @State var selectedTab: Int = 0
     @EnvironmentObject var sessionManager: SessionManager
     @EnvironmentObject var userCatsViewModel: UserCatsViewModel
-    
     @EnvironmentObject var timerViewModel: TimerViewModel
     @State private var showingPatternDetail = false
     
     var body: some View {
-        ZStack(alignment: .bottomTrailing) {
-            // Your main content here
-            TabBar(selectedIndex: $selectedTab)
-                .onAppear {
-                    userCatsViewModel.loadUserData(id: sessionManager.currentUser?.id ?? "")
+        GeometryReader { geometry in
+            ZStack(alignment: .bottomTrailing) {
+                
+                // Custom Tab Bar
+                TabBar(selectedIndex: $selectedTab)
+                    .onAppear {
+                        userCatsViewModel.loadUserData(id: sessionManager.currentUser?.id ?? "")
+                    }
+                
+                if timerViewModel.sessionActive, let pattern = timerViewModel.currentPattern {
+                    nowPlayingBar(for: pattern)
+                        .frame(width: geometry.size.width, height: 70)
+                        .background(Color.fromNeuroKit)
+                        .cornerRadius(16)
+                        .transition(.move(edge: .bottom).combined(with: .opacity)) // Smooth transition for appearing/disappearing
+                        .padding(.bottom, 60)
                 }
-
-            if timerViewModel.sessionActive, let pattern = timerViewModel.currentPattern {
-                sessionActiveButton(for: pattern)
-                    .padding() // Add padding to move the button from the very edge
-                    .padding(.bottom, 50) // Additional padding to lift the button above the tab bar
+            }
+        }
+        .sheet(isPresented: $showingPatternDetail) {
+            if let pattern = timerViewModel.currentPattern {
+                PatternDetailCover(pattern: .constant(pattern), onDismiss: {
+                    showingPatternDetail = false
+                })
+                .environmentObject(timerViewModel)
             }
         }
     }
-
-    private func sessionActiveButton(for pattern: LaserPattern) -> some View {
+    
+    private func nowPlayingBar(for pattern: LaserPattern) -> some View {
         Button(action: {
             showingPatternDetail = true
         }) {
-            KFImage(URL(string: pattern.iconName))
-                .resizable()
-                .scaledToFill()
-                .padding()
-                .frame(width: 75, height: 75) // Adjust size as needed
-                .background(Color.white) // Background color to make the image stand out
-                .clipShape(Circle())
-                .shadow(radius: 2) // Optional: adds a shadow for depth
-                .overlay(Circle().stroke(Color.red, lineWidth: 1)) // Optional: adds a border
-                .padding()
-        }
-        .sheet(isPresented: $showingPatternDetail) {
-            PatternDetailCover(pattern: .constant(pattern)) {
-                // onDismiss action to handle the cover dismissal
+            HStack {
+                KFImage(URL(string: pattern.iconName))
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 50, height: 50) // Adjust size as needed
+                    .clipShape(Circle())
+                
+                Text("Now Playing: \(pattern.name)")
+                    .font(.headline)
+                    .lineLimit(1)
+                
+                Spacer()
+                
+                Image(systemName: "chevron.up")
+                    .padding(.trailing)
             }
-            .environmentObject(timerViewModel)
+            .padding(.horizontal)
         }
-        .buttonStyle(PlainButtonStyle()) // Use PlainButtonStyle to avoid button effects
-        .fixedSize()
+        .buttonStyle(PlainButtonStyle())
     }
 }
+
+
 
 
 #Preview {
