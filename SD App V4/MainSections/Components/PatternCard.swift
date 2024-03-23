@@ -14,6 +14,7 @@ struct PatternCard: View {
     var pattern: LaserPattern
     @ObservedObject var patternsManager = PatternsManager.shared
     var onSingleTap: () -> Void
+    @EnvironmentObject var timerViewModel: TimerViewModel
 
     var body: some View {
         HStack(spacing: 10) {
@@ -26,7 +27,11 @@ struct PatternCard: View {
         }
         .padding(10)
         .background(Color.fromNeuroKit)
-        .cornerRadius(20)
+        .cornerRadius(20)        
+        .overlay(
+            RoundedRectangle(cornerRadius: 20)
+                .stroke(timerViewModel.currentPattern?.id == pattern.id ? Color.red : Color.clear, lineWidth: 2)
+        )
         .padding(.horizontal)
         .onTapGesture(count: 2) {
             print("Double tapped!")

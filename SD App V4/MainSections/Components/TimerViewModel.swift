@@ -48,6 +48,7 @@ class TimerViewModel: ObservableObject {
         guard sessionActive else { return }
         stopTimer()
         sessionActive = false
+        currentPattern = nil
     }
     
     // Additional functionalities as needed, e.g., reset, pause, etc.
