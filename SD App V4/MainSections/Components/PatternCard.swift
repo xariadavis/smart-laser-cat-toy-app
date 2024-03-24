@@ -13,7 +13,6 @@ struct PatternCard: View {
     
     var pattern: LaserPattern
     @ObservedObject var patternsManager = PatternsManager.shared
-    var onSingleTap: () -> Void
     @EnvironmentObject var timerViewModel: TimerViewModel
 
     var body: some View {
@@ -33,13 +32,15 @@ struct PatternCard: View {
                 .stroke(timerViewModel.currentPattern?.id == pattern.id ? Color.red : Color.clear, lineWidth: 2)
         )
         .padding(.horizontal)
-        .onTapGesture(count: 2) {
-            print("Double tapped!")
-            patternsManager.toggleFavorite(for: pattern.id ?? "")
-        }
-        .simultaneousGesture(TapGesture().onEnded {
-            onSingleTap()  // Execute the single tap action
-        })
+        .gesture(
+            TapGesture(count: 2).onEnded {
+                print("Double tapped!")
+                patternsManager.toggleFavorite(for: self.pattern.id ?? "")
+            }.exclusively(before: TapGesture(count: 1).onEnded {
+                timerViewModel.currentPattern = self.pattern
+                timerViewModel.showingPatternCover = true
+            })
+        )
     }
     
     private var KFpatternIcon: some View {
@@ -86,9 +87,7 @@ struct PatternCard_Previews: PreviewProvider {
     static var previews: some View {
         @ObservedObject var patternsManager = PatternsManager.shared
 
-        PatternCard(pattern: patternsManager.patterns[2], onSingleTap: {
-            print("Single Tapped")
-        })
+        PatternCard(pattern: patternsManager.patterns[2])
     }
 }
 

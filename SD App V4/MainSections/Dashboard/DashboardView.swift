@@ -12,6 +12,8 @@ struct DashboardView: View {
     
     @EnvironmentObject var userCatsViewModel: UserCatsViewModel
     @EnvironmentObject var navigationState: NavigationState
+    @EnvironmentObject var timerViewModel: TimerViewModel
+    
     @ObservedObject var patternsManager = PatternsManager.shared
     
     @State private var selectedPattern: LaserPattern?
@@ -58,11 +60,7 @@ struct DashboardView: View {
                         
                         // List of Patterns centered
                         ForEach(patternsManager.patterns.filter {$0.isFavorite}) { pattern in
-                            PatternCard(pattern: pattern, onSingleTap: {
-                                print("KJFDKJLDJALJSA TAAPPPPEEEDDD")
-                                self.selectedPattern = pattern
-                                self.showingPatternDetail = true
-                            })
+                            PatternCard(pattern: pattern)
                         }
                         
                         Button(action: {
@@ -88,10 +86,12 @@ struct DashboardView: View {
         .onAppear {
             print("DashboardView: Cat is \(userCatsViewModel.cat)")
         }
-        .sheet(isPresented: $showingPatternDetail) {
-            PatternDetailCover(pattern: $selectedPattern, onDismiss: {
-                showingPatternDetail = false
-            })
+        .sheet(isPresented: $timerViewModel.showingPatternCover) {
+            if let pattern = timerViewModel.currentPattern {
+                PatternDetailCover(pattern: .constant(pattern)) {
+                    timerViewModel.showingPatternCover = false
+                }
+            }
         }
 
     }

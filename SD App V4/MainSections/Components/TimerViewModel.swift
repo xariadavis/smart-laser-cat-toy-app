@@ -14,6 +14,7 @@ class TimerViewModel: ObservableObject {
     private var timer: AnyCancellable?
     @Published var sessionActive: Bool = false
     @Published var currentPattern: LaserPattern?
+    @Published var showingPatternCover: Bool = false
 
     init(countdownTime: TimeInterval) {
         self.countdownTime = countdownTime

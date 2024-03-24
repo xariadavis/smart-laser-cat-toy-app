@@ -78,8 +78,8 @@ struct TabBar: View {
                 VStack {
                     if timerViewModel.sessionActive, let pattern = timerViewModel.currentPattern {
                         nowPlayingBar(for: pattern)
-                            .frame(width: geometry.size.width, height: 70)
-                            .background(Color(.systemGray4))
+                            .frame(width: geometry.size.width, height: 75)
+                            .background(Color(.fromNeuroKit))
                             .cornerRadius(16)
                             .transition(.move(edge: .bottom).combined(with: .opacity)) // Smooth transition for appearing/disappearing
                             .padding(.bottom, 35)
@@ -129,10 +129,11 @@ struct TabBar: View {
                 KFImage(URL(string: pattern.iconName))
                     .resizable()
                     .scaledToFill()
-                    .frame(width: 40, height: 40) // Adjust size as needed
+                    .frame(width: 30, height: 30) // Adjust size as needed
                 
                 Text("Now Playing: \(pattern.name)")
-                    .font(.headline)
+                    .font(Font.custom("Quicksand-Bold", size: 17))
+                    .fontWeight(.semibold)
                     .lineLimit(1)
                 
                 Spacer()

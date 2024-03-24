@@ -43,9 +43,7 @@ struct PatternsView: View {
                         
                         // List of Patterns centered
                         ForEach(patternsManager.patterns) { pattern in
-                            PatternCard(pattern: pattern, onSingleTap: {
-                                print("single tapped")
-                            })
+                            PatternCard(pattern: pattern)
                             // If PatternCard is not centered by default, apply centering here if needed
                         }
                     }
