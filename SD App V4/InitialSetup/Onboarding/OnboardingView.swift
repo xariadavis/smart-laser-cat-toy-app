@@ -10,6 +10,7 @@ import SwiftUI
 struct OnboardingView: View {
     var catName: String
     
+    @EnvironmentObject var navigationState: NavigationState
     @StateObject var viewModel: OnboardingViewModel
     @State private var newCat: Cat
     @FocusState private var isTextFieldFocused: Bool
@@ -18,6 +19,9 @@ struct OnboardingView: View {
     @State private var alertTitle: String = ""
     @State private var showAlert: Bool = false
     let transition = AnyTransition(.blurReplace)
+    
+    @EnvironmentObject var sessionManager: SessionManager
+    @State var isLoading: Bool = false
     
     
     init(catName: String, authViewModel: AuthViewModel) {
@@ -32,6 +36,7 @@ struct OnboardingView: View {
             Color(.systemGray5).ignoresSafeArea()
             
             ZStack {
+            
                 
                 VStack(alignment: .leading) {
                     
@@ -190,7 +195,7 @@ struct OnboardingView: View {
         Button(action: {
             handleButtonPress()
         }, label: {
-            Text(onboardingState == 4 ? "Finish" : "Next")
+            Text(onboardingState == 5 ? "Finish" : "Next")
                 .redButton()
                 .animation(nil)
         })
@@ -218,13 +223,28 @@ extension OnboardingView {
         default:
             break
         }
-        
+        if onboardingState == 2 {
+            print("id - > \(viewModel.getUserID())")
+            sessionManager.currentUser?.id = viewModel.getUserID()
+        }
         if onboardingState == 5 {
             print("\(newCat.name) + \(newCat.age) + \(newCat.weight) + \(newCat.sex) + \(newCat.breed)")
             
             newCat.dailyQuota *= 60
             newCat.timeRemaining = newCat.dailyQuota
-            viewModel.updateCatInfo(cat: newCat)
+            
+            viewModel.updateCatInfo(cat: newCat, completion: { success in
+                if success {
+                    DispatchQueue.main.async {
+                        print("Update was successful.")
+                        isLoading = true
+                        navigationState.path.append(LoadingNavigation.loadingFromOnboarding(userID: viewModel.getUserID()))
+                    }
+                } else {
+                    print("Cat update was unsuccessful.")
+                }
+            })
+                        
         } else {
             withAnimation(.spring()) {
                 onboardingState += 1
@@ -238,6 +258,42 @@ extension OnboardingView {
         showAlert.toggle()
     }
     
+}
+
+struct LoadingRegistrationView: View {
+    
+    @EnvironmentObject var navigationState: NavigationState
+    @EnvironmentObject var userCatsViewModel: UserCatsViewModel
+    @EnvironmentObject var sessionManager: SessionManager
+    private var userID: String = ""
+    
+    init(userID: String) {
+        self.userID = userID
+    }
+    
+    var body: some View {
+        ZStack {
+            Color(.systemGray5).ignoresSafeArea()
+            LottiePlusView(name: Constants.Loading, loopMode: .loop)
+        }
+        .onAppear {
+            // Trigger loading user data
+            userCatsViewModel.loadUserData(id: userID)
+        }
+        .onChange(of: userCatsViewModel.user.id) { id in
+            // Check if the newly loaded user matches the session manager's current user
+            print("CHANGED?")
+            print("SessionManager: \(sessionManager.currentUser)")
+            print("User \(userCatsViewModel.user)")
+            
+            sessionManager.currentUser = userCatsViewModel.user
+            if id == sessionManager.currentUser?.id {
+                sessionManager.isUserAuthenticated = true
+                sessionManager.currentUser?.cat = userCatsViewModel.cat
+                navigationState.path.append(MainNavigation.root)
+            }
+        }
+    }
 }
 
 let catBreeds = [

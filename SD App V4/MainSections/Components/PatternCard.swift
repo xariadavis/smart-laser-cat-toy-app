@@ -37,6 +37,7 @@ struct PatternCard: View {
                 print("Double tapped!")
                 patternsManager.toggleFavorite(for: self.pattern.id ?? "")
             }.exclusively(before: TapGesture(count: 1).onEnded {
+                print("Single tapped!")
                 timerViewModel.currentPattern = self.pattern
                 timerViewModel.showingPatternCover = true
             })

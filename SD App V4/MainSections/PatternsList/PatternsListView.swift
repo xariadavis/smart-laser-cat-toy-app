@@ -10,6 +10,7 @@ import SwiftUI
 struct PatternsView: View {
     
     @ObservedObject var patternsManager = PatternsManager.shared
+    @EnvironmentObject var timerViewModel: TimerViewModel
     
     var body: some View {
         ZStack {
@@ -44,10 +45,16 @@ struct PatternsView: View {
                         // List of Patterns centered
                         ForEach(patternsManager.patterns) { pattern in
                             PatternCard(pattern: pattern)
-                            // If PatternCard is not centered by default, apply centering here if needed
                         }
                     }
                     .padding(.bottom, 85)
+                }
+            }
+        }
+        .sheet(isPresented: $timerViewModel.showingPatternCover) {
+            if let pattern = timerViewModel.currentPattern {
+                PatternDetailCover(pattern: .constant(pattern)) {
+                    timerViewModel.showingPatternCover = false
                 }
             }
         }

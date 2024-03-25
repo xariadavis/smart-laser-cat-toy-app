@@ -17,8 +17,8 @@ enum AuthenticationNavigation: Hashable {
     case login
     case register
     case forgotPassword
-    case root
     case onboarding(catName: String)
+
 }
 
 enum MainNavigation: Int, Hashable, CaseIterable {
@@ -26,4 +26,10 @@ enum MainNavigation: Int, Hashable, CaseIterable {
     case patternsList = 1
     case profile = 2
     case settings = 3
+    case loading
+    case root
+}
+
+enum LoadingNavigation: Hashable {
+    case loadingFromOnboarding(userID: String)
 }

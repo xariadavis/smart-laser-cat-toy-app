@@ -51,6 +51,7 @@ class AuthViewModel {
     func signOut() {
         do {
             try Auth.auth().signOut()
+            
             // After signing out, the state listener set up in init will automatically
             // update isUserAuthenticated and currentUser to reflect the sign-out.
         } catch let signOutError as NSError {

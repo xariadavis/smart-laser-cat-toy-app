@@ -31,6 +31,10 @@ struct SettingsView: View {
                 Button {
                     print("Log out button pressed")
                     viewModel.logOut()
+                    sessionManager.isUserAuthenticated = false
+                    sessionManager.currentUser = nil
+                    print("user after logout -> \(sessionManager.currentUser)")
+                    
                 } label: {
                     Text("Log out")
                         .font(Font.custom("Quicksand-SemiBold", size: 20))

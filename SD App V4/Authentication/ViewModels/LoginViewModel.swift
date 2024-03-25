@@ -11,6 +11,7 @@ class LoginViewModel: ObservableObject {
     
     @Published var showAlert: Bool = false
     @Published var alertMessage: String = ""
+    @Published var isLoggedIn: Bool = false
 
     private let authViewModel: AuthViewModel
     
@@ -25,6 +26,7 @@ class LoginViewModel: ObservableObject {
                 case .success():
                     
                     print("Login successful!")
+                    self?.isLoggedIn = true
                     
                 case .failure(let error):
                     
@@ -32,6 +34,7 @@ class LoginViewModel: ObservableObject {
                     print("Login failed with error: \(error.localizedDescription)")
                     self?.alertMessage = error.localizedDescription
                     self?.showAlert = true
+                    self?.isLoggedIn = false
                     
                     // Update the UI to show the error message to the user
                 }

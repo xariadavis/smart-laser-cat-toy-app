@@ -10,6 +10,8 @@ import SwiftUI
 struct SignUpView: View {
     
     @EnvironmentObject var navigationState: NavigationState
+    @EnvironmentObject var sessionManager: SessionManager
+    
     @StateObject var viewModel: SignUpViewModel
     
     @State private var opacity = 0.0
@@ -109,6 +111,9 @@ struct SignUpView: View {
                             DispatchQueue.main.async {
                             navigationState.path.append(AuthenticationNavigation.onboarding(catName: catName))
                             }
+                            
+                            sessionManager.currentUser?.id = viewModel.userID
+                            
                         } else {
                         // Handle registration failure, potentially by showing an error message
                         print("SignUpView: Registration failed with error: \(error?.localizedDescription ?? "Unknown error")")

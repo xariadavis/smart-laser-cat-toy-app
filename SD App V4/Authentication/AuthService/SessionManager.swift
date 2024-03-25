@@ -40,6 +40,7 @@ class SessionManager: ObservableObject {
                                     print("SessionManager: \(self.currentUser?.id)")
                                     self.isUserAuthenticated = true
                                     self.patternsManager.fetchPatterns()
+                                    
                                 case .failure:
                                     // Cat data missing, could trigger onboarding
                                     self.isUserAuthenticated = false

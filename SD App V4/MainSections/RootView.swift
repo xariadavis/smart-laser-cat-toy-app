@@ -23,17 +23,10 @@ struct RootView: View {
                 // Custom Tab Bar
                 TabBar(selectedIndex: $selectedTab)
                     .onAppear {
+                        
+                        print("In root view id: \(sessionManager.currentUser?.id)")
                         userCatsViewModel.loadUserData(id: sessionManager.currentUser?.id ?? "")
                     }
-                
-//                if timerViewModel.sessionActive, let pattern = timerViewModel.currentPattern {
-//                    nowPlayingBar(for: pattern)
-//                        .frame(width: geometry.size.width, height: 70)
-//                        .background(Color.fromNeuroKit)
-//                        .cornerRadius(16)
-//                        .transition(.move(edge: .bottom).combined(with: .opacity)) // Smooth transition for appearing/disappearing
-//                        .padding(.bottom, 60)
-//                }
             }
         }
         .sheet(isPresented: $showingPatternDetail) {
@@ -45,31 +38,6 @@ struct RootView: View {
             }
         }
     }
-    
-//    private func nowPlayingBar(for pattern: LaserPattern) -> some View {
-//        Button(action: {
-//            showingPatternDetail = true
-//        }) {
-//            HStack {
-//                KFImage(URL(string: pattern.iconName))
-//                    .resizable()
-//                    .scaledToFit()
-//                    .frame(width: 50, height: 50) // Adjust size as needed
-//                    .clipShape(Circle())
-//                
-//                Text("Now Playing: \(pattern.name)")
-//                    .font(.headline)
-//                    .lineLimit(1)
-//                
-//                Spacer()
-//                
-//                Image(systemName: "chevron.up")
-//                    .padding(.trailing)
-//            }
-//            .padding(.horizontal)
-//        }
-//        .buttonStyle(PlainButtonStyle())
-//    }
 }
 
 

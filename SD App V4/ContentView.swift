@@ -8,10 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     @EnvironmentObject var navigationState: NavigationState
-
+    @EnvironmentObject var sessionManager: SessionManager
+    
     var body: some View {
+        
         NavigationStack(path: $navigationState.path) {
+            
             WelcomeView()
                 .navigationDestination(for: AuthenticationNavigation.self) { target in
                     switch target {
@@ -23,12 +27,10 @@ struct ContentView: View {
                             .navigationBarBackButtonHidden(true)
                     case .forgotPassword:
                         ForgotPasswordView()
-                    case .root:
-                        RootView()
-                            .navigationBarBackButtonHidden(true)
                     case .onboarding(let catName):
                         let authViewModel = AuthViewModel()
                         OnboardingView(catName: catName, authViewModel: authViewModel)
+                            .navigationBarBackButtonHidden(true)
                     }
                 }
                 .navigationDestination(for: MainNavigation.self) { target in
@@ -44,6 +46,19 @@ struct ContentView: View {
                             .navigationBarBackButtonHidden(true)
                     case .settings:
                         SettingsView(viewModel: SettingsViewModel(authViewModel: AuthViewModel()))
+                            .navigationBarBackButtonHidden(true)
+                    case .loading:
+                        LoadingView()
+                            .navigationBarBackButtonHidden(true)
+                    case .root:
+                        RootView()
+                            .navigationBarBackButtonHidden(true)
+                    }
+                }
+                .navigationDestination(for: LoadingNavigation.self) { target in
+                    switch target {
+                    case .loadingFromOnboarding(let userID):
+                        LoadingRegistrationView(userID: userID)
                             .navigationBarBackButtonHidden(true)
                     }
                 }
