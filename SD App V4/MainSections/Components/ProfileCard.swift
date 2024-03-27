@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct ProfileCard: View {
     
@@ -41,7 +42,7 @@ struct ProfileCard: View {
     
     private var cardBackground: some View {
         RoundedRectangle(cornerRadius: cardCornerRadius)
-            .fill(Color.white)
+            .fill(Color.clear)
             .frame(width: maxWidth, height: maxHeight)
             .shadow(radius: 7)
             .overlay(
@@ -51,13 +52,19 @@ struct ProfileCard: View {
     }
     
     private var profileImage: some View {
-        Image("MOCK_PFP")
+        KFImage(URL(string: userCatsViewModel.cat.profilePicture ?? ""))
+            .placeholder {
+                // Placeholder image while loading or when the URL is nil/empty.
+                LottiePlusView(name: Constants.Loading, loopMode: .loop)
+                    .scaledToFill()
+                    .frame(width: maxWidth, height: maxHeight)
+            }
             .resizable()
             .scaledToFill()
             .frame(width: maxWidth, height: maxHeight)
             .clipShape(RoundedRectangle(cornerRadius: cardCornerRadius))
     }
-    
+
     private var userInfo: some View {
         VStack {
             Spacer()

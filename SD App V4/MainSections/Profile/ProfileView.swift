@@ -57,58 +57,57 @@ struct ProfileView: View {
                     .scaledToFill()
                     .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2)
                     .clipped()
-            } else if let profilePictureURL = URL(string: userCatsViewModel.cat.profilePicture ?? ""), userCatsViewModel.cat.profilePicture != "" {
+            } else if let profilePictureURL = URL(string: userCatsViewModel.cat.profilePicture), userCatsViewModel.cat.profilePicture != "" {
                 KFImage(profilePictureURL)
                     .resizable()
                     .scaledToFill()
                     .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2)
                     .clipped()
-            } else {
-                // Default content if no conditions are met
-                Image("MOCK_PFP")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2)
-                    .clipped()
             }
-
-            // PhotosPicker
-            PhotosPicker(selection: $selectedImage,
-                         maxSelectionCount: 1,
-                         matching: .images) {
-                Image(systemName: "photo")
-                    .frame(width: 25)
-                    .foregroundColor(Color(.systemGray5))
-                    .shadow(radius: 3)
-            }
-            .onChange(of: selectedImage) { newValue in
-                guard let item = selectedImage.first else {
-                    return
-                }
-                item.loadTransferable(type: Data.self) { result in
-                    switch result {
-                    case .success(let data):
-                        if let data = data {
-                            self.imageData = data
-                            viewModel.uploadProfilePicture(imageData: data, userID: userCatsViewModel.user.id, catID: userCatsViewModel.cat.id ?? "") { result in
-                                DispatchQueue.main.async {
-                                    switch result {
-                                    case .success(let downloadURL):
-                                        // Here, you can directly update your UI or model with the new URL
-                                        print("New profile picture URL: \(downloadURL)")
-                                        userCatsViewModel.cat.profilePicture = downloadURL
-                                    case .failure(let error):
-                                        print("Error updating profile picture: \(error)")
-                                        // Handle the error appropriately
-                                    }
-                                }
-                            }
-                            
-                        } else {
-                            print("Error retrieving image data.")
+            
+            VStack {
+                Spacer()
+                HStack {
+                    Spacer()
+                    PhotosPicker(selection: $selectedImage, maxSelectionCount: 1, matching: .images) {
+                        Image(systemName: "photo.circle.fill")
+                            .font(.system(size: 25))
+                            .frame(width: 25)
+                            .foregroundColor(Color(.systemGray5))
+                            .shadow(radius: 5)
+                    }
+                    .padding() // Add padding to ensure it's not touching the edges
+                    .padding(.bottom, 25)
+                    .onChange(of: selectedImage) { newValue in
+                        guard let item = selectedImage.first else {
+                            return
                         }
-                    case .failure(let failure):
-                        print("Failure getting image: \(failure)")
+                        item.loadTransferable(type: Data.self) { result in
+                            switch result {
+                            case .success(let data):
+                                if let data = data {
+                                    self.imageData = data
+                                    viewModel.uploadProfilePicture(imageData: data, userID: userCatsViewModel.user.id, catID: userCatsViewModel.cat.id ?? "") { result in
+                                        DispatchQueue.main.async {
+                                            switch result {
+                                            case .success(let downloadURL):
+                                                // Here, you can directly update your UI or model with the new URL
+                                                print("New profile picture URL: \(downloadURL)")
+                                                userCatsViewModel.cat.profilePicture = downloadURL
+                                            case .failure(let error):
+                                                print("Error updating profile picture: \(error)")
+                                                // Handle the error appropriately
+                                            }
+                                        }
+                                    }
+                                    
+                                } else {
+                                    print("Error retrieving image data.")
+                                }
+                            case .failure(let failure):
+                                print("Failure getting image: \(failure)")
+                            }
+                        }
                     }
                 }
             }

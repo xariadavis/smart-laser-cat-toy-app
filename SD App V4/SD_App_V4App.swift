@@ -33,7 +33,9 @@ struct SD_App_V4App: App {
     var body: some Scene {
         WindowGroup {
             Group {
-                if sessionManager.isUserAuthenticated {
+                if sessionManager.isLoading {
+                    EmptyView()
+                } else if sessionManager.isUserAuthenticated {
                     RootView()
                 } else {
                     ContentView()

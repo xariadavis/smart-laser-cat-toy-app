@@ -36,6 +36,7 @@
 		575A363A2BAFB959009E2EDB /* Loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 575A36392BAFB959009E2EDB /* Loading.json */; };
 		575A363C2BAFC22F009E2EDB /* DailyQuotaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575A363B2BAFC22F009E2EDB /* DailyQuotaManager.swift */; };
 		576CDF932BB3C645008CC66A /* LoadingCat.json in Resources */ = {isa = PBXBuildFile; fileRef = 576CDF922BB3C645008CC66A /* LoadingCat.json */; };
+		576CDF952BB3E03C008CC66A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 576CDF942BB3E03C008CC66A /* LaunchScreen.storyboard */; };
 		57A00CC72BAA612D00402ABA /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A00CC62BAA612D00402ABA /* TimerViewModel.swift */; };
 		57A0E0AA2BA0B8E800C8E29C /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 57A0E0A92BA0B8E800C8E29C /* FirebaseStorage */; };
 		57A0E0AF2BA0CCE800C8E29C /* PatternsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A0E0AE2BA0CCE800C8E29C /* PatternsManager.swift */; };
@@ -100,6 +101,7 @@
 		575A36392BAFB959009E2EDB /* Loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Loading.json; path = ../../../../../../../../../Desktop/Loading.json; sourceTree = "<group>"; };
 		575A363B2BAFC22F009E2EDB /* DailyQuotaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyQuotaManager.swift; sourceTree = "<group>"; };
 		576CDF922BB3C645008CC66A /* LoadingCat.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LoadingCat.json; path = ../../../../../../../../../Desktop/LoadingCat.json; sourceTree = "<group>"; };
+		576CDF942BB3E03C008CC66A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		57A00CC62BAA612D00402ABA /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
 		57A0E0AE2BA0CCE800C8E29C /* PatternsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternsManager.swift; sourceTree = "<group>"; };
 		57A5E6F42BA1177600921818 /* LaserLoading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LaserLoading.json; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 			children = (
 				57ECBCAB2B9C246B0007E234 /* Welcome */,
 				5755528F2B9ECB3400C36DF7 /* Onboarding */,
+				576CDF942BB3E03C008CC66A /* LaunchScreen.storyboard */,
 			);
 			path = InitialSetup;
 			sourceTree = "<group>";
@@ -523,6 +526,7 @@
 				57A5E6F52BA1177600921818 /* LaserLoading.json in Resources */,
 				57ECBC7C2B9C1AE70007E234 /* Preview Assets.xcassets in Resources */,
 				57ECBCBD2B9C2D340007E234 /* GingerHunt.json in Resources */,
+				576CDF952BB3E03C008CC66A /* LaunchScreen.storyboard in Resources */,
 				57ECBCCC2B9C36880007E234 /* Quicksand[wght].ttf in Resources */,
 				57ECBC792B9C1AE70007E234 /* Assets.xcassets in Resources */,
 			);
@@ -720,6 +724,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -752,6 +757,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

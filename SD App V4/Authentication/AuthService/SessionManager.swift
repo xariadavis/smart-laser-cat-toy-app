@@ -16,6 +16,10 @@ class SessionManager: ObservableObject {
     @Published var currentUser: AppUser?  // Using the custom type here
     @ObservedObject var patternsManager = PatternsManager.shared
     private var firestoreManager = FirestoreManager()
+    @EnvironmentObject var userCatsViewModel: UserCatsViewModel
+    
+    // In charge of directing initial view
+    @Published var isLoading: Bool = true
 
     
     init() {
@@ -40,10 +44,11 @@ class SessionManager: ObservableObject {
                                     print("SessionManager: \(self.currentUser?.id)")
                                     self.isUserAuthenticated = true
                                     self.patternsManager.fetchPatterns()
-                                    
+                                    self.isLoading = false
                                 case .failure:
                                     // Cat data missing, could trigger onboarding
                                     self.isUserAuthenticated = false
+                                    self.isLoading = false
                                 }
                             }
                         }
@@ -51,6 +56,7 @@ class SessionManager: ObservableObject {
                         DispatchQueue.main.async {
                             print("SessionManager: fetching user FAILED")
                             self.isUserAuthenticated = false
+                            self.isLoading = false
                         }
                     }
                 }

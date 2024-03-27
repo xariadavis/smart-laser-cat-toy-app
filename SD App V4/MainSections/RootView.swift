@@ -23,7 +23,6 @@ struct RootView: View {
                 // Custom Tab Bar
                 TabBar(selectedIndex: $selectedTab)
                     .onAppear {
-                        
                         print("In root view id: \(sessionManager.currentUser?.id)")
                         userCatsViewModel.loadUserData(id: sessionManager.currentUser?.id ?? "")
                     }

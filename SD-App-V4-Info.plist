@@ -3,18 +3,18 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleURLTypes</key>
-		<array>
+	<array>
 		<dict>
-		    <key>CFBundleTypeRole</key>
-		    <string>Editor</string>
-		    <key>CFBundleURLName</key>
-		    <string>io.appwrite</string>
-		    <key>CFBundleURLSchemes</key>
-		    <array>
-		        <string>appwrite-callback-[PROJECT_ID]</string>
-		    </array>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>io.appwrite</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>appwrite-callback-[PROJECT_ID]</string>
+			</array>
 		</dict>
-		</array>
+	</array>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Quicksand[wght].ttf</string>

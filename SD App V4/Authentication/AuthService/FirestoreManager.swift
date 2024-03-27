@@ -55,7 +55,7 @@ class FirestoreManager {
             "dailyQuota": cat.dailyQuota,
             "timePlayedToday": cat.timePlayedToday,
             "timeRemaining": cat.timeRemaining,
-            "profilePicture": cat.profilePicture ?? ""
+            "profilePicture": "https://firebasestorage.googleapis.com/v0/b/sd-app-v4.appspot.com/o/users%2FDEFAULTS%2FprofilePIcture.png?alt=media&token=75e2e7e5-9ee8-4fbf-aedc-3dad3131b155"
         ]
 
         // Create a new cat document in Firestore
@@ -151,7 +151,7 @@ class FirestoreManager {
     // Upload profile picture do firebase storage
     func uploadImageToFirebase(_ imageData: Data, userID: String, catID: String, completion: @escaping (Result<URL, Error>) -> Void) {
         // Create a storage reference
-        let storageRef = Storage.storage().reference().child("users/\(userID)/\(catID)/profilePicture.jpg")
+        let storageRef = Storage.storage().reference().child("users/\(userID)/\(catID)/profilePicture.png")
         
         // Upload the image data
         storageRef.putData(imageData, metadata: nil) { (metadata, error) in
