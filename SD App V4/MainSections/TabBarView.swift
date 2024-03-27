@@ -67,7 +67,7 @@ struct TabBar: View {
                     case 1:
                         PatternsView()
                     case 2:
-                        ProfileView()
+                        ProfileView(viewModel: ProfileViewModel(firestoreManager: FirestoreManager()))
                     case 3:
                         SettingsView(viewModel: SettingsViewModel(authViewModel: AuthViewModel()))
                     default:

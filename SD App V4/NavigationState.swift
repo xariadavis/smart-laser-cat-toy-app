@@ -26,7 +26,6 @@ enum MainNavigation: Int, Hashable, CaseIterable {
     case patternsList = 1
     case profile = 2
     case settings = 3
-    case loading
     case root
 }
 

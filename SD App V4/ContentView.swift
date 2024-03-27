@@ -42,13 +42,10 @@ struct ContentView: View {
                         PatternsView()
                             .navigationBarBackButtonHidden(true)
                     case .profile:
-                        ProfileView()
+                        ProfileView(viewModel: ProfileViewModel(firestoreManager: FirestoreManager()))
                             .navigationBarBackButtonHidden(true)
                     case .settings:
                         SettingsView(viewModel: SettingsViewModel(authViewModel: AuthViewModel()))
-                            .navigationBarBackButtonHidden(true)
-                    case .loading:
-                        LoadingView()
                             .navigationBarBackButtonHidden(true)
                     case .root:
                         RootView()

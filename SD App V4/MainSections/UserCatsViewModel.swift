@@ -42,6 +42,13 @@ class UserCatsViewModel: ObservableObject {
     
     func updateCatInfo(id: String, catID: String, updates: [String: Any]) {
         print("UserCatsViewModel: In updateCatInfo the id is \(id) and the cat id is \(catID)")
-        firestoreManager.updateCatDataInFirestore(id: id, catID: catID, updates: updates)
+        firestoreManager.updateCatDataInFirestore(id: id, catID: catID, updates: updates, completion: { result in
+            switch result {
+            case .success(let success):
+                print("Success: \(success)")
+            case .failure(let failure):
+                print("Failure: \(failure)")
+            }
+        })
     }
 }

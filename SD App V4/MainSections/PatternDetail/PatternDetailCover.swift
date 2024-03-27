@@ -64,9 +64,9 @@ struct PatternDetailCover: View {
                 Text("Remaining:")
                     .font(Font.custom("Quicksand-Bold", size: 20))
                     .onAppear {
-                        print("Session active: \(timerViewModel.sessionActive)")
-                        print("time remaining (countdown): \(timerViewModel.countdownTime)")
-                        print("time remaining: \(userCatsViewModel.cat.timeRemaining)")
+//                        print("Session active: \(timerViewModel.sessionActive)")
+//                        print("time remaining (countdown): \(timerViewModel.countdownTime)")
+//                        print("time remaining: \(userCatsViewModel.cat.timeRemaining)")
                     }
                 
                 Text("\(timerViewModel.formattedTime)")

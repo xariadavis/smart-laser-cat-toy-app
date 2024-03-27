@@ -6,16 +6,26 @@
 //
 
 import SwiftUI
+import PhotosUI
+import Kingfisher
+
 
 struct ProfileView: View {
     
     @EnvironmentObject var userCatsViewModel: UserCatsViewModel
     
+    @StateObject var viewModel: ProfileViewModel
+    
+    @State private var selectedImage: [PhotosPickerItem] = []
+    @State private var imageData: Data?
+    
     var body: some View {
         ZStack {
-            
             background
             contentScrollView
+        }
+        .onAppear {
+            print("\(userCatsViewModel.cat.profilePicture)")
         }
         .ignoresSafeArea()
     }
@@ -38,12 +48,72 @@ struct ProfileView: View {
     }
 
     private var profileImage: some View {
-        Image("MOCK_PFP")
-            .resizable()
-            .scaledToFill()
-            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2)
-            .clipped()
+        ZStack {
+            // Default content if no conditions are met
+            Image("MOCK_PFP")
+                .resizable()
+                .scaledToFill()
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2)
+                .clipped()
+
+            // Conditional content
+            if let imageData = imageData, let uiImage = UIImage(data: imageData) {
+                Image(uiImage: uiImage)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2)
+                    .clipped()
+            } else if let profilePictureURL = URL(string: userCatsViewModel.cat.profilePicture ?? ""), userCatsViewModel.cat.profilePicture != "" {
+                KFImage(profilePictureURL)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2)
+                    .clipped()
+            }
+
+            // PhotosPicker
+            PhotosPicker(selection: $selectedImage,
+                         maxSelectionCount: 1,
+                         matching: .images) {
+                Image(systemName: "photo")
+                    .frame(width: 25)
+                    .foregroundColor(Color(.systemGray5))
+                    .shadow(radius: 3)
+            }
+            .onChange(of: selectedImage) { newValue in
+                guard let item = selectedImage.first else {
+                    return
+                }
+                item.loadTransferable(type: Data.self) { result in
+                    switch result {
+                    case .success(let data):
+                        if let data = data {
+                            self.imageData = data
+                            viewModel.uploadProfilePicture(imageData: data, userID: userCatsViewModel.user.id, catID: userCatsViewModel.cat.id ?? "") { result in
+                                DispatchQueue.main.async {
+                                    switch result {
+                                    case .success(let downloadURL):
+                                        // Here, you can directly update your UI or model with the new URL
+                                        print("New profile picture URL: \(downloadURL)")
+                                        userCatsViewModel.cat.profilePicture = downloadURL
+                                    case .failure(let error):
+                                        print("Error updating profile picture: \(error)")
+                                        // Handle the error appropriately
+                                    }
+                                }
+                            }
+                            
+                        } else {
+                            print("Error retrieving image data.")
+                        }
+                    case .failure(let failure):
+                        print("Failure getting image: \(failure)")
+                    }
+                }
+            }
+        }
     }
+
 
     private var infoSection: some View {
         VStack(alignment: .leading) {
@@ -245,6 +315,6 @@ struct ProfileView: View {
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileView()
+        ProfileView(viewModel: ProfileViewModel(firestoreManager: FirestoreManager()))
     }
 }

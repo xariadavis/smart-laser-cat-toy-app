@@ -19,5 +19,6 @@ struct Cat: Codable {
     var dailyQuota: Int = 1800
     var timePlayedToday: Int = 0
     var timeRemaining: Int = 1800
+    var profilePicture: String?
     
 }

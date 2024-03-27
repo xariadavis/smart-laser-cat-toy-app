@@ -344,7 +344,8 @@ let catBreeds = [
     "Tonkinese",
     "Toyger",
     "Turkish Angora",
-    "Turkish Van"
+    "Turkish Van",
+    "Other"
 ]
 
 

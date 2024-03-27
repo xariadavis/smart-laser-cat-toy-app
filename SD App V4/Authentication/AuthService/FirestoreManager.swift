@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+import FirebaseStorage
 
 class FirestoreManager {
     
@@ -53,7 +54,8 @@ class FirestoreManager {
             "color": cat.color ?? "unknown",
             "dailyQuota": cat.dailyQuota,
             "timePlayedToday": cat.timePlayedToday,
-            "timeRemaining": cat.timeRemaining
+            "timeRemaining": cat.timeRemaining,
+            "profilePicture": cat.profilePicture ?? ""
         ]
 
         // Create a new cat document in Firestore
@@ -103,15 +105,71 @@ class FirestoreManager {
         }
     }
 
-    func updateCatDataInFirestore(id: String, catID: String, updates: [String: Any]) {
+    func updateCatDataInFirestore(id: String, catID: String, updates: [String: Any], completion: @escaping (Result<Void, Error>) -> Void) {
         let db = Firestore.firestore()
         let catDocument = db.collection("users").document(id).collection("cats").document(catID)
 
         catDocument.updateData(updates) { error in
+            DispatchQueue.main.async {
+                if let error = error {
+                    print("Error updating document: \(error)")
+                    completion(.failure(error))
+                } else {
+                    print("Document successfully updated")
+                    completion(.success(()))
+                }
+            }
+        }
+    }
+
+
+    func fetchCatDataFromFirestore(userID: String, catID: String, field: String, completion: @escaping (Result<String, Error>) -> Void) {
+        
+        let catDocument = db.collection("users").document(userID).collection("cats").document(catID)
+
+        catDocument.getDocument { (document, error) in
             if let error = error {
-                print("Error updating document: \(error)")
+                print("Error fetching document: \(error)")
+                completion(.failure(error))
+            } else if let document = document, document.exists, let data = document.data() {
+                if let fieldValue = data[field] as? String {
+                    print("Successfully fetched \(field): \(fieldValue)")
+                    completion(.success(fieldValue))
+                } else {
+                    // The document exists, but the specified field does not, or is not a String
+                    let fieldError = NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Field '\(field)' not found or is not a String"])
+                    completion(.failure(fieldError))
+                }
             } else {
-                print("Document successfully updated")
+                let noDocumentError = NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "No document found"])
+                completion(.failure(noDocumentError))
+            }
+        }
+    }
+
+    
+    // Upload profile picture do firebase storage
+    func uploadImageToFirebase(_ imageData: Data, userID: String, catID: String, completion: @escaping (Result<URL, Error>) -> Void) {
+        // Create a storage reference
+        let storageRef = Storage.storage().reference().child("users/\(userID)/\(catID)/profilePicture.jpg")
+        
+        // Upload the image data
+        storageRef.putData(imageData, metadata: nil) { (metadata, error) in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            // Retrieve the download URL
+            storageRef.downloadURL { (url, error) in
+                if let error = error {
+                    completion(.failure(error))
+                    return
+                }
+                
+                if let downloadURL = url {
+                    completion(.success(downloadURL))
+                }
             }
         }
     }

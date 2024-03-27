@@ -35,7 +35,6 @@
 		575552922B9ECB6000C36DF7 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575552912B9ECB6000C36DF7 /* OnboardingView.swift */; };
 		575A363A2BAFB959009E2EDB /* Loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 575A36392BAFB959009E2EDB /* Loading.json */; };
 		575A363C2BAFC22F009E2EDB /* DailyQuotaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575A363B2BAFC22F009E2EDB /* DailyQuotaManager.swift */; };
-		575A363E2BAFDDAA009E2EDB /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575A363D2BAFDDAA009E2EDB /* LoadingView.swift */; };
 		57A00CC72BAA612D00402ABA /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A00CC62BAA612D00402ABA /* TimerViewModel.swift */; };
 		57A0E0AA2BA0B8E800C8E29C /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 57A0E0A92BA0B8E800C8E29C /* FirebaseStorage */; };
 		57A0E0AF2BA0CCE800C8E29C /* PatternsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A0E0AE2BA0CCE800C8E29C /* PatternsManager.swift */; };
@@ -99,7 +98,6 @@
 		575552912B9ECB6000C36DF7 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		575A36392BAFB959009E2EDB /* Loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Loading.json; path = ../../../../../../../../../Desktop/Loading.json; sourceTree = "<group>"; };
 		575A363B2BAFC22F009E2EDB /* DailyQuotaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyQuotaManager.swift; sourceTree = "<group>"; };
-		575A363D2BAFDDAA009E2EDB /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		57A00CC62BAA612D00402ABA /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
 		57A0E0AE2BA0CCE800C8E29C /* PatternsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternsManager.swift; sourceTree = "<group>"; };
 		57A5E6F42BA1177600921818 /* LaserLoading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LaserLoading.json; sourceTree = "<group>"; };
@@ -406,7 +404,6 @@
 				57ECBCC52B9C34F10007E234 /* GlowModifier.swift */,
 				570F43082B9D681A0047E4DA /* ColorButton.swift */,
 				575A363B2BAFC22F009E2EDB /* DailyQuotaManager.swift */,
-				575A363D2BAFDDAA009E2EDB /* LoadingView.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -579,7 +576,6 @@
 				57B8CD3B2B9FEF01007391A1 /* UserViewModel.swift in Sources */,
 				573CCDF02BA68FCF0047A980 /* SessionManager.swift in Sources */,
 				57ECBCA22B9C23820007E234 /* SettingsViewModel.swift in Sources */,
-				575A363E2BAFDDAA009E2EDB /* LoadingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
