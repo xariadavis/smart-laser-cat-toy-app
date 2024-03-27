@@ -49,13 +49,7 @@ struct ProfileView: View {
 
     private var profileImage: some View {
         ZStack {
-            // Default content if no conditions are met
-            Image("MOCK_PFP")
-                .resizable()
-                .scaledToFill()
-                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2)
-                .clipped()
-
+        
             // Conditional content
             if let imageData = imageData, let uiImage = UIImage(data: imageData) {
                 Image(uiImage: uiImage)
@@ -65,6 +59,13 @@ struct ProfileView: View {
                     .clipped()
             } else if let profilePictureURL = URL(string: userCatsViewModel.cat.profilePicture ?? ""), userCatsViewModel.cat.profilePicture != "" {
                 KFImage(profilePictureURL)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2)
+                    .clipped()
+            } else {
+                // Default content if no conditions are met
+                Image("MOCK_PFP")
                     .resizable()
                     .scaledToFill()
                     .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2)
