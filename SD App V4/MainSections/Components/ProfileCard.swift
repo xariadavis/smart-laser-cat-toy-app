@@ -10,7 +10,8 @@ import Kingfisher
 
 struct ProfileCard: View {
     
-    @EnvironmentObject var userCatsViewModel: UserCatsViewModel
+//    @EnvironmentObject var userCatsViewModel: UserCatsViewModel
+    @ObservedObject var userCatsViewModel = UserCatsViewModel.shared
     
     private let cardCornerRadius: CGFloat = 20
     private let maxWidth = UIScreen.main.bounds.width - 50

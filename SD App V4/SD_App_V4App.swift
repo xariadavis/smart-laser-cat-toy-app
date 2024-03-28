@@ -26,7 +26,7 @@ struct SD_App_V4App: App {
 
     @StateObject private var navigationState = NavigationState()
     @StateObject private var sessionManager = SessionManager()
-    @StateObject private var userCatsViewModel = UserCatsViewModel()
+    // @StateObject private var userCatsViewModel = UserCatsViewModel()
     @StateObject var timerViewModel = TimerViewModel(countdownTime: 0) // For a 60 seconds countdown
 
     
@@ -34,7 +34,7 @@ struct SD_App_V4App: App {
         WindowGroup {
             Group {
                 if sessionManager.isLoading {
-                    EmptyView()
+                    SplashScreen()
                 } else if sessionManager.isUserAuthenticated {
                     RootView()
                 } else {
@@ -43,7 +43,7 @@ struct SD_App_V4App: App {
             }
             .environmentObject(navigationState)
             .environmentObject(sessionManager)
-            .environmentObject(userCatsViewModel) // Correctly provide the instance
+            // .environmentObject(userCatsViewModel) // Correctly provide the instance
             .environmentObject(timerViewModel)
         }
     }

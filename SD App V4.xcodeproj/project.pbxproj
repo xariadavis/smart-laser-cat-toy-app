@@ -29,6 +29,7 @@
 		573D65A42BA1568E0063CB6C /* TextfieldMods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573D65A32BA1568E0063CB6C /* TextfieldMods.swift */; };
 		574529B52B9E214B0084EB53 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574529B42B9E214B0084EB53 /* RootView.swift */; };
 		574529B92B9E41E70084EB53 /* LaserDots.json in Resources */ = {isa = PBXBuildFile; fileRef = 574529B82B9E41E70084EB53 /* LaserDots.json */; };
+		574A812E2BB4847700F2F805 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574A812D2BB4847700F2F805 /* SplashScreen.swift */; };
 		5755528A2B9EBE4B00C36DF7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 575552892B9EBE4A00C36DF7 /* GoogleService-Info.plist */; };
 		5755528C2B9EBF6700C36DF7 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 5755528B2B9EBF6700C36DF7 /* FirebaseAuth */; };
 		5755528E2B9EC4F200C36DF7 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5755528D2B9EC4F200C36DF7 /* AuthViewModel.swift */; };
@@ -36,7 +37,6 @@
 		575A363A2BAFB959009E2EDB /* Loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 575A36392BAFB959009E2EDB /* Loading.json */; };
 		575A363C2BAFC22F009E2EDB /* DailyQuotaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575A363B2BAFC22F009E2EDB /* DailyQuotaManager.swift */; };
 		576CDF932BB3C645008CC66A /* LoadingCat.json in Resources */ = {isa = PBXBuildFile; fileRef = 576CDF922BB3C645008CC66A /* LoadingCat.json */; };
-		576CDF952BB3E03C008CC66A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 576CDF942BB3E03C008CC66A /* LaunchScreen.storyboard */; };
 		57A00CC72BAA612D00402ABA /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A00CC62BAA612D00402ABA /* TimerViewModel.swift */; };
 		57A0E0AA2BA0B8E800C8E29C /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 57A0E0A92BA0B8E800C8E29C /* FirebaseStorage */; };
 		57A0E0AF2BA0CCE800C8E29C /* PatternsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A0E0AE2BA0CCE800C8E29C /* PatternsManager.swift */; };
@@ -95,13 +95,13 @@
 		573D65A32BA1568E0063CB6C /* TextfieldMods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextfieldMods.swift; sourceTree = "<group>"; };
 		574529B42B9E214B0084EB53 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		574529B82B9E41E70084EB53 /* LaserDots.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LaserDots.json; path = ../../../../../../../../../Downloads/LaserDots.json; sourceTree = "<group>"; };
+		574A812D2BB4847700F2F805 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		575552892B9EBE4A00C36DF7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5755528D2B9EC4F200C36DF7 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		575552912B9ECB6000C36DF7 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		575A36392BAFB959009E2EDB /* Loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Loading.json; path = ../../../../../../../../../Desktop/Loading.json; sourceTree = "<group>"; };
 		575A363B2BAFC22F009E2EDB /* DailyQuotaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyQuotaManager.swift; sourceTree = "<group>"; };
 		576CDF922BB3C645008CC66A /* LoadingCat.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LoadingCat.json; path = ../../../../../../../../../Desktop/LoadingCat.json; sourceTree = "<group>"; };
-		576CDF942BB3E03C008CC66A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		57A00CC62BAA612D00402ABA /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
 		57A0E0AE2BA0CCE800C8E29C /* PatternsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternsManager.swift; sourceTree = "<group>"; };
 		57A5E6F42BA1177600921818 /* LaserLoading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LaserLoading.json; sourceTree = "<group>"; };
@@ -232,7 +232,7 @@
 			children = (
 				57ECBCAB2B9C246B0007E234 /* Welcome */,
 				5755528F2B9ECB3400C36DF7 /* Onboarding */,
-				576CDF942BB3E03C008CC66A /* LaunchScreen.storyboard */,
+				574A812D2BB4847700F2F805 /* SplashScreen.swift */,
 			);
 			path = InitialSetup;
 			sourceTree = "<group>";
@@ -526,7 +526,6 @@
 				57A5E6F52BA1177600921818 /* LaserLoading.json in Resources */,
 				57ECBC7C2B9C1AE70007E234 /* Preview Assets.xcassets in Resources */,
 				57ECBCBD2B9C2D340007E234 /* GingerHunt.json in Resources */,
-				576CDF952BB3E03C008CC66A /* LaunchScreen.storyboard in Resources */,
 				57ECBCCC2B9C36880007E234 /* Quicksand[wght].ttf in Resources */,
 				57ECBC792B9C1AE70007E234 /* Assets.xcassets in Resources */,
 			);
@@ -579,6 +578,7 @@
 				57ECBC9F2B9C23670007E234 /* ProfileViewModel.swift in Sources */,
 				5755528E2B9EC4F200C36DF7 /* AuthViewModel.swift in Sources */,
 				570F43092B9D681A0047E4DA /* ColorButton.swift in Sources */,
+				574A812E2BB4847700F2F805 /* SplashScreen.swift in Sources */,
 				57ECBC932B9C22E20007E234 /* DashboardViewModel.swift in Sources */,
 				573CCDF22BA69C6A0047A980 /* FirestoreManager.swift in Sources */,
 				57B8CD3B2B9FEF01007391A1 /* UserViewModel.swift in Sources */,

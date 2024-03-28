@@ -13,7 +13,7 @@ struct PatternDetailCover: View {
     
     @Binding var pattern: LaserPattern?
     @EnvironmentObject var timerViewModel: TimerViewModel
-    @EnvironmentObject var userCatsViewModel: UserCatsViewModel
+    @ObservedObject var userCatsViewModel = UserCatsViewModel.shared
     
     var onDismiss: () -> Void  // Closure for dismissing the view
     
@@ -87,6 +87,7 @@ struct PatternDetailCover: View {
                     timerViewModel.endSession()
                     
                     userCatsViewModel.cat.timeRemaining = Int(timerViewModel.countdownTime)
+                    userCatsViewModel.cat.timePlayedToday = userCatsViewModel.cat.dailyQuota - Int(timerViewModel.countdownTime)
                     userCatsViewModel.updateCatInfo(id: userCatsViewModel.user.id, catID: userCatsViewModel.cat.id ?? "", updates: ["timeRemaining" : Int(timerViewModel.countdownTime), "timePlayedToday":userCatsViewModel.cat.dailyQuota - Int(timerViewModel.countdownTime)])
                     
                     print("Time remaining: \(userCatsViewModel.cat.timeRemaining)")

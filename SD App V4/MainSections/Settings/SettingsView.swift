@@ -26,15 +26,14 @@ struct SettingsView: View {
                     .padding(.horizontal, 30)
                     .padding(.top, 10)
                 
+                deviceView
+                
                 Spacer()
                 
                 Button {
-                    print("Log out button pressed")
                     viewModel.logOut()
                     sessionManager.isUserAuthenticated = false
                     sessionManager.currentUser = nil
-                    print("user after logout -> \(sessionManager.currentUser)")
-                    
                 } label: {
                     Text("Log out")
                         .font(Font.custom("Quicksand-SemiBold", size: 20))
@@ -49,6 +48,16 @@ struct SettingsView: View {
             }
             .padding(.bottom, 85)
         }
+    }
+    
+    private var deviceView: some View {
+        Text("Connection Status")
+        return Button {
+            print("Hello")
+        } label: {
+            Text("Connect to device")
+        }
+
     }
 }
 

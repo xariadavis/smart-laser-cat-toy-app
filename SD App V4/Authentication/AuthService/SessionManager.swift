@@ -15,17 +15,17 @@ class SessionManager: ObservableObject {
     @Published var isUserAuthenticated: Bool = false
     @Published var currentUser: AppUser?  // Using the custom type here
     @ObservedObject var patternsManager = PatternsManager.shared
+    @ObservedObject var userCatsViewModel = UserCatsViewModel.shared
     private var firestoreManager = FirestoreManager()
-    @EnvironmentObject var userCatsViewModel: UserCatsViewModel
     
     // In charge of directing initial view
     @Published var isLoading: Bool = true
 
-    
     init() {
             Auth.auth().addStateDidChangeListener { [weak self] (_, firebaseUser) in
                 guard let self = self, let firebaseUser = firebaseUser else {
                     self?.isUserAuthenticated = false
+                    self?.isLoading = false
                     return
                 }
                 
@@ -44,6 +44,8 @@ class SessionManager: ObservableObject {
                                     print("SessionManager: \(self.currentUser?.id)")
                                     self.isUserAuthenticated = true
                                     self.patternsManager.fetchPatterns()
+                                
+                                    self.userCatsViewModel.loadUserData(id: user.id)
                                     self.isLoading = false
                                 case .failure:
                                     // Cat data missing, could trigger onboarding

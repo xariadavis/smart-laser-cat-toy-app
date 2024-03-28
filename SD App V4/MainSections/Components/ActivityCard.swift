@@ -11,23 +11,30 @@ struct ActivityCard: View {
     
     @State var progressValue: Float = 0.0
     @State var isFirstLoad: Bool = true
+    
+    @ObservedObject var userCatsViewModel = UserCatsViewModel.shared
         
     var body: some View {
 
         ZStack {
             
             HStack() {
-
+                
                 KittyProgressBar(progress: self.$progressValue)
                     .frame(width: 14, height: 14)
                     .rotationEffect(Angle.degrees(180))
                     .offset(x: 125, y: 60)
                     .padding(20)
-                    .onAppear() {
-                        self.progressValue = 0.6
+                    .onAppear {
+                        self.progressValue = getProgressValue()
+                        print("On appear: \(self.progressValue)")
                     }
+                    .onChange(of: userCatsViewModel.cat.timePlayedToday) { _ in
+                        self.progressValue = getProgressValue()
+                        print("On change: \(self.progressValue)")
+                    }
+                    
                 
-                // (progress * 100)
                 Text("\(Int(self.progressValue * 100))%")
                     .font(Font.custom("Quicksand-SemiBold", size: 30))
                     .foregroundColor(Color.primary.opacity(0.5))
@@ -48,7 +55,7 @@ struct ActivityCard: View {
                             .font(Font.custom("Quicksand-Bold", size: 16))
                             .foregroundColor(Color.secondary)
                         
-                        Text("18/30 mins")
+                        Text("\(userCatsViewModel.cat.timePlayedToday / 60)/\(userCatsViewModel.cat.dailyQuota / 60) mins")
                             .font(Font.custom("Quicksand-Semibold", size: 14))
                             .foregroundColor(Color.secondary)
                     }
@@ -59,7 +66,7 @@ struct ActivityCard: View {
                             .font(Font.custom("Quicksand-Bold", size: 16))
                             .foregroundColor(Color.secondary)
                         
-                        Text("12 mins")
+                        Text("\((userCatsViewModel.cat.timeRemaining / 60) + 1) mins")
                             .font(Font.custom("Quicksand-Semibold", size: 14))
                             .foregroundColor(Color.secondary)
                     }
@@ -74,6 +81,17 @@ struct ActivityCard: View {
             .cornerRadius(20)
 
         }
+    }
+    
+    private func getProgressValue() -> Float {
+        
+        if(userCatsViewModel.cat.timePlayedToday == 0) {
+            return 0
+        }
+
+        return Float(Double(userCatsViewModel.cat.timePlayedToday) / Double(userCatsViewModel.cat
+            .dailyQuota))
+        
     }
 }
 

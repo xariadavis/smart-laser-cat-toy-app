@@ -8,10 +8,13 @@
 import Foundation
 
 class UserCatsViewModel: ObservableObject {
+    static let shared = UserCatsViewModel()
     
     @Published var user: AppUser = AppUser(id: "", name: "", email: "")
     @Published var cat: Cat = Cat(name: "")
     private var firestoreManager = FirestoreManager()
+    
+    private init() { }
     
     func loadUserData(id: String) {
         print("UserCatsViewModel: In loadUserData the id is \(id)")

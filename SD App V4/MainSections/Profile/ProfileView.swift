@@ -12,7 +12,8 @@ import Kingfisher
 
 struct ProfileView: View {
     
-    @EnvironmentObject var userCatsViewModel: UserCatsViewModel
+//    @EnvironmentObject var userCatsViewModel: UserCatsViewModel
+    @ObservedObject var userCatsViewModel = UserCatsViewModel.shared
     
     @StateObject var viewModel: ProfileViewModel
     

@@ -10,11 +10,12 @@ import PopupView
 
 struct DashboardView: View {
     
-    @EnvironmentObject var userCatsViewModel: UserCatsViewModel
+//    @EnvironmentObject var userCatsViewModel: UserCatsViewModel
     @EnvironmentObject var navigationState: NavigationState
     @EnvironmentObject var timerViewModel: TimerViewModel
     
     @ObservedObject var patternsManager = PatternsManager.shared
+    @ObservedObject var userCatsViewModel = UserCatsViewModel.shared
     
     @State private var selectedPattern: LaserPattern?
     @State private var showingPatternDetail = false
