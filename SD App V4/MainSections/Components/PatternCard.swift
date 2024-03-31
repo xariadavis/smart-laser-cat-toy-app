@@ -14,6 +14,7 @@ struct PatternCard: View {
     var pattern: LaserPattern
     @ObservedObject var patternsManager = PatternsManager.shared
     @EnvironmentObject var timerViewModel: TimerViewModel
+    @EnvironmentObject var bluetoothViewModel: BluetoothViewModel
 
     var body: some View {
         HStack(spacing: 10) {
@@ -40,6 +41,12 @@ struct PatternCard: View {
                 // print("Single tapped!")
                 timerViewModel.currentPattern = self.pattern
                 timerViewModel.showingPatternCover = true
+                
+                if bluetoothViewModel.isConnected {
+                    print("its connected and should be sending values")
+                    bluetoothViewModel.writeOmegaValues(omega1: Int32(pattern.omega_1), omega2: Int32(pattern.omega_2))
+                }
+                
                 print("omega_1: \(pattern.omega_1) -- omega_2: \(pattern.omega_2)")
             })
         )

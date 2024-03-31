@@ -37,6 +37,9 @@
 		575A363A2BAFB959009E2EDB /* Loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 575A36392BAFB959009E2EDB /* Loading.json */; };
 		575A363C2BAFC22F009E2EDB /* DailyQuotaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575A363B2BAFC22F009E2EDB /* DailyQuotaManager.swift */; };
 		576CDF932BB3C645008CC66A /* LoadingCat.json in Resources */ = {isa = PBXBuildFile; fileRef = 576CDF922BB3C645008CC66A /* LoadingCat.json */; };
+		579DB08A2BB8C97B00410D02 /* BluetoothViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579DB0892BB8C97B00410D02 /* BluetoothViewModel.swift */; };
+		579DB08C2BB8E12700410D02 /* BluetoothLoading.json in Resources */ = {isa = PBXBuildFile; fileRef = 579DB08B2BB8E12600410D02 /* BluetoothLoading.json */; };
+		579DB08E2BB92BF800410D02 /* BluetoothCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579DB08D2BB92BF800410D02 /* BluetoothCard.swift */; };
 		57A00CC72BAA612D00402ABA /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A00CC62BAA612D00402ABA /* TimerViewModel.swift */; };
 		57A0E0AA2BA0B8E800C8E29C /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 57A0E0A92BA0B8E800C8E29C /* FirebaseStorage */; };
 		57A0E0AF2BA0CCE800C8E29C /* PatternsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A0E0AE2BA0CCE800C8E29C /* PatternsManager.swift */; };
@@ -102,6 +105,9 @@
 		575A36392BAFB959009E2EDB /* Loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Loading.json; path = ../../../../../../../../../Desktop/Loading.json; sourceTree = "<group>"; };
 		575A363B2BAFC22F009E2EDB /* DailyQuotaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyQuotaManager.swift; sourceTree = "<group>"; };
 		576CDF922BB3C645008CC66A /* LoadingCat.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LoadingCat.json; path = ../../../../../../../../../Desktop/LoadingCat.json; sourceTree = "<group>"; };
+		579DB0892BB8C97B00410D02 /* BluetoothViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothViewModel.swift; sourceTree = "<group>"; };
+		579DB08B2BB8E12600410D02 /* BluetoothLoading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = BluetoothLoading.json; path = ../../../../../../../../../Downloads/BluetoothLoading.json; sourceTree = "<group>"; };
+		579DB08D2BB92BF800410D02 /* BluetoothCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothCard.swift; sourceTree = "<group>"; };
 		57A00CC62BAA612D00402ABA /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
 		57A0E0AE2BA0CCE800C8E29C /* PatternsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternsManager.swift; sourceTree = "<group>"; };
 		57A5E6F42BA1177600921818 /* LaserLoading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LaserLoading.json; sourceTree = "<group>"; };
@@ -172,6 +178,7 @@
 				570F43042B9D63D90047E4DA /* PatternCard.swift */,
 				570F430D2B9D6B0F0047E4DA /* FavoritesCarousel.swift */,
 				57A00CC62BAA612D00402ABA /* TimerViewModel.swift */,
+				579DB08D2BB92BF800410D02 /* BluetoothCard.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -237,6 +244,14 @@
 			path = InitialSetup;
 			sourceTree = "<group>";
 		};
+		579DB0882BB8C93800410D02 /* Bluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				579DB0892BB8C97B00410D02 /* BluetoothViewModel.swift */,
+			);
+			path = Bluetooth;
+			sourceTree = "<group>";
+		};
 		57A0E0AD2BA0B99200C8E29C /* LaserProfile */ = {
 			isa = PBXGroup;
 			children = (
@@ -279,6 +294,7 @@
 				575552902B9ECB3E00C36DF7 /* InitialSetup */,
 				57ECBCA52B9C241D0007E234 /* MainSections */,
 				57ECBC832B9C21FC0007E234 /* Authentication */,
+				579DB0882BB8C93800410D02 /* Bluetooth */,
 				57ECBCA62B9C242D0007E234 /* Models */,
 				57ECBCB22B9C25970007E234 /* Utilities */,
 				570F42FA2B9D4C470047E4DA /* NavigationState.swift */,
@@ -417,6 +433,7 @@
 			isa = PBXGroup;
 			children = (
 				57ECBCB92B9C2D340007E234 /* Constants.swift */,
+				579DB08B2BB8E12600410D02 /* BluetoothLoading.json */,
 				576CDF922BB3C645008CC66A /* LoadingCat.json */,
 				575A36392BAFB959009E2EDB /* Loading.json */,
 				57A5E6F42BA1177600921818 /* LaserLoading.json */,
@@ -526,6 +543,7 @@
 				57A5E6F52BA1177600921818 /* LaserLoading.json in Resources */,
 				57ECBC7C2B9C1AE70007E234 /* Preview Assets.xcassets in Resources */,
 				57ECBCBD2B9C2D340007E234 /* GingerHunt.json in Resources */,
+				579DB08C2BB8E12700410D02 /* BluetoothLoading.json in Resources */,
 				57ECBCCC2B9C36880007E234 /* Quicksand[wght].ttf in Resources */,
 				57ECBC792B9C1AE70007E234 /* Assets.xcassets in Resources */,
 			);
@@ -552,6 +570,7 @@
 				574529B52B9E214B0084EB53 /* RootView.swift in Sources */,
 				570F43052B9D63D90047E4DA /* PatternCard.swift in Sources */,
 				570F43072B9D643A0047E4DA /* LaserPattern.swift in Sources */,
+				579DB08E2BB92BF800410D02 /* BluetoothCard.swift in Sources */,
 				57ECBCB12B9C24C80007E234 /* TabBarView.swift in Sources */,
 				57ECBCAD2B9C249C0007E234 /* WelcomeView.swift in Sources */,
 				57ECBC9D2B9C23540007E234 /* ProfileView.swift in Sources */,
@@ -562,6 +581,7 @@
 				57B8715F2BA2B27200E7F92D /* OnboardingViewModel.swift in Sources */,
 				57ECBCA82B9C24360007E234 /* AppUser.swift in Sources */,
 				570F430E2B9D6B0F0047E4DA /* FavoritesCarousel.swift in Sources */,
+				579DB08A2BB8C97B00410D02 /* BluetoothViewModel.swift in Sources */,
 				57ECBCCE2B9C4D750007E234 /* ForgotPasswordView.swift in Sources */,
 				575A363C2BAFC22F009E2EDB /* DailyQuotaManager.swift in Sources */,
 				57ECBCC62B9C34F10007E234 /* GlowModifier.swift in Sources */,
@@ -721,6 +741,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "SD-App-V4-Info.plist";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "always allow bt";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -754,6 +775,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "SD-App-V4-Info.plist";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "always allow bt";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
