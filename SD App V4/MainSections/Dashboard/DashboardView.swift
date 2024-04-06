@@ -13,6 +13,7 @@ struct DashboardView: View {
 //    @EnvironmentObject var userCatsViewModel: UserCatsViewModel
     @EnvironmentObject var navigationState: NavigationState
     @EnvironmentObject var timerViewModel: TimerViewModel
+    @EnvironmentObject var bluetoothViewModel: BluetoothViewModel
     
     @ObservedObject var patternsManager = PatternsManager.shared
     @ObservedObject var userCatsViewModel = UserCatsViewModel.shared
@@ -85,16 +86,19 @@ struct DashboardView: View {
             }
         }
         .onAppear {
-            print("DashboardView: Cat is \(userCatsViewModel.cat)")
+//            print("DashboardView: Cat is \(userCatsViewModel.cat)")
         }
-        .sheet(isPresented: $timerViewModel.showingPatternCover) {
+        .sheet(isPresented: $timerViewModel.showingPatternCover, onDismiss: {
+            if bluetoothViewModel.isSearching {
+                bluetoothViewModel.stopScanning()
+            }
+        }) {
             if let pattern = timerViewModel.currentPattern {
-                PatternDetailCover(pattern: .constant(pattern)) {
+                PatternDetailCover(pattern: .constant(pattern), isConnected: bluetoothViewModel.isConnected) {
                     timerViewModel.showingPatternCover = false
                 }
             }
         }
-
     }
 }
 

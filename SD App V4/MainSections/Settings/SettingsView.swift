@@ -45,6 +45,8 @@ struct SettingsView: View {
                             viewModel.logOut()
                             sessionManager.isUserAuthenticated = false
                             sessionManager.currentUser = nil
+                            bluetoothViewModel.isSearching = false
+                            bluetoothViewModel.isConnected = false
                         } label: {
                             Text("Log out")
                                 .font(Font.custom("Quicksand-SemiBold", size: 20))

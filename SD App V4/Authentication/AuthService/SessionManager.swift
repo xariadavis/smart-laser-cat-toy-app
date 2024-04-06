@@ -34,14 +34,14 @@ class SessionManager: ObservableObject {
                 self.firestoreManager.fetchUserData(id: firebaseUser.uid) { result in
                     switch result {
                     case .success(let user):
-                        print("SessionManager: fetching user SUCCESS")
+//                        print("SessionManager: fetching user SUCCESS")
                         self.firestoreManager.fetchCatForUser(id: user.id) { catResult in
                             DispatchQueue.main.async {
                                 switch catResult {
                                 case .success(let cat):
                                     
                                     self.currentUser = user
-                                    print("SessionManager: \(self.currentUser?.id)")
+//                                    print("SessionManager: \(self.currentUser?.id)")
                                     self.isUserAuthenticated = true
                                     self.patternsManager.fetchPatterns()
                                 
@@ -56,7 +56,7 @@ class SessionManager: ObservableObject {
                         }
                     case .failure:
                         DispatchQueue.main.async {
-                            print("SessionManager: fetching user FAILED")
+//                            print("SessionManager: fetching user FAILED")
                             self.isUserAuthenticated = false
                             self.isLoading = false
                         }

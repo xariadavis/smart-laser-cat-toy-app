@@ -224,11 +224,11 @@ extension OnboardingView {
             break
         }
         if onboardingState == 2 {
-            print("id - > \(viewModel.getUserID())")
+            // print("id - > \(viewModel.getUserID())")
             sessionManager.currentUser?.id = viewModel.getUserID()
         }
         if onboardingState == 5 {
-            print("\(newCat.name) + \(newCat.age) + \(newCat.weight) + \(newCat.sex) + \(newCat.breed)")
+            // print("\(newCat.name) + \(newCat.age) + \(newCat.weight) + \(newCat.sex) + \(newCat.breed)")
             
             newCat.dailyQuota *= 60
             newCat.timeRemaining = newCat.dailyQuota
@@ -241,7 +241,7 @@ extension OnboardingView {
                         navigationState.path.append(LoadingNavigation.loadingFromOnboarding(userID: viewModel.getUserID()))
                     }
                 } else {
-                    print("Cat update was unsuccessful.")
+                    // print("Cat update was unsuccessful.")
                 }
             })
                         
@@ -282,9 +282,9 @@ struct LoadingRegistrationView: View {
         }
         .onChange(of: userCatsViewModel.user.id) { id in
             // Check if the newly loaded user matches the session manager's current user
-            print("CHANGED?")
-            print("SessionManager: \(sessionManager.currentUser)")
-            print("User \(userCatsViewModel.user)")
+//            print("CHANGED?")
+//            print("SessionManager: \(sessionManager.currentUser)")
+//            print("User \(userCatsViewModel.user)")
             
             sessionManager.currentUser = userCatsViewModel.user
             if id == sessionManager.currentUser?.id {

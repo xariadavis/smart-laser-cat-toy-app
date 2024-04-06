@@ -17,12 +17,12 @@ class UserCatsViewModel: ObservableObject {
     private init() { }
     
     func loadUserData(id: String) {
-        print("UserCatsViewModel: In loadUserData the id is \(id)")
+//        print("UserCatsViewModel: In loadUserData the id is \(id)")
         firestoreManager.fetchUserData(id: id) { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let user):
-                    print("Successfully fetched user: \(user)")
+//                    print("Successfully fetched user: \(user)")
                     self?.user = user
                 case .failure(let error):
                     print("Error fetching user data: \(error)")

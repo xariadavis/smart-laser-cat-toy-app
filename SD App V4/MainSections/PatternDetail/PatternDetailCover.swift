@@ -12,10 +12,12 @@ import Kingfisher
 struct PatternDetailCover: View {
     
     @Binding var pattern: LaserPattern?
+    @State var isConnected: Bool
     @EnvironmentObject var timerViewModel: TimerViewModel
     @EnvironmentObject var bluetoothViewModel: BluetoothViewModel
     @ObservedObject var userCatsViewModel = UserCatsViewModel.shared
-    
+    @State private var showingBluetoothCard = false
+        
     var onDismiss: () -> Void  // Closure for dismissing the view
     
     var body: some View {
@@ -23,6 +25,24 @@ struct PatternDetailCover: View {
             
             Color(.systemGray5).ignoresSafeArea()
             
+            if isConnected {
+                detailOfPatternPlaying
+            } else {
+                needToConnect
+            }
+            
+        }
+        .onAppear {
+            isConnected = bluetoothViewModel.isConnected
+        }
+        .onChange(of: bluetoothViewModel.isReady, {
+            showingBluetoothCard = false
+            bluetoothViewModel.writeOmegaValues(omega1: Int32(pattern!.omega_1), omega2: Int32(pattern!.omega_2))
+        })
+    }
+    
+    private var detailOfPatternPlaying: some View {
+        Group {
             VStack {
                 
                 Text("NOW PLAYING")
@@ -56,6 +76,45 @@ struct PatternDetailCover: View {
         }
     }
     
+    private var needToConnect: some View {
+        Group {
+            
+            VStack(alignment: .center) {
+                
+                Text("To play a pattern, please connect to the device.")
+                    .font(Font.custom("Quicksand-Bold", size: 25))
+                
+                if showingBluetoothCard {
+                    
+                    SearchingView()
+                        .padding(.horizontal)
+                        .padding(.bottom)
+                    
+                    
+                } else {
+                
+                    Button {
+                        bluetoothViewModel.isSearching = true
+                        showingBluetoothCard = true
+                    } label: {
+                        Text("Pair")
+                            .redButton()
+                            .padding(.horizontal)
+                    }
+                }
+
+                Button {
+                    onDismiss()
+                    bluetoothViewModel.stopScanning()
+                } label: {
+                    Text("Cancel")
+                        .redOutlineButton()
+                        .padding(.horizontal)
+                }
+            }
+        }
+    }
+    
     func timerCard() -> some View {
         
         HStack {
@@ -64,11 +123,6 @@ struct PatternDetailCover: View {
                 
                 Text("Remaining:")
                     .font(Font.custom("Quicksand-Bold", size: 20))
-                    .onAppear {
-//                        print("Session active: \(timerViewModel.sessionActive)")
-//                        print("time remaining (countdown): \(timerViewModel.countdownTime)")
-//                        print("time remaining: \(userCatsViewModel.cat.timeRemaining)")
-                    }
                 
                 Text("\(timerViewModel.formattedTime)")
                     .font(Font.custom("Quicksand-Bold", size: 25))
@@ -91,7 +145,7 @@ struct PatternDetailCover: View {
                     userCatsViewModel.cat.timePlayedToday = userCatsViewModel.cat.dailyQuota - Int(timerViewModel.countdownTime)
                     userCatsViewModel.updateCatInfo(id: userCatsViewModel.user.id, catID: userCatsViewModel.cat.id ?? "", updates: ["timeRemaining" : Int(timerViewModel.countdownTime), "timePlayedToday":userCatsViewModel.cat.dailyQuota - Int(timerViewModel.countdownTime)])
                     
-                    bluetoothViewModel.writeOmegaValues(omega1: 0, omega2: 0)
+                    bluetoothViewModel.writeOmegaValues(omega1: 90, omega2: 90)
                     
                     print("Time remaining: \(userCatsViewModel.cat.timeRemaining)")
                     onDismiss()  // Call the dismiss action
@@ -114,13 +168,14 @@ struct PatternDetailCover: View {
         .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: 175)
         .background(Color(.systemGray4))
     }
+    
 }
 
 struct PatternDetailCover_Previews: PreviewProvider {
     static let samplePattern = LaserPattern(id: "1", name: "Sample Pattern", description: "This is a sample pattern.", iconName: "BloomArray", isFavorite: false, omega_1: 1, omega_2: 1)
     
     static var previews: some View {
-        PatternDetailCover(pattern: .constant(samplePattern), onDismiss: {
+        PatternDetailCover(pattern: .constant(samplePattern), isConnected: true, onDismiss: {
             
         })
     }

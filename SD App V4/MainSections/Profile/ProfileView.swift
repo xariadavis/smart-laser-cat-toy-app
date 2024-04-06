@@ -26,7 +26,7 @@ struct ProfileView: View {
             contentScrollView
         }
         .onAppear {
-            print("\(userCatsViewModel.cat.profilePicture)")
+//            print("\(userCatsViewModel.cat.profilePicture)")
         }
         .ignoresSafeArea()
     }

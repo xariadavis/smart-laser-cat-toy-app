@@ -9,14 +9,18 @@ class BluetoothViewModel: NSObject, ObservableObject, CBPeripheralDelegate {
     
     @Published var peripheralNames: [String] = []
     @Published var isConnected: Bool = false
-    @Published var isSearching: Bool = true
+    @Published var isSearching: Bool = false
+    @Published var isReady: Bool = false
+    @Published var connectingPeripheralIndex: Int? = nil
     
     private var SERVICE_UUID: String = "4fafc201-1fb5-459e-8fcc-c5c9c331914b"
     private var OMEGA1_UUID: String = "e0a994b4-dbbc-483d-b331-ecff32e12f3a"
     private var OMEGA2_UUID: String = "bf078597-f84e-40f0-b16e-519d2f73e9e7"
+    private var READY_STATE: String = "88527841-2de6-45e6-a203-280bef44801d"
     
     var omega1Characteristic: CBCharacteristic?
     var omega2Characteristic: CBCharacteristic?
+    var readyState: CBCharacteristic?
     
     override init() {
         super.init()
@@ -67,7 +71,7 @@ extension BluetoothViewModel: CBCentralManagerDelegate {
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
         guard let services = peripheral.services else { return }
         for service in services where service.uuid == CBUUID(string: SERVICE_UUID) {
-            peripheral.discoverCharacteristics([CBUUID(string: OMEGA1_UUID), CBUUID(string: OMEGA2_UUID)], for: service)
+            peripheral.discoverCharacteristics([CBUUID(string: OMEGA1_UUID), CBUUID(string: OMEGA2_UUID), CBUUID(string: READY_STATE)], for: service)
         }
     }
 
@@ -77,13 +81,24 @@ extension BluetoothViewModel: CBCentralManagerDelegate {
         for characteristic in characteristics {
             if characteristic.uuid == CBUUID(string: OMEGA1_UUID) {
                 self.omega1Characteristic = characteristic
+                print("self.omega1Characteristic = characteristic")
             } else if characteristic.uuid == CBUUID(string: OMEGA2_UUID) {
                 self.omega2Characteristic = characteristic
+            } else if characteristic.uuid == CBUUID(string: READY_STATE) {
+                self.readyState = characteristic
+                print("self.readyState = characteristicc")
+                peripheral.setNotifyValue(true, for: self.readyState ?? characteristic)
             }
+        }
+        
+        DispatchQueue.main.async {
+            self.isReady = true
         }
     }
 
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
+        print("Inside didUpdateValueFor")
+        
         if let error = error {
             print("Error reading characteristic: \(error.localizedDescription)")
             return
@@ -92,9 +107,26 @@ extension BluetoothViewModel: CBCentralManagerDelegate {
         guard let value = characteristic.value else {
             print("\(characteristic.uuid) Value is null")
             return
-        }
+        } 
         
-        if characteristic.uuid == CBUUID(string: OMEGA1_UUID) {
+        if characteristic.uuid == CBUUID(string: READY_STATE) {
+            print("READY CHAR:")
+
+            // Assuming the ready state is a single byte representing a boolean
+            let isDeviceReady = characteristic.value?.first == 0x01
+
+            DispatchQueue.main.async {
+                self.isReady = isDeviceReady
+                
+                print("isReady: \(isDeviceReady)")
+                if isDeviceReady {
+                    print("isReady2: \(isDeviceReady)")
+                }
+            }
+
+            print("Device is ready: \(isDeviceReady)")
+        } else if characteristic.uuid == CBUUID(string: OMEGA1_UUID) {
+            print("OMEGA1 Value")
             let omega1Value = value.withUnsafeBytes { ptr -> Int32 in
                 // Ensure there's enough data for an Int32
                 guard ptr.count >= MemoryLayout<Int32>.size else {
@@ -125,6 +157,7 @@ extension BluetoothViewModel {
     func connectToPeripheral(at index: Int) {
         let peripheral = peripherals[index]
         self.targetPeripheral = peripheral
+        self.connectingPeripheralIndex = index
         centralManager?.stopScan()
         centralManager?.connect(peripheral, options: nil)
     }

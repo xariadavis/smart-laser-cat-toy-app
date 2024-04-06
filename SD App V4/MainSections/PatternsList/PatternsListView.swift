@@ -11,6 +11,7 @@ struct PatternsView: View {
     
     @ObservedObject var patternsManager = PatternsManager.shared
     @EnvironmentObject var timerViewModel: TimerViewModel
+    @EnvironmentObject var bluetoothViewModel: BluetoothViewModel
     
     var body: some View {
         ZStack {
@@ -53,7 +54,7 @@ struct PatternsView: View {
         }
         .sheet(isPresented: $timerViewModel.showingPatternCover) {
             if let pattern = timerViewModel.currentPattern {
-                PatternDetailCover(pattern: .constant(pattern)) {
+                PatternDetailCover(pattern: .constant(pattern), isConnected: bluetoothViewModel.isConnected) {
                     timerViewModel.showingPatternCover = false
                 }
             }

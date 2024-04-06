@@ -29,14 +29,14 @@ struct RootView: View {
                     }
             }
         }
-        .sheet(isPresented: $showingPatternDetail) {
-            if let pattern = timerViewModel.currentPattern {
-                PatternDetailCover(pattern: .constant(pattern), onDismiss: {
-                    showingPatternDetail = false
-                })
-                .environmentObject(timerViewModel)
-            }
-        }
+//        .sheet(isPresented: $showingPatternDetail) {
+//            if let pattern = timerViewModel.currentPattern {
+//                PatternDetailCover(pattern: .constant(pattern), onDismiss: {
+//                    showingPatternDetail = false
+//                })
+//                .environmentObject(timerViewModel)
+//            }
+//        }
     }
 }
 

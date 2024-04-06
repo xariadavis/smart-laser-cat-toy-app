@@ -33,10 +33,10 @@ class OnboardingViewModel: ObservableObject {
     func updateCatInfo(cat: Cat, completion: @escaping (Bool) -> Void) {
         firestoreManager.saveCatInfo(cat: cat, id: authViewModel.getCurrentUserID() ?? "Current UserID not found") { error in
             if let error = error {
-                print("Error updating cat info: \(error.localizedDescription)")
+//                print("Error updating cat info: \(error.localizedDescription)")
                 completion(false) // Call completion with false to indicate failure
             } else {
-                print("Cat info successfully saved.")
+//                print("Cat info successfully saved.")
                 completion(true) // Call completion with true to indicate success
             }
         }

@@ -39,14 +39,11 @@ struct PatternCard: View {
                 patternsManager.toggleFavorite(for: self.pattern.id ?? "")
             }.exclusively(before: TapGesture(count: 1).onEnded {
                 // print("Single tapped!")
+                
                 timerViewModel.currentPattern = self.pattern
                 timerViewModel.showingPatternCover = true
-                
-                if bluetoothViewModel.isConnected {
-                    print("its connected and should be sending values")
-                    bluetoothViewModel.writeOmegaValues(omega1: Int32(pattern.omega_1), omega2: Int32(pattern.omega_2))
-                }
-                
+                bluetoothViewModel.writeOmegaValues(omega1: Int32(pattern.omega_1), omega2: Int32(pattern.omega_2))
+
                 print("omega_1: \(pattern.omega_1) -- omega_2: \(pattern.omega_2)")
             })
         )

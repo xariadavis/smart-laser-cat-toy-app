@@ -20,6 +20,7 @@ struct TabBar: View {
     @State private var prevSelectedIndex = 0
     @State private var showingPatternDetail: Bool = false
     @EnvironmentObject var timerViewModel: TimerViewModel
+    @EnvironmentObject var bluetoothViewModel: BluetoothViewModel
 
     let names = ["house", "circle.circle", "pawprint", "gearshape"]
 
@@ -46,7 +47,7 @@ struct TabBar: View {
             }
             .sheet(isPresented: $showingPatternDetail) {
                 if let pattern = timerViewModel.currentPattern {
-                    PatternDetailCover(pattern: .constant(pattern), onDismiss: {
+                    PatternDetailCover(pattern: .constant(pattern), isConnected: bluetoothViewModel.isConnected, onDismiss: {
                         showingPatternDetail = false
                     })
                     .environmentObject(timerViewModel)

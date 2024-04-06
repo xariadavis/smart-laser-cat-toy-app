@@ -14,9 +14,16 @@ struct BluetoothCard: View {
     var body: some View {
         ZStack {
             
+            // Remove HStack
             HStack {
                 
-                testView
+                if !bluetoothViewModel.isSearching && !bluetoothViewModel.isConnected {
+                    notConnectedView
+                } else if bluetoothViewModel.isSearching && !bluetoothViewModel.isConnected {
+                    SearchingView()
+                } else {
+                    connectedView
+                }
     
             }
             .padding(10)
@@ -26,62 +33,8 @@ struct BluetoothCard: View {
         }
     }
     
-    private var searchingView: some View {
-        Group {
-            VStack(alignment: .leading) {
-                Text("Searching...")
-                    .font(Font.custom("Quicksand-Semibold", size: 20))
-                    .padding(.horizontal)
-                
-                // Conditionally show LottiePlusView or the list of devices
-                if bluetoothViewModel.peripheralNames.isEmpty && bluetoothViewModel.isSearching {
-                    // Show LottiePlusView when no devices are found and searching is true
-                    LottiePlusView(name: Constants.BluetoothLoading, loopMode: .loop)
-                        .frame(maxWidth: .infinity, maxHeight: 200)
-                    
-                } else {
-                    // Show the list of peripherals when available
-                    List(bluetoothViewModel.peripheralNames.indices, id: \.self) { index in
-                        HStack {
-                            
-                            Text(bluetoothViewModel.peripheralNames[index])
-                            
-                            Spacer()
-                            Button("Connect") {
-                                bluetoothViewModel.connectToPeripheral(at: index)
-                                
-                                // Consider moving this to a function within BluetoothViewModel
-                                // that gets called upon a successful connection.
-                            }
-                        }
-                    }
-                    .background(Color.clear)
-                }
-            }
-            .frame(maxWidth: .infinity, maxHeight: 200)
-        }
-    }
-    
-    private var testView: some View {
-        Group {
-            ScrollView {
-                ForEach(bluetoothViewModel.peripheralNames.indices, id: \.self) { index in
-                    HStack {
-                        Text(bluetoothViewModel.peripheralNames[index])
-                        Spacer()
-                        Button("Connect") {
-                            bluetoothViewModel.connectToPeripheral(at: index)
-                        }
-                    }
-                    .padding()
-                }
-            }
-
-        }
-    }
-    
     // Device not connected
-    private var notConnetedView: some View {
+    private var notConnectedView: some View {
         Group {
             Text("Not connected")
                 .font(Font.custom("Quicksand-Semibold", size: 20))
@@ -113,7 +66,118 @@ struct BluetoothCard: View {
             .padding(.horizontal)
         }
     }
+    
+    // Has it's own view since I use it in other places
+    var searchingView: some View {
+        Group {
+            VStack(alignment: .leading) {
+                Text("Searching...")
+                    .font(Font.custom("Quicksand-Semibold", size: 20))
+                    .padding(.horizontal)
+                
+                // Conditionally show LottiePlusView or the list of devices
+                if bluetoothViewModel.peripheralNames.isEmpty && bluetoothViewModel.isSearching {
+                    // Show LottiePlusView when no devices are found and searching is true
+                    
+                    LottiePlusView(name: Constants.BluetoothLoading, loopMode: .loop)
+                        .frame(minWidth: 100, maxWidth: .infinity, minHeight: 200, maxHeight: 250)
+                
+                } else {
+                    
+                    ScrollView {
+                        ForEach(bluetoothViewModel.peripheralNames.indices, id: \.self) { index in
+                            HStack {
+                                Text(bluetoothViewModel.peripheralNames[index])
+                                    .font(Font.custom("Quicksand-Regular", size: 18))
+                                Spacer()
+                                
+                                Button {
+                                    bluetoothViewModel.connectToPeripheral(at: index)
+                                } label: {
+                                    Text(bluetoothViewModel.connectingPeripheralIndex == index ? "Connecting..." : "Connect")
+                                        .font(Font.custom("Quicksand-Regular", size: 18))
+                                        .foregroundColor(Color.orange)
+                                }
+                            }
+                            .padding()
+                        }
+                    }
+                }
+            }
+            .frame(maxWidth: .infinity, maxHeight: 300)
+        }
+    }
+    
+    private var connectedView: some View {
+        Group {
+            
+            VStack {
+                
+                HStack {
+                    Text("Connected")
+                        .font(Font.custom("Quicksand-Semibold", size: 20))
+                        .padding(.horizontal)
+                    
+                    Spacer()
+                    
+                    Text("\(bluetoothViewModel.peripheralNames[0])")
+                        .font(Font.custom("Quicksand-Semibold", size: 20))
+                        .padding(.horizontal)
+                    
+                }
+                
+                Button {
+                    bluetoothViewModel.disconnectFromPeripheral()
+                    bluetoothViewModel.isSearching = false
+                    bluetoothViewModel.isConnected = false
+                    bluetoothViewModel.connectingPeripheralIndex = nil
+                } label: {
+                    Text("Disconnect")
+                }
+
+                
+            }
+        }
+    }
 }
+
+struct SearchingView: View {
+    @EnvironmentObject var bluetoothViewModel: BluetoothViewModel
+
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text("Searching...")
+                .font(Font.custom("Quicksand-Semibold", size: 20))
+                .padding(.horizontal)
+            
+            // Conditionally show LottiePlusView or the list of devices
+            if bluetoothViewModel.peripheralNames.isEmpty && bluetoothViewModel.isSearching {
+                LottiePlusView(name: Constants.BluetoothLoading, loopMode: .loop)
+                    .frame(minWidth: 100, maxWidth: .infinity, minHeight: 200, maxHeight: 250)
+            } else {
+                ScrollView {
+                    ForEach(bluetoothViewModel.peripheralNames.indices, id: \.self) { index in
+                        HStack {
+                            Text(bluetoothViewModel.peripheralNames[index])
+                                .font(Font.custom("Quicksand-Regular", size: 18))
+                            Spacer()
+                            Button {
+                                bluetoothViewModel.connectToPeripheral(at: index)
+                            } label: {
+                                Text(bluetoothViewModel.connectingPeripheralIndex == index ? "Connecting..." : "Connect")
+                                    .font(Font.custom("Quicksand-Regular", size: 18))
+                                    .foregroundColor(Color.orange)
+                            }
+                        }
+                        .padding()
+                    }
+                }
+            }
+        }
+        .frame(maxWidth: .infinity, maxHeight: 300)
+    }
+} 
+
 
 #Preview {
     BluetoothCard()

@@ -29,7 +29,7 @@ class PatternsManager: ObservableObject {
             }
         }
         
-        print("Patterns fetched!")
+//        print("Patterns fetched!")
     }
     
     // Assuming patternId is already a String that matches the Firestore document ID
