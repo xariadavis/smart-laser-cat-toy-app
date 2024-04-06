@@ -37,6 +37,7 @@ struct PatternDetailCover: View {
         }
         .onChange(of: bluetoothViewModel.isReady, {
             showingBluetoothCard = false
+            isConnected = true
             bluetoothViewModel.writeOmegaValues(omega1: Int32(pattern!.omega_1), omega2: Int32(pattern!.omega_2))
         })
     }
@@ -86,7 +87,7 @@ struct PatternDetailCover: View {
                 
                 if showingBluetoothCard {
                     
-                    SearchingView()
+                    SearchingView(onDismiss: onDismiss)
                         .padding(.horizontal)
                         .padding(.bottom)
                     
@@ -101,8 +102,9 @@ struct PatternDetailCover: View {
                             .redButton()
                             .padding(.horizontal)
                     }
+                
                 }
-
+                
                 Button {
                     onDismiss()
                     bluetoothViewModel.stopScanning()
@@ -149,6 +151,7 @@ struct PatternDetailCover: View {
                     
                     print("Time remaining: \(userCatsViewModel.cat.timeRemaining)")
                     onDismiss()  // Call the dismiss action
+                    
                 }) {
                     HStack {
                         Image(systemName: "stop.fill")

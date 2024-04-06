@@ -40,7 +40,7 @@ struct SettingsView: View {
                             .padding(.horizontal)
                         
                         Spacer()
-                        
+
                         Button {
                             viewModel.logOut()
                             sessionManager.isUserAuthenticated = false
