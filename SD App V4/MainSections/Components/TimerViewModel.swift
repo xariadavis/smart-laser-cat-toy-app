@@ -7,15 +7,17 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
 class TimerViewModel: ObservableObject {
+    
     @Published var countdownTime: TimeInterval
     private var totalTime: TimeInterval
     private var timer: AnyCancellable?
     @Published var sessionActive: Bool = false
     @Published var currentPattern: LaserPattern?
     @Published var showingPatternCover: Bool = false
-
+    
     init(countdownTime: TimeInterval) {
         self.countdownTime = countdownTime
         self.totalTime = countdownTime

@@ -1,5 +1,6 @@
 import Foundation
 import CoreBluetooth
+import SwiftUI
 
 class BluetoothViewModel: NSObject, ObservableObject, CBPeripheralDelegate {
     
@@ -12,7 +13,7 @@ class BluetoothViewModel: NSObject, ObservableObject, CBPeripheralDelegate {
     @Published var isSearching: Bool = false
     @Published var isReady: Bool = false
     @Published var connectingPeripheralIndex: Int? = nil
-    
+        
     private var SERVICE_UUID: String = "4fafc201-1fb5-459e-8fcc-c5c9c331914b"
     private var OMEGA1_UUID: String = "e0a994b4-dbbc-483d-b331-ecff32e12f3a"
     private var OMEGA2_UUID: String = "bf078597-f84e-40f0-b16e-519d2f73e9e7"
@@ -168,7 +169,6 @@ extension BluetoothViewModel {
         self.targetPeripheral = nil
         
         centralManager?.cancelPeripheralConnection(peripheral)
-        // You might want to perform additional cleanup here
     }
     
     func readOmegaValues() {

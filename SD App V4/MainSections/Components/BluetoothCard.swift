@@ -10,6 +10,7 @@ import SwiftUI
 struct BluetoothCard: View {
     
     @EnvironmentObject var bluetoothViewModel: BluetoothViewModel
+    @EnvironmentObject var timerViewModel: TimerViewModel
     
     var body: some View {
         ZStack {
@@ -83,6 +84,11 @@ struct BluetoothCard: View {
                         bluetoothViewModel.isSearching = false
                         bluetoothViewModel.isConnected = false
                         bluetoothViewModel.connectingPeripheralIndex = nil
+                        
+                        if timerViewModel.sessionActive {
+                            timerViewModel.endSession()
+                        }
+                        
                     } label: {
                         Text("Disconnect")
                             .font(Font.custom("Quicksand-Regular", size: 18))
