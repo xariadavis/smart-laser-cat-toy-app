@@ -398,8 +398,8 @@
 				57ECBCA02B9C23710007E234 /* Settings */,
 				570F42FC2B9D58830047E4DA /* Components */,
 				57ECBCB02B9C24C80007E234 /* TabBarView.swift */,
-				574529B42B9E214B0084EB53 /* RootView.swift */,
 				573CCDF32BA6ABFF0047A980 /* UserCatsViewModel.swift */,
+				574529B42B9E214B0084EB53 /* RootView.swift */,
 			);
 			path = MainSections;
 			sourceTree = "<group>";

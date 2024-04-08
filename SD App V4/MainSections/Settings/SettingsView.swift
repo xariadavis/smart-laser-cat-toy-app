@@ -7,13 +7,24 @@
 
 import SwiftUI
 
+enum UpdateOption {
+    case usersName
+    case email
+    case catsName
+    case age
+    case weight
+    case collarColor
+}
+
 struct SettingsView: View {
     
     @StateObject var viewModel: SettingsViewModel
     @EnvironmentObject var sessionManager: SessionManager
     @EnvironmentObject var bluetoothViewModel: BluetoothViewModel // Create an instance of BluetoothViewModel
     @ObservedObject var userCatsViewModel = UserCatsViewModel.shared
-
+    
+    @State private var selectedOption: UpdateOption?
+    @State private var isUpdating: Bool = false
 
     var body: some View {
         ZStack {
@@ -49,39 +60,40 @@ struct SettingsView: View {
                             .padding(.horizontal, 30)
                             .padding(.vertical, 10)
                         
-                        Group {
                             
-                            Text("User")
-                                .font(Font.custom("TitanOne", size: 18))
-                                .frame(maxWidth: .infinity, alignment: .leading)  // Align text to the leading edge
-                                .padding(.horizontal, 30)
-                                .foregroundColor(Color.primary.opacity(0.7))
-                            
-                            List {
-                                SettingsCard(iconImage: "person", name: "testing")
-                                    .padding(.horizontal, 20)
-                                SettingsCard(iconImage: "heart", name: "testing")
-                                    .padding(.horizontal, 20)
-                            }
-                            //.listStyle(InsetGroupedListStyle())
-                        }
+                        Text("User")
+                            .font(Font.custom("TitanOne", size: 18))
+                            .frame(maxWidth: .infinity, alignment: .leading)  // Align text to the leading edge
+                            .padding(.horizontal, 30)
+                            .foregroundColor(Color.primary.opacity(0.7))
                         
-                        
-                        Group {
-                            Text("Cat")
-                                .font(Font.custom("TitanOne", size: 18))
-                                .frame(maxWidth: .infinity, alignment: .leading)  // Align text to the leading edge
-                                .padding(.horizontal, 30)
-                                .foregroundColor(Color.primary.opacity(0.7))
+                        VStack(spacing: 1) {
+                            SettingsCard(iconImage: "person", name: "Name")
+                                .onTapGesture {
+                                    print("Name card tapped")
+                                    self.isUpdating = true
+                                }
+                            SettingsCard(iconImage: "envelope", name: "Email")
                         }
-                        // User
-                            // name
-                            // email
-                            // password?
-                        // Cat
-                            // name
-                            // age
-                            // weight
+                        .background(Color(.systemGray4))
+                        .cornerRadius(15)
+                        .padding(.horizontal, 20)
+                        
+                        Text("Cat")
+                            .font(Font.custom("TitanOne", size: 18))
+                            .frame(maxWidth: .infinity, alignment: .leading)  // Align text to the leading edge
+                            .padding(.horizontal, 30)
+                            .foregroundColor(Color.primary.opacity(0.7))
+                        
+                        VStack(spacing: 1) {
+                            SettingsCard(iconImage: "cat", name: "Name")
+                            SettingsCard(iconImage: "calendar", name: "Age")
+                            SettingsCard(iconImage: "scalemass", name: "Weight")
+                            SettingsCard(iconImage: "tag", name: "Collar Color")
+                        }
+                        .background(Color(.systemGray4))
+                        .cornerRadius(15)
+                        .padding(.horizontal, 20)
                         
                         Spacer()
 
@@ -112,6 +124,9 @@ struct SettingsView: View {
             }
             
         }
+        .fullScreenCover(isPresented: self.$isUpdating, content: {
+            Text("Hello")
+        })
     }
 }
 
