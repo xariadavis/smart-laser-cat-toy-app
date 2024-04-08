@@ -6,15 +6,36 @@
 //
 
 import SwiftUI
+import Foundation
 
-enum UpdateOption {
+enum UpdateOption: Identifiable {
     case usersName
     case email
     case catsName
     case age
     case weight
     case collarColor
+
+    var id: Self { self }
+    
+    var titleAndField: (title: String, field: String) {
+        switch self {
+        case .usersName:
+            return ("User", "name")
+        case .email:
+            return ("User", "email")
+        case .catsName:
+            return ("Cat", "name")
+        case .age:
+            return ("Cat", "age")
+        case .weight:
+            return ("Cat", "weight")
+        case .collarColor:
+            return ("Cat", "collarColor")
+        }
+    }
 }
+
 
 struct SettingsView: View {
     
@@ -25,7 +46,11 @@ struct SettingsView: View {
     
     @State private var selectedOption: UpdateOption?
     @State private var isUpdating: Bool = false
-
+    
+    @State var updatedValue: String = ""
+    @State var title: String = ""
+    @State var field: String = ""
+    
     var body: some View {
         ZStack {
             
@@ -61,7 +86,7 @@ struct SettingsView: View {
                             .padding(.top, 50)
                             .padding(.bottom, 10)
                         
-                            
+                        
                         Text("User")
                             .font(Font.custom("TitanOne", size: 18))
                             .frame(maxWidth: .infinity, alignment: .leading)  // Align text to the leading edge
@@ -69,12 +94,13 @@ struct SettingsView: View {
                             .foregroundColor(Color.primary.opacity(0.7))
                         
                         VStack(spacing: 1) {
-                            SettingsCard(iconImage: "person", name: "Name")
-                                .onTapGesture {
-                                    print("Name card tapped")
-                                    self.isUpdating = true
-                                }
-                            SettingsCard(iconImage: "envelope", name: "Email")
+                            SettingsCard(iconImage: "person", name: "Name", action: {
+                                self.selectedOption = .usersName
+                            })
+                            
+                            SettingsCard(iconImage: "envelope", name: "Email", action: {
+                                self.selectedOption = .email
+                            })
                         }
                         .background(Color(.systemGray4))
                         .cornerRadius(15)
@@ -88,10 +114,18 @@ struct SettingsView: View {
                             .foregroundColor(Color.primary.opacity(0.7))
                         
                         VStack(spacing: 1) {
-                            SettingsCard(iconImage: "cat", name: "Name")
-                            SettingsCard(iconImage: "calendar", name: "Age")
-                            SettingsCard(iconImage: "scalemass", name: "Weight")
-                            SettingsCard(iconImage: "tag", name: "Collar Color")
+                            SettingsCard(iconImage: "cat", name: "Name", action: {
+                                self.selectedOption = .catsName
+                            })
+                            SettingsCard(iconImage: "calendar", name: "Age", action: {
+                                self.selectedOption = .age
+                            })
+                            SettingsCard(iconImage: "scalemass", name: "Weight", action: {
+                                self.selectedOption = .weight
+                            })
+                            SettingsCard(iconImage: "tag", name: "Collar Color", action: {
+                                self.selectedOption = .collarColor
+                            })
                         }
                         .background(Color(.systemGray4))
                         .cornerRadius(15)
@@ -100,7 +134,7 @@ struct SettingsView: View {
                         .padding(.bottom, 40) // Remove if log out will not immediately follow
                         
                         Spacer()
-
+                        
                         Button {
                             viewModel.logOut()
                             sessionManager.isUserAuthenticated = false
@@ -128,27 +162,42 @@ struct SettingsView: View {
             }
             
         }
-        .fullScreenCover(isPresented: self.$isUpdating, content: {
-            UpdatingView(settingsViewModel: viewModel)
-        })
+        .fullScreenCover(item: $selectedOption) { option in
+            UpdatingView(option: option, updateAction: { updatedValue in
+                
+                // Handle update logic here
+                if option.titleAndField.title == "User" {
+                    viewModel.updateUserField(id: userCatsViewModel.user.id, updates: [option.titleAndField.field : updatedValue])
+                } else if option.titleAndField.title == "Cat" {
+                    viewModel.updateCatField(id: userCatsViewModel.user.id, catID: userCatsViewModel.cat.id ?? "", updates: [option.titleAndField.field : updatedValue])
+                }
+                
+                sessionManager.refreshCurrentUser()
+                
+            }, dismissAction: {
+                self.selectedOption = nil
+                self.updatedValue = ""
+            })
+        }
+
     }
 }
 
 // TODO: Implement selective refreshing
 struct UpdatingView: View {
     
+    var option: UpdateOption
+    var updateAction: (_ updatedValue: String) -> Void
+    var dismissAction: () -> Void
+    
+    @State private var updatedValue = ""
     @Environment(\.presentationMode) var presentationMode
-    @State var updatedName: String = ""
-    @ObservedObject var settingsViewModel: SettingsViewModel
-    @EnvironmentObject var sessionManager: SessionManager
     
     var body: some View {
         ZStack {
-            
             Color(.systemGray5).ignoresSafeArea()
             
             VStack {
-                
                 HStack {
                     Spacer()
                     Button(action: {
@@ -161,61 +210,41 @@ struct UpdatingView: View {
                     }
                 }
                 
+                Text("Edit \(option.titleAndField.title)")
+                    .font(Font.custom("TitanOne", size: 30))
+                
+                Text("Edit \(option.titleAndField.field)")
+                    .font(Font.custom("Quicksand-Bold", size: 20))
+                    .padding(.bottom, 30)
+                
+                TextField("Enter value", text: $updatedValue)
+                    .font(Font.custom("Quicksand-SemiBold", size: 20))
+                    .foregroundColor(.primary)
+                    .padding()
+                    .background(Color(.systemGray4))
+                    .cornerRadius(15)
+                    .padding()
+                    .autocorrectionDisabled(true)
+                
                 Spacer()
                 
-                updateUsersName
-                
-                Spacer()
                 Button(action: {
-                    print("updating")
-                    print("\(sessionManager.userCatsViewModel.cat.id)")
-                    settingsViewModel.updateCatField(id: sessionManager.currentUser?.id ?? "", catID: sessionManager.userCatsViewModel.cat.id ?? "", updates: ["name" : updatedName])
-                    
-//                    settingsViewModel.updateUserField(id: sessionManager.currentUser?.id ?? "", updates: ["name" : updatedName])
-                    sessionManager.refreshCurrentUser()
+                    updateAction(updatedValue)
+                    dismissAction()
                 }, label: {
                     Text("Update")
                         .redButton()
                         .padding(.horizontal, 20)
                 })
                 
-            }
-            
-        }
-    }
-    
-    private var updateUsersName: some View {
-        Group {
-            
-            // Edit User
-            VStack(alignment: .leading) {
-                
-                Text("Edit User")
-                    .font(Font.custom("TitanOne", size: 30))
-                
-                // Edit User's name
-                Text("Edit name")
-                    .font(Font.custom("Quicksand-Bold", size: 20))
-                
-                Spacer()
-                
-                // TF
-                TextField("Name", text: $updatedName)
-                    .font(Font.custom("Quicksand-SemiBold", size: 20))
-                    .foregroundColor(.primary)
-                    .padding()
-                    .background(Color(.systemGray5))
-                    .cornerRadius(15)
-                    .autocorrectionDisabled(true)
-                
                 Spacer()
             }
-            .padding()
         }
     }
 }
 
-#Preview {
-//    SettingsView(viewModel: SettingsViewModel(authViewModel: AuthViewModel()))
-    UpdatingView(settingsViewModel: SettingsViewModel(authViewModel: AuthViewModel(), firestoreManager: FirestoreManager()))
-}
+
+//#Preview {
+////    SettingsView(viewModel: SettingsViewModel(authViewModel: AuthViewModel()))
+//    UpdatingView(settingsViewModel: SettingsViewModel(authViewModel: AuthViewModel(), firestoreManager: FirestoreManager()))
+//}
