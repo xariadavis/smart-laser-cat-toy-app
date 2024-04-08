@@ -45,7 +45,7 @@ struct ContentView: View {
                         ProfileView(viewModel: ProfileViewModel(firestoreManager: FirestoreManager()))
                             .navigationBarBackButtonHidden(true)
                     case .settings:
-                        SettingsView(viewModel: SettingsViewModel(authViewModel: AuthViewModel()))
+                        SettingsView(viewModel: SettingsViewModel(authViewModel: AuthViewModel(), firestoreManager: FirestoreManager()))
                             .navigationBarBackButtonHidden(true)
                     case .root:
                         RootView()

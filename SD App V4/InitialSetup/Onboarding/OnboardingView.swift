@@ -293,7 +293,9 @@ extension OnboardingView {
                             navigationState.path.append(LoadingNavigation.loadingFromOnboarding)
                             print("After loading path append: \(sessionManager.isUserAuthenticated) + \(String(describing: sessionManager.currentUser)) + \(String(describing: sessionManager.currentUser?.cat))")
                         }
-
+                        // Assuming you might store or use catId somewhere here as well
+                        navigationState.path.append(LoadingNavigation.loadingFromOnboarding)
+                        print("After loading path append: \(sessionManager.isUserAuthenticated) + \(String(describing: sessionManager.currentUser)) + \(String(describing: sessionManager.currentUser?.cat))")
                     }
                 case .failure(let error):
                     DispatchQueue.main.async {

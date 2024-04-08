@@ -122,6 +122,23 @@ class FirestoreManager {
         }
     }
 
+    // Updates user's information in Firestore
+    func updateUserInfo(id: String, updates: [String: Any], completion: @escaping (Result<Void, Error>) -> Void) {
+        let userDocument = db.collection("users").document(id)
+
+        userDocument.updateData(updates) { error in
+            DispatchQueue.main.async {
+                if let error = error {
+                    print("Error updating user document: \(error)")
+                    completion(.failure(error))
+                } else {
+                    print("User document successfully updated")
+                    completion(.success(()))
+                }
+            }
+        }
+    }
+
 
     func fetchCatDataFromFirestore(userID: String, catID: String, field: String, completion: @escaping (Result<String, Error>) -> Void) {
         
