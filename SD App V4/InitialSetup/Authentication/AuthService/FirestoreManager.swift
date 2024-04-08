@@ -44,14 +44,14 @@ class FirestoreManager {
         }
     }
     
-    func saveCatInfo(cat: Cat, id: String, completion: @escaping (Error?) -> Void) {
+    func saveCatInfo(cat: Cat, id: String, completion: @escaping (Result<String, Error>) -> Void) {
         var catData: [String: Any] = [
             "name": cat.name,
             "breed": cat.breed,
             "sex": cat.sex ?? "unknown",
             "age": cat.age,
             "weight": cat.weight ?? 0.0,
-            "color": cat.color ?? "unknown",
+            "collarColor": cat.collarColor ?? "unknown",
             "dailyQuota": cat.dailyQuota,
             "timePlayedToday": cat.timePlayedToday,
             "timeRemaining": cat.timeRemaining,
@@ -65,11 +65,11 @@ class FirestoreManager {
         // Save the cat data
         catDocRef.setData(catData) { error in
             if let error = error {
-                completion(error)
+                completion(.failure(error))
             } else {
-                // Optionally, handle the cat's Firestore-generated ID here if necessary
+                // On success, return the cat's Firestore-generated ID
                 print("Saved cat info with ID: \(catDocRef.documentID)")
-                completion(nil)
+                completion(.success(catDocRef.documentID))
             }
         }
 

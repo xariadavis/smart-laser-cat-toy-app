@@ -54,4 +54,24 @@ class UserCatsViewModel: ObservableObject {
             }
         })
     }
+    
+    func nullifyCat() {
+        self.cat.name = ""
+        self.cat.sex = ""
+        self.cat.weight = 0.0
+        self.cat.dailyQuota = 0
+        self.cat.timePlayedToday = 0
+        self.cat.breed = ""
+        self.cat.age = 0
+        self.cat.profilePicture = ""
+        self.cat.id = ""
+        self.cat.collarColor = ""
+    }
+    
+    func nullifyUser() {
+        self.user.id = ""
+        self.user.email = ""
+        self.user.name = ""
+        self.user.password = ""
+    }
 }

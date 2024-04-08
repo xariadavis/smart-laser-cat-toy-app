@@ -58,7 +58,7 @@ struct ProfileView: View {
                     .scaledToFill()
                     .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2)
                     .clipped()
-            } else if let profilePictureURL = URL(string: userCatsViewModel.cat.profilePicture), userCatsViewModel.cat.profilePicture != "" {
+            } else if let profilePictureURL = URL(string: userCatsViewModel.cat.profilePicture ?? ""), userCatsViewModel.cat.profilePicture != "" {
                 KFImage(profilePictureURL)
                     .resizable()
                     .scaledToFill()
@@ -88,7 +88,7 @@ struct ProfileView: View {
                             case .success(let data):
                                 if let data = data {
                                     self.imageData = data
-                                    viewModel.uploadProfilePicture(imageData: data, userID: userCatsViewModel.user.id, catID: userCatsViewModel.cat.id ?? "") { result in
+                                    viewModel.uploadProfilePicture(imageData: data, userID: userCatsViewModel.user.id ?? "", catID: userCatsViewModel.cat.id ?? "") { result in
                                         DispatchQueue.main.async {
                                             switch result {
                                             case .success(let downloadURL):

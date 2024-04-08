@@ -15,7 +15,7 @@ struct Cat: Codable {
     var sex: String?
     var age: Int = 0
     var weight: Double?
-    var color: String?
+    var collarColor: String?
     var dailyQuota: Int = 1800
     var timePlayedToday: Int = 0
     var timeRemaining: Int = 1800

@@ -56,6 +56,9 @@ struct OnboardingView: View {
                     case 5:
                         getCatDailyQuota
                             .transition(transition)
+                    case 6:
+                        getCatCollarColor
+                            .transition(transition)
                     default:
                         WelcomeView()
                     }
@@ -70,6 +73,10 @@ struct OnboardingView: View {
             .alert(isPresented: $showAlert, content: {
                 return Alert(title: Text(alertTitle ))
             })
+        }
+        .onChange(of: isLoading) { oldValue, newValue in
+            print("isLoading: \(newValue)")
+            navigationState.path.append(LoadingNavigation.loadingFromOnboarding)
         }
     }
     
@@ -186,7 +193,39 @@ struct OnboardingView: View {
             }
             .pickerStyle(WheelPickerStyle())
             Spacer()
+        }
+    }
+    
+    private var getCatCollarColor: some View {
+        Group {
+            Text("What's \(String(describing: newCat.name))'s collar color?")
+                .font(Font.custom("Quicksand-Bold", size: 30))
             
+            Group {
+                Button(action: {
+                    self.newCat.collarColor = "Red"
+                }, label: {
+                    Text("Red")
+                        .redOutlineButton()
+                })
+                
+                Button(action: {
+                    self.newCat.collarColor = "Green"
+                }, label: {
+                    Text("Green")
+                        .redOutlineButton()
+                })
+                
+                Button(action: {
+                    self.newCat.collarColor = "Blue"
+                }, label: {
+                    Text("Blue")
+                        .redOutlineButton()
+                })
+            }
+            .padding(.horizontal, 20)
+            
+            Spacer()
         }
     }
     
@@ -195,7 +234,7 @@ struct OnboardingView: View {
         Button(action: {
             handleButtonPress()
         }, label: {
-            Text(onboardingState == 5 ? "Finish" : "Next")
+            Text(onboardingState == 6 ? "Finish" : "Next")
                 .redButton()
                 .animation(nil)
         })
@@ -212,12 +251,17 @@ extension OnboardingView {
         switch onboardingState {
         case 2:
             guard let weight = newCat.weight, weight > 0 else {
-                showAlert(title: "Please enter \(newCat.name)'s weight!")
+                showAlert(title: "Please enter \(newCat.name)'s weight.")
                 return
             }
         case 3:
             guard let gender = newCat.sex, gender != "" else {
-                showAlert(title: "Please enter \(newCat.name)'s gender!")
+                showAlert(title: "Please enter \(newCat.name)'s gender.")
+                return
+            }
+        case 6:
+            guard let collarColor = newCat.collarColor, collarColor != "" else {
+                showAlert(title: "Please enter \(newCat.name)'s collar color.")
                 return
             }
         default:
@@ -225,25 +269,40 @@ extension OnboardingView {
         }
         if onboardingState == 2 {
             // print("id - > \(viewModel.getUserID())")
-            sessionManager.currentUser?.id = viewModel.getUserID()
+            // sessionManager.currentUser?.id = viewModel.getUserID()
         }
-        if onboardingState == 5 {
+        if onboardingState == 6 {
             // print("\(newCat.name) + \(newCat.age) + \(newCat.weight) + \(newCat.sex) + \(newCat.breed)")
             
             newCat.dailyQuota *= 60
             newCat.timeRemaining = newCat.dailyQuota
             
-            viewModel.updateCatInfo(cat: newCat, completion: { success in
-                if success {
+            viewModel.updateCatInfo(cat: newCat) { result in
+                switch result {
+                case .success(let catId):
                     DispatchQueue.main.async {
-                        print("Update was successful.")
+                        print("Update was successful with cat ID: \(catId).")
                         isLoading = true
-                        navigationState.path.append(LoadingNavigation.loadingFromOnboarding(userID: viewModel.getUserID()))
+                        newCat.id = catId
+//                        sessionManager.currentUser?.cat = newCat
+                        
+                        sessionManager.refreshCurrentUser()
+                        if sessionManager.currentUser?.cat?.id != nil {
+                            navigationState.path.append(MainNavigation.root)
+                        } else {
+                            navigationState.path.append(LoadingNavigation.loadingFromOnboarding)
+                            print("After loading path append: \(sessionManager.isUserAuthenticated) + \(String(describing: sessionManager.currentUser)) + \(String(describing: sessionManager.currentUser?.cat))")
+                        }
+
                     }
-                } else {
-                    // print("Cat update was unsuccessful.")
+                case .failure(let error):
+                    DispatchQueue.main.async {
+                        // Handle the error, maybe show an alert or log the error
+                        print("Cat update was unsuccessful: \(error.localizedDescription)")
+                    }
                 }
-            })
+            }
+
                         
         } else {
             withAnimation(.spring()) {
@@ -263,13 +322,10 @@ extension OnboardingView {
 struct LoadingRegistrationView: View {
     
     @EnvironmentObject var navigationState: NavigationState
-    @EnvironmentObject var userCatsViewModel: UserCatsViewModel
     @EnvironmentObject var sessionManager: SessionManager
-    private var userID: String = ""
+    @ObservedObject var userCatsViewModel = UserCatsViewModel.shared
     
-    init(userID: String) {
-        self.userID = userID
-    }
+    @State var isLoading: Bool = true
     
     var body: some View {
         ZStack {
@@ -277,21 +333,13 @@ struct LoadingRegistrationView: View {
             LottiePlusView(name: Constants.Loading, loopMode: .loop)
         }
         .onAppear {
-            // Trigger loading user data
-            userCatsViewModel.loadUserData(id: userID)
-        }
-        .onChange(of: userCatsViewModel.user.id) { id in
-            // Check if the newly loaded user matches the session manager's current user
-//            print("CHANGED?")
-//            print("SessionManager: \(sessionManager.currentUser)")
-//            print("User \(userCatsViewModel.user)")
-            
-            sessionManager.currentUser = userCatsViewModel.user
-            if id == sessionManager.currentUser?.id {
-                sessionManager.isUserAuthenticated = true
-                sessionManager.currentUser?.cat = userCatsViewModel.cat
-                navigationState.path.append(MainNavigation.root)
+            sessionManager.refreshCurrentUser()
+            if sessionManager.currentUser?.id == userCatsViewModel.user.id {
+                isLoading = false
             }
+        }
+        .onChange(of: sessionManager.isLoading) { id in
+            navigationState.path.append(MainNavigation.root)
         }
     }
 }

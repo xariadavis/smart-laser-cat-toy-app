@@ -30,18 +30,14 @@ class SessionManager: ObservableObject {
                 }
                 
                 // Fetch user data
-                print("SessionManager: fetching user...")
                 self.firestoreManager.fetchUserData(id: firebaseUser.uid) { result in
                     switch result {
                     case .success(let user):
-//                        print("SessionManager: fetching user SUCCESS")
                         self.firestoreManager.fetchCatForUser(id: user.id) { catResult in
                             DispatchQueue.main.async {
                                 switch catResult {
                                 case .success(let cat):
-                                    
                                     self.currentUser = user
-//                                    print("SessionManager: \(self.currentUser?.id)")
                                     self.isUserAuthenticated = true
                                     self.patternsManager.fetchPatterns()
                                 
@@ -49,6 +45,8 @@ class SessionManager: ObservableObject {
                                     self.isLoading = false
                                 case .failure:
                                     // Cat data missing, could trigger onboarding
+                                    print("Cat data missing, could trigger onboarding")
+                                    self.currentUser = user
                                     self.isUserAuthenticated = false
                                     self.isLoading = false
                                 }
@@ -56,7 +54,7 @@ class SessionManager: ObservableObject {
                         }
                     case .failure:
                         DispatchQueue.main.async {
-//                            print("SessionManager: fetching user FAILED")
+                            print("SessionManager: fetching user FAILED")
                             self.isUserAuthenticated = false
                             self.isLoading = false
                         }
@@ -66,4 +64,43 @@ class SessionManager: ObservableObject {
         }
     
 }
+
+extension SessionManager {
+    
+    func refreshCurrentUser() {
+        guard let firebaseUser = Auth.auth().currentUser else {
+            self.isUserAuthenticated = false
+            return
+        }
+
+        print("SessionManager: Refreshing user data...")
+
+        firestoreManager.fetchUserData(id: firebaseUser.uid) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let user):
+                    print("SessionManager: Refreshed user data successfully -> \(user.id)")
+                    self.firestoreManager.fetchCatForUser(id: user.id) { catResult in
+                        switch catResult {
+                        case .success(let cat):
+                            self.currentUser = user
+                            self.currentUser?.cat = cat
+                            self.isUserAuthenticated = true
+                            self.patternsManager.fetchPatterns()
+                            self.userCatsViewModel.loadUserData(id: user.id)
+                        case .failure:
+                            print("Cat data missing, user may need onboarding")
+                            self.currentUser = user
+                            self.isUserAuthenticated = true
+                        }
+                    }
+                case .failure(let error):
+                    print("SessionManager: Failed to refresh user data with error: \(error.localizedDescription)")
+                    self.isUserAuthenticated = false
+                }
+            }
+        }
+    }
+}
+
 

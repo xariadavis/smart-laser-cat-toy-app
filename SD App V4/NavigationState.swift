@@ -30,5 +30,5 @@ enum MainNavigation: Int, Hashable, CaseIterable {
 }
 
 enum LoadingNavigation: Hashable {
-    case loadingFromOnboarding(userID: String)
+    case loadingFromOnboarding
 }

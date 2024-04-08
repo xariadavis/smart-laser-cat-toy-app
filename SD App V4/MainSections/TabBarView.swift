@@ -72,7 +72,7 @@ struct TabBar: View {
                     case 3:
                         SettingsView(viewModel: SettingsViewModel(authViewModel: AuthViewModel()))
                     default:
-                        EmptyView() // Fallback view
+                        FallbackView() // Fallback view
                     }
                 }
                 //            .transition(.scale(scale: 0.9))

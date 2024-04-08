@@ -12,6 +12,8 @@ struct SettingsView: View {
     @StateObject var viewModel: SettingsViewModel
     @EnvironmentObject var sessionManager: SessionManager
     @EnvironmentObject var bluetoothViewModel: BluetoothViewModel // Create an instance of BluetoothViewModel
+    @ObservedObject var userCatsViewModel = UserCatsViewModel.shared
+
 
     var body: some View {
         ZStack {
@@ -40,11 +42,57 @@ struct SettingsView: View {
                             .padding(.horizontal)
                         
                         Spacer()
+                        
+                        Text("Account details")
+                            .font(Font.custom("TitanOne", size: 25))
+                            .frame(maxWidth: .infinity, alignment: .leading)  // Align text to the leading edge
+                            .padding(.horizontal, 30)
+                            .padding(.vertical, 10)
+                        
+                        Group {
+                            
+                            Text("User")
+                                .font(Font.custom("TitanOne", size: 18))
+                                .frame(maxWidth: .infinity, alignment: .leading)  // Align text to the leading edge
+                                .padding(.horizontal, 30)
+                                .foregroundColor(Color.primary.opacity(0.7))
+                            
+                            List {
+                                SettingsCard(iconImage: "person", name: "testing")
+                                    .padding(.horizontal, 20)
+                                SettingsCard(iconImage: "heart", name: "testing")
+                                    .padding(.horizontal, 20)
+                            }
+                            //.listStyle(InsetGroupedListStyle())
+                        }
+                        
+                        
+                        Group {
+                            Text("Cat")
+                                .font(Font.custom("TitanOne", size: 18))
+                                .frame(maxWidth: .infinity, alignment: .leading)  // Align text to the leading edge
+                                .padding(.horizontal, 30)
+                                .foregroundColor(Color.primary.opacity(0.7))
+                        }
+                        // User
+                            // name
+                            // email
+                            // password?
+                        // Cat
+                            // name
+                            // age
+                            // weight
+                        
+                        Spacer()
 
                         Button {
                             viewModel.logOut()
                             sessionManager.isUserAuthenticated = false
                             sessionManager.currentUser = nil
+                            
+                            userCatsViewModel.nullifyCat()
+                            userCatsViewModel.nullifyUser()
+                            
                             bluetoothViewModel.isSearching = false
                             bluetoothViewModel.isConnected = false
                         } label: {
@@ -55,7 +103,7 @@ struct SettingsView: View {
                                 .foregroundColor(Color.primary)
                                 .background(Color.red.opacity(0.9))
                                 .cornerRadius(30)
-                                .padding(.horizontal, 40)
+                                .padding(.horizontal, 20)
                         }
                         
                     }

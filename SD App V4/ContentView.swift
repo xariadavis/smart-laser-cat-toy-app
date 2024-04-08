@@ -54,8 +54,8 @@ struct ContentView: View {
                 }
                 .navigationDestination(for: LoadingNavigation.self) { target in
                     switch target {
-                    case .loadingFromOnboarding(let userID):
-                        LoadingRegistrationView(userID: userID)
+                    case .loadingFromOnboarding:
+                        LoadingRegistrationView()
                             .navigationBarBackButtonHidden(true)
                     }
                 }

@@ -29,6 +29,7 @@ struct RootView: View {
                     }
             }
         }
+        .environmentObject(userCatsViewModel)
 //        .sheet(isPresented: $showingPatternDetail) {
 //            if let pattern = timerViewModel.currentPattern {
 //                PatternDetailCover(pattern: .constant(pattern), onDismiss: {

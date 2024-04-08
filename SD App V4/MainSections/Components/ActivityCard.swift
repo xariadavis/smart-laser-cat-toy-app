@@ -55,7 +55,7 @@ struct ActivityCard: View {
                             .font(Font.custom("Quicksand-Bold", size: 16))
                             .foregroundColor(Color.secondary)
                         
-                        Text("\(userCatsViewModel.cat.timePlayedToday / 60)/\(userCatsViewModel.cat.dailyQuota / 60) mins")
+                        Text("\((userCatsViewModel.cat.timePlayedToday ?? 0) / 60)/\((userCatsViewModel.cat.dailyQuota ?? 0) / 60) mins")
                             .font(Font.custom("Quicksand-Semibold", size: 14))
                             .foregroundColor(Color.secondary)
                     }
@@ -89,8 +89,8 @@ struct ActivityCard: View {
             return 0
         }
 
-        return Float(Double(userCatsViewModel.cat.timePlayedToday) / Double(userCatsViewModel.cat
-            .dailyQuota))
+        return Float(Double(userCatsViewModel.cat.timePlayedToday ?? 0) / Double(userCatsViewModel.cat
+            .dailyQuota ?? 0))
         
     }
 }

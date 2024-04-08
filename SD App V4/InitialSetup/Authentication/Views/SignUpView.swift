@@ -19,6 +19,11 @@ struct SignUpView: View {
     @State private var catName: String = ""
     @State private var email: String = ""
     @State private var password: String = ""
+    @FocusState private var focusedField: Field?
+
+    enum Field {
+        case ownerName, catName, email, password
+    }
     
     
     var body: some View {
@@ -59,14 +64,18 @@ struct SignUpView: View {
                 Group {
                     
                     TextField("Your Name", text: $ownerName)
+                        .focused($focusedField, equals: .ownerName)
                         .font(Font.custom("Quicksand-SemiBold", size: 20))
                         .foregroundColor(.primary)
                         .padding()
                         .background(Color(.systemGray5))
                         .cornerRadius(15)
                         .autocorrectionDisabled(true)
+
                     
                     TextField("Pet's Name", text: $catName)
+                        .focused($focusedField, equals: .catName)
+                        .onSubmit { focusedField = .email }
                         .font(Font.custom("Quicksand-SemiBold", size: 20))
                         .foregroundColor(.primary)
                         .padding()
@@ -75,17 +84,25 @@ struct SignUpView: View {
                         .autocorrectionDisabled(true)
                     
                     TextField("Email Address", text: $email)
+                        .focused($focusedField, equals: .email)
+//                        .textContentType(.emailAddress)
+//                        .keyboardType(.emailAddress)
+                        .textFieldStyle(.plain)
+                        .textContentType(.oneTimeCode) // Content type that doesn't trigger passwords auto-fill, but this might not be ideal for user experience
                         .font(Font.custom("Quicksand-SemiBold", size: 20))
                         .foregroundColor(.primary)
                         .padding()
                         .background(Color(.systemGray5))
                         .cornerRadius(15)
                         .autocapitalization(.none)
-                        .autocorrectionDisabled()
-                        .autocapitalization(.none)
                         .autocorrectionDisabled(true)
                     
+                    
                     SecureField("Password", text: $password)
+                        .focused($focusedField, equals: .password)
+//                        .textContentType(.password)
+                        .textFieldStyle(.plain)
+                        .textContentType(.oneTimeCode) // Content type that doesn't trigger passwords auto-fill, but this might not be ideal for user experience
                         .font(Font.custom("Quicksand-SemiBold", size: 20))
                         .foregroundColor(.primary)
                         .padding()
@@ -109,18 +126,15 @@ struct SignUpView: View {
                         if success {
                             // Now that registration is successful, navigate to the onboarding view
                             DispatchQueue.main.async {
-                            navigationState.path.append(AuthenticationNavigation.onboarding(catName: catName))
+                                navigationState.path.append(AuthenticationNavigation.onboarding(catName: catName))
+                                // sessionManager.currentUser?.id = viewModel.userID
                             }
-                            
-                            sessionManager.currentUser?.id = viewModel.userID
-                            
                         } else {
                         // Handle registration failure, potentially by showing an error message
                         print("SignUpView: Registration failed with error: \(error?.localizedDescription ?? "Unknown error")")
                         }
                     }
 
-                    
                     print("SignUpView: onChange is \(viewModel.registrationSuccessful)")
                     print("In sign up view: \(viewModel.userID)")
                     
@@ -152,7 +166,6 @@ struct SignUpView: View {
             } message: {
                 Text(viewModel.alertMessage)
             }
-            
         }
     }
 }

@@ -53,7 +53,7 @@ struct ProfileCard: View {
     }
     
     private var profileImage: some View {
-        KFImage(URL(string: userCatsViewModel.cat.profilePicture ?? ""))
+        KFImage(URL(string: userCatsViewModel.cat.profilePicture))
             .placeholder {
                 // Placeholder image while loading or when the URL is nil/empty.
                 LottiePlusView(name: Constants.Loading, loopMode: .loop)

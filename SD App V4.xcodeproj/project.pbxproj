@@ -49,6 +49,9 @@
 		57B8CD362B9FBFD2007391A1 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 57B8CD352B9FBFD2007391A1 /* FirebaseFirestore */; };
 		57B8CD382B9FBFD2007391A1 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 57B8CD372B9FBFD2007391A1 /* FirebaseFirestoreSwift */; };
 		57B8CD3B2B9FEF01007391A1 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57B8CD3A2B9FEF01007391A1 /* UserViewModel.swift */; };
+		57BDBCC22BC1FDDD000F0138 /* UserInfoCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BDBCC12BC1FDDD000F0138 /* UserInfoCard.swift */; };
+		57BDBCC62BC31E8C000F0138 /* FallbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BDBCC52BC31E8C000F0138 /* FallbackView.swift */; };
+		57BDBCC82BC383FF000F0138 /* SettingsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BDBCC72BC383FF000F0138 /* SettingsCard.swift */; };
 		57ECBC752B9C1AE60007E234 /* SD_App_V4App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ECBC742B9C1AE60007E234 /* SD_App_V4App.swift */; };
 		57ECBC772B9C1AE60007E234 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ECBC762B9C1AE60007E234 /* ContentView.swift */; };
 		57ECBC792B9C1AE70007E234 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57ECBC782B9C1AE70007E234 /* Assets.xcassets */; };
@@ -113,6 +116,9 @@
 		57A5E6F42BA1177600921818 /* LaserLoading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LaserLoading.json; sourceTree = "<group>"; };
 		57B8715E2BA2B27200E7F92D /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		57B8CD3A2B9FEF01007391A1 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		57BDBCC12BC1FDDD000F0138 /* UserInfoCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoCard.swift; sourceTree = "<group>"; };
+		57BDBCC52BC31E8C000F0138 /* FallbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FallbackView.swift; sourceTree = "<group>"; };
+		57BDBCC72BC383FF000F0138 /* SettingsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCard.swift; sourceTree = "<group>"; };
 		57ECBC712B9C1AE60007E234 /* SD App V4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SD App V4.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		57ECBC742B9C1AE60007E234 /* SD_App_V4App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SD_App_V4App.swift; sourceTree = "<group>"; };
 		57ECBC762B9C1AE60007E234 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -179,6 +185,8 @@
 				570F430D2B9D6B0F0047E4DA /* FavoritesCarousel.swift */,
 				57A00CC62BAA612D00402ABA /* TimerViewModel.swift */,
 				579DB08D2BB92BF800410D02 /* BluetoothCard.swift */,
+				57BDBCC12BC1FDDD000F0138 /* UserInfoCard.swift */,
+				57BDBCC72BC383FF000F0138 /* SettingsCard.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -237,6 +245,7 @@
 		575552902B9ECB3E00C36DF7 /* InitialSetup */ = {
 			isa = PBXGroup;
 			children = (
+				57ECBC832B9C21FC0007E234 /* Authentication */,
 				57ECBCAB2B9C246B0007E234 /* Welcome */,
 				5755528F2B9ECB3400C36DF7 /* Onboarding */,
 				574A812D2BB4847700F2F805 /* SplashScreen.swift */,
@@ -293,7 +302,6 @@
 				57ECBCC72B9C35F40007E234 /* SD-App-V4-Info.plist */,
 				575552902B9ECB3E00C36DF7 /* InitialSetup */,
 				57ECBCA52B9C241D0007E234 /* MainSections */,
-				57ECBC832B9C21FC0007E234 /* Authentication */,
 				579DB0882BB8C93800410D02 /* Bluetooth */,
 				57ECBCA62B9C242D0007E234 /* Models */,
 				57ECBCB22B9C25970007E234 /* Utilities */,
@@ -425,6 +433,7 @@
 				57ECBCC52B9C34F10007E234 /* GlowModifier.swift */,
 				570F43082B9D681A0047E4DA /* ColorButton.swift */,
 				575A363B2BAFC22F009E2EDB /* DailyQuotaManager.swift */,
+				57BDBCC52BC31E8C000F0138 /* FallbackView.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -586,9 +595,11 @@
 				575A363C2BAFC22F009E2EDB /* DailyQuotaManager.swift in Sources */,
 				57ECBCC62B9C34F10007E234 /* GlowModifier.swift in Sources */,
 				57A0E0AF2BA0CCE800C8E29C /* PatternsManager.swift in Sources */,
+				57BDBCC22BC1FDDD000F0138 /* UserInfoCard.swift in Sources */,
 				575552922B9ECB6000C36DF7 /* OnboardingView.swift in Sources */,
 				573D65A22BA154960063CB6C /* ButtonMods.swift in Sources */,
 				57ECBC8F2B9C22BF0007E234 /* SignUpViewModel.swift in Sources */,
+				57BDBCC62BC31E8C000F0138 /* FallbackView.swift in Sources */,
 				573CCDF42BA6ABFF0047A980 /* UserCatsViewModel.swift in Sources */,
 				57ECBC9A2B9C23280007E234 /* PatternsListViewModel.swift in Sources */,
 				57ECBC752B9C1AE60007E234 /* SD_App_V4App.swift in Sources */,
@@ -601,6 +612,7 @@
 				574A812E2BB4847700F2F805 /* SplashScreen.swift in Sources */,
 				57ECBC932B9C22E20007E234 /* DashboardViewModel.swift in Sources */,
 				573CCDF22BA69C6A0047A980 /* FirestoreManager.swift in Sources */,
+				57BDBCC82BC383FF000F0138 /* SettingsCard.swift in Sources */,
 				57B8CD3B2B9FEF01007391A1 /* UserViewModel.swift in Sources */,
 				573CCDF02BA68FCF0047A980 /* SessionManager.swift in Sources */,
 				57ECBCA22B9C23820007E234 /* SettingsViewModel.swift in Sources */,
