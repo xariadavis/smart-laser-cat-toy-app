@@ -13,9 +13,22 @@ class SettingsViewModel: ObservableObject {
     private let authViewModel: AuthViewModel
     private var firestoreManager: FirestoreManager
     
+    @Published private var selectedOption: UpdateOption?
+    @Published private var isUpdating: Bool = false
+    
+    @Published var updatedValue: String = ""
+    @Published var title: String = ""
+    @Published var field: String = ""
+    
     init(authViewModel: AuthViewModel, firestoreManager: FirestoreManager) {
         self.authViewModel = authViewModel
         self.firestoreManager = firestoreManager
+    }
+    
+    func selectOption(_ option: UpdateOption) {
+        self.selectedOption = option
+        self.title = option.titleAndField.title
+        self.field = option.titleAndField.field
     }
     
     func updateUserField(id: String, updates: [String: Any]) {
