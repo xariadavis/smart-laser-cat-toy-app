@@ -70,7 +70,7 @@ struct TabBar: View {
                     case 2:
                         ProfileView(viewModel: ProfileViewModel(firestoreManager: FirestoreManager()))
                     case 3:
-                        SettingsView(viewModel: SettingsViewModel(authViewModel: AuthViewModel(), firestoreManager: FirestoreManager()))
+                        SettingsView(viewModel: SettingsViewModel(authViewModel: AuthViewModel(), firestoreManager: FirestoreManager(), sessionManager: SessionManager()))
                     default:
                         FallbackView() // Fallback view
                     }

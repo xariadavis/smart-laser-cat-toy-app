@@ -121,7 +121,8 @@ struct ProfileView: View {
             sectionTitle("\(userCatsViewModel.cat.name)", fontSize: 25)
             Group {
                 HStack {
-                    InfoCard(iconName: "clock", title: "Age", detail: "\(userCatsViewModel.cat.age) years")
+                    var age = userCatsViewModel.cat.age
+                    InfoCard(iconName: "clock", title: "Age", detail: "\(age) \(age == 1 ? "year" : "years")")
                     InfoCard(iconName: "pawprint", title: "Breed", detail: "DMH")
                 }
                 HStack {

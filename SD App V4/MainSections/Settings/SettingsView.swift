@@ -98,11 +98,11 @@ struct SettingsView: View {
                         
                         VStack(spacing: 1) {
                             SettingsCard(iconImage: "person", name: "Name", info: userCatsViewModel.user.name, action: {
-                                self.selectedOption = .usersName
+                                viewModel.selectOption(.usersName)
                             })
                             
                             SettingsCard(iconImage: "envelope", name: "Email", info: userCatsViewModel.user.email, action: {
-                                self.selectedOption = .email
+                                viewModel.selectOption(.email)
                             })
                         }
                         .background(Color(.systemGray4))
@@ -118,19 +118,20 @@ struct SettingsView: View {
                         
                         VStack(spacing: 1) {
                             SettingsCard(iconImage: "cat", name: "Name", info: userCatsViewModel.cat.name, action: {
-                                self.selectedOption = .catsName
+                                viewModel.selectOption(.catsName)
                             })
-                            SettingsCard(iconImage: "calendar", name: "Age", info: "\(userCatsViewModel.cat.age) years old", action: {
-                                self.selectedOption = .age
+                            var age = userCatsViewModel.cat.age
+                            SettingsCard(iconImage: "calendar", name: "Age", info: "\(age) \(age == 1 ? "year" : "years") old", action: {
+                                viewModel.selectOption(.age)
                             })
                             SettingsCard(iconImage: "scalemass", name: "Weight", info: "\(userCatsViewModel.cat.weight ?? 0.0) lbs", action: {
-                                self.selectedOption = .weight
+                                viewModel.selectOption(.weight)
                             })
                             SettingsCard(iconImage: "tag", name: "Collar Color", info: userCatsViewModel.cat.collarColor ?? "", action: {
-                                self.selectedOption = .collarColor
+                                viewModel.selectOption(.collarColor)
                             })
                             SettingsCard(iconImage: "clock", name: "Daily Quota", info: "\(userCatsViewModel.cat.dailyQuota / 60) minutes", action: {
-                                self.selectedOption = .dailyQuota
+                                viewModel.selectOption(.dailyQuota)
                             })
                         }
                         .background(Color(.systemGray4))
@@ -168,221 +169,87 @@ struct SettingsView: View {
             }
             
         }
-        .fullScreenCover(item: $selectedOption) { option in
-            UpdatingView(option: option, updateAction: { updatedValue in
-                
-                // Handle update logic here
-                if option.titleAndField.title == "User" {
-                    viewModel.updateUserField(id: userCatsViewModel.user.id, updates: [option.titleAndField.field : updatedValue])
-                } else if option.titleAndField.title == "Cat" {
-                    viewModel.updateCatField(id: userCatsViewModel.user.id, catID: userCatsViewModel.cat.id ?? "", updates: [option.titleAndField.field : updatedValue])
-                }
-                
-                sessionManager.refreshCurrentUser()
-                
-            }, dismissAction: {
-                self.selectedOption = nil
-                self.updatedValue = ""
+        .fullScreenCover(item: $viewModel.selectedOption) { option in
+            UpdatingView(option: option, viewModel: viewModel, dismissAction: {
+                viewModel.selectedOption = nil
             })
         }
 
     }
 }
 
-// TODO: Implement selective refreshing
-//struct UpdatingView: View {
-//    
-//    var option: UpdateOption
-//    var updateAction: (_ updatedValue: String) -> Void
-//    var dismissAction: () -> Void
-//    
-//    @State private var updatedValue = ""
-//    @Environment(\.presentationMode) var presentationMode
-//    
-//    var body: some View {
-//        ZStack {
-//            Color(.systemGray5).ignoresSafeArea()
-//            
-//            VStack(alignment: .leading) {
-//                HStack {
-//                    Spacer()
-//                    Button(action: {
-//                        presentationMode.wrappedValue.dismiss()
-//                    }) {
-//                        Image(systemName: "xmark")
-//                            .font(.system(size: 25))
-//                            .foregroundColor(Color.primary)
-//                            .padding()
-//                    }
-//                }
-//                
-//                Group {
-//                    Text("Update \(option.titleAndField.title)")
-//                        .font(Font.custom("TitanOne", size: 30))
-//                    
-//                    Text("Update \(option.titleAndField.field)")
-//                        .font(Font.custom("Quicksand-Bold", size: 20))
-//                        .padding(.bottom, 30)
-//                }
-//                .padding(.horizontal, 20)
-//                
-//                switch option {
-//                case .usersName, .email, .catsName:
-//                    TextField("Enter updated \(option.titleAndField.field)", text: $updatedValue)
-//                        .font(Font.custom("Quicksand-SemiBold", size: 20))
-//                        .foregroundColor(.primary)
-//                        .padding()
-//                        .background(Color(.systemGray4))
-//                        .cornerRadius(15)
-//                        .padding()
-//                        .autocorrectionDisabled(true)
-//                case .age:
-//                    Picker(selection: $updatedValue) {
-//                        ForEach(0..<31) { number in
-//                            Text("\(number)")
-//                                .tag(number)
-//                        }
-//                    } label: {
-//                        Text("Age")
-//                    }
-//                    .pickerStyle(WheelPickerStyle())
-//                case .weight:
-//                    TextField("Weight", text: $updatedValue)
-//                        .keyboardType(.decimalPad)
-//                        .generalTextfield()
-//                case .collarColor:
-//                    Group {
-//                        Button(action: {
-//                            updatedValue = "Red"
-//                        }, label: {
-//                            Text("Red")
-//                                .redOutlineButton()
-//                        })
-//                        
-//                        Button(action: {
-//                            updatedValue = "Green"
-//                        }, label: {
-//                            Text("Green")
-//                                .redOutlineButton()
-//                        })
-//                        
-//                        Button(action: {
-//                            updatedValue = "Blue"
-//                        }, label: {
-//                            Text("Blue")
-//                                .redOutlineButton()
-//                        })
-//                    }
-//                    .padding(.horizontal, 20)
-//                case .dailyQuota:
-//                    // Picker
-//                    Picker(selection: $updatedValue) {
-//                        ForEach(0..<60) { number in
-//                            Text("\(number)")
-//                                .tag(number)
-//                        }
-//                    } label: {
-//                        Text("Daily Quota")
-//                    }
-//                    .pickerStyle(WheelPickerStyle())
-//                    
-//                }
-//                
-//                
-//                Spacer()
-//                
-//                Button(action: {
-//                    updateAction(updatedValue)
-//                    dismissAction()
-//                }, label: {
-//                    Text("Update")
-//                        .redButton()
-//                        .padding(.horizontal, 20)
-//                })
-//            }
-//        }
-//    }
-//}
-
 struct UpdatingView: View {
     var option: UpdateOption
-    var updateAction: (_ updatedValue: Any) -> Void
-    var dismissAction: () -> Void
+        @ObservedObject var viewModel: SettingsViewModel
+        var dismissAction: () -> Void
 
-    @State private var textInput: String = ""
-    @State private var pickerSelection: Int = 0
+        @State private var textInput: String = ""
+        @State private var pickerSelection: Int = 0
 
-    @Environment(\.presentationMode) var presentationMode
+        @State private var showAlert = false // Step 1
 
-    // Email validation method
-    private func isValidEmail(_ email: String) -> Bool {
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        return emailPred.evaluate(with: email)
-    }
+        @Environment(\.presentationMode) var presentationMode
 
-    var body: some View {
-        ZStack {
-            Color(.systemGray5).ignoresSafeArea()
+        // Email validation method
+        private func isValidEmail(_ email: String) -> Bool {
+            let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+            let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+            return emailPred.evaluate(with: email)
+        }
 
-            VStack(alignment: .leading) {
-                Button(action: {
-                    presentationMode.wrappedValue.dismiss()
-                }) {
-                    Image(systemName: "xmark")
-                        .font(.system(size: 25))
-                        .foregroundColor(Color.primary)
-                        .padding()
-                }
+        var body: some View {
+            ZStack {
+                Color(.systemGray5).ignoresSafeArea()
 
-                Group {
-                    Text("Update \(option.titleAndField.title)")
-                        .font(Font.custom("TitanOne", size: 30))
-
-                    Text("Update \(option.titleAndField.field)")
-                        .font(Font.custom("Quicksand-Bold", size: 20))
-                        .padding(.bottom, 30)
-                }
-                .padding(.horizontal, 20)
-
-                inputViewForOption(option)
-
-                Spacer()
-
-                Button(action: {
-                    // Perform update action here
-                    switch option {
-                    case .email:
-                        if isValidEmail(textInput) {
-                            updateAction(textInput)
-                        } else {
-                            // Handle invalid email
-                        }
-                    case .weight:
-                        if let number = Double(textInput) {
-                            updateAction(number)
-                        } else {
-                            print("No good: \(textInput)")
-                        }
-                    case .age:
-                        updateAction(pickerSelection)
-                    case .dailyQuota:
-                        // TODO: Might need to do some math
-                        updateAction(pickerSelection * 60)
-                    default:
-                        updateAction(textInput)
+                VStack(alignment: .leading) {
+                    Button(action: {
+                        presentationMode.wrappedValue.dismiss()
+                        dismissAction()
+                    }) {
+                        Image(systemName: "xmark")
+                            .font(.system(size: 25))
+                            .foregroundColor(Color.primary)
+                            .padding()
                     }
-                    dismissAction()
-                }, label: {
-                    Text("Update")
-                        .redButton()
-                        .padding(.horizontal, 20)
-                })
+
+                    Group {
+                        Text("Update \(option.titleAndField.title)")
+                            .font(Font.custom("TitanOne", size: 30))
+                        Text("Update \(option.titleAndField.field)")
+                            .font(Font.custom("Quicksand-Bold", size: 20))
+                            .padding(.bottom, 30)
+                    }.padding(.horizontal, 20)
+
+                    inputViewForOption(option)
+
+                    Spacer()
+
+                    Button(action: {
+                        if option == .email && !isValidEmail(textInput) {
+                            showAlert = true
+                            return
+                        }
+                        
+                        viewModel.handleUpdate(option: option, textInput: textInput, pickerSelection: pickerSelection)
+                        presentationMode.wrappedValue.dismiss()
+                        dismissAction()
+                    }) {
+                        Text("Update")
+                            .redButton()
+                            .padding(.horizontal, 20)
+                    }
+                }
+            }
+            .alert(isPresented: $showAlert) {
+                Alert(
+                    title: Text("Invalid Email"),
+                    message: Text("Please enter a valid email address."),
+                    dismissButton: .default(Text("OK"))
+                )
             }
         }
-    }
 
-    // Define a method to return the appropriate input view based on the option
+
     @ViewBuilder
     private func inputViewForOption(_ option: UpdateOption) -> some View {
         switch option {
@@ -396,6 +263,8 @@ struct UpdatingView: View {
                 .cornerRadius(15)
                 .padding(.horizontal, 20)
                 .autocorrectionDisabled(true)
+                .autocapitalization(option == .email ? .none : .words)
+            
         case.collarColor:
             Group {
                 Button(action: {
@@ -454,10 +323,3 @@ struct UpdatingView: View {
         }
     }
 }
-
-
-
-//#Preview {
-////    SettingsView(viewModel: SettingsViewModel(authViewModel: AuthViewModel()))
-//    UpdatingView(settingsViewModel: SettingsViewModel(authViewModel: AuthViewModel(), firestoreManager: FirestoreManager()))
-//}
