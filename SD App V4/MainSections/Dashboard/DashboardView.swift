@@ -62,9 +62,11 @@ struct DashboardView: View {
                         
                         // List of Patterns centered
                         ForEach(patternsManager.patterns.filter {$0.isFavorite}) { pattern in
-                            PatternCard(pattern: pattern)
+                            // PatternCard(pattern: pattern)
+                            PatternCard(pattern: pattern, userId: userCatsViewModel.user.id, catId: userCatsViewModel.cat.id ?? "")
                         }
-                        
+
+
                         Button(action: {
                             navigationState.path.append(MainNavigation.patternsList)
                         }, label: {
@@ -81,6 +83,7 @@ struct DashboardView: View {
                             .padding(.horizontal, 15)
                         })
                     }
+                    
                     .padding(.bottom, 85)
                 }
             }

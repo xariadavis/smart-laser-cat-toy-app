@@ -39,9 +39,9 @@ class SessionManager: ObservableObject {
                                 case .success(let cat):
                                     self.currentUser = user
                                     self.isUserAuthenticated = true
-                                    self.patternsManager.fetchPatterns()
-                                
+                                    
                                     self.userCatsViewModel.loadUserData(id: user.id)
+                                    self.patternsManager.fetchPatterns()
                                     self.isLoading = false
                                 case .failure:
                                     // Cat data missing, could trigger onboarding
@@ -86,8 +86,9 @@ extension SessionManager {
                             self.currentUser = user
                             self.currentUser?.cat = cat
                             self.isUserAuthenticated = true
-                            self.patternsManager.fetchPatterns()
                             self.userCatsViewModel.loadUserData(id: user.id)
+                            self.patternsManager.fetchPatterns()
+                            print("AHHHHHH: \(self.userCatsViewModel.cat.favoritePatterns)")
                         case .failure:
                             print("Cat data missing, user may need onboarding")
                             self.currentUser = user

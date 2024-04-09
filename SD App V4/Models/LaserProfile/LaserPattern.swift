@@ -14,7 +14,7 @@ struct LaserPattern: Identifiable, Codable {
     var name: String
     var description: String
     var iconName: String // Use an asset name
-    var isFavorite: Bool = false
+    var isFavorite: Bool
     var omega_1: Int
     var omega_2: Int
     var isPlaying: Bool? = false

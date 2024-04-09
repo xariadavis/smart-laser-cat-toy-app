@@ -20,5 +20,5 @@ struct Cat: Codable {
     var timePlayedToday: Int = 0
     var timeRemaining: Int = 1800
     var profilePicture: String = ""
-    
+    var favoritePatterns: [String] = []
 }

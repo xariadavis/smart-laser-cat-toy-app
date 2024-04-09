@@ -6,12 +6,14 @@
 //
 
 import Foundation
+import SwiftUI
 
 class UserCatsViewModel: ObservableObject {
     static let shared = UserCatsViewModel()
     
     @Published var user: AppUser = AppUser(id: "", name: "", email: "")
     @Published var cat: Cat = Cat(name: "")
+    @ObservedObject var patternsManager = PatternsManager.shared
     private var firestoreManager = FirestoreManager()
     
     private init() { }
@@ -36,6 +38,7 @@ class UserCatsViewModel: ObservableObject {
                 case .success(let cat):
                     self?.cat = cat
                     print("Fetched: \(cat)")
+                    self?.patternsManager.updateFavoritesStatus(with: cat.favoritePatterns)
                 case .failure(let error):
                     print("Error fetching cats data: \(error)")
                 }

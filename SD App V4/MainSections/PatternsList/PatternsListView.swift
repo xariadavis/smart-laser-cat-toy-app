@@ -10,6 +10,7 @@ import SwiftUI
 struct PatternsView: View {
     
     @ObservedObject var patternsManager = PatternsManager.shared
+    @ObservedObject var userCatsViewModel = UserCatsViewModel.shared
     @EnvironmentObject var timerViewModel: TimerViewModel
     @EnvironmentObject var bluetoothViewModel: BluetoothViewModel
     
@@ -45,7 +46,7 @@ struct PatternsView: View {
                         
                         // List of Patterns centered
                         ForEach(patternsManager.patterns) { pattern in
-                            PatternCard(pattern: pattern)
+                            PatternCard(pattern: pattern, userId: userCatsViewModel.user.id, catId: userCatsViewModel.cat.id ?? "")
                         }
                     }
                     .padding(.bottom, 85)

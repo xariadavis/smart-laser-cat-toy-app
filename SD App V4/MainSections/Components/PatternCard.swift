@@ -12,6 +12,9 @@ import PopupView
 struct PatternCard: View {
     
     var pattern: LaserPattern
+    var userId: String
+    var catId: String
+    
     @ObservedObject var patternsManager = PatternsManager.shared
     @EnvironmentObject var timerViewModel: TimerViewModel
     @EnvironmentObject var bluetoothViewModel: BluetoothViewModel
@@ -36,7 +39,9 @@ struct PatternCard: View {
         .gesture(
             TapGesture(count: 2).onEnded {
                 print("Double tapped!")
-                patternsManager.toggleFavorite(for: self.pattern.id ?? "")
+//                patternsManager.toggleFavorite_old(for: self.pattern.id ?? "")
+                
+                patternsManager.toggleFavorite(for: self.pattern.id ?? "", userId: userId, catId: catId)
             }.exclusively(before: TapGesture(count: 1).onEnded {
                 // print("Single tapped!")
                 
@@ -89,11 +94,11 @@ struct PatternCard: View {
     }
 }
 
-struct PatternCard_Previews: PreviewProvider {
-    static var previews: some View {
-        @ObservedObject var patternsManager = PatternsManager.shared
-
-        PatternCard(pattern: patternsManager.patterns[2])
-    }
-}
+//struct PatternCard_Previews: PreviewProvider {
+//    static var previews: some View {
+//        @ObservedObject var patternsManager = PatternsManager.shared
+//
+//        PatternCard(pattern: patternsManager.patterns[2])
+//    }
+//}
 

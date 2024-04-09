@@ -55,8 +55,7 @@ struct ActivityCard: View {
                                 }
                                 .onChange(of: userCatsViewModel.cat.timePlayedToday) { _ in
                                     self.progressValue = getProgressValue(timePlayedToday: timePlayedTodayInMinutes, dailyQuotaInMinutes: dailyQuotaInMinutes)
-                                    print("kljkjlkj 2 \(timePlayedTodayInMinutes)")
-                                    print("pv 2 \(self.progressValue)")
+
                                 }
                             
                             
@@ -124,7 +123,6 @@ struct ActivityCard: View {
 
         // If no time was played today, progress is 0%
         if timePlayedToday == 0 {
-            print("Time played today is 0.")
             return 0
         }
 

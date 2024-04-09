@@ -28,22 +28,6 @@ class FirestoreManager {
         self.db.collection("users").document(id).setData(userData, completion: completion)
     }
     
-    func fetchPatterns2(completion: @escaping ([LaserPattern]) -> Void) {
-        db.collection("patterns").getDocuments { querySnapshot, error in
-            guard let documents = querySnapshot?.documents else {
-                print("No documents")
-                completion([]) // Return an empty array if there's an error
-                return
-            }
-            
-            let patterns = documents.compactMap { queryDocumentSnapshot -> LaserPattern? in
-                try? queryDocumentSnapshot.data(as: LaserPattern.self)
-            }
-            print("Patterns fetched!")
-            completion(patterns) // Return the fetched patterns
-        }
-    }
-    
     func saveCatInfo(cat: Cat, id: String, completion: @escaping (Result<String, Error>) -> Void) {
         var catData: [String: Any] = [
             "name": cat.name,
