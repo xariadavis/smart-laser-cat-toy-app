@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Foundation
 
 struct ActivityCard: View {
     
@@ -20,24 +21,36 @@ struct ActivityCard: View {
             
             HStack() {
                 
-                KittyProgressBar(progress: self.$progressValue)
-                    .frame(width: 14, height: 14)
-                    .rotationEffect(Angle.degrees(180))
-                    .offset(x: 125, y: 60)
-                    .padding(20)
-                    .onAppear {
-                        self.progressValue = getProgressValue()
-                        print("On appear: \(self.progressValue)")
+                VStack {
+                    Spacer()
+                    HStack {
+                        Spacer()
+                        ZStack {
+                            KittyProgressBar(progress: self.$progressValue)
+                                .frame(width: 14, height: 14)
+                                .rotationEffect(Angle.degrees(180))
+                                //.offset(x: 115, y: 55)
+                                .padding(.leading, 120)
+                                .padding(.top, 125)
+                                .onAppear {
+                                    self.progressValue = getProgressValue()
+                                    print("On appear: \(self.progressValue)")
+                                }
+                                .onChange(of: userCatsViewModel.cat.timePlayedToday) { _ in
+                                    self.progressValue = getProgressValue()
+                                    print("On change: \(self.progressValue)")
+                                }
+                            
+                            
+                            Text("\(Int(self.progressValue * 100))%")
+                                .font(Font.custom("Quicksand-SemiBold", size: 30))
+                                .foregroundColor(Color.primary.opacity(0.5))
+                                .padding(.top, 10)
+                        }
+                        Spacer()
                     }
-                    .onChange(of: userCatsViewModel.cat.timePlayedToday) { _ in
-                        self.progressValue = getProgressValue()
-                        print("On change: \(self.progressValue)")
-                    }
-                    
-                
-                Text("\(Int(self.progressValue * 100))%")
-                    .font(Font.custom("Quicksand-SemiBold", size: 30))
-                    .foregroundColor(Color.primary.opacity(0.5))
+                    Spacer()
+                }
                 
                 Spacer()
                     
@@ -51,11 +64,11 @@ struct ActivityCard: View {
                     
                     // Weekly Goal
                     VStack(alignment: .leading) {
-                        Text("Today's playtime")
+                        Text("Today's Playtime")
                             .font(Font.custom("Quicksand-Bold", size: 16))
                             .foregroundColor(Color.secondary)
                         
-                        Text("\((userCatsViewModel.cat.timePlayedToday ?? 0) / 60)/\((userCatsViewModel.cat.dailyQuota ?? 0) / 60) mins")
+                        Text("\((userCatsViewModel.cat.timePlayedToday) / 60)/\((userCatsViewModel.cat.dailyQuota) / 60) mins")
                             .font(Font.custom("Quicksand-Semibold", size: 14))
                             .foregroundColor(Color.secondary)
                     }
@@ -66,13 +79,12 @@ struct ActivityCard: View {
                             .font(Font.custom("Quicksand-Bold", size: 16))
                             .foregroundColor(Color.secondary)
                         
-                        Text("\((userCatsViewModel.cat.timeRemaining / 60) + 1) mins")
+                        Text("\((userCatsViewModel.cat.timeRemaining / 60)) mins")
                             .font(Font.custom("Quicksand-Semibold", size: 14))
                             .foregroundColor(Color.secondary)
                     }
 
                 }
-                .offset(y: -5)
                 .padding(.vertical, 30)
             }
             .padding(10)
@@ -89,8 +101,8 @@ struct ActivityCard: View {
             return 0
         }
 
-        return Float(Double(userCatsViewModel.cat.timePlayedToday ?? 0) / Double(userCatsViewModel.cat
-            .dailyQuota ?? 0))
+        return Float(Double(userCatsViewModel.cat.timePlayedToday) / Double(userCatsViewModel.cat
+            .dailyQuota))
         
     }
 }
