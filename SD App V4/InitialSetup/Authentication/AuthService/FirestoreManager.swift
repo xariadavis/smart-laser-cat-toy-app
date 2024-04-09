@@ -39,7 +39,8 @@ class FirestoreManager {
             "dailyQuota": cat.dailyQuota,
             "timePlayedToday": cat.timePlayedToday,
             "timeRemaining": cat.timeRemaining,
-            "profilePicture": "https://firebasestorage.googleapis.com/v0/b/sd-app-v4.appspot.com/o/users%2FDEFAULTS%2FprofilePIcture.png?alt=media&token=75e2e7e5-9ee8-4fbf-aedc-3dad3131b155"
+            "profilePicture": "https://firebasestorage.googleapis.com/v0/b/sd-app-v4.appspot.com/o/users%2FDEFAULTS%2FprofilePIcture.png?alt=media&token=75e2e7e5-9ee8-4fbf-aedc-3dad3131b155",
+            "favoritePatterns": cat.favoritePatterns
         ]
 
         // Create a new cat document in Firestore

@@ -69,6 +69,7 @@ class UserCatsViewModel: ObservableObject {
         self.cat.profilePicture = ""
         self.cat.id = ""
         self.cat.collarColor = ""
+        self.cat.favoritePatterns = []
     }
     
     func nullifyUser() {

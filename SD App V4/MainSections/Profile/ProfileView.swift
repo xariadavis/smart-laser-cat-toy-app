@@ -123,7 +123,7 @@ struct ProfileView: View {
                 HStack {
                     var age = userCatsViewModel.cat.age
                     InfoCard(iconName: "clock", title: "Age", detail: "\(age) \(age == 1 ? "year" : "years")")
-                    InfoCard(iconName: "pawprint", title: "Breed", detail: "DMH")
+                    InfoCard(iconName: "pawprint", title: "Breed", detail: "\(formatBreedName(userCatsViewModel.cat.breed))")
                 }
                 HStack {
                     InfoCard(iconName: "person", title: "Sex", detail: "\(userCatsViewModel.cat.sex ?? "")")
@@ -135,6 +135,29 @@ struct ProfileView: View {
         .background(RoundedRectangle(cornerRadius: 20).fill(Color(.systemGray5)))
         .padding(.top, -50)
     }
+    
+    func formatBreedName(_ breedName: String) -> String {
+        // Check if breed name is longer than 10 letters
+        if breedName.count > 10 {
+            // Split the breed name into words
+            let words = breedName.split(separator: " ")
+            
+            // If the breed name consists of more than one word
+            if words.count > 1 {
+                // Return the initials of each word
+                return words.reduce("") { partialResult, word in
+                    partialResult + word.prefix(1)
+                }
+            } else {
+                // If it is a single word, return the first 7 characters followed by "..."
+                return String(breedName.prefix(7)) + "..."
+            }
+        } else {
+            // If none of the conditions are met, return the breed name as is
+            return breedName
+        }
+    }
+
 
     private var favoritesSection: some View {
         VStack(alignment: .leading) {
