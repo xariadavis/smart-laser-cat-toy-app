@@ -10,17 +10,33 @@ import Foundation
 
 struct ActivityCard: View {
     
-    @State var progressValue: Float = 0.0
+    @State var progressValue: Int = 0
     @State var isFirstLoad: Bool = true
     
     @ObservedObject var userCatsViewModel = UserCatsViewModel.shared
+    
+    // Computed property for playtime
+    var timePlayedTodayInMinutes: Int {
+        userCatsViewModel.cat.timePlayedToday / 60
+    }
+
+    // Computed property for quota
+    var dailyQuotaInMinutes: Int {
+        userCatsViewModel.cat.dailyQuota / 60
+    }
+
+    // Computed property for remaining time
+    var timeRemainingInMinutes: Int {
+        dailyQuotaInMinutes - timePlayedTodayInMinutes
+    }
+
         
     var body: some View {
-
+                
         ZStack {
             
             HStack() {
-                
+
                 VStack {
                     Spacer()
                     HStack {
@@ -33,16 +49,18 @@ struct ActivityCard: View {
                                 .padding(.leading, 120)
                                 .padding(.top, 125)
                                 .onAppear {
-                                    self.progressValue = getProgressValue()
-                                    print("On appear: \(self.progressValue)")
+                                    self.progressValue = getProgressValue(timePlayedToday: timePlayedTodayInMinutes, dailyQuotaInMinutes: dailyQuotaInMinutes)
+                                    
+                                    print("kljkjlkj \(timePlayedTodayInMinutes)")
                                 }
                                 .onChange(of: userCatsViewModel.cat.timePlayedToday) { _ in
-                                    self.progressValue = getProgressValue()
-                                    print("On change: \(self.progressValue)")
+                                    self.progressValue = getProgressValue(timePlayedToday: timePlayedTodayInMinutes, dailyQuotaInMinutes: dailyQuotaInMinutes)
+                                    print("kljkjlkj 2 \(timePlayedTodayInMinutes)")
+                                    print("pv 2 \(self.progressValue)")
                                 }
                             
                             
-                            Text("\(Int(self.progressValue * 100))%")
+                            Text("\(self.progressValue)%")
                                 .font(Font.custom("Quicksand-SemiBold", size: 30))
                                 .foregroundColor(Color.primary.opacity(0.5))
                                 .padding(.top, 10)
@@ -64,11 +82,13 @@ struct ActivityCard: View {
                     
                     // Weekly Goal
                     VStack(alignment: .leading) {
+                        
+                        
                         Text("Today's Playtime")
                             .font(Font.custom("Quicksand-Bold", size: 16))
                             .foregroundColor(Color.secondary)
                         
-                        Text("\((userCatsViewModel.cat.timePlayedToday) / 60)/\((userCatsViewModel.cat.dailyQuota) / 60) mins")
+                        Text("\(timePlayedTodayInMinutes)/\(dailyQuotaInMinutes) mins")
                             .font(Font.custom("Quicksand-Semibold", size: 14))
                             .foregroundColor(Color.secondary)
                     }
@@ -79,7 +99,7 @@ struct ActivityCard: View {
                             .font(Font.custom("Quicksand-Bold", size: 16))
                             .foregroundColor(Color.secondary)
                         
-                        Text("\((userCatsViewModel.cat.timeRemaining / 60)) mins")
+                        Text("\(timeRemainingInMinutes) mins")
                             .font(Font.custom("Quicksand-Semibold", size: 14))
                             .foregroundColor(Color.secondary)
                     }
@@ -95,22 +115,28 @@ struct ActivityCard: View {
         }
     }
     
-    private func getProgressValue() -> Float {
-        
-        if(userCatsViewModel.cat.timePlayedToday == 0) {
+    private func getProgressValue(timePlayedToday: Int, dailyQuotaInMinutes: Int) -> Int {
+        // Ensure that daily quota is not 0 to avoid division by zero
+        guard dailyQuotaInMinutes > 0 else {
+            print("Daily quota is 0, which may lead to division by zero.")
             return 0
         }
 
-        return Float(Double(userCatsViewModel.cat.timePlayedToday) / Double(userCatsViewModel.cat
-            .dailyQuota))
-        
+        // If no time was played today, progress is 0%
+        if timePlayedToday == 0 {
+            print("Time played today is 0.")
+            return 0
+        }
+
+        // Calculate progress
+        let progress = Float(timePlayedToday) / Float(dailyQuotaInMinutes)
+        return Int(progress * 100)
     }
+
 }
 
 struct KittyProgressBar: View {
-    @Binding var progress: Float
-    
-    var color: Color = Color.green
+    @Binding var progress: Int
     
     var body: some View {
         ZStack {
@@ -118,12 +144,15 @@ struct KittyProgressBar: View {
                 .stroke(lineWidth: 12)
                 .opacity(0.20)
                 .foregroundColor(Color.red.opacity(0.4))
-            KittyShape()
-                .trim(from: 0.0, to: CGFloat(min(self.progress, 1.0)))
-                .stroke(style: StrokeStyle(lineWidth: 10, lineCap: .round,
-                                           lineJoin: .round))
-                .foregroundStyle(RadialGradient(gradient: Gradient(colors: [.red, .pink]), center: .center, startRadius: 0, endRadius: 300))
-                .animation(.easeInOut(duration: 1.0), value: progress)
+            
+            // Check if progress is zero to avoid division by zero
+            if progress > 0 {
+                KittyShape()
+                    .trim(from: 0.0, to: CGFloat(min(Double(self.progress) / 100.0, 1.0)))
+                    .stroke(style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round))
+                    .foregroundStyle(RadialGradient(gradient: Gradient(colors: [.red, .pink]), center: .center, startRadius: 0, endRadius: 300))
+                    .animation(.easeInOut(duration: 1.0), value: progress)
+            }
         }
     }
 }
