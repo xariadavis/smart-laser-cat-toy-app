@@ -29,6 +29,7 @@ struct ProfileView: View {
             background
             contentScrollView
         }
+        .padding(.bottom, timerViewModel.sessionActive ? 75 : 5)
         .ignoresSafeArea()
         .sheet(isPresented: $timerViewModel.showingPatternCover) {
             if let pattern = timerViewModel.currentPattern {

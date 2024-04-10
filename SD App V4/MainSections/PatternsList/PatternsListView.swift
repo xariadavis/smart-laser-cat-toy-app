@@ -58,7 +58,7 @@ struct PatternsView: View {
                             PatternCard(pattern: pattern, userId: userCatsViewModel.user.id, catId: userCatsViewModel.cat.id ?? "")
                         }
                     }
-                    .padding(.bottom, 85)
+                    .padding(.bottom, timerViewModel.sessionActive ? 150 : 85)
                 }
             }
         }

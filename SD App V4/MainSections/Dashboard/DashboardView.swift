@@ -75,6 +75,7 @@ struct DashboardView: View {
 
                         Button(action: {
                             navigationState.path.append(MainNavigation.patternsList)
+                            PatternsView()
                         }, label: {
                             HStack {
                                 Text("See more")
@@ -90,7 +91,7 @@ struct DashboardView: View {
                         })
                     }
                     
-                    .padding(.bottom, 85)
+                    .padding(.bottom, timerViewModel.sessionActive ? 150 : 85)
                 }
             }
         }

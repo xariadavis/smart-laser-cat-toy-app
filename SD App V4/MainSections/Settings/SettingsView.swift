@@ -46,6 +46,7 @@ struct SettingsView: View {
     @StateObject var viewModel: SettingsViewModel
     @EnvironmentObject var sessionManager: SessionManager
     @EnvironmentObject var bluetoothViewModel: BluetoothViewModel // Create an instance of BluetoothViewModel
+    @EnvironmentObject var timerViewModel: TimerViewModel
     @ObservedObject var userCatsViewModel = UserCatsViewModel.shared
     
     @State private var selectedOption: UpdateOption?
@@ -189,7 +190,7 @@ struct SettingsView: View {
                         }
                         
                     }
-                    .padding(.bottom, 85)
+                    .padding(.bottom, timerViewModel.sessionActive ? 150 : 85)
                 }
             }
             
