@@ -38,11 +38,11 @@ struct ProfileView: View {
             }
         }
     }
-
+    
     private var background: some View {
         Color(.systemGray5).ignoresSafeArea()
     }
-
+    
     private var contentScrollView: some View {
         ScrollView {
             VStack(spacing: 20) {
@@ -56,10 +56,10 @@ struct ProfileView: View {
         }
     }
 
+    
     private var profileImage: some View {
-        ZStack {
-        
-            // Conditional content
+        ZStack(alignment: .bottomTrailing) { // Use ZStack to overlay the photo picker button on the image
+            // Display the current profile image
             if let imageData = imageData, let uiImage = UIImage(data: imageData) {
                 Image(uiImage: uiImage)
                     .resizable()
@@ -67,63 +67,44 @@ struct ProfileView: View {
                     .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2)
                     .clipped()
             } else if let profilePictureURL = URL(string: userCatsViewModel.cat.profilePicture ?? ""), userCatsViewModel.cat.profilePicture != "" {
-                KFImage(profilePictureURL)
+                KFImage(profilePictureURL) // Assuming you're using Kingfisher for URL images
                     .resizable()
                     .scaledToFill()
                     .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2)
                     .clipped()
+            } else {
+                // Fallback or placeholder image
+                Image(systemName: "person.crop.circle.fill.badge.plus")
+                    .font(.system(size: 150))
+                    .padding()
+                    .foregroundColor(.gray)
+                    .opacity(0.5)
+                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2)
             }
             
-            VStack {
-                Spacer()
+            PhotoPickerView(
+                imageData: $imageData,
+                userID: userCatsViewModel.user.id,
+                catID: userCatsViewModel.cat.id ?? "",
+                userCatsViewModel: userCatsViewModel
+            ) {
+                // Custom appearance for the selection view
                 HStack {
-                    Spacer()
-                    PhotosPicker(selection: $selectedImage, maxSelectionCount: 1, matching: .images) {
-                        Image(systemName: "photo.circle.fill")
-                            .font(.system(size: 25))
-                            .frame(width: 25)
-                            .foregroundColor(Color(.systemGray5))
-                            .shadow(radius: 5)
-                    }
-                    .padding() // Add padding to ensure it's not touching the edges
-                    .padding(.bottom, 25)
-                    .onChange(of: selectedImage) { newValue in
-                        guard let item = selectedImage.first else {
-                            return
-                        }
-                        item.loadTransferable(type: Data.self) { result in
-                            switch result {
-                            case .success(let data):
-                                if let data = data {
-                                    self.imageData = data
-                                    viewModel.uploadProfilePicture(imageData: data, userID: userCatsViewModel.user.id ?? "", catID: userCatsViewModel.cat.id ?? "") { result in
-                                        DispatchQueue.main.async {
-                                            switch result {
-                                            case .success(let downloadURL):
-                                                // Here, you can directly update your UI or model with the new URL
-                                                print("New profile picture URL: \(downloadURL)")
-                                                userCatsViewModel.cat.profilePicture = downloadURL
-                                            case .failure(let error):
-                                                print("Error updating profile picture: \(error)")
-                                                // Handle the error appropriately
-                                            }
-                                        }
-                                    }
-                                    
-                                } else {
-                                    print("Error retrieving image data.")
-                                }
-                            case .failure(let failure):
-                                print("Failure getting image: \(failure)")
-                            }
-                        }
-                    }
+                    Image(systemName: "photo.circle.fill")
+                        .font(.system(size: 25))
+                        .frame(width: 25)
+                        .foregroundColor(Color(.systemGray5))
+                        .shadow(radius: 5)
                 }
+                .padding(1)
+                .background(Capsule().strokeBorder(Color.red, lineWidth: 1))
+                .padding() // Add padding to ensure it's not touching the edges
+                .padding(.bottom, 25)
             }
         }
+        .frame(height: UIScreen.main.bounds.height / 2)
     }
-
-
+    
     private var infoSection: some View {
         VStack(alignment: .leading) {
             sectionTitle("\(userCatsViewModel.cat.name)", fontSize: 25)
@@ -165,8 +146,8 @@ struct ProfileView: View {
             return breedName
         }
     }
-
-
+    
+    
     private var favoritesSection: some View {
         VStack(alignment: .leading) {
             sectionTitle("Favorites")
@@ -174,7 +155,7 @@ struct ProfileView: View {
                 .padding(.horizontal)
         }
     }
-
+    
     private var activitySection: some View {
         VStack(alignment: .leading) {
             sectionTitle("Activity")
@@ -182,7 +163,7 @@ struct ProfileView: View {
                 .padding(.horizontal)
         }
     }
-
+    
     private var totalPlaytimeSection: some View {
         VStack {
             Text("Total Playtime")
@@ -206,7 +187,7 @@ struct ProfileView: View {
         .background(RoundedRectangle(cornerRadius: 20).fill(Color.fromNeuroKit))
         .padding(.horizontal)
     }
-
+    
     private func sectionTitle(_ text: String, fontSize: CGFloat = 23) -> some View {
         Text(text)
             .font(Font.custom("TitanOne", size: fontSize))
@@ -242,25 +223,25 @@ struct ProfileView: View {
         }
         
     }
-
-
+    
+    
     struct Rounded: Shape {
         
         func path(in rect: CGRect) -> Path {
-        
+            
             let path = UIBezierPath(roundedRect: rect, byRoundingCorners: [.topLeft,.topRight], cornerRadii: CGSize(width: 35, height: 35))
             
             return Path(path.cgPath)
         }
     }
-
-
+    
+    
     struct BarView: View {
         
         var playtimeValue: CGFloat
         var barValue: CGFloat
         var day: String
-
+        
         var body: some View {
             
             VStack {
@@ -339,8 +320,8 @@ struct ProfileView: View {
             }
         }
     }
-
-
+    
+    
     struct WeekRangeService {
         static func getLast7DaysRange() -> String {
             let calendar = Calendar.current

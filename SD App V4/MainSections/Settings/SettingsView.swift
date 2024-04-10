@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PhotosUI
 import Foundation
 
 enum UpdateOption: Identifiable {
@@ -53,6 +54,8 @@ struct SettingsView: View {
     @State var updatedValue: String = ""
     @State var title: String = ""
     @State var field: String = ""
+    
+    @State private var imageData: Data?
     
     var body: some View {
         ZStack {
@@ -117,6 +120,28 @@ struct SettingsView: View {
                             .foregroundColor(Color.primary.opacity(0.7))
                         
                         VStack(spacing: 1) {
+                            PhotoPickerView(
+                                imageData: $imageData,
+                                userID: userCatsViewModel.user.id,
+                                catID: userCatsViewModel.cat.id ?? "",
+                                userCatsViewModel: userCatsViewModel) {
+                                HStack(spacing: 20) {
+
+                                    Image(systemName: "photo")
+                                        .font(.system(size: 25))
+                                        .frame(width: 25, alignment: .center)
+                                        .foregroundColor(Color.primary)
+                                    
+                                    Text("Change Profile Picture")
+                                        .font(Font.custom("Quicksand-Semibold", size: 18))
+                                        .foregroundColor(Color.primary)
+                                    
+                                    Spacer()
+                                }
+                                .padding(.horizontal, 20)
+                                .frame(minHeight: 70)
+                                .background(Color.fromNeuroKit)
+                            }
                             SettingsCard(iconImage: "cat", name: "Name", info: userCatsViewModel.cat.name, action: {
                                 viewModel.selectOption(.catsName)
                             })
@@ -288,21 +313,21 @@ struct UpdatingView: View {
                     textInput = "Red"
                 }, label: {
                     Text("Red")
-                        .redOutlineButton()
+                        .outlineButton(isSelected: textInput == "Red")
                 })
 
                 Button(action: {
                     textInput = "Green"
                 }, label: {
                     Text("Green")
-                        .redOutlineButton()
+                        .outlineButton(isSelected: textInput == "Green")
                 })
 
                 Button(action: {
                     textInput = "Blue"
                 }, label: {
                     Text("Blue")
-                        .redOutlineButton()
+                        .outlineButton(isSelected: textInput == "Blue")
                 })
             }
             .padding(.horizontal, 20)

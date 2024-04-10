@@ -206,21 +206,21 @@ struct OnboardingView: View {
                     self.newCat.collarColor = "Red"
                 }, label: {
                     Text("Red")
-                        .redOutlineButton()
+                        .outlineButton(isSelected: newCat.collarColor == "Red")
                 })
                 
                 Button(action: {
                     self.newCat.collarColor = "Green"
                 }, label: {
                     Text("Green")
-                        .redOutlineButton()
+                        .outlineButton(isSelected: newCat.collarColor == "Green")
                 })
                 
                 Button(action: {
                     self.newCat.collarColor = "Blue"
                 }, label: {
                     Text("Blue")
-                        .redOutlineButton()
+                        .outlineButton(isSelected: newCat.collarColor == "Blue")
                 })
             }
             .padding(.horizontal, 20)

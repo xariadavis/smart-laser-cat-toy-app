@@ -10,7 +10,6 @@ import PopupView
 
 struct DashboardView: View {
     
-//    @EnvironmentObject var userCatsViewModel: UserCatsViewModel
     @EnvironmentObject var navigationState: NavigationState
     @EnvironmentObject var timerViewModel: TimerViewModel
     @EnvironmentObject var bluetoothViewModel: BluetoothViewModel
@@ -60,12 +59,19 @@ struct DashboardView: View {
                             .frame(maxWidth: .infinity, alignment: .leading)  // Align text to the leading edge
                             .padding(.horizontal, 30)
                         
-                        // List of Patterns centered
-                        ForEach(patternsManager.patterns.filter {$0.isFavorite}) { pattern in
-                            // PatternCard(pattern: pattern)
-                            PatternCard(pattern: pattern, userId: userCatsViewModel.user.id, catId: userCatsViewModel.cat.id ?? "")
-                        }
 
+                        Group {
+                            if patternsManager.patterns.filter({ $0.isFavorite }).isEmpty {
+                                Text("No favorites found. Double tap a pattern to add it to Favorites!")
+                                    .font(Font.custom("Quicksand-Bold", size: 18))
+                                    .multilineTextAlignment(.center) // Center-align the text
+                                    .padding(50)
+                            } else {
+                                ForEach(patternsManager.patterns.filter { $0.isFavorite }) { pattern in
+                                    PatternCard(pattern: pattern, userId: userCatsViewModel.user.id, catId: userCatsViewModel.cat.id ?? "")
+                                }
+                            }
+                        }
 
                         Button(action: {
                             navigationState.path.append(MainNavigation.patternsList)
@@ -89,7 +95,7 @@ struct DashboardView: View {
             }
         }
         .onAppear {
-//            print("DashboardView: Cat is \(userCatsViewModel.cat)")
+            print("patterns \(userCatsViewModel.cat)")
         }
         .sheet(isPresented: $timerViewModel.showingPatternCover, onDismiss: {
             if bluetoothViewModel.isSearching {

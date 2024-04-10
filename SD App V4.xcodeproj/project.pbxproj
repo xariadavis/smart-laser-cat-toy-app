@@ -36,6 +36,8 @@
 		575552922B9ECB6000C36DF7 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575552912B9ECB6000C36DF7 /* OnboardingView.swift */; };
 		575A363A2BAFB959009E2EDB /* Loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 575A36392BAFB959009E2EDB /* Loading.json */; };
 		575A363C2BAFC22F009E2EDB /* DailyQuotaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575A363B2BAFC22F009E2EDB /* DailyQuotaManager.swift */; };
+		576C5E7B2BC6DB430060738B /* ChangePhotoCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576C5E7A2BC6DB430060738B /* ChangePhotoCard.swift */; };
+		576C5E7D2BC6DF2B0060738B /* PhotoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576C5E7C2BC6DF2B0060738B /* PhotoPickerView.swift */; };
 		576CDF932BB3C645008CC66A /* LoadingCat.json in Resources */ = {isa = PBXBuildFile; fileRef = 576CDF922BB3C645008CC66A /* LoadingCat.json */; };
 		579DB08A2BB8C97B00410D02 /* BluetoothViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579DB0892BB8C97B00410D02 /* BluetoothViewModel.swift */; };
 		579DB08C2BB8E12700410D02 /* BluetoothLoading.json in Resources */ = {isa = PBXBuildFile; fileRef = 579DB08B2BB8E12600410D02 /* BluetoothLoading.json */; };
@@ -107,6 +109,8 @@
 		575552912B9ECB6000C36DF7 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		575A36392BAFB959009E2EDB /* Loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Loading.json; path = ../../../../../../../../../Desktop/Loading.json; sourceTree = "<group>"; };
 		575A363B2BAFC22F009E2EDB /* DailyQuotaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyQuotaManager.swift; sourceTree = "<group>"; };
+		576C5E7A2BC6DB430060738B /* ChangePhotoCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePhotoCard.swift; sourceTree = "<group>"; };
+		576C5E7C2BC6DF2B0060738B /* PhotoPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerView.swift; sourceTree = "<group>"; };
 		576CDF922BB3C645008CC66A /* LoadingCat.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LoadingCat.json; path = ../../../../../../../../../Desktop/LoadingCat.json; sourceTree = "<group>"; };
 		579DB0892BB8C97B00410D02 /* BluetoothViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothViewModel.swift; sourceTree = "<group>"; };
 		579DB08B2BB8E12600410D02 /* BluetoothLoading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = BluetoothLoading.json; path = ../../../../../../../../../Downloads/BluetoothLoading.json; sourceTree = "<group>"; };
@@ -187,6 +191,7 @@
 				579DB08D2BB92BF800410D02 /* BluetoothCard.swift */,
 				57BDBCC12BC1FDDD000F0138 /* UserInfoCard.swift */,
 				57BDBCC72BC383FF000F0138 /* SettingsCard.swift */,
+				576C5E7A2BC6DB430060738B /* ChangePhotoCard.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -434,6 +439,7 @@
 				570F43082B9D681A0047E4DA /* ColorButton.swift */,
 				575A363B2BAFC22F009E2EDB /* DailyQuotaManager.swift */,
 				57BDBCC52BC31E8C000F0138 /* FallbackView.swift */,
+				576C5E7C2BC6DF2B0060738B /* PhotoPickerView.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -579,6 +585,7 @@
 				574529B52B9E214B0084EB53 /* RootView.swift in Sources */,
 				570F43052B9D63D90047E4DA /* PatternCard.swift in Sources */,
 				570F43072B9D643A0047E4DA /* LaserPattern.swift in Sources */,
+				576C5E7B2BC6DB430060738B /* ChangePhotoCard.swift in Sources */,
 				579DB08E2BB92BF800410D02 /* BluetoothCard.swift in Sources */,
 				57ECBCB12B9C24C80007E234 /* TabBarView.swift in Sources */,
 				57ECBCAD2B9C249C0007E234 /* WelcomeView.swift in Sources */,
@@ -593,6 +600,7 @@
 				579DB08A2BB8C97B00410D02 /* BluetoothViewModel.swift in Sources */,
 				57ECBCCE2B9C4D750007E234 /* ForgotPasswordView.swift in Sources */,
 				575A363C2BAFC22F009E2EDB /* DailyQuotaManager.swift in Sources */,
+				576C5E7D2BC6DF2B0060738B /* PhotoPickerView.swift in Sources */,
 				57ECBCC62B9C34F10007E234 /* GlowModifier.swift in Sources */,
 				57A0E0AF2BA0CCE800C8E29C /* PatternsManager.swift in Sources */,
 				57BDBCC22BC1FDDD000F0138 /* UserInfoCard.swift in Sources */,
