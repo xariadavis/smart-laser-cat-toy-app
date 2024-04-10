@@ -150,6 +150,50 @@ class FirestoreManager {
             }
         }
     }
+    
+    func updatePlaytimeHistory(userId: String, catId: String, timePlayedToday: Int, completion: @escaping (Error?) -> Void) {
+        let catDocument = db.collection("users").document(userId).collection("cats").document(catId)
+        
+        catDocument.getDocument { (document, error) in
+            guard let document = document, let data = document.data(), error == nil else {
+                completion(error ?? NSError(domain: "YourErrorDomain", code: -1, userInfo: nil))
+                return
+            }
+            
+            var playtimeHistory = data["playtimeHistory"] as? [Int] ?? []
+            let lastUpdate = data["lastResetDate"] as? Timestamp ?? Timestamp(date: Date.distantPast)
+            let lastUpdateDate = lastUpdate.dateValue()
+            let calendar = Calendar.current
+
+            // Check if the last update was today
+            if calendar.isDateInToday(lastUpdateDate) {
+                // It's the same day, so update the last entry
+                if !playtimeHistory.isEmpty {
+                    playtimeHistory[playtimeHistory.count - 1] = timePlayedToday
+                } else {
+                    // Should not happen, but adds safety
+                    playtimeHistory.append(timePlayedToday)
+                }
+            } else {
+                // It's a new day
+                playtimeHistory.append(timePlayedToday)
+                // Ensure the array does not exceed 7 elements
+                if playtimeHistory.count > 7 {
+                    playtimeHistory.removeFirst(playtimeHistory.count - 7)
+                }
+            }
+            
+            // Update the document in Firestore
+            let updateData = [
+                "playtimeHistory": playtimeHistory,
+                "lastResetDate": Timestamp(date: Date()) // Update last update date
+            ]
+            catDocument.updateData(updateData) { error in
+                completion(error)
+            }
+        }
+    }
+
 
     
     // Upload profile picture do firebase storage

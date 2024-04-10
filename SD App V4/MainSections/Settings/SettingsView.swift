@@ -181,12 +181,15 @@ struct SettingsView: View {
 struct UpdatingView: View {
     var option: UpdateOption
         @ObservedObject var viewModel: SettingsViewModel
+        @ObservedObject var userCatsViewModel = UserCatsViewModel.shared
+    
         var dismissAction: () -> Void
-
+        
         @State private var textInput: String = ""
         @State private var pickerSelection: Int = 0
 
         @State private var showAlert = false // Step 1
+        
 
         @Environment(\.presentationMode) var presentationMode
 
@@ -264,8 +267,22 @@ struct UpdatingView: View {
                 .padding(.horizontal, 20)
                 .autocorrectionDisabled(true)
                 .autocapitalization(option == .email ? .none : .words)
-            
-        case.collarColor:
+                .onAppear {
+                    switch option {
+                    case .usersName:
+                        // Fetch and set the user's name
+                        self.textInput = userCatsViewModel.user.name
+                    case .email:
+                        // Fetch and set the email
+                        self.textInput = userCatsViewModel.user.email
+                    case .catsName:
+                        // Fetch and set the cat's name
+                        self.textInput = userCatsViewModel.cat.name
+                    default:
+                        self.textInput = ""
+                    }
+                }
+        case .collarColor:
             Group {
                 Button(action: {
                     textInput = "Red"
@@ -289,6 +306,10 @@ struct UpdatingView: View {
                 })
             }
             .padding(.horizontal, 20)
+            .onAppear {
+                // TODO: Need to select but no indication yet
+                self.textInput = userCatsViewModel.cat.collarColor ?? ""
+            }
         case .weight:
             TextField("Enter updated \(option.titleAndField.field)", text: $textInput)
                 .keyboardType(.decimalPad)
@@ -299,6 +320,9 @@ struct UpdatingView: View {
                 .cornerRadius(15)
                 .padding(.horizontal, 20)
                 .autocorrectionDisabled(true)
+                .onAppear {
+                    self.textInput = String(userCatsViewModel.cat.weight ?? 0.0)
+                }
         case .age:
             Picker(selection: $pickerSelection) {
                 ForEach(0..<31) { number in
@@ -309,6 +333,9 @@ struct UpdatingView: View {
                 Text("Age")
             }
             .pickerStyle(WheelPickerStyle())
+            .onAppear {
+                self.pickerSelection = userCatsViewModel.cat.age
+            }
         case .dailyQuota:
             // Picker
             Picker(selection: $pickerSelection) {
@@ -320,6 +347,9 @@ struct UpdatingView: View {
                 Text("Daily Quota")
             }
             .pickerStyle(WheelPickerStyle())
+            .onAppear {
+                self.pickerSelection = userCatsViewModel.cat.dailyQuota / 60
+            }
         }
     }
 }

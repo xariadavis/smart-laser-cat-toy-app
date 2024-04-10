@@ -145,13 +145,16 @@ struct PatternDetailCover: View {
                     
                     userCatsViewModel.cat.timeRemaining = Int(timerViewModel.countdownTime)
                     userCatsViewModel.cat.timePlayedToday = userCatsViewModel.cat.dailyQuota - Int(timerViewModel.countdownTime)
+                    userCatsViewModel.cat.playtimeHistory[6] = userCatsViewModel.cat.timePlayedToday
                     userCatsViewModel.cat.lastResetDate = Date.now
+                    
+                    userCatsViewModel.updatePlaytimeHistory(userId: userCatsViewModel.user.id, catId: userCatsViewModel.cat.id ?? "", timePlayedToday: userCatsViewModel.cat.timePlayedToday)
                     
                     userCatsViewModel.updateCatInfo(id: userCatsViewModel.user.id, catID: userCatsViewModel.cat.id ?? "", updates: ["timeRemaining" : Int(timerViewModel.countdownTime), "timePlayedToday":userCatsViewModel.cat.dailyQuota - Int(timerViewModel.countdownTime), "lastResetDate":userCatsViewModel.cat.lastResetDate])
                     
                     bluetoothViewModel.writeOmegaValues(omega1: 90, omega2: 90)
                     
-                    print("Time remaining: \(userCatsViewModel.cat.timeRemaining)")
+                    print("History: \(userCatsViewModel.cat.playtimeHistory)")
                     onDismiss()  // Call the dismiss action
                     
                 }) {

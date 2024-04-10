@@ -56,6 +56,17 @@ class UserCatsViewModel: ObservableObject {
         })
     }
     
+    func updatePlaytimeHistory(userId: String, catId: String, timePlayedToday: Int) {
+        firestoreManager.updatePlaytimeHistory(userId: userId, catId: catId, timePlayedToday: timePlayedToday) { error in
+            if let error = error {
+                print("Failed to update playtime history. \(error.localizedDescription)")
+            } else {
+                print("Playtime history updated successfully.")
+            }
+        }
+        
+    }
+    
     func nullifyCat() {
         self.cat.name = ""
         self.cat.sex = ""
