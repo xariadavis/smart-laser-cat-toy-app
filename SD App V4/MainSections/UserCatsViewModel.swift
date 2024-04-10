@@ -19,12 +19,10 @@ class UserCatsViewModel: ObservableObject {
     private init() { }
     
     func loadUserData(id: String) {
-//        print("UserCatsViewModel: In loadUserData the id is \(id)")
         firestoreManager.fetchUserData(id: id) { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let user):
-//                    print("Successfully fetched user: \(user)")
                     self?.user = user
                 case .failure(let error):
                     print("Error fetching user data: \(error)")
@@ -64,6 +62,8 @@ class UserCatsViewModel: ObservableObject {
         self.cat.weight = 0.0
         self.cat.dailyQuota = 0
         self.cat.timePlayedToday = 0
+        self.cat.lastResetDate = Date.now
+        self.cat.playtimeHistory = []
         self.cat.breed = ""
         self.cat.age = 0
         self.cat.profilePicture = ""

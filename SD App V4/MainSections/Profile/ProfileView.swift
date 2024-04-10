@@ -12,13 +12,14 @@ import Kingfisher
 
 struct ProfileView: View {
     
-//    @EnvironmentObject var userCatsViewModel: UserCatsViewModel
     @ObservedObject var userCatsViewModel = UserCatsViewModel.shared
     
     @StateObject var viewModel: ProfileViewModel
     
     @State private var selectedImage: [PhotosPickerItem] = []
     @State private var imageData: Data?
+    
+    
     
     var body: some View {
         ZStack {
@@ -249,7 +250,8 @@ struct ProfileView: View {
 
     struct BarView: View {
         
-        var value: CGFloat
+        var playtimeValue: CGFloat
+        var barValue: CGFloat
         var day: String
 
         var body: some View {
@@ -261,7 +263,7 @@ struct ProfileView: View {
                         .foregroundColor(Color.red.opacity(0.2))
                     
                     Capsule()
-                        .frame(width: 15, height: value)
+                        .frame(width: 15, height: barValue)
                         .foregroundColor(Color.red)
                 }
                 
@@ -269,7 +271,7 @@ struct ProfileView: View {
                     .font(.system(size: 16))
                     .frame(width: 35, alignment: .center)
                 
-                Text("\(Int((value / 150) * 100))m")
+                Text("\(Int(playtimeValue))m")
                     .font(.system(size: 14))
                     .foregroundColor(.secondary)
             }
@@ -277,6 +279,9 @@ struct ProfileView: View {
     }
     
     struct WeeklyProgressView: View {
+        
+        @ObservedObject var userCatsViewModel = UserCatsViewModel.shared
+        
         func getLast7Days() -> [Date] {
             let calendar = Calendar.current
             return (0..<7).map { i in
@@ -308,11 +313,20 @@ struct ProfileView: View {
         }
         
         var body: some View {
-            HStack(alignment: .center, spacing: 10) {
+            HStack(alignment: .bottom, spacing: 10) {
                 Spacer()
-                ForEach(getLast7Days(), id: \.self) { date in
-                    let value = CGFloat(Int.random(in: 20...120)) // Replace with actual data
-                    BarView(value: value, day: dayAbbreviation(from: date))
+                ForEach(0..<getLast7Days().count, id: \.self) { index in
+                    if let playtime = userCatsViewModel.cat.playtimeHistory[safe: index] { // Safe subscript
+                        
+                        let playtimeValue = CGFloat((playtime / 60))  // Time in minutes
+                        let scaleFactor = 150.0 /  CGFloat(userCatsViewModel.cat.dailyQuota / 60)
+                        let finalValue = playtimeValue * scaleFactor
+                        
+                        let date = getLast7Days()[index]
+                        let day = dayAbbreviation(from: date)
+                        
+                        BarView(playtimeValue: playtimeValue, barValue: finalValue, day: day)
+                    }
                 }
                 Spacer()
             }
@@ -337,6 +351,11 @@ struct ProfileView: View {
     }
 }
 
+extension Collection {
+    subscript(safe index: Index) -> Element? {
+        return indices.contains(index) ? self[index] : nil
+    }
+}
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {

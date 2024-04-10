@@ -19,7 +19,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 }
 
 
-// Trying to figure out fetching patterns from db when user logs in
 @main
 struct SD_App_V4App: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate

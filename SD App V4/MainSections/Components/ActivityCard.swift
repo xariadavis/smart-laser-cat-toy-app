@@ -51,7 +51,6 @@ struct ActivityCard: View {
                                 .onAppear {
                                     self.progressValue = getProgressValue(timePlayedToday: timePlayedTodayInMinutes, dailyQuotaInMinutes: dailyQuotaInMinutes)
                                     
-                                    print("kljkjlkj \(timePlayedTodayInMinutes)")
                                 }
                                 .onChange(of: userCatsViewModel.cat.timePlayedToday) { _ in
                                     self.progressValue = getProgressValue(timePlayedToday: timePlayedTodayInMinutes, dailyQuotaInMinutes: dailyQuotaInMinutes)

@@ -145,7 +145,9 @@ struct PatternDetailCover: View {
                     
                     userCatsViewModel.cat.timeRemaining = Int(timerViewModel.countdownTime)
                     userCatsViewModel.cat.timePlayedToday = userCatsViewModel.cat.dailyQuota - Int(timerViewModel.countdownTime)
-                    userCatsViewModel.updateCatInfo(id: userCatsViewModel.user.id, catID: userCatsViewModel.cat.id ?? "", updates: ["timeRemaining" : Int(timerViewModel.countdownTime), "timePlayedToday":userCatsViewModel.cat.dailyQuota - Int(timerViewModel.countdownTime)])
+                    userCatsViewModel.cat.lastResetDate = Date.now
+                    
+                    userCatsViewModel.updateCatInfo(id: userCatsViewModel.user.id, catID: userCatsViewModel.cat.id ?? "", updates: ["timeRemaining" : Int(timerViewModel.countdownTime), "timePlayedToday":userCatsViewModel.cat.dailyQuota - Int(timerViewModel.countdownTime), "lastResetDate":userCatsViewModel.cat.lastResetDate])
                     
                     bluetoothViewModel.writeOmegaValues(omega1: 90, omega2: 90)
                     
