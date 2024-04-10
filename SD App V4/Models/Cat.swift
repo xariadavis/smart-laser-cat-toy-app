@@ -20,7 +20,7 @@ struct Cat: Codable {
     var timePlayedToday: Int = 0
     var timeRemaining: Int = 1800
     var lastResetDate: Date = Date.now
-    var playtimeHistory: [Int] = []
+    var playtimeHistory: [Int] = [0, 0, 0, 0, 0, 0, 0]
     var profilePicture: String = ""
     var favoritePatterns: [String] = []
 }

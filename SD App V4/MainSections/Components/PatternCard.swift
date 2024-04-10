@@ -39,7 +39,6 @@ struct PatternCard: View {
         .gesture(
             TapGesture(count: 2).onEnded {
                 print("Double tapped!")
-//                patternsManager.toggleFavorite_old(for: self.pattern.id ?? "")
                 
                 patternsManager.toggleFavorite(for: self.pattern.id ?? "", userId: userId, catId: catId)
             }.exclusively(before: TapGesture(count: 1).onEnded {

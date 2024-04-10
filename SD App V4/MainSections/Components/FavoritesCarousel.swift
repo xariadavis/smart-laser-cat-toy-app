@@ -9,11 +9,12 @@ import SwiftUI
 import Kingfisher
 
 struct FavoritesCarousel: View {
+    
+    @ObservedObject var patternsManager = PatternsManager.shared
+    
     var width: CGFloat
     var height: CGFloat
     
-    @ObservedObject var patternsManager = PatternsManager.shared
-
     var favoritePatterns: [LaserPattern] {
         patternsManager.patterns.filter { $0.isFavorite }
     }
@@ -33,6 +34,12 @@ struct FavoritesCarousel: View {
 }
 
 struct CarouselItemView: View {
+    
+    @EnvironmentObject var timerViewModel: TimerViewModel
+    @EnvironmentObject var bluetoothViewModel: BluetoothViewModel
+    @ObservedObject var userCatsViewModel = UserCatsViewModel.shared
+    @ObservedObject var patternsManager = PatternsManager.shared
+    
     let pattern: LaserPattern
     var width: CGFloat
     var height: CGFloat
@@ -58,6 +65,21 @@ struct CarouselItemView: View {
             
         }
         .padding(.bottom, 10)
+        .gesture(
+            TapGesture(count: 2).onEnded {
+                print("Double tapped!")
+                
+                patternsManager.toggleFavorite(for: self.pattern.id ?? "", userId: userCatsViewModel.user.id, catId: userCatsViewModel.cat.id ?? "")
+            }.exclusively(before: TapGesture(count: 1).onEnded {
+                // print("Single tapped!")
+                
+                timerViewModel.currentPattern = self.pattern
+                timerViewModel.showingPatternCover = true
+                bluetoothViewModel.writeOmegaValues(omega1: Int32(pattern.omega_1), omega2: Int32(pattern.omega_2))
+
+                print("omega_1: \(pattern.omega_1) -- omega_2: \(pattern.omega_2)")
+            })
+        )
     }
 }
 

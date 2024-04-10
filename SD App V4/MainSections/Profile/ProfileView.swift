@@ -12,7 +12,10 @@ import Kingfisher
 
 struct ProfileView: View {
     
+    @ObservedObject var patternsManager = PatternsManager.shared
     @ObservedObject var userCatsViewModel = UserCatsViewModel.shared
+    @EnvironmentObject var timerViewModel: TimerViewModel
+    @EnvironmentObject var bluetoothViewModel: BluetoothViewModel
     
     @StateObject var viewModel: ProfileViewModel
     
@@ -26,10 +29,14 @@ struct ProfileView: View {
             background
             contentScrollView
         }
-        .onAppear {
-//            print("\(userCatsViewModel.cat.profilePicture)")
-        }
         .ignoresSafeArea()
+        .sheet(isPresented: $timerViewModel.showingPatternCover) {
+            if let pattern = timerViewModel.currentPattern {
+                PatternDetailCover(pattern: .constant(pattern), isConnected: bluetoothViewModel.isConnected) {
+                    timerViewModel.showingPatternCover = false
+                }
+            }
+        }
     }
 
     private var background: some View {
