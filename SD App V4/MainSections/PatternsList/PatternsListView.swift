@@ -36,9 +36,18 @@ struct PatternsView: View {
                             .font(Font.custom("TitanOne", size: 23))
                             .padding(.horizontal, 30)
                         
-                        FavoritesCarousel(width: 175, height: 175)
-                            .padding(.horizontal)
-                            .padding(.bottom, 15)
+                        Group {
+                            if patternsManager.patterns.filter({ $0.isFavorite }).isEmpty {
+                                Text("No favorites found. Double tap a pattern to add it to Favorites!")
+                                    .font(Font.custom("Quicksand-Bold", size: 18))
+                                    .multilineTextAlignment(.center) // Center-align the text
+                                    .padding(50)
+                            } else {
+                                FavoritesCarousel(width: 175, height: 175)
+                                    .padding(.horizontal)
+                                    .padding(.bottom, 15)
+                            }
+                        }
                         
                         Text("All Patterns")
                             .font(Font.custom("TitanOne", size: 23))

@@ -96,8 +96,6 @@ struct ProfileView: View {
                         .foregroundColor(Color(.systemGray5))
                         .shadow(radius: 5)
                 }
-                .padding(1)
-                .background(Capsule().strokeBorder(Color.red, lineWidth: 1))
                 .padding() // Add padding to ensure it's not touching the edges
                 .padding(.bottom, 25)
             }
@@ -151,8 +149,17 @@ struct ProfileView: View {
     private var favoritesSection: some View {
         VStack(alignment: .leading) {
             sectionTitle("Favorites")
-            FavoritesCarousel(width: 150, height: 150)
-                .padding(.horizontal)
+            Group {
+                if patternsManager.patterns.filter({ $0.isFavorite }).isEmpty {
+                    Text("No favorites found. Double tap a pattern to add it to Favorites!")
+                        .font(Font.custom("Quicksand-Bold", size: 18))
+                        .multilineTextAlignment(.center) // Center-align the text
+                        .padding(50)
+                } else {
+                    FavoritesCarousel(width: 150, height: 150)
+                        .padding(.horizontal)
+                }
+            }
         }
     }
     
