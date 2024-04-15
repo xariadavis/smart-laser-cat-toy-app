@@ -21,7 +21,7 @@ class PatternsManager: ObservableObject {
     private init() { }
     
     func fetchPatterns() {
-        db.collection("patterns").addSnapshotListener { querySnapshot, error in
+        db.collection("working_patterns").addSnapshotListener { querySnapshot, error in
             guard let documents = querySnapshot?.documents else {
                 print("No documents")
                 return
@@ -29,7 +29,7 @@ class PatternsManager: ObservableObject {
             
             self.patterns = documents.compactMap { queryDocumentSnapshot in
                 try? queryDocumentSnapshot.data(as: LaserPattern.self)
-            }
+            }            
         }
     }
     
