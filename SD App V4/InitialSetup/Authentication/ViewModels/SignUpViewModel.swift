@@ -47,8 +47,6 @@ class SignUpViewModel: ObservableObject {
                 var updatedUser = user
                 updatedUser.id = id
                 
-                print("updated user id is: \(updatedUser.id)")
-                
                 self?.firestoreManager.saveUserInfo(user: updatedUser, id: id) { error in
                     DispatchQueue.main.async {
                         if let error = error {
@@ -57,9 +55,7 @@ class SignUpViewModel: ObservableObject {
                             self?.showAlert = true
                             completion(false, error)
                         } else {
-                            print("User info saved successfully")
                             self?.userID = id
-                            print("self?.userID user id is: \(self?.userID)")
                             completion(true, nil)
                         }
                     }

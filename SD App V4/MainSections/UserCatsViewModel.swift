@@ -90,6 +90,7 @@ class UserCatsViewModel: ObservableObject {
         self.cat.weight = 0.0
         self.cat.dailyQuota = 0
         self.cat.timePlayedToday = 0
+        self.cat.timeRemaining = 0
         self.cat.lastResetDate = Date.now
         self.cat.playtimeHistory = []
         self.cat.breed = ""

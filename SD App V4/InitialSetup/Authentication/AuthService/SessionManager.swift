@@ -88,7 +88,6 @@ extension SessionManager {
                             self.isUserAuthenticated = true
                             self.userCatsViewModel.loadUserData(id: user.id)
                             self.patternsManager.fetchPatterns()
-                            print("AHHHHHH: \(self.userCatsViewModel.cat.favoritePatterns)")
                         case .failure:
                             print("Cat data missing, user may need onboarding")
                             self.currentUser = user

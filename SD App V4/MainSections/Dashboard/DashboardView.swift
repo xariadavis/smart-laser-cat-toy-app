@@ -96,7 +96,7 @@ struct DashboardView: View {
             }
         }
         .onAppear {
-            print("patterns \(userCatsViewModel.cat)")
+//            print("patterns \(userCatsViewModel.cat)")
         }
         .sheet(isPresented: $timerViewModel.showingPatternCover, onDismiss: {
             if bluetoothViewModel.isSearching {

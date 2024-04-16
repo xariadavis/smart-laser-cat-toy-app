@@ -24,13 +24,13 @@ struct WelcomeView: View {
             VStack {
                 // Welcome label
                 Text("Welcome")
-                    .font(Font.custom("TitanOne", size: 60))
+                    .font(Font.custom("TitanOne", size: 65))
                     .foregroundColor(Color.primary)
                 
                 // Some type of catch phrase
-                Text("Insert catch phrase")
-                    .font(Font.custom("Quicksand-SemiBold", size: 20))
-                    .foregroundColor(Color.primary.opacity(0.7))
+                // Text("Insert catch phrase")
+                //    .font(Font.custom("Quicksand-SemiBold", size: 20))
+                //    .foregroundColor(Color.primary.opacity(0.7))
                 
                 Spacer()
                 

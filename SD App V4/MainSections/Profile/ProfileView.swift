@@ -172,6 +172,25 @@ struct ProfileView: View {
         }
     }
     
+    func formatPlaytime(from secondsArray: [Int]) -> String {
+        let totalSeconds = secondsArray.reduce(0, +) // Sum up the array elements
+        let hours = totalSeconds / 3600 // Calculate total hours
+        let minutes = (totalSeconds % 3600) / 60 // Calculate remaining minutes
+        
+        // Construct a string based on whether there are hours or minutes
+        var timeString = ""
+        if hours > 0 {
+            timeString += "\(hours)h"
+        }
+        if minutes > 0 {
+            if !timeString.isEmpty {
+                timeString += " "
+            }
+            timeString += "\(minutes)m"
+        }
+        return timeString.isEmpty ? "0m" : timeString
+    }
+    
     private var totalPlaytimeSection: some View {
         VStack {
             Text("Total Playtime")
@@ -183,7 +202,7 @@ struct ProfileView: View {
                 .font(Font.custom("Quicksand-Semibold", size: 17))
                 .foregroundColor(.secondary)
             
-            Text("2h 45m")
+            Text("\(formatPlaytime(from: userCatsViewModel.cat.playtimeHistory))")
                 .font(Font.custom("Quicksand-Semibold", size: 18))
                 .fontWeight(.bold)
                 .foregroundColor(.secondary)

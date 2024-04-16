@@ -118,9 +118,6 @@ struct SignUpView: View {
                 // Sign Up
                 Button(action: {
                     
-                    print("SignUpView: The email is \(email)")
-                    print("SignUpView: The password is \(password)")
-    
                     // When calling register from your view or button action
                     viewModel.register(name: ownerName, email: email, password: password, catName: catName) { success, error in
                         if success {

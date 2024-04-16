@@ -143,14 +143,14 @@ struct OnboardingView: View {
                     self.newCat.sex = "Male"
                 }, label: {
                     Text("Male")
-                        .redOutlineButton()
+                        .outlineButton(isSelected: newCat.sex == "Male")
                 })
                 
                 Button(action: {
                     self.newCat.sex = "Female"
                 }, label: {
                     Text("Female")
-                        .redOutlineButton()
+                        .outlineButton(isSelected: newCat.sex == "Female")
                 })
             }
             .padding(.horizontal, 20)
@@ -281,7 +281,6 @@ extension OnboardingView {
                 switch result {
                 case .success(let catId):
                     DispatchQueue.main.async {
-                        print("Update was successful with cat ID: \(catId).")
                         isLoading = true
                         newCat.id = catId
 //                        sessionManager.currentUser?.cat = newCat
