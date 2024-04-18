@@ -209,7 +209,7 @@ struct UpdatingView: View {
     var option: UpdateOption
         @ObservedObject var viewModel: SettingsViewModel
         @ObservedObject var userCatsViewModel = UserCatsViewModel.shared
-    
+        
         var dismissAction: () -> Void
         
         @State private var textInput: String = ""
@@ -219,6 +219,8 @@ struct UpdatingView: View {
         
 
         @Environment(\.presentationMode) var presentationMode
+        @EnvironmentObject var bluetoothViewModel: BluetoothViewModel // Create an instance of BluetoothViewModel
+
 
         // Email validation method
         private func isValidEmail(_ email: String) -> Bool {
@@ -275,6 +277,11 @@ struct UpdatingView: View {
                         viewModel.handleUpdate(option: option, textInput: textInput, pickerSelection: pickerSelection)
                         presentationMode.wrappedValue.dismiss()
                         dismissAction()
+                        
+                        if option == .collarColor {
+                            print("New color? \(textInput)")
+                            bluetoothViewModel.writeColorValue(color: textInput)
+                        }
                     }) {
                         Text("Update")
                             .redButton()

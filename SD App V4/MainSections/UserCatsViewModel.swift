@@ -35,7 +35,7 @@ class UserCatsViewModel: ObservableObject {
                 switch result {
                 case .success(let cat):
                     self?.cat = cat
-                    print("Fetched: \(cat)")
+                    // print("Fetched: \(cat)")
                     self?.patternsManager.updateFavoritesStatus(with: cat.favoritePatterns)
                 case .failure(let error):
                     print("Error fetching cats data: \(error)")

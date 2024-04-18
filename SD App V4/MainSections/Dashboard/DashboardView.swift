@@ -96,7 +96,8 @@ struct DashboardView: View {
             }
         }
         .onAppear {
-//            print("patterns \(userCatsViewModel.cat)")
+            bluetoothViewModel.readColorValue()
+            print(bluetoothViewModel.currentColor)
         }
         .sheet(isPresented: $timerViewModel.showingPatternCover, onDismiss: {
             if bluetoothViewModel.isSearching {

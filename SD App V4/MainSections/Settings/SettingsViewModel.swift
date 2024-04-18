@@ -48,6 +48,7 @@ class SettingsViewModel: ObservableObject {
         }
 
         performUpdate(with: updatedValue)
+        
     }
 
     private func performUpdate(with updatedValue: Any) {

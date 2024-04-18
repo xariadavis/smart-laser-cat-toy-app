@@ -36,8 +36,10 @@ struct PatternDetailCover: View {
             isConnected = bluetoothViewModel.isConnected
         }
         .onChange(of: bluetoothViewModel.isReady, {
+            print("PatternDetailCover: bluetooth.isReady has changed.")
             showingBluetoothCard = false
             isConnected = true
+            // bluetoothViewModel.writeColorValue(color: userCatsViewModel.cat.collarColor ?? "")
             bluetoothViewModel.writeOmegaValues(omega1: Int32(pattern!.omega_1), omega2: Int32(pattern!.omega_2))
         })
     }

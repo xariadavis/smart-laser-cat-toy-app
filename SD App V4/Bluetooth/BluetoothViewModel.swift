@@ -13,14 +13,18 @@ class BluetoothViewModel: NSObject, ObservableObject, CBPeripheralDelegate {
     @Published var isSearching: Bool = false
     @Published var isReady: Bool = false
     @Published var connectingPeripheralIndex: Int? = nil
-        
+    @Published var currentColor: String = ""
+    
     private var SERVICE_UUID: String = "4fafc201-1fb5-459e-8fcc-c5c9c331914b"
     private var OMEGA1_UUID: String = "e0a994b4-dbbc-483d-b331-ecff32e12f3a"
     private var OMEGA2_UUID: String = "bf078597-f84e-40f0-b16e-519d2f73e9e7"
     private var READY_STATE: String = "88527841-2de6-45e6-a203-280bef44801d"
+    private var COLOR_UUID: String = "8183a2d7-2f56-466a-a0af-93b0ba2c2f72"
+
     
     var omega1Characteristic: CBCharacteristic?
     var omega2Characteristic: CBCharacteristic?
+    var colorCharacteristic: CBCharacteristic?
     var readyState: CBCharacteristic?
     
     override init() {
@@ -57,6 +61,7 @@ extension BluetoothViewModel: CBCentralManagerDelegate {
         
         DispatchQueue.main.async {
             self.isConnected = false
+            self.isReady = false
         }
     }
     
@@ -72,7 +77,7 @@ extension BluetoothViewModel: CBCentralManagerDelegate {
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
         guard let services = peripheral.services else { return }
         for service in services where service.uuid == CBUUID(string: SERVICE_UUID) {
-            peripheral.discoverCharacteristics([CBUUID(string: OMEGA1_UUID), CBUUID(string: OMEGA2_UUID), CBUUID(string: READY_STATE)], for: service)
+            peripheral.discoverCharacteristics([CBUUID(string: OMEGA1_UUID), CBUUID(string: OMEGA2_UUID), CBUUID(string: READY_STATE), CBUUID(string: COLOR_UUID)], for: service)
         }
     }
 
@@ -89,6 +94,9 @@ extension BluetoothViewModel: CBCentralManagerDelegate {
                 self.readyState = characteristic
                 print("self.readyState = characteristicc")
                 peripheral.setNotifyValue(true, for: self.readyState ?? characteristic)
+            } else if characteristic.uuid == CBUUID(string: COLOR_UUID) {
+                self.colorCharacteristic = characteristic
+                print("Color characteristic set.")
             }
         }
         
@@ -147,6 +155,18 @@ extension BluetoothViewModel: CBCentralManagerDelegate {
                 return ptr.load(as: Int32.self)
             }
             print("OMEGA2 Value: \(omega2Value)")
+        } else if characteristic.uuid == CBUUID(string: COLOR_UUID) {
+            // Handle COLOR_UUID characteristic
+            if let colorString = String(data: value, encoding: .utf8) {
+                print("Received Color: \(colorString)")
+                DispatchQueue.main.async {
+                    // Update UI or notify other parts of your app
+                     self.currentColor = colorString
+                    // Optionally, update UI elements or send notifications
+                }
+            } else {
+                print("Failed to decode color string.")
+            }
         }
     }
 
@@ -202,6 +222,23 @@ extension BluetoothViewModel {
         }
     }
     
+    func readColorValue() {
+        if let colorCharacteristic = self.colorCharacteristic {
+            self.targetPeripheral?.readValue(for: colorCharacteristic)
+            self.targetPeripheral?.setNotifyValue(true, for: colorCharacteristic)
+        }
+    }
+    
+    func writeColorValue(color: String) {
+        if let colorData = color.data(using: .utf8),
+           let colorCharacteristic = self.colorCharacteristic {
+            self.targetPeripheral?.writeValue(colorData, for: colorCharacteristic, type: .withResponse)
+        } else {
+            print("Failed to encode color string to Data.")
+        }
+    }
+
+
     func startScanning() {
         if centralManager?.state == .poweredOn {
             DispatchQueue.main.async {
