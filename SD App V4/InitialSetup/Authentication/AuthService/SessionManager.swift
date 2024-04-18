@@ -70,6 +70,7 @@ extension SessionManager {
     func refreshCurrentUser() {
         guard let firebaseUser = Auth.auth().currentUser else {
             self.isUserAuthenticated = false
+            self.isLoading = false
             return
         }
 
@@ -88,15 +89,18 @@ extension SessionManager {
                             self.isUserAuthenticated = true
                             self.userCatsViewModel.loadUserData(id: user.id)
                             self.patternsManager.fetchPatterns()
+                            self.isLoading = false
                         case .failure:
                             print("Cat data missing, user may need onboarding")
                             self.currentUser = user
                             self.isUserAuthenticated = true
+                            self.isLoading = false
                         }
                     }
                 case .failure(let error):
                     print("SessionManager: Failed to refresh user data with error: \(error.localizedDescription)")
                     self.isUserAuthenticated = false
+                    self.isLoading = false
                 }
             }
         }

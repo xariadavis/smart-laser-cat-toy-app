@@ -106,5 +106,6 @@ class UserCatsViewModel: ObservableObject {
         self.user.email = ""
         self.user.name = ""
         self.user.password = ""
+        self.user.cat = nil
     }
 }

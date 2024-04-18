@@ -16,9 +16,9 @@ struct Cat: Codable {
     var age: Int = 0
     var weight: Double?
     var collarColor: String?
-    var dailyQuota: Int = 1800
+    var dailyQuota: Int = 0 // 1800 before?
     var timePlayedToday: Int = 0
-    var timeRemaining: Int = 1800
+    var timeRemaining: Int = 0 // 1800 before?
     var lastResetDate: Date = Date.now
     var playtimeHistory: [Int] = [0, 0, 0, 0, 0, 0, 0]
     var profilePicture: String = ""

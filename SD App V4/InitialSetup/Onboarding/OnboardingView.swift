@@ -293,7 +293,6 @@ extension OnboardingView {
                             print("After loading path append: \(sessionManager.isUserAuthenticated) + \(String(describing: sessionManager.currentUser)) + \(String(describing: sessionManager.currentUser?.cat))")
                         }
                         // Assuming you might store or use catId somewhere here as well
-                        navigationState.path.append(LoadingNavigation.loadingFromOnboarding)
                         print("After loading path append: \(sessionManager.isUserAuthenticated) + \(String(describing: sessionManager.currentUser)) + \(String(describing: sessionManager.currentUser?.cat))")
                     }
                 case .failure(let error):
@@ -335,8 +334,10 @@ struct LoadingRegistrationView: View {
         }
         .onAppear {
             sessionManager.refreshCurrentUser()
+            navigationState.path.append(AuthenticationNavigation.login)
             if sessionManager.currentUser?.id == userCatsViewModel.user.id {
                 isLoading = false
+                print("isLoading AHAHHAHAHAHAHAHA \(isLoading)")
             }
         }
         .onChange(of: sessionManager.isLoading) { id in

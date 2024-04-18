@@ -172,6 +172,7 @@ struct SettingsView: View {
                             viewModel.logOut()
                             sessionManager.isUserAuthenticated = false
                             sessionManager.currentUser = nil
+                            sessionManager.isLoading = false
                             
                             userCatsViewModel.nullifyCat()
                             userCatsViewModel.nullifyUser()
@@ -242,9 +243,21 @@ struct UpdatingView: View {
                     }
 
                     Group {
+                        
+                        var formattedTitle: String {
+                            switch option.titleAndField.field {
+                            case "collarColor":
+                                return "Collar Color"
+                            case "dailyQuota":
+                                return "Daily Quota"
+                            default:
+                                return option.titleAndField.field.capitalized
+                            }
+                        }
+                        
                         Text("Update \(option.titleAndField.title)")
                             .font(Font.custom("TitanOne", size: 30))
-                        Text("Update \(option.titleAndField.field)")
+                        Text("Update \(formattedTitle)")
                             .font(Font.custom("Quicksand-Bold", size: 20))
                             .padding(.bottom, 30)
                     }.padding(.horizontal, 20)

@@ -22,15 +22,16 @@ struct WelcomeView: View {
             Color(.systemGray5).ignoresSafeArea()
             
             VStack {
+                
                 // Welcome label
                 Text("Welcome")
                     .font(Font.custom("TitanOne", size: 65))
                     .foregroundColor(Color.primary)
                 
-                // Some type of catch phrase
-                // Text("Insert catch phrase")
-                //    .font(Font.custom("Quicksand-SemiBold", size: 20))
-                //    .foregroundColor(Color.primary.opacity(0.7))
+                 // Some type of catch phrase
+                 Text("Smart Laser Toy for Cats")
+                    .font(Font.custom("Quicksand-SemiBold", size: 20))
+                    .foregroundColor(Color.primary.opacity(0.7))
                 
                 Spacer()
                 
