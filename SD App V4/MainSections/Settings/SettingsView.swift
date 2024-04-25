@@ -178,6 +178,7 @@ struct SettingsView: View {
                             userCatsViewModel.nullifyUser()
                             
                             bluetoothViewModel.isSearching = false
+                            bluetoothViewModel.isReady = false
                             bluetoothViewModel.isConnected = false
                         } label: {
                             Text("Log out")
@@ -196,6 +197,9 @@ struct SettingsView: View {
             }
             
         }
+        .onChange(of: bluetoothViewModel.isConnected, {
+            bluetoothViewModel.writeColorValue(color: userCatsViewModel.cat.collarColor ?? "")
+        })
         .fullScreenCover(item: $viewModel.selectedOption) { option in
             UpdatingView(option: option, viewModel: viewModel, dismissAction: {
                 viewModel.selectedOption = nil

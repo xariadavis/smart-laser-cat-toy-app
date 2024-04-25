@@ -33,7 +33,7 @@ struct PatternCard: View {
         .cornerRadius(20)        
         .overlay(
             RoundedRectangle(cornerRadius: 20)
-                .stroke((timerViewModel.currentPattern?.id == pattern.id) && bluetoothViewModel.isConnected ? Color.red : Color.clear, lineWidth: 2)
+                .stroke((timerViewModel.currentPattern?.id == pattern.id) && bluetoothViewModel.isConnected && timerViewModel.sessionActive ? Color.red : Color.clear, lineWidth: 2)
         )
         .padding(.horizontal)
         .gesture(

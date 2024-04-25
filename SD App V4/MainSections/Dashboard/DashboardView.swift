@@ -73,22 +73,21 @@ struct DashboardView: View {
                             }
                         }
 
-                        Button(action: {
-                            navigationState.path.append(MainNavigation.patternsList)
-                            PatternsView()
-                        }, label: {
-                            HStack {
-                                Text("See more")
-                                Image(systemName: "arrow.right")
-                            }
-                            .font(Font.custom("Quicksand-SemiBold", size: 17))
-                            .frame(maxWidth: .infinity)
-                            .padding(15)
-                            .foregroundColor(Color.primary)
-                            .background(Color.red.opacity(0.0))
-                            .cornerRadius(15)
-                            .padding(.horizontal, 15)
-                        })
+//                        Button(action: {
+//                            navigationState.path.append(MainNavigation.patternsList)
+//                        }, label: {
+//                            HStack {
+//                                Text("See more")
+//                                Image(systemName: "arrow.right")
+//                            }
+//                            .font(Font.custom("Quicksand-SemiBold", size: 17))
+//                            .frame(maxWidth: .infinity)
+//                            .padding(15)
+//                            .foregroundColor(Color.primary)
+//                            .background(Color.red.opacity(0.0))
+//                            .cornerRadius(15)
+//                            .padding(.horizontal, 15)
+//                        })
                     }
                     
                     .padding(.bottom, timerViewModel.sessionActive ? 150 : 85)

@@ -110,6 +110,7 @@ struct BluetoothCard: View {
 struct SearchingView: View {
     
     @EnvironmentObject var bluetoothViewModel: BluetoothViewModel
+    @EnvironmentObject var timerViewModel: TimerViewModel
     var onDismiss: () -> Void  // Closure for dismissing the view
     
     var body: some View {
@@ -122,7 +123,7 @@ struct SearchingView: View {
                 
                 Spacer()
                 
-                if(bluetoothViewModel.peripheralNames.isEmpty) {
+                if(bluetoothViewModel.peripheralNames.isEmpty && !timerViewModel.showingPatternCover) {
                     Button {
                         bluetoothViewModel.stopScanning()
                     } label: {

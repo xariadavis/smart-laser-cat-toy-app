@@ -188,6 +188,9 @@ extension BluetoothViewModel {
         guard let peripheral = targetPeripheral else { return }
         self.targetPeripheral = nil
         
+        // TODO: Risk
+        self.connectingPeripheralIndex = nil
+        
         centralManager?.cancelPeripheralConnection(peripheral)
     }
     
@@ -230,6 +233,7 @@ extension BluetoothViewModel {
     }
     
     func writeColorValue(color: String) {
+        print("\(color)")
         if let colorData = color.data(using: .utf8),
            let colorCharacteristic = self.colorCharacteristic {
             self.targetPeripheral?.writeValue(colorData, for: colorCharacteristic, type: .withResponse)

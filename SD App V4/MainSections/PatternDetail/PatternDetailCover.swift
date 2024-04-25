@@ -39,7 +39,7 @@ struct PatternDetailCover: View {
             print("PatternDetailCover: bluetooth.isReady has changed.")
             showingBluetoothCard = false
             isConnected = true
-            // bluetoothViewModel.writeColorValue(color: userCatsViewModel.cat.collarColor ?? "")
+            bluetoothViewModel.writeColorValue(color: userCatsViewModel.cat.collarColor ?? "")
             bluetoothViewModel.writeOmegaValues(omega1: Int32(pattern!.omega_1), omega2: Int32(pattern!.omega_2))
         })
     }
@@ -110,6 +110,10 @@ struct PatternDetailCover: View {
                 Button {
                     onDismiss()
                     bluetoothViewModel.stopScanning()
+                    
+                    // TODO: Risk
+                    bluetoothViewModel.isConnected = false
+                    self.pattern = nil
                 } label: {
                     Text("Cancel")
                         .redOutlineButton()
