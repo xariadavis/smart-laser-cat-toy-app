@@ -3,7 +3,7 @@
 **Smart Laser Cat Toy** is an interactive iOS-based application that controls a laser toy for pets. This project integrates various sensors and communication protocols to create a fun and engaging experience for cats, allowing users to control the laser via a mobile app.
 
 ## Demo
-<img src="Assets/App%20Demo/App%20Demo.gif" width="600px" alt="App Demo GIF" />
+<img src="Assets/App%20Demo/App%20Demo.gif" width="350px" alt="App Demo GIF" />
 
 ## Key Features
 - **Full-Stack iOS App**: Developed in **Swift**, providing a seamless user interface for controlling the laser toy.
