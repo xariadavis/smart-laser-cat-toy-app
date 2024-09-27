@@ -28,19 +28,14 @@
 		573D65A22BA154960063CB6C /* ButtonMods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573D65A12BA154960063CB6C /* ButtonMods.swift */; };
 		573D65A42BA1568E0063CB6C /* TextfieldMods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573D65A32BA1568E0063CB6C /* TextfieldMods.swift */; };
 		574529B52B9E214B0084EB53 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574529B42B9E214B0084EB53 /* RootView.swift */; };
-		574529B92B9E41E70084EB53 /* LaserDots.json in Resources */ = {isa = PBXBuildFile; fileRef = 574529B82B9E41E70084EB53 /* LaserDots.json */; };
 		574A812E2BB4847700F2F805 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574A812D2BB4847700F2F805 /* SplashScreen.swift */; };
-		5755528A2B9EBE4B00C36DF7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 575552892B9EBE4A00C36DF7 /* GoogleService-Info.plist */; };
 		5755528C2B9EBF6700C36DF7 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 5755528B2B9EBF6700C36DF7 /* FirebaseAuth */; };
 		5755528E2B9EC4F200C36DF7 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5755528D2B9EC4F200C36DF7 /* AuthViewModel.swift */; };
 		575552922B9ECB6000C36DF7 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575552912B9ECB6000C36DF7 /* OnboardingView.swift */; };
-		575A363A2BAFB959009E2EDB /* Loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 575A36392BAFB959009E2EDB /* Loading.json */; };
 		575A363C2BAFC22F009E2EDB /* DailyQuotaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575A363B2BAFC22F009E2EDB /* DailyQuotaManager.swift */; };
 		576C5E7B2BC6DB430060738B /* ChangePhotoCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576C5E7A2BC6DB430060738B /* ChangePhotoCard.swift */; };
 		576C5E7D2BC6DF2B0060738B /* PhotoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576C5E7C2BC6DF2B0060738B /* PhotoPickerView.swift */; };
-		576CDF932BB3C645008CC66A /* LoadingCat.json in Resources */ = {isa = PBXBuildFile; fileRef = 576CDF922BB3C645008CC66A /* LoadingCat.json */; };
 		579DB08A2BB8C97B00410D02 /* BluetoothViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579DB0892BB8C97B00410D02 /* BluetoothViewModel.swift */; };
-		579DB08C2BB8E12700410D02 /* BluetoothLoading.json in Resources */ = {isa = PBXBuildFile; fileRef = 579DB08B2BB8E12600410D02 /* BluetoothLoading.json */; };
 		579DB08E2BB92BF800410D02 /* BluetoothCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579DB08D2BB92BF800410D02 /* BluetoothCard.swift */; };
 		57A00CC72BAA612D00402ABA /* TimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A00CC62BAA612D00402ABA /* TimerViewModel.swift */; };
 		57A0E0AA2BA0B8E800C8E29C /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 57A0E0A92BA0B8E800C8E29C /* FirebaseStorage */; };
@@ -77,13 +72,16 @@
 		57ECBCB12B9C24C80007E234 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ECBCB02B9C24C80007E234 /* TabBarView.swift */; };
 		57ECBCB42B9C2BA70007E234 /* LottiePlusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ECBCB32B9C2BA70007E234 /* LottiePlusView.swift */; };
 		57ECBCB72B9C2C340007E234 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 57ECBCB62B9C2C340007E234 /* Lottie */; };
-		57ECBCBC2B9C2D340007E234 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ECBCB92B9C2D340007E234 /* Constants.swift */; };
-		57ECBCBD2B9C2D340007E234 /* GingerHunt.json in Resources */ = {isa = PBXBuildFile; fileRef = 57ECBCBA2B9C2D340007E234 /* GingerHunt.json */; };
-		57ECBCBE2B9C2D340007E234 /* GingerHunt_Dark.json in Resources */ = {isa = PBXBuildFile; fileRef = 57ECBCBB2B9C2D340007E234 /* GingerHunt_Dark.json */; };
 		57ECBCC62B9C34F10007E234 /* GlowModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ECBCC52B9C34F10007E234 /* GlowModifier.swift */; };
-		57ECBCCA2B9C36720007E234 /* TitanOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57ECBCC92B9C36720007E234 /* TitanOne-Regular.ttf */; };
-		57ECBCCC2B9C36880007E234 /* Quicksand[wght].ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57ECBCCB2B9C36880007E234 /* Quicksand[wght].ttf */; };
 		57ECBCCE2B9C4D750007E234 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ECBCCD2B9C4D750007E234 /* ForgotPasswordView.swift */; };
+		B360B78A2CA5107100D41934 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B360B7892CA5107100D41934 /* GoogleService-Info.plist */; };
+		B360B7922CA510E200D41934 /* GingerHunt_Dark.json in Resources */ = {isa = PBXBuildFile; fileRef = B360B7902CA510E200D41934 /* GingerHunt_Dark.json */; };
+		B360B7932CA510E200D41934 /* LaserDots2.json in Resources */ = {isa = PBXBuildFile; fileRef = B360B78F2CA510E200D41934 /* LaserDots2.json */; };
+		B360B7942CA510E200D41934 /* GingerHunt.json in Resources */ = {isa = PBXBuildFile; fileRef = B360B7912CA510E200D41934 /* GingerHunt.json */; };
+		B360B79F2CA5111100D41934 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B360B79E2CA5111100D41934 /* Constants.swift */; };
+		B360B7A32CA61EEA00D41934 /* Quicksand[wght].ttf in Resources */ = {isa = PBXBuildFile; fileRef = B360B7A12CA61EEA00D41934 /* Quicksand[wght].ttf */; };
+		B360B7A42CA61EEA00D41934 /* TitanOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B360B7A22CA61EEA00D41934 /* TitanOne-Regular.ttf */; };
+		B360B7A62CA6258400D41934 /* Loading.json in Resources */ = {isa = PBXBuildFile; fileRef = B360B7A52CA6258400D41934 /* Loading.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,18 +100,13 @@
 		573D65A12BA154960063CB6C /* ButtonMods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonMods.swift; sourceTree = "<group>"; };
 		573D65A32BA1568E0063CB6C /* TextfieldMods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextfieldMods.swift; sourceTree = "<group>"; };
 		574529B42B9E214B0084EB53 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
-		574529B82B9E41E70084EB53 /* LaserDots.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LaserDots.json; path = ../../../../../../../../../Downloads/LaserDots.json; sourceTree = "<group>"; };
 		574A812D2BB4847700F2F805 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
-		575552892B9EBE4A00C36DF7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5755528D2B9EC4F200C36DF7 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		575552912B9ECB6000C36DF7 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
-		575A36392BAFB959009E2EDB /* Loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Loading.json; path = ../../../../../../../../../Desktop/Loading.json; sourceTree = "<group>"; };
 		575A363B2BAFC22F009E2EDB /* DailyQuotaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyQuotaManager.swift; sourceTree = "<group>"; };
 		576C5E7A2BC6DB430060738B /* ChangePhotoCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePhotoCard.swift; sourceTree = "<group>"; };
 		576C5E7C2BC6DF2B0060738B /* PhotoPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerView.swift; sourceTree = "<group>"; };
-		576CDF922BB3C645008CC66A /* LoadingCat.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = LoadingCat.json; path = ../../../../../../../../../Desktop/LoadingCat.json; sourceTree = "<group>"; };
 		579DB0892BB8C97B00410D02 /* BluetoothViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothViewModel.swift; sourceTree = "<group>"; };
-		579DB08B2BB8E12600410D02 /* BluetoothLoading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = BluetoothLoading.json; path = ../../../../../../../../../Downloads/BluetoothLoading.json; sourceTree = "<group>"; };
 		579DB08D2BB92BF800410D02 /* BluetoothCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothCard.swift; sourceTree = "<group>"; };
 		57A00CC62BAA612D00402ABA /* TimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewModel.swift; sourceTree = "<group>"; };
 		57A0E0AE2BA0CCE800C8E29C /* PatternsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternsManager.swift; sourceTree = "<group>"; };
@@ -146,14 +139,17 @@
 		57ECBCAE2B9C24A80007E234 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
 		57ECBCB02B9C24C80007E234 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		57ECBCB32B9C2BA70007E234 /* LottiePlusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottiePlusView.swift; sourceTree = "<group>"; };
-		57ECBCB92B9C2D340007E234 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = "../../../../SD App V3 - copy/SD App V3/Appearance/Lottie/Constants.swift"; sourceTree = "<group>"; };
-		57ECBCBA2B9C2D340007E234 /* GingerHunt.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = GingerHunt.json; path = "../../../../SD App V3 - copy/SD App V3/Appearance/Lottie/GingerHunt.json"; sourceTree = "<group>"; };
-		57ECBCBB2B9C2D340007E234 /* GingerHunt_Dark.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = GingerHunt_Dark.json; path = "../../../../SD App V3 - copy/SD App V3/Appearance/Lottie/GingerHunt_Dark.json"; sourceTree = "<group>"; };
 		57ECBCC52B9C34F10007E234 /* GlowModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlowModifier.swift; sourceTree = "<group>"; };
 		57ECBCC72B9C35F40007E234 /* SD-App-V4-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "SD-App-V4-Info.plist"; sourceTree = SOURCE_ROOT; };
-		57ECBCC92B9C36720007E234 /* TitanOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "TitanOne-Regular.ttf"; path = "../../../../../../../../../Desktop/test-app/sd1-app/SD App V3/Appearance/Fonts/TitanOne-Regular.ttf"; sourceTree = "<group>"; };
-		57ECBCCB2B9C36880007E234 /* Quicksand[wght].ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Quicksand[wght].ttf"; path = "../../../../../../../../../Desktop/test-app/sd1-app/SD App V3/Appearance/Fonts/Quicksand[wght].ttf"; sourceTree = "<group>"; };
 		57ECBCCD2B9C4D750007E234 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
+		B360B7892CA5107100D41934 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B360B78F2CA510E200D41934 /* LaserDots2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = LaserDots2.json; sourceTree = "<group>"; };
+		B360B7902CA510E200D41934 /* GingerHunt_Dark.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GingerHunt_Dark.json; sourceTree = "<group>"; };
+		B360B7912CA510E200D41934 /* GingerHunt.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GingerHunt.json; sourceTree = "<group>"; };
+		B360B79E2CA5111100D41934 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B360B7A12CA61EEA00D41934 /* Quicksand[wght].ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand[wght].ttf"; sourceTree = "<group>"; };
+		B360B7A22CA61EEA00D41934 /* TitanOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitanOne-Regular.ttf"; sourceTree = "<group>"; };
+		B360B7A52CA6258400D41934 /* Loading.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Loading.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -303,7 +299,7 @@
 		57ECBC732B9C1AE60007E234 /* SD App V4 */ = {
 			isa = PBXGroup;
 			children = (
-				575552892B9EBE4A00C36DF7 /* GoogleService-Info.plist */,
+				B360B7892CA5107100D41934 /* GoogleService-Info.plist */,
 				57ECBCC72B9C35F40007E234 /* SD-App-V4-Info.plist */,
 				575552902B9ECB3E00C36DF7 /* InitialSetup */,
 				57ECBCA52B9C241D0007E234 /* MainSections */,
@@ -431,8 +427,8 @@
 		57ECBCB22B9C25970007E234 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				B360B7A02CA61ED500D41934 /* Fonts */,
 				573D65A02BA1547D0063CB6C /* Modifiers */,
-				57ECBCC82B9C363A0007E234 /* Fonts */,
 				57ECBCB82B9C2C420007E234 /* LottieFiles */,
 				57ECBCB32B9C2BA70007E234 /* LottiePlusView.swift */,
 				57ECBCC52B9C34F10007E234 /* GlowModifier.swift */,
@@ -447,23 +443,21 @@
 		57ECBCB82B9C2C420007E234 /* LottieFiles */ = {
 			isa = PBXGroup;
 			children = (
-				57ECBCB92B9C2D340007E234 /* Constants.swift */,
-				579DB08B2BB8E12600410D02 /* BluetoothLoading.json */,
-				576CDF922BB3C645008CC66A /* LoadingCat.json */,
-				575A36392BAFB959009E2EDB /* Loading.json */,
+				B360B79E2CA5111100D41934 /* Constants.swift */,
+				B360B7A52CA6258400D41934 /* Loading.json */,
+				B360B78F2CA510E200D41934 /* LaserDots2.json */,
+				B360B7902CA510E200D41934 /* GingerHunt_Dark.json */,
+				B360B7912CA510E200D41934 /* GingerHunt.json */,
 				57A5E6F42BA1177600921818 /* LaserLoading.json */,
-				574529B82B9E41E70084EB53 /* LaserDots.json */,
-				57ECBCBB2B9C2D340007E234 /* GingerHunt_Dark.json */,
-				57ECBCBA2B9C2D340007E234 /* GingerHunt.json */,
 			);
 			path = LottieFiles;
 			sourceTree = "<group>";
 		};
-		57ECBCC82B9C363A0007E234 /* Fonts */ = {
+		B360B7A02CA61ED500D41934 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				57ECBCCB2B9C36880007E234 /* Quicksand[wght].ttf */,
-				57ECBCC92B9C36720007E234 /* TitanOne-Regular.ttf */,
+				B360B7A12CA61EEA00D41934 /* Quicksand[wght].ttf */,
+				B360B7A22CA61EEA00D41934 /* TitanOne-Regular.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -549,17 +543,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57ECBCCA2B9C36720007E234 /* TitanOne-Regular.ttf in Resources */,
-				5755528A2B9EBE4B00C36DF7 /* GoogleService-Info.plist in Resources */,
-				574529B92B9E41E70084EB53 /* LaserDots.json in Resources */,
-				57ECBCBE2B9C2D340007E234 /* GingerHunt_Dark.json in Resources */,
-				576CDF932BB3C645008CC66A /* LoadingCat.json in Resources */,
-				575A363A2BAFB959009E2EDB /* Loading.json in Resources */,
+				B360B7922CA510E200D41934 /* GingerHunt_Dark.json in Resources */,
+				B360B7932CA510E200D41934 /* LaserDots2.json in Resources */,
+				B360B7942CA510E200D41934 /* GingerHunt.json in Resources */,
+				B360B78A2CA5107100D41934 /* GoogleService-Info.plist in Resources */,
+				B360B7A62CA6258400D41934 /* Loading.json in Resources */,
 				57A5E6F52BA1177600921818 /* LaserLoading.json in Resources */,
+				B360B7A32CA61EEA00D41934 /* Quicksand[wght].ttf in Resources */,
+				B360B7A42CA61EEA00D41934 /* TitanOne-Regular.ttf in Resources */,
 				57ECBC7C2B9C1AE70007E234 /* Preview Assets.xcassets in Resources */,
-				57ECBCBD2B9C2D340007E234 /* GingerHunt.json in Resources */,
-				579DB08C2BB8E12700410D02 /* BluetoothLoading.json in Resources */,
-				57ECBCCC2B9C36880007E234 /* Quicksand[wght].ttf in Resources */,
 				57ECBC792B9C1AE70007E234 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -593,7 +585,6 @@
 				570F42FE2B9D58A50047E4DA /* ProfileCard.swift in Sources */,
 				57ECBC8D2B9C22B50007E234 /* LoginViewModel.swift in Sources */,
 				57ECBC952B9C22EB0007E234 /* DashboardView.swift in Sources */,
-				57ECBCBC2B9C2D340007E234 /* Constants.swift in Sources */,
 				57B8715F2BA2B27200E7F92D /* OnboardingViewModel.swift in Sources */,
 				57ECBCA82B9C24360007E234 /* AppUser.swift in Sources */,
 				570F430E2B9D6B0F0047E4DA /* FavoritesCarousel.swift in Sources */,
@@ -622,6 +613,7 @@
 				573CCDF22BA69C6A0047A980 /* FirestoreManager.swift in Sources */,
 				57BDBCC82BC383FF000F0138 /* SettingsCard.swift in Sources */,
 				57B8CD3B2B9FEF01007391A1 /* UserViewModel.swift in Sources */,
+				B360B79F2CA5111100D41934 /* Constants.swift in Sources */,
 				573CCDF02BA68FCF0047A980 /* SessionManager.swift in Sources */,
 				57ECBCA22B9C23820007E234 /* SettingsViewModel.swift in Sources */,
 			);

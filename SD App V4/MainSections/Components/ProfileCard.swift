@@ -58,7 +58,7 @@ struct ProfileCard: View {
                 // Placeholder image while loading or when the URL is nil/empty.
                 LottiePlusView(name: Constants.Loading, loopMode: .loop)
                     .scaledToFill()
-                    .frame(width: maxWidth, height: maxHeight)
+                    .frame(width: 100, height: 100)
             }
             .resizable()
             .scaledToFill()

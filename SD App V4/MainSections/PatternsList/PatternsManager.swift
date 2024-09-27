@@ -21,7 +21,8 @@ class PatternsManager: ObservableObject {
     private init() { }
     
     func fetchPatterns() {
-        db.collection("working_patterns").addSnapshotListener { querySnapshot, error in
+        // Switching to 'patterns' from 'working_patterns' to showcase all possibe patterns
+        db.collection("patterns").addSnapshotListener { querySnapshot, error in
             guard let documents = querySnapshot?.documents else {
                 print("No documents")
                 return
