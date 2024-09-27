@@ -74,7 +74,6 @@
 		57ECBCB72B9C2C340007E234 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 57ECBCB62B9C2C340007E234 /* Lottie */; };
 		57ECBCC62B9C34F10007E234 /* GlowModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ECBCC52B9C34F10007E234 /* GlowModifier.swift */; };
 		57ECBCCE2B9C4D750007E234 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57ECBCCD2B9C4D750007E234 /* ForgotPasswordView.swift */; };
-		B360B78A2CA5107100D41934 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B360B7892CA5107100D41934 /* GoogleService-Info.plist */; };
 		B360B7922CA510E200D41934 /* GingerHunt_Dark.json in Resources */ = {isa = PBXBuildFile; fileRef = B360B7902CA510E200D41934 /* GingerHunt_Dark.json */; };
 		B360B7932CA510E200D41934 /* LaserDots2.json in Resources */ = {isa = PBXBuildFile; fileRef = B360B78F2CA510E200D41934 /* LaserDots2.json */; };
 		B360B7942CA510E200D41934 /* GingerHunt.json in Resources */ = {isa = PBXBuildFile; fileRef = B360B7912CA510E200D41934 /* GingerHunt.json */; };
@@ -142,7 +141,6 @@
 		57ECBCC52B9C34F10007E234 /* GlowModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlowModifier.swift; sourceTree = "<group>"; };
 		57ECBCC72B9C35F40007E234 /* SD-App-V4-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "SD-App-V4-Info.plist"; sourceTree = SOURCE_ROOT; };
 		57ECBCCD2B9C4D750007E234 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
-		B360B7892CA5107100D41934 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B360B78F2CA510E200D41934 /* LaserDots2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = LaserDots2.json; sourceTree = "<group>"; };
 		B360B7902CA510E200D41934 /* GingerHunt_Dark.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GingerHunt_Dark.json; sourceTree = "<group>"; };
 		B360B7912CA510E200D41934 /* GingerHunt.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GingerHunt.json; sourceTree = "<group>"; };
@@ -299,7 +297,6 @@
 		57ECBC732B9C1AE60007E234 /* SD App V4 */ = {
 			isa = PBXGroup;
 			children = (
-				B360B7892CA5107100D41934 /* GoogleService-Info.plist */,
 				57ECBCC72B9C35F40007E234 /* SD-App-V4-Info.plist */,
 				575552902B9ECB3E00C36DF7 /* InitialSetup */,
 				57ECBCA52B9C241D0007E234 /* MainSections */,
@@ -546,7 +543,6 @@
 				B360B7922CA510E200D41934 /* GingerHunt_Dark.json in Resources */,
 				B360B7932CA510E200D41934 /* LaserDots2.json in Resources */,
 				B360B7942CA510E200D41934 /* GingerHunt.json in Resources */,
-				B360B78A2CA5107100D41934 /* GoogleService-Info.plist in Resources */,
 				B360B7A62CA6258400D41934 /* Loading.json in Resources */,
 				57A5E6F52BA1177600921818 /* LaserLoading.json in Resources */,
 				B360B7A32CA61EEA00D41934 /* Quicksand[wght].ttf in Resources */,
