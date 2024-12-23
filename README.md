@@ -50,6 +50,6 @@ The **Smart Laser Cat Toy** allows pet owners to not only interact with their pe
 - **Communication Protocols**: Bluetooth Low Energy (BLE)
 
 ## Practical Demo
-![App Demo GIF](Assets/Practical%20Demo/Practical%20Demo.gif)
+![App Demo GIF](Assets/Practical%20Demo/Practical%20Demo%20Optimized.gif)
 The practical demo shows a user selecting a play pattern for the laser toy via the app, which then communicates the selected pattern to the device using Bluetooth Low Energy (BLE). The laser toy responds accordingly, following the chosen pattern in real-time, ensuring an interactive and engaging experience for the pet. This demo highlights the seamless interaction between the user, the app, and the hardware, emphasizing the system’s responsiveness and user-friendly design.
 
